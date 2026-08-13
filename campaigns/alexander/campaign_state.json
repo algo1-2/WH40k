@@ -1,0 +1,308 @@
+{
+  "document_key": "CAMPAIGN_STATE_MASTER",
+  "campaign_id": "CAMPAIGN.ALEXANDER.NECROMUNDA",
+  "continuity_id": "CONTINUITY.ALEXANDER.PRIMARY",
+  "player_character_id": "PC-ALEXANDER-001",
+  "state_revision": 12,
+  "persisted_pause_id": "PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION",
+  "checkpoint_id": "CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION",
+  "turn": 918,
+  "location": "Refugio QTN-3 (Subnivel -1, Caídas de Polvo / Dust Falls, Necromunda)",
+  "time_band": "Día 04, Noche (Post-Incursión Nocturna)",
+  "character_sheet": {
+    "document_key": "SHEET",
+    "document_id": "FICHA.ALEXANDER.MAIN",
+    "nombre": "Alexander",
+    "alias": "Operador Umbral / Médico",
+    "especie": "Humano",
+    "clase": "Médico Clandestino / Psíquico no Sancionado",
+    "nivel": 1,
+    "xp_total": 1250,
+    "atributos": {
+      "cuerpo_a_cuerpo": 45,
+      "balistica": 55,
+      "fuerza": 38,
+      "resistencia": 40,
+      "agilidad": 48,
+      "inteligencia": 65,
+      "percepcion": 52,
+      "voluntad": 68,
+      "empatia_presencia": 42
+    },
+    "defensas": {
+      "esquiva": 48,
+      "resiliencia": 4,
+      "armadura_natural": 0
+    },
+    "salud_actual": 12,
+    "salud_maxima": 12,
+    "fatiga_actual": 0,
+    "fatiga_maxima": 7,
+    "puntos_destino": 3,
+    "reserva_almas": 10,
+    "corrupcion": 0,
+    "fe": 10,
+    "competencias": [
+      "Medicina Clandestina",
+      "Poderes Umbrales",
+      "Supervivencia en Submundo",
+      "Cirugía de Emergencia"
+    ],
+    "capacidades_particulares": [
+      "Visión de Oscuridad (Rango I Involuntaria)",
+      "Paso Sombrío (Rango II)",
+      "Agarre Umbral (Rango II)",
+      "Sombra Infinita (Rango I)",
+      "Aún no está muerto",
+      "Cosecha de Almas"
+    ],
+    "inventario_activo": [
+      {
+        "nombre": "Autopistola de Malrec Voss",
+        "perfil": "1d10+4, Pen 0",
+        "estado": "LIMPIA"
+      },
+      {
+        "nombre": "Carabina de Captura",
+        "perfil": "24/24 proyectiles",
+        "estado": "LIMPIA",
+        "ubicacion": "Espalda"
+      },
+      {
+        "nombre": "Kit Quirúrgico Clandestino",
+        "estado": "Operativo"
+      },
+      {
+        "nombre": "Inyector de Stimms Alquímicos",
+        "dosis": 3
+      }
+    ],
+    "bloque_fijo_umbral_negro": {
+      "document_key": "UMBRAL_NEGRO_PERMANENT_BOND",
+      "entidad_vinculada": "El Observador Profundo (Presencia Primordial de la Penumbra)",
+      "naturaleza_del_vinculo": "Integración biomédica e inmaterial permanente. Alexander es el Reclamador y Vector Terrestre del Umbral.",
+      "leyes_umbrales_fijas": [
+        {
+          "ley_id": "LEY.UMBRAL.001",
+          "nombre": "La Sombra no engaña al Reclamador",
+          "efecto": "Visión de Oscuridad Rango I permanece pasiva e involuntariamente activa sin requerir concentración ni luz."
+        },
+        {
+          "ley_id": "LEY.UMBRAL.002",
+          "nombre": "Todo lo que cruza pertenece",
+          "efecto": "Dentro de Sombra Infinita no existe oposición. Suspensión biológica/física total a voluntad de Alexander."
+        },
+        {
+          "ley_id": "LEY.UMBRAL.003",
+          "nombre": "El Pacto es sellado en sangría y penumbra",
+          "efecto": "Pacto Oscuro Rango I permite ambigüedad legal, cobro de almas y arrastre a distancia de deudores."
+        },
+        {
+          "ley_id": "LEY.UMBRAL.004",
+          "nombre": "Vínculo con el Observador Profundo",
+          "efecto": "Protección contra la corrupción ordinaria del Caos y estabilidad dimensional en brechas disformes."
+        },
+        {
+          "ley_id": "PSY.ALEXANDER.BREACH.SOULSACRIFICE.R1",
+          "nombre": "Brecha por Sacrificio Álmico",
+          "efecto": "Apertura controlada rasgando sombras usando Peso Álmico (PPU). 1 Alma estándar = 1 PPU. Brecha Ciega: 1 PPU. Dirigida Menor: 3 PPU. Profunda: 5 PPU. Apertura Definitiva: 10 PPU. Elimina peligros psíquicos."
+        },
+        {
+          "ley_id": "PSY.ALEXANDER.BREACH.LIFECYCLE.R1",
+          "nombre": "Ciclo de Vida de la Brecha",
+          "efecto": "Brecha Ciega: 1 Turno (colapso inmediato post-tránsito). Dirigida Menor: Hasta final de escena (cierre a voluntad). Profunda: 24h materiales (cierre remoto mental). Definitiva: Permanente hasta ritual de deshilado."
+        },
+        {
+          "ley_id": "SOULUSE.ALEXANDER.INFINITE_SHADOW.R1",
+          "nombre": "Sombra Infinita vs Objetivos Conscientes",
+          "efecto": "Absorción auto en objetivos inconscientes o voluntarios (1 PA). Si resisten: Tirada enfrentada Voluntad vs Voluntad. Alexander gana +20 si el objetivo está inmovilizado (ej. Agarre Umbral). Falla sin coste extra de Fatiga si objetivo gana."
+        },
+        {
+          "ley_id": "WEAPON_TRAIT.NON_LETHAL.R1",
+          "nombre": "Efecto de Arma: No Letal (Carabina de Captura)",
+          "efecto": "Daño excedente a 0 PV no causa muerte ni amputación, sino Inconsciencia y Estabilización automática. Ineficaz en máquinas/inorgánicos. Despertar causa Fatiga Máxima por 24h."
+        },
+        {
+          "ley_id": "OBSERVER_STATUS.RECOGNIZED_TOLERATED",
+          "nombre": "Estado del Observador Profundo (Reconocido Tolerado)",
+          "efecto": "Los depredadores menores del Umbral no atacan a Alexander por emboscada directa salvo provocación. Aperturas hacia el Centro o rutas de interés cuestan -2 PPU (min 1). Tolerancia, no pacto hablado; revocable si atenta contra el Centro."
+        },
+        {
+          "ley_id": "PACT_MECHANIC.SOUL_TETHER.R1",
+          "nombre": "Hilo Álmico (Sensor de Pactos)",
+          "efecto": "Alexander siente pasivamente el cumplimiento, ruptura o activación de contratos álmicos a distancia mediante un Pulso Umbral (sensación física/emocional). El DM debe evaluar automáticamente las condiciones de los pactos en segundo plano sin que el jugador deba consultar."
+        }
+      ],
+      "habilidades_redefinidas_y_confirmadas": {
+        "vision_de_oscuridad": "Rango 15m circular, distinción de vivo/muerto/inanimado, penetración no psíquica, detalle biológico/órganos (+15% Medicina), detección de sombras válidas y sentido primordial en el Umbral.",
+        "paso_sombrio": "Desplazamiento infalible de 25m (sin tirada), protección en salidas iluminadas, versatilidad postural, Materialización Parcial (intangibilidad física 1 turno, +10% sigilo), Arrastre Umbral pasivo.",
+        "agarre_umbral": "Manifestación sombría a 15m con acierto automático, robo/movimiento por 1 PA, tiradas de conflicto con +20% (afecta cibernética y armaduras), Golpe Umbral (3 daño fijo, ralentizado apilable 3x -> Quebradizo / daño x2).",
+        "sombra_infinita": "Dominio conceptual infinito sin límite de capacidad, inventario cognitivo instantáneo, ingreso automático/disputado, suspensión biológica/física, suelo teórico y expansión omnidireccional.",
+        "pacto_oscuro": "Pactos con ambigüedad legal/trampas, asimetría de obligación (Alexander soberano, deudor firma con alma), arrastre a distancia, castigos de estadísticas y Matriz Maestra de Sacrificio de Almas (1 a 50+ Almas).",
+        "maestria_medica": "+15% a Medicina fuera de combate (80% efectivo), cirugías invasivas en anatomía humana común, triage en combate y +2 turnos a la ventana de rescate vital."
+      }
+    }
+  },
+  "pacts_and_debts": [
+    {
+      "pact_id": "PACT.JAREK.CLINIC.SOULHUNT.001",
+      "deudor": "Jarek Venn (Jefe de Destacamento Enforcer)",
+      "almas_cobradas": 8,
+      "estado": "CUMPLIDO_Y_SELLADO",
+      "evaluacion_pasiva_dm": false
+    },
+    {
+      "pact_id": "PACT.SEVERAN.SERVICE.001",
+      "deudor": "Severan Holt (Especialista Enforcer Desertor)",
+      "estado": "MONITOREO_ACTIVO",
+      "ciclo_1": "CUMPLIDO (Por extracción y refugio en QTN-3)",
+      "ciclo_2": "PENDIENTE (Condicionado a conciencia de Tertius)",
+      "condicion_de_cumplimiento": "Severan debe comenzar su segundo ciclo de servicio una vez Tertius despierte o se defina su estado.",
+      "sensor_de_alexander": "Alexander sentirá un tirón de tensión álmica cuando Tertius despierte, notificándole que la deuda de Severan ha entrado en fase ejecutable.",
+      "evaluacion_pasiva_dm": true
+    }
+  ],
+  "retinue": {
+    "document_key": "RETINUE",
+    "document_id": "RETINUE.ALEXANDER.MAIN",
+    "total_members": 3,
+    "members": [
+      {
+        "nombre": "Mara Veyl",
+        "rol": "Trabajadora de mantenimiento de precisión / Servidora contractual vitalicia",
+        "estado": "VIVA — 10/10; móvil; abstinencia activa no crítica"
+      },
+      {
+        "nombre": "Ilyra Venn",
+        "rol": "Operaria de purga de conductos / Paciente",
+        "estado": "VIVA — ESTABLE, 9/10; incapaz de marcha prolongada"
+      },
+      {
+        "nombre": "Halven Rusk",
+        "rol": "Auxiliar médico, diagnosticador y ejecutor designado",
+        "estado": "VIVO; estable y en recuperación"
+      }
+    ]
+  },
+  "characters": {
+    "document_key": "CHARACTERS",
+    "document_id": "CHARACTERS.ALEXANDER.MAIN",
+    "present_in_coordination": [
+      {
+        "nombre": "Alexander",
+        "rol": "Operador Umbral / Médico"
+      },
+      {
+        "nombre": "Severan Holt",
+        "rol": "Especialista Enforcer Desertor",
+        "estado": "VIVO, consciente y en recuperación en Rho-9"
+      },
+      {
+        "nombre": "Tertius",
+        "rol": "Especialista Enforcer",
+        "estado": "VIVO e inconsciente, en rehabilitación"
+      },
+      {
+        "nombre": "Sael Veyl",
+        "rol": "Paciente (Hermano de Mara)",
+        "estado": "VIVO, inconsciente y suspendido"
+      },
+      {
+        "nombre": "Khepra-9",
+        "rol": "Lexmecánico auxiliar independiente",
+        "estado": "VIVA, 10/10"
+      },
+      {
+        "nombre": "Brann Vesk",
+        "rol": "Antiguo contraparte de pacto cerrado",
+        "estado": "VIVO, 10/10"
+      },
+      {
+        "nombre": "Iovan Krail",
+        "rol": "Paciente salvado por Brann",
+        "estado": "VIVO, 9/10"
+      },
+      {
+        "nombre": "Odran Pell",
+        "rol": "Técnico farmacéutico",
+        "estado": "VIVO, 8/8"
+      },
+      {
+        "nombre": "Marda Senn",
+        "rol": "Superviviente",
+        "estado": "VIVA, 9/9"
+      },
+      {
+        "nombre": "Darrik Vane",
+        "rol": "Traficante / Empleador",
+        "estado": "VIVO"
+      },
+      {
+        "nombre": "Kerrin Holt",
+        "rol": "Lugarteniente de Darrik",
+        "estado": "VIVO; CRÍTICO ESTABLE POSOPERATORIO"
+      },
+      {
+        "nombre": "Sable",
+        "rol": "Antigua controladora de Rho-9",
+        "estado": "VIVA"
+      },
+      {
+        "nombre": "Jarek Venn",
+        "rol": "Representante ordinario",
+        "estado": "VIVO"
+      },
+      {
+        "nombre": "Merek",
+        "rol": "Paciente en Rho-9",
+        "estado": "VIVO; estable"
+      },
+      {
+        "nombre": "Senn Varko",
+        "rol": "Corredor de empeños e información",
+        "estado": "VIVO"
+      }
+    ]
+  },
+  "domains": [
+    {
+      "document_key": "DOMAINS",
+      "document_id": "DOMAINS.ALEXANDER.MAIN",
+      "domain_id": "DOMAIN-QTN3-001",
+      "nombre": "Refugio QTN-3 / Medicae Station Rho-9",
+      "ubicacion": "QTN-3 (Caídas de Polvo / Dust Falls)",
+      "estado_operativo": "Operativo (Seguridad temporal delegada a Severan Holt)"
+    }
+  ],
+  "factions": {
+    "document_key": "REPUTATION",
+    "document_id": "REPUTATION.ALEXANDER.MAIN",
+    "total_factions": 6,
+    "tracked": [
+      {
+        "nombre": "Enforcers de la Casa Helmawr — despliegue del Nodo D-17",
+        "reputacion": "No registrada en el extracto, pendiente de sincronización fina"
+      },
+      {
+        "nombre": "Caldereros de Dust Falls (Bren Orstag)",
+        "reputacion": "No registrada"
+      },
+      {
+        "nombre": "Bandas y cazadores de recompensa de Dust Falls",
+        "reputacion": "No registrada"
+      },
+      {
+        "nombre": "Mandíbula Blanca",
+        "reputacion": "No registrada"
+      },
+      {
+        "nombre": "Candela Hueca",
+        "reputacion": "No registrada"
+      },
+      {
+        "nombre": "Prefectura Medicae Helican / Custodia de Fenómenos Negros",
+        "reputacion": "No registrada"
+      }
+    ]
+  }
+}

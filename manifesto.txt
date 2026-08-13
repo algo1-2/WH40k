@@ -1,0 +1,79 @@
+MANIFIESTO DE CONTINUIDAD — ALEXANDER — IA
+FUNCIÓN
+Este archivo no contiene reglas nuevas ni reemplaza la Ficha. Su función es impedir que una IA mezcle versiones, registros históricos, identificadores particulares y mecánicas universales durante la campaña de Alexander.
+IDENTIDAD DE CAMPAÑA
+CHARACTER_ID: PC-ALEXANDER-001
+CAMPAÑA: NECROMUNDA — ACTIVA
+PERSISTED_CHECKPOINT_CURRENT: PAUSA-TURNO-773-2026-08-08-RHO9-TRASLADO
+PERSISTED_TURN: 773
+PERSISTED_LOCATION: QTN-3/17-G; Alexander aún materializado; grupo y equipo principal dentro de Sombra infinita en tránsito a Medicae Station Rho-9
+PERSISTED_TIME: Día de campaña 03, noche avanzada
+REGLA DE SESIÓN ACTIVA
+KNOWN_UNPERSISTED_HEAD: T960. Una ejecución posterior al checkpoint ahora persistido en TURNO 773 alcanzó el turno 960, pero el [confirmar pausa] destinado a persistir ese estado posterior falló con CAMPAIGN_ID_RESULTADO_INVALIDO: historia y NO hubo commit en Drive. Si la conversación activa, su historial o una fuente de continuidad explícita conserva T960 o un estado posterior, ese estado prevalece sobre PAUSA 773. Si solo están disponibles los archivos persistidos, PAUSA 773 es el último checkpoint seguro: no inventar, resumir de memoria ni reconstruir automáticamente el tramo 773→960. Recuperar contexto suficiente antes de continuar desde ese tramo.
+REGLA GENERAL: el estado conversacional confirmado posterior al checkpoint persistido prevalece durante la sesión hasta que una nueva [confirmar pausa] termine con commit válido.
+AUTORIDAD POR DOMINIO
+1. Instrucción actual del jugador: decisiones presentes, correcciones y autorizaciones.
+2. INSTRUCCIONES DIRECTAS DEL DM — WH40K — FINAL IA 1.2.2 | FILE_ID: 1YAy8mTTXxD9C4nr7B2x6qq8zbtfUeb4YhYP_2vANqek | conducta siempre activa, filtro diegético, agencia y formato.
+3. 02 MANUAL OPERATIVO DEL DM — WH40K — FINAL IA 1.7.0 | FILE_ID: 1mSPWXbTPEtHvvNcOlP_Um_q8brJJUacy7pVthDP5PKI | dirección narrativa, escenas, PNJ y procedimiento operativo.
+4. PROTOCOLO UNIVERSAL DEL DM — WH40K — FINAL IA 1.1.0 | FILE_ID: 1zhUVvc4rpqBv-mQ7lMWSsnM_0_YU4wXfkdLTOCJQsZg | mecánicas universales, cálculos, rutas y deltas.
+5. FICHA DEL PERSONAJE.docx | FILE_ID: 1rR5efM_kZPbeFrbuzp2PVpWujzofnH-h | estado actual persistido de Alexander, perfiles particulares, equipo, recursos y progresión.
+6. HISTORIA DEL PERSONAJE.docx | FILE_ID: 1mHyd804Wk3MWLN6qmnIrh_xThYEPZxWC | canon cronológico; nunca reemplaza el estado actual de la Ficha.
+7. PERSONAJES.docx | FILE_ID: 1V9fXkd3fwXZ0i1m292jCfqiT01GlJl82 | PNJ persistentes no pertenecientes formalmente al séquito.
+8. SEQUITO.docx | FILE_ID: 1T-tmX9fMQ5_O--PnE-G_TN1vD5-csVfG | solo incorporaciones formales. Estado persistido actual: 0 integrantes.
+9. BASES Y DOMINIOS.docx | FILE_ID: 1QBI_wgucqD1IGyGXn-dFN0m6gMVi4cmk | propiedad/control formal. QTN-3 sigue siendo refugio provisional, no dominio.
+10. REPUTACION DE FACCIONES.docx | FILE_ID: 14XHyY0rFdFO3dMQfUROVoCDQjDWwB_F9 | reputación y conocimiento por facción.
+11. CATALOGO DE COMANDOS DEL JUGADOR - WH40K | FILE_ID: 1ybCgHpP_YKxHx7vIsfOWRrPnj1gls90sK4JIgeZKUcM | interfaz natural del jugador y comandos de pausa/consulta.
+12. BORRADOR — EL UMBRAL NEGRO — Cosmología, Leyes, Regiones, Brechas y Contaminación | FILE_ID: 1TIEgMoOBrw2N0HF2Q0iMFkoLQ7p5Ki33iAj4YFxTwXw | autoridad de lore aprobada sobre la cosmología umbral mientras siga siendo el borrador consolidado más reciente. Sus mecánicas provisionales no sobrescriben perfiles ACTUALES de Alexander en la Ficha.
+CARPETA DE ESTADO PERSISTENTE
+SISTEMA DE PAUSA - REGISTROS ACTIVOS | FOLDER_ID: 13duPmF8_rtjhMIp4AntD7VUbl7ehlZLG
+Los seis DOCX de esta carpeta son las fuentes persistentes de estado. Los Google Docs homónimos renombrados como ARCHIVO HISTÓRICO no son autoridad actual.
+IDENTIFICADORES PARTICULARES DE ALEXANDER
+PSY.ALEXANDER.SHADOWSTEP.R2
+PSY.ALEXANDER.DARKVISION.R1
+SPECIAL.ALEXANDER.MEDICALMASTERY.R1
+SPECIAL.ALEXANDER.DARKPACT.R1
+SPECIAL.ALEXANDER.UMBRALGRIP.R2
+SOULUSE.ALEXANDER.INFINITE_SHADOW.R1
+ACTION.ALEXANDER.SHADOWSTEP.R2
+ACTION.ALEXANDER.DARKVISION.FOCUS.R1
+ACTION.ALEXANDER.TRIAGE.R1
+ACTION.ALEXANDER.FIRSTAID.R1
+ACTION.ALEXANDER.STABILIZE.R1
+ACTION.ALEXANDER.DARKPACT.SEAL.R1
+ACTION.ALEXANDER.UMBRALGRIP.R2
+REACTION.ALEXANDER.NOTDEADYET.R1
+ARM.ALEXANDER.TRENCHCOAT.R1
+Estos IDs pertenecen a la Ficha/campaña. No deben buscarse como [MECHANIC] universales ni reconstruirse por semejanza desde el catálogo genérico.
+IDENTIFICADORES DE PNJ AÑADIDOS PARA ESTABILIDAD
+NPC-KHEPRA-9-001 | Khepra-9
+NPC-HALVEN-RUSK-001 | Halven Rusk
+NPC-SEVERAN-HOLT-001 permanece en PERSONAJES; no pertenece actualmente a SÉQUITO formal.
+COMPATIBILIDAD MECÁNICA
+ADVANCE.IMPROVE.001 es un ID histórico. El Protocolo final lo normaliza mediante alias hacia ADVANCE.ACQUIRE.001 antes del despacho. Nunca ejecutar ambos.
+ADVANCE.CHECK.001, ADVANCE.DEFINE.001, ADVANCE.ACQUIRE.001, STATE.DELTA.001, PSY.NULL.001, PSY.OPPOSE.001 y PSY.RITUAL.001 son IDs universales válidos del Protocolo final.
+ADV.MALREC.MODULE.INDEX.001 es SOURCE_ID de campaña, no una mecánica.
+PACT.* de Alexander/Khepra/Jarek son identificadores de hechos o pactos de campaña, no [MECHANIC] universales.
+STAT.ALEXANDER.* son identificadores de valores de Ficha.
+XP.ALEXANDER.* son entradas contables históricas de experiencia.
+UMBRAL Y CONTINUIDAD TEMPORAL
+El Umbral no posee tiempo interno. Las pruebas registradas de un minuto y una hora siguen siendo hechos válidos: midieron correspondencia causal y estabilidad observada en el Materium/ancla material, no duración interna dentro del Umbral. No reescribir ni invalidar esos acontecimientos.
+REGLA DE RECUPERACIÓN
+Al reanudar desde persistencia: localizar el PAUSE_ID común más reciente en los seis registros activos; cargar primero la Ficha; después solo los archivos necesarios por dominio. Nunca usar un bloque histórico anterior para sobrescribir una ACTUALIZACIÓN CONFIRMADA posterior. Nunca usar archivos titulados ARCHIVO HISTÓRICO como estado actual.
+REGLA DE PERSISTENCIA
+[pausa] prepara cambios pero no escribe. [confirmar pausa] puede persistir únicamente los cambios confirmados. Un checkpoint conversacional no autoriza escritura externa. Tras una nueva pausa confirmada con commit válido, actualizar PERSISTED_PAUSE_ID y los snapshots superiores sin borrar los bloques históricos.
+PENDING_MECHANICAL_BINDINGS
+1. BRECHA POR SACRIFICIO ÁLMICO — APROBADA EN LORE, NO CERRADA MECÁNICAMENTE. Alexander puede abrir brechas sacrificando suficientes almas; debe fijar Destino salvo Brecha Ciega. NO usar automáticamente la antigua escala genérica 1/3/5/10 almas para decidir apertura. El borrador Umbral establece que el requisito depende de Peso/Equivalente Álmico: especie, potencia, integridad, miedo, afinidad con destino y estado espiritual. Hasta existir perfil exacto, el DM debe declarar que la capacidad existe pero no inventar umbral numérico ni consumir almas sin definición previa aceptada.
+2. CICLO DE VIDA DE BRECHA — PENDIENTE. Profundidad, estabilidad, duración material, mantenimiento, profundización, cierre/sellado y consecuencias de una Brecha Ciega no poseen contrato específico de Alexander. No improvisar esos valores como si fueran parte de Paso Sombrío o Sombra Infinita.
+3. SOMBRA INFINITA / OBJETIVO CONSCIENTE RESISTENTE — BINDING INCOMPLETO. El perfil establece que la entrada requiere dominación, pero no fija todavía atributo, modificadores ni resultado exacto de esa dominación. Usar únicamente una oposición universal cuando el contexto ya determine una resistencia concreta; no inventar bonificador especial ni captura automática.
+4. ARMA NO LETAL — BINDING MENOR. La carabina de captura posee NO LETAL y SHOCK(2); SHOCK está cubierto por el sistema de rasgos de arma, pero NO LETAL no posee un trait universal autónomo identificado en la auditoría. Hasta formalización, el perfil del arma debe congelar antes del disparo qué significa incapacitación/no terminal; no convertir una etiqueta ambigua en muerte o inmunidad automática.
+5. OBSERVER_STATUS — MODIFICADOR DE LORE PENDIENTE DE PERSISTENCIA EN FICHA. Alexander está RECONOCIDO_TOLERADO por el Observador Profundo; no existe pacto, deuda ni precio retroactivo. Un permiso directo del Observador puede reducir o eliminar costes de apertura hacia el Centro o rutas reconocidas, pero no concede apertura gratuita universal. Este estado debe tratarse como condición de lore, no como poder bruto.
+COBERTURA CONFIRMADA
+Paso Sombrío y ARRASTRE UMBRAL; Visión de Oscuridad; Maestría Médica; Aún no está muerto; Pacto Oscuro; Agarre Umbral con RALENTIZADO/CONGELADO/QUEBRADO; Sombra Infinita y suspensión; reserva de almas; combate PA/reacciones; oposición; daño/armadura/Resiliencia; medicina; progresión XP/PM/PH; inventario/economía; reputación/autoridad/investigación; pactos persistentes; pausa/checkpoint y deltas están cubiertos por perfiles de Alexander más Protocolo Universal.
+ESTADO DE AUDITORÍA
+REVISIÓN DE CONTINUIDAD: COMPLETA
+PROTOCOLO FINAL: COMPATIBLE
+IDs PARTICULARES DE ALEXANDER: PRESERVADOS
+IDs MECÁNICOS UNIVERSALES RELEVANTES: RESUELTOS
+COPIAS HISTÓRICAS HOMÓNIMAS: MARCADAS COMO NO AUTORITATIVAS
+ÚLTIMO CHECKPOINT PERSISTIDO EN DRIVE DETECTADO DURANTE ESTA AUDITORÍA: TURNO 773
+KNOWN_UNPERSISTED_RUNTIME_HEAD: TURNO 960 — PERSISTENCIA FALLIDA; NO TRATAR COMO COMMIT DE DRIVE

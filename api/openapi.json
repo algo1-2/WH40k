@@ -1,0 +1,97 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "WH40K Narrative Mechanics Engine API",
+    "description": "API determinista de resolución d100 y gestión de estado para el protocolo MECÁNICAS UNIVERSALES (WH40K).",
+    "version": "6.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://wh-40k.vercel.app",
+      "description": "Servidor de Producción Vercel"
+    }
+  ],
+  "paths": {
+    "/api/action": {
+      "post": {
+        "summary": "Resuelve la acción del jugador, ejecuta d100 y actualiza el estado",
+        "operationId": "resolveAction",
+        "x-openai-isConsequential": false,
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_input": {
+                    "type": "string",
+                    "description": "La entrada textual completa del jugador"
+                  },
+                  "actor": {
+                    "type": "string",
+                    "description": "Nombre del personaje activo",
+                    "default": "Alexander"
+                  },
+                  "atributo_base": {
+                    "type": "integer",
+                    "description": "Valor base del atributo relevante (0-100)",
+                    "default": 47
+                  },
+                  "modificadores": {
+                    "type": "array",
+                    "items": { "type": "integer" },
+                    "description": "Lista de modificadores (+10, -20, etc.)"
+                  },
+                  "base_logro": {
+                    "type": "string",
+                    "description": "Descripción del éxito deseado"
+                  },
+                  "base_fallo": {
+                    "type": "string",
+                    "description": "Descripción del riesgo o fracaso"
+                  },
+                  "riesgo_techo": {
+                    "type": "integer",
+                    "description": "Techo máximo de riesgo (0-5)",
+                    "default": 3
+                  },
+                  "weapon_used": {
+                    "type": "string",
+                    "description": "Arma utilizada si aplica"
+                  },
+                  "ability_used": {
+                    "type": "string",
+                    "description": "Habilidad especial utilizada si aplica"
+                  },
+                  "combat_action": {
+                    "type": "string",
+                    "description": "Acción de combate: INITIATE_COMBAT, END_COMBAT, NEXT_ROUND"
+                  }
+                },
+                "required": ["user_input"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Acción resuelta exitosamente con d100 y deltas de estado"
+          }
+        }
+      }
+    },
+    "/api/state": {
+      "get": {
+        "summary": "Obtiene la ficha de personaje y el estado completo de la campaña",
+        "operationId": "getState",
+        "x-openai-isConsequential": false,
+        "responses": {
+          "200": {
+            "description": "Estado actual devuelto"
+          }
+        }
+      }
+    }
+  }
+}

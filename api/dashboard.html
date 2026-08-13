@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WH40K Narrative Engine - Multi-Campaign Visual Dashboard v10.0</title>
+    <style>
+        :root {
+            --bg-primary: #0a0c10;
+            --bg-card: #12161f;
+            --border-color: #2a3447;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-gold: #d97706;
+            --accent-red: #dc2626;
+            --accent-blue: #2563eb;
+            --accent-green: #16a34a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        .campaign-selector select {
+            background-color: var(--bg-card);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            background-color: var(--bg-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent-gold);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+        }
+
+        .stat-value {
+            font-weight: bold;
+        }
+
+        .progress-bar-container {
+            background-color: #1e293b;
+            border-radius: 4px;
+            height: 20px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .progress-bar-fill {
+            background-color: var(--accent-gold);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .btn-action {
+            width: 100%;
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-action:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>⚔️ WH40K ENGINE DASHBOARD v10.0</h1>
+        <div class="campaign-selector">
+            <label for="campaignSelect" style="color: var(--text-muted); margin-right: 10px;">Campaña Activa:</label>
+            <select id="campaignSelect" onchange="switchCampaign()">
+                <option value="CAMPAIGN.ALEXANDER.NECROMUNDA">Alexander (Dust Falls, Necromunda)</option>
+                <option value="CAMPAIGN.CAELAN.VEYR-HAWKSHROUD">Ser Caelan Veyr-Hawkshroud (Krastellan)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'tab-general')">🛡️ Estado General</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-arsenal')">🔫 Arsenal & Munición</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-tactical')">⚔️ Simulador & Duelos</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-alchemy')">🧪 Alquimia & Mercado</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-fleet')">🚀 Flota & Dominancia</button>
+    </div>
+
+    <!-- TAB 1: ESTADO GENERAL -->
+    <div id="tab-general" class="tab-content active">
+        <div class="card">
+            <h3>👤 Personaje Jugador</h3>
+            <div class="stat-row"><span class="stat-label">Nombre:</span><span class="stat-value" id="pc-name">Alexander</span></div>
+            <div class="stat-row"><span class="stat-label">Clase / Rol:</span><span class="stat-value" id="pc-class">Operador Umbral / Médico</span></div>
+            <div class="stat-row"><span class="stat-label">Ubicación:</span><span class="stat-value" id="pc-loc">Clínica Clandestina Rho-9</span></div>
+            <div class="stat-row"><span class="stat-label">Turno Activo:</span><span class="stat-value" id="pc-turn">918</span></div>
+        </div>
+
+        <div class="card">
+            <h3>❤️ Constantes Vitales</h3>
+            <div class="stat-row"><span class="stat-label">Salud:</span><span class="stat-value" id="pc-health">12/12</span></div>
+            <div class="progress-bar-container"><div class="progress-bar-fill" id="hp-bar" style="width: 100%;"></div></div>
+            <div class="stat-row" style="margin-top: 15px;"><span class="stat-label">Fatiga:</span><span class="stat-value" id="pc-fatigue">1/7</span></div>
+            <div class="stat-row"><span class="stat-label">Puntos de Destino:</span><span class="stat-value" id="pc-destiny">3</span></div>
+        </div>
+
+        <div class="card">
+            <h3>🌌 Disformidad & Corrupción</h3>
+            <div class="stat-row"><span class="stat-label">Escala de Corrupción:</span><span class="stat-value" id="pc-corr">0/100 (Alma Limpia)</span></div>
+            <div class="stat-row"><span class="stat-label">Reserva de Almas:</span><span class="stat-value" id="pc-souls">10 Almas Completas</span></div>
+            <div class="stat-row"><span class="stat-label">Puntos de Fe:</span><span class="stat-value" id="pc-faith">10/10</span></div>
+        </div>
+    </div>
+
+    <!-- TAB 2: ARSENAL -->
+    <div id="tab-arsenal" class="tab-content">
+        <div class="card">
+            <h3>🔫 Armamento Activo</h3>
+            <div class="stat-row"><span class="stat-label">Arma Principal:</span><span class="stat-value">Pistola Bólter Pesada</span></div>
+            <div class="stat-row"><span class="stat-label">Estado Cerrojo:</span><span class="stat-value" style="color: var(--accent-green);">LIMPIA</span></div>
+            <div class="stat-row"><span class="stat-label">Cargador:</span><span class="stat-value">12 / 12 Cartuchos</span></div>
+            <button class="btn-action" onclick="alert('Arma limpia y lista en recámara.')">Ver Ficha Técnica de Arma</button>
+        </div>
+    </div>
+
+    <!-- TAB 3: SIMULADOR TÁCTICO & DUELOS -->
+    <div id="tab-tactical" class="tab-content">
+        <div class="card">
+            <h3>⚔️ Duelos de Honor & Posturas</h3>
+            <div class="stat-row"><span class="stat-label">Postura Seleccionada:</span><span class="stat-value">RÉPLICA</span></div>
+            <div class="stat-row"><span class="stat-label">Bonus Esquiva:</span><span class="stat-value">+15%</span></div>
+            <button class="btn-action" onclick="alert('Contraataque de Réplica activo en caso de fallo enemigo.')">Cambiar Postura de Duelo</button>
+        </div>
+    </div>
+
+    <!-- TAB 4: ALQUIMIA & MERCADO -->
+    <div id="tab-alchemy" class="tab-content">
+        <div class="card">
+            <h3>🧪 Laboratorio Alquímico</h3>
+            <div class="stat-row"><span class="stat-label">Stimm de Combate:</span><span class="stat-value">Disponible (350 Cr)</span></div>
+            <div class="stat-row"><span class="stat-label">Antídoto Universal Escher:</span><span class="stat-value">Sintetizado</span></div>
+            <button class="btn-action" onclick="alert('Sintetizando preparado alquímico...')">Sintetizar Compuesto</button>
+        </div>
+    </div>
+
+    <!-- TAB 5: FLOTA & DOMINANCIA (V10.0 NEW) -->
+    <div id="tab-fleet" class="tab-content">
+        <div class="card">
+            <h3>🚀 Combate Naval & Escudos Vacíos</h3>
+            <div class="stat-row"><span class="stat-label">Nave Activa:</span><span class="stat-value">Crucero Clase Dictador</span></div>
+            <div class="stat-row"><span class="stat-label">Escudos Vacíos (Void Shields):</span><span class="stat-value">4 / 4 Activos</span></div>
+            <div class="stat-row"><span class="stat-label">Integridad de Casco:</span><span class="stat-value">50 / 50</span></div>
+            <button class="btn-action" onclick="alert('Salva de macrocñones lista para disparar.')">Disparar Salva Naval</button>
+        </div>
+
+        <div class="card">
+            <h3>📊 Barra de Dominancia de Combate</h3>
+            <div class="stat-row"><span class="stat-label">Progreso del Enfrentamiento:</span><span class="stat-value">60%</span></div>
+            <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 60%; background-color: var(--accent-green);"></div></div>
+            <div class="stat-row" style="margin-top: 10px;"><span class="stat-label">Estado Táctico:</span><span class="stat-value" style="color: var(--accent-green);">PUNTO DE INFLEXIÓN (Moral Enemiga Rota)</span></div>
+        </div>
+
+        <div class="card">
+            <h3>🛑 Reserva Finitas de Refuerzos Enemigos</h3>
+            <div class="stat-row"><span class="stat-label">Reserva Inicial:</span><span class="stat-value">12 Tropas</span></div>
+            <div class="stat-row"><span class="stat-label">Desplegados en Escena:</span><span class="stat-value">6 Tropas</span></div>
+            <div class="stat-row"><span class="stat-label">Reserva Restante:</span><span class="stat-value" style="color: var(--accent-gold);">6 Tropas</span></div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function switchCampaign() {
+            const select = document.getElementById('campaignSelect');
+            const val = select.value;
+            if (val.includes('CAELAN')) {
+                document.getElementById('pc-name').innerText = "Ser Caelan Veyr-Hawkshroud";
+                document.getElementById('pc-class').innerText = "Piloto de Caballero Imperial / Duelista";
+                document.getElementById('pc-loc').innerText = "Krastellan (Corredores Interiores)";
+                document.getElementById('pc-turn').innerText = "929";
+                document.getElementById('pc-health').innerText = "47/47";
+                document.getElementById('pc-fatigue').innerText = "0/6";
+            } else {
+                document.getElementById('pc-name').innerText = "Alexander";
+                document.getElementById('pc-class').innerText = "Operador Umbral / Médico Clandestino";
+                document.getElementById('pc-loc').innerText = "Clínica Clandestina Rho-9";
+                document.getElementById('pc-turn').innerText = "918";
+                document.getElementById('pc-health').innerText = "12/12";
+                document.getElementById('pc-fatigue').innerText = "1/7";
+            }
+        }
+    </script>
+</body>
+</html>

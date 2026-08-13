@@ -1,0 +1,1016 @@
+Historia del personaje
+Crónica narrativa acumulativa entre pausas confirmadas — campaña de Caelan Veyr-Hawkshroud
+Control del registro
+DOCUMENT_KEY: 
+HISTORY
+DOCUMENT_ID: 
+HISTORY.CAELAN.MAIN
+CAMPAIGN_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD
+CONTINUITY_ID: 
+CONTINUITY.CAELAN.PRIMARY
+PLAYER_CHARACTER_ID: 
+PC-CAELAN-001
+ALLOWED_SEMANTIC_OPERATIONS: 
+AGREGAR
+PERSISTED_PAUSE_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+CHECKPOINT_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+STATE_REVISION: 
+CAELAN.T928.R2
+SOURCE_REVISION_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD.HISTORY.TEMPLATE-20260811
+ÚLTIMA ACTUALIZACIÓN: 
+Séptimo día de reposo, tarde avanzada; T928
+MIGRATION_ID: 
+CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: 
+Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: 
+Este archivo pertenece únicamente a CAMPAIGN.CAELAN.VEYR-HAWKSHROUD. Rechazar datos de cualquier otra campaña.
+AGENCIA: 
+No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: 
+Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+Reglas de actualización
+OPERACIÓN: 
+AGREGAR una entrada narrativa completa después de cada pausa confirmada. No ACTUALIZAR ni REEMPLAZAR capítulos ya cerrados; una corrección se agrega como corrección explícita.
+CONTENIDO: 
+Registrar acontecimientos, escenas, combates, conversaciones, relaciones, lugares estables, pactos, descubrimientos, consecuencias y asuntos abiertos con causalidad y detalle dramático.
+EXCLUSIÓN MECÁNICA: 
+Las entradas nuevas no almacenan Salud, Fatiga, XP, PM, PH, munición, estadísticas ni inventario vigente. Las cifras solo se mantienen cuando son narrativas o contractuales.
+MIGRACIÓN: 
+La crónica anterior se preserva como evidencia histórica sin reescribir en masa sus formulaciones antiguas. Esta regla gobierna toda entrada creada desde esta revisión.
+Crónica vigente
+PRÓLOGO — SANGRE MENOR, CAPILLA Y CACERÍA
+2.1 Sangre menor bajo juramento mayor
+Caelan nació en una rama menor de House Hawkshroud: lo bastante cerca del linaje para recibir educación noble y ser exigido por la Casa, pero lo bastante lejos de la sucesión inmediata para comprender que nadie le entregaría poder por simple sangre. En Krastellan aprendió que el honor no era una emoción privada. Era un contrato público, pronunciado ante testigos, inscrito por escribas y pagado con recursos, reputación o cadáveres.
+La precedencia familiar nunca le prometió un Trono Mechanicum, un feudo ni un mando permanente. Su posible ascenso dependía de aptitud, servicio, alianzas, contratos matrimoniales, reconocimiento del consejo y de que otros candidatos fallaran. Esa condición lo formó como competidor lateral: útil para la rama, reemplazable para la Casa y peligroso si reunía méritos sin quedar atado a una facción interna.
+2.2 Educación de fortaleza, capilla y cacería
+Su infancia transcurrió entre capillas de juramento, patios de duelo, galerías de caza, archivos genealógicos, caniles nobles y salas donde las deudas familiares se discutían con la precisión de una autopsia. Aprendió Gótico Bajo como lengua cotidiana y escrita de su rango, Gótico Alto para corte y juramentos, fórmulas litúrgicas para capilla y el cant nobiliario Hawkshroud para desafíos, auxilio y precedencia.
+No fue educado como erudito del Mechanicus ni como oficial de Estado Mayor. Su formación buscó producir un noble funcional: capaz de leer una fortificación, reconocer un blasón, administrar recursos limitados, disparar con precisión, sostener un duelo y presentar una orden de manera que un inferior obedeciera sin confundirla con una petición.
+2.3 Música como disciplina y poder social
+La música comenzó como disciplina impuesta y terminó convertida en herramienta propia. Maestros de capilla, organistas de juramento y músicos de cámara le enseñaron viol de voto, órgano de catedral, canto ritual y lectura litúrgica. Caelan descubrió que una sala puede ser dominada por el ritmo de un himno antes que por una amenaza, y que una interpretación correcta permite medir fe, duelo, orgullo y fracturas sociales sin formular una sola acusación.
+2.4 Caza, cálculo y Bastion
+La caza noble unió sus preferencias por el control, la observación y la violencia con propósito. Aprendió rastreo, disciplina de correa, lectura del terreno, selección de presas y uso de bestias entrenadas. Durante una cacería formal, una bestia de monte hirió a criados de la rama Veyr. Caelan aseguró la presa y protegió el estandarte antes de ordenar un rescate parcial. Salvó el honor público y parte de la comitiva, pero aceptó pérdidas que otros habrían ocultado tras un discurso. Desde entonces algunos parientes lo consideraron útil; otros, desagradablemente exacto.
+Bastion fue su vínculo de caza más significativo: mastín de guerra kastellano, activo de Casa bajo custodia operativa de Caelan durante campañas anteriores. La relación desarrolló la capacidad de Caelan para dirigir criaturas bajo ruido, sangre y presión. Bastion ya no integra su compañía activa: tras perder una extremidad fue retirado oficialmente del servicio y quedó bajo protección de Casa y autoridad clínica de Sabeth.
+2.5 Salida de Krastellan
+La cruzada fue a la vez oportunidad, prueba y destierro elegante. House Hawkshroud debía responder a compromisos de auxilio sin arriesgar un heredero principal; la rama Veyr necesitaba probar a Caelan fuera de casa sin permitirle acumular demasiada influencia doméstica. Fue enviado como noble menor juramentado: con educación, equipo de calidad, recursos medidos y autoridad dependiente de misión, testigos y resultados.
+La aventura comienza con un hombre joven que no posee Knight, feudo ni soberanía, pero que entiende que cada servicio puede convertirse en precedente. Su crecimiento no está ligado a recibir permiso emocional de la Casa: depende de sobrevivir, cumplir, registrar mérito, reunir recursos, construir lealtades y convertir capacidades personales en poder que otros no puedan ignorar.
+CAPÍTULO I — EL JURAMENTO DE CALCEDON (T43–T70)
+Fecha / turnos: 2026-07-02 / turnos 43-70.
+Ubicaciones: Calcedon IX: Capilla Juramentada Hawkshroud, Archivo Martir-Doce, Sable, cisternas de Santa Lyd, Lumen Funeraria 12.
+Estado actual: Juramento de Calcedon cumplido en fase operativa. Ruta CANTICUM-3/CANTICUM-9 validada por C-13 Penitente.
+Amenaza principal: DOM-CERAE/RUBRUM local quebrado; frente Krastellan abierto por Rhost Klyr, Canil Domestico Veyr y cera azul bajo roja.
+Tono dominante: Honor feudal convertido en herramienta, purga ritual, burocracia de pruebas, miedo institucional y deuda politica.
+Relato narrativo completo
+El cierre de Calcedon no fue una victoria limpia, sino una operacion de auxilio convertida en juicio de Casa. Caelan entro al Archivo de Manifiestos Martir-Doce cuando la red enemiga ya estaba quemando registros. En lugar de perseguir una gloria frontal, dividio tareas, envio a Vhal y Valco al nucleo, siguio a Medea-6 con Bastion y priorizo capturar aquello que todavia podia hablar.
+La captura de Medea-6 y la preservacion parcial del nucleo impidieron que la purga documental borrara la ruta real. Desde ese momento, Caelan transformo la capilla en Mesa de Juicio. Gobernador Saelle, Magos-Dominus Kastor Vhul-88 y Evara Thane quedaron bajo el marco de prioridad Hawkshroud: no por ternura, sino porque la cadena de custodia valia mas que una ejecucion rapida.
+Los interrogatorios revelaron una red de cera, manifiestos falsos y muertos diferidos. Medea-6, Olt-7, Nol Veyt, Ilyr Morcant, Tavar Morn, Damaris Holt y Ossian Vire formaron una cadena de culpa desigual: tecnicos, escribas, manos de vela, contactos civiles y receptores funerarios. Caelan eligio conservar vivos a varios culpables, no por misericordia sino por utilidad futura ante Krastellan.
+La caceria en Santa Lyd y la Lumen Funeraria 12 cerro el circuito local. Bastion, Talia y la fuerza de Cort convirtieron el rastreo en procedimiento. El Candilero Ciego fue capturado antes de que enviara aviso. La ruta CANTICUM-3/CANTICUM-9 fue probada con el C-13 Penitente, mientras Sable y SOL-3 quedaron excluidos por contaminacion, negligencia o uso enemigo.
+La Capilla Juramentada quedo purgada, pero no sanada. Belis Varn vive como penitente bajo Campana de Mano Sangrante; Evara conserva autoridad con deuda y verguenza. Calcedon sigue util para la cruzada porque Caelan eligio no convertir el mundo entero en ceniza politica. Esa decision crea gratitud, miedo y dependencia.
+El verdadero filo de la operacion apunta ahora a Krastellan. Rhost Klyr no fue alertado. La cera azul, la urna canil, la credencial usada para ensuciar a Lysandra y el sello aun no activado de Maerwyn convierten el regreso a casa en una caceria dinastica. Caelan no solo cumplio el juramento: regreso con prisioneros, pruebas y una amenaza que nace dentro de su propio linaje.
+Cronologia por escenas
+REGISTRO 1 — 43-46
+Turnos: 43-46
+Evento: Asalto al Archivo Martir-Doce.
+Decision de Caelan: Preservar nucleo, capturar Medea-6 y bloquear la purga al 91%.
+Consecuencia: Datos criticos salvados; culpable tecnica viva.
+REGISTRO 2 — 47-48
+Turnos: 47-48
+Evento: Capilla convertida en Mesa de Juicio.
+Decision de Caelan: Imponer prioridad Hawkshroud ante gobernador y Mechanicus.
+Consecuencia: Cadena de custodia aceptada por autoridades.
+REGISTRO 3 — 49-53
+Turnos: 49-53
+Evento: Interrogatorios tecnicos.
+Decision de Caelan: Extraer a Medea-6, Olt-7 y cera de Tavar.
+Consecuencia: DOM-CERAE/RUBRUM confirmado.
+REGISTRO 4 — 54-56
+Turnos: 54-56
+Evento: Caceria de Nol Veyt.
+Decision de Caelan: Mantenerlo vivo como testigo.
+Consecuencia: Nol revela Mano de Vela Nona y paquete Krastellan.
+REGISTRO 5 — 57-60
+Turnos: 57-60
+Evento: Trampa de cisterna.
+Decision de Caelan: Usar cebo y captura de Morcant.
+Consecuencia: Morcant revela Rhost Klyr y Candilero Ciego.
+REGISTRO 6 — 61-62
+Turnos: 61-62
+Evento: Carta de Maerwyn.
+Decision de Caelan: No activar sello Caldris todavia.
+Consecuencia: Sorpresa sobre Klyr conservada.
+REGISTRO 7 — 63-65
+Turnos: 63-65
+Evento: Sentencias y penitencia.
+Decision de Caelan: Reclamar prisioneros y marcar a Belis.
+Consecuencia: Capilla purgada con memoria viva.
+REGISTRO 8 — 66-70
+Turnos: 66-70
+Evento: C-13 y Lumen Funeraria 12.
+Decision de Caelan: Capturar a Vire y destruir rele de aviso.
+Consecuencia: Ruta validada; aviso a Krastellan bloqueado.
+Desarrollo de personajes y relaciones
+REGISTRO 1 — Caelan
+Personaje: Caelan
+Cambio: Demuestra que puede convertir honor en procedimiento, prisioneros, deudas y amenaza politica.
+Relacion con Caelan: Gana respeto y miedo; se vuelve menos pieza menor y mas actor incomodo.
+REGISTRO 2 — Talia Voss
+Personaje: Talia Voss
+Cambio: Consolida rol de tiradora y supervisora de convoyes.
+Relacion con Caelan: Respeto tactico alto; confia en ordenes claras.
+REGISTRO 3 — Yselle Korda
+Personaje: Yselle Korda
+Cambio: Se vuelve esencial por informe final y anexo sellado.
+Relacion con Caelan: Lealtad profesional alta; carga secreto peligroso.
+REGISTRO 4 — Rauk Halven
+Personaje: Rauk Halven
+Cambio: Sostiene custodia, orden y violencia controlada.
+Relacion con Caelan: Confianza marcial alta; debe vigilarse su dureza.
+REGISTRO 5 — Bastion
+Personaje: Bastion
+Cambio: Pasa de mascota de guerra a activo amenazado por red externa.
+Relacion con Caelan: Fidelidad y utilidad aumentan; proteger canil y collar.
+REGISTRO 6 — Evara Thane
+Personaje: Evara Thane
+Cambio: Recupera autoridad bajo verguenza y deuda.
+Relacion con Caelan: Aliada local con carga espiritual.
+REGISTRO 7 — Cort
+Personaje: Cort
+Cambio: Se confirma como contacto armado pragmatico.
+Relacion con Caelan: Respeto con miedo util; lealtad primera a Saelle.
+Calcedon quedó endeudado y avergonzado, no purificado. Rhost Klyr no había sido advertido; Lysandra era una pantalla probable, no una culpable declarada; los prisioneros vivos seguían siendo prueba y riesgo. El juramento cerró una ruta y abrió una cacería dentro de la propia sangre de Caelan.
+CAPÍTULO II — KRAS TELLAN, PURGA GRIS Y FORJA SELECTIVA (T71–T197)
+Fecha / turnos cubiertos: 2026-07-05 / ampliacion de continuidad hasta Turno 197. Integra bloques 71-197 y conserva entrada previa de Calcedon 43-70.
+Ubicaciones principales: Calcedon IX como antecedente cerrado; Krastellan, dominios Veyr-Hawkshroud; archivos secundarios, Galeria de Perros Negros, Camara Gris, capillas menores, aposentos de Caelan, sala de organo, Camara de Mapas Menores y Foso de Caceria de Guerra VII.
+Companeros presentes relevantes: Bastion al flanco y bajo protocolo de mando; Yselle Korda como acta y cadena de custodia; maestro de armas en entrenamiento. Rauk y Talia disponibles como custodia/tiro, no presentes en cada subescena de entrenamiento.
+Tono dominante: Feudal, brutal, administrativo, teologico y pragmatico. La Casa conserva y gasta activos; no consuela. Los vivos utiles se guardan para interrogatorio, deuda o prueba. Los debiles, si estorban, son corregidos, sacrificados o archivados.
+Verdad central: Caelan no fue culpable de la doctrina domesticada contra menores: fue objetivo, vector y testigo de sangre. La amenaza local fue quebrada, pero una raiz superior de Mater Tacita permanece bajo sello negro.
+Resumen ejecutivo para el DM
+En Krastellan, la Sombra de Krastellan intento separar a Bastion de Caelan y usarlo como llave de reaccion. La red buscaba convertir obediencia animal, linaje, culpa documental y sospecha familiar en una trampa: si Caelan entregaba al mastin, perdia prueba viva; si se resistia de forma indisciplinada, confirmaba el relato de apego irregular, furia menor y necesidad de correccion.
+La investigacion revelo Mater Tacita y la Doctrina de Forja Selectiva Menor: no una simple caza de traidores, sino una maquinaria domestica para seleccionar, probar, quebrar y reaprovechar menores leales. Esa distincion importa. No se corregia herejia; se fabricaba obediencia util a partir de honor real. Caelan fue usado porque era leal, peligroso, medible y reemplazable en calculo de casa.
+La Purga Gris no quedo bajo mando de Caelan. Garran, Maerwyn y autoridad mayor retienen el cuchillo institucional. Caelan queda separado de culpa, clasificado como activo disponible y testigo de sangre; no recibe consuelo ni libertad sentimental. La Casa lo conserva porque puede ser gastado de forma mas valiosa en un juramento exterior.
+Reglas de continuidad reforzadas
+No borrar verdades previas. Si una version cambia, registrar como correccion, revelacion o pantalla documental.
+Separar capa publica, secreta, burocratica y sospechada. La Casa vive de lo que puede probarse, no de lo que alguien siente.
+Caelan no debe ser tratado como paciente emocional por la Casa. Es activo de sangre noble, arma lateral y posible testigo incomodo.
+Yselle registra, advierte sobre cadena de custodia y protege el acta. No debe convertirse en terapeuta.
+Bastion es prueba viva, arma de rastreo y propiedad noble con custodia operativa de Caelan. No es mascota blanda.
+La crueldad imperial es normal ambiental: penales, sirvientes, auxiliares y prisioneros son recursos con distinto precio de reemplazo.
+I. Antecedente cerrado: Calcedon como juramento cumplido, no como mundo sanado
+Caelan entro a Calcedon como noble menor enviado a responder un auxilio, no como salvador popular. Su metodo fue convertir capilla, archivo, convoy y prisioneros en una sola cadena de custodia. Eso le dio reputacion: no por bondad, sino porque produjo resultados verificables. Gobernador Saelle, Magos-Dominus Kastor Vhul-88 y Evara Thane aceptaron el marco Hawkshroud porque las alternativas eran peor archivo, peor purga o peor verguenza.
+El archivo Martir-Doce, la preservacion parcial del nucleo y la captura de Medea-6 impidieron que el enemigo borrara la ruta real. Talia, Bastion, Rauk, Yselle y contactos locales fueron usados como extensiones de procedimiento. La captura del Candilero Ciego y la validacion CANTICUM-3/CANTICUM-9 con el C-13 Penitente cerraron el circuito operativo. Caelan eligio conservar culpables vivos cuando convenia a Krastellan: Medea-6, Olt-7, Morcant, Nol, Tavar, Damaris y Ossian Vire valian mas respirando que como cadaveres tranquilos.
+REGISTRO 1 — CANTICUM-3/CANTICUM-9
+Elemento: CANTICUM-3/CANTICUM-9
+Estado al cierre de Calcedon: Ruta validada con C-13 Penitente.
+Uso posterior: Prueba de que Caelan cumple juramentos con procedimiento y no solo con violencia.
+REGISTRO 2 — Capilla Juramentada
+Elemento: Capilla Juramentada
+Estado al cierre de Calcedon: Purgada, no sanada; Evara conserva autoridad bajo deuda.
+Uso posterior: Nodo de memoria y posible retorno por penitencia, rumor o fallo local.
+REGISTRO 3 — Prisioneros vivos
+Elemento: Prisioneros vivos
+Estado al cierre de Calcedon: Custodia/reclamacion Hawkshroud o Mechanicus.
+Uso posterior: Testigos vulnerables para Krastellan; blancos de rescate, suicidio o disputa jurisdiccional.
+REGISTRO 4 — Cera azul / urna canil
+Elemento: Cera azul / urna canil
+Estado al cierre de Calcedon: Indicios no detonados en Calcedon.
+Uso posterior: Puente directo hacia Canil Domestico Veyr y Sombra de Krastellan.
+REGISTRO 5 — Amenaza de Caballeros reales
+Elemento: Amenaza de Caballeros reales
+Estado al cierre de Calcedon: Disuasivo politico usado por Caelan.
+Uso posterior: Aumenta miedo y valor, pero tambien incomodidad familiar.
+II. Regreso a Krastellan: la trampa no buscaba matar primero, sino reinscribir
+El retorno a Krastellan transformo la prueba externa en expediente domestico. La amenaza no intento abrir la escena con un asesinato simple. Su primer movimiento fue legal, canil y narrativo: separar a Bastion, reclasificar su custodia, contaminar la relacion entre Caelan y el mastin, y forzar una reaccion que pudiera registrarse como irregularidad menor. La trampa comprendia que Caelan podia sobrevivir a una emboscada; por eso intento convertir su propia disciplina en prueba contra el.
+Rhost Klyr aparece como nodo operativo de esa Sombra. Su intento de separar a Bastion era mas que control animal: era expropiacion de prueba viva. Bastion contenia olores, rutas, memorias de entrenamiento y el vinculo que la red enemiga habia decidido usar como vector. Si Caelan lo entregaba, perdia la pieza que podia desmontar la historia falsa. Si protestaba sin cadena de custodia, se volvia el joven noble demasiado atado a una bestia, incapaz de obedecer autoridad superior. Si Bastion mordia, el informe enemigo se escribia solo.
+Caelan respondio con la misma materia de la trampa: autoridad, acta, sello, posicion y utilidad. Yselle fue esencial porque el mundo de Krastellan obedece documentos casi tanto como sangre. El conflicto sobre Bastion no quedo reducido a afecto. Quedo registrado como choque entre propiedad legal de House Hawkshroud/rama Veyr-Hawkshroud, custodia operativa de Caelan y una maniobra enemiga de reinscripcion. Esa precision salvo al mastin como prueba y salvo a Caelan como actor racional dentro de la Casa.
+La escena debe recordarse con su tono correcto: no hubo proteccion sentimental de la familia. Hubo calculo de activos, sospecha y lectura de daño potencial. Maerwyn, Garran y Vale no actuan como cuidadores; actuan como piezas de autoridad que miden si Caelan es culpable, util, comprometido, gastable o demasiado peligroso para quedar libre.
+III. Galeria de Perros Negros y Protocolo Halcon Mojado
+La Galeria de Perros Negros y la Camara IX convirtieron la sospecha en arquitectura. El entorno era canil, archivo y capilla menor al mismo tiempo: lugar donde las bestias nobles son criadas, donde los nombres son inscritos y donde una rama puede convertir rutina domestica en doctrina de control. Alli aparecieron telas olfativas, collar, aguja, cera azul, placa de collar, terminal y la placa negro-dorada que contenia el PROTOCOLO HALCON MOJADO.
+El Protocolo Halcon Mojado no era insulto improvisado; era una pieza de planificacion. Sus lineas indicaban que COM-L debia completarse como sequito de Lysandra despues del evento; que Maerwyn debia quedar contaminada por la duda de cera azul; que Klyr era gastable; y que la ruta superior pasaba por Registro-Sangre, Itinerarios Umbra y Odran Syle. La funcion de Lysandra cambio: de sospechosa aparente a probable pantalla documental. El enemigo queria que el archivo la usara como respuesta facil. Eso permitia cerrar la investigacion sin tocar raices mas altas.
+Caelan entendio que el enemigo habia preparado rutas de reaccion, no solo rutas fisicas. Su valor aqui no fue heroicidad de carga, sino negar el relato enemigo. La verdad util se sostuvo porque Yselle pudo registrar y Silex-9 pudo leer indicios tecnicos. Bastion funciono como prueba y detector de rutas, no como excusa de furia. Cada objeto recuperado debia conservar cadena, porque cualquier pieza aislada podia ser invertida contra Caelan o contra Lysandra.
+REGISTRO 1 — Telas olfativas y collar
+Prueba / indicio: Telas olfativas y collar
+Lectura confirmada: Uso de Bastion como vector de reaccion y prueba viva.
+Riesgo si se malinterpreta: Reducirlo a apego sentimental de Caelan.
+REGISTRO 2 — Cera azul
+Prueba / indicio: Cera azul
+Lectura confirmada: Contaminacion documental vinculada a Maerwyn y rutas domesticas.
+Riesgo si se malinterpreta: Convertirla en culpa directa prematura.
+REGISTRO 3 — Credencial / humo Lysandra
+Prueba / indicio: Credencial / humo Lysandra
+Lectura confirmada: Pantalla documental probable.
+Riesgo si se malinterpreta: Condenar rival facil y proteger raiz superior.
+REGISTRO 4 — Placa negro-dorada
+Prueba / indicio: Placa negro-dorada
+Lectura confirmada: Protocolo Halcon Mojado; Klyr gastable; ruta Umbra.
+Riesgo si se malinterpreta: Tratar a Klyr como raiz total.
+REGISTRO 5 — Terminal y placa canil
+Prueba / indicio: Terminal y placa canil
+Lectura confirmada: Interseccion archivo/caza/tutoria.
+Riesgo si se malinterpreta: Perder la dimension juridica de la trampa.
+IV. Itinerarios Umbra, Mater Tacita y el derecho secreto de corregir sangre menor
+La investigacion avanzo desde la Galeria hacia archivos secundarios de Itinerarios Umbra. Odran Syle fue capturado vivo y vinculo la ruta con movimientos de registro, ausencias y precedencias. Cyran Holt-Veyr aparecio con receptor/llave UMBRA-REC y la sombra de MATER TACITA. Esto desplazo el conflicto desde un sabotaje de canil hacia una maquinaria de tutela domestica: no solo quien toco a Bastion, sino quien se creia autorizado a reescribir la formacion de menores nobles.
+Mater Tacita se organizaba alrededor de custodios: Cyran Holt-Veyr, Vadra Noll como Submatron of Hereditary Absences, Edras Pell como Sealer of Dead Retinue, y Ormella Sarn-Veyr, Widow of Precedence, como llave primaria. La captura de Vadra, Edras y Ormella fue crucial porque la doctrina no podia demostrarse solo con objetos; necesitaba bocas vivas y contradicciones registradas.
+Ormella, herida y viva, entrego una revelacion que cambio el sentido del arco: Mater Tacita seleccionaba menores leales utiles, no traidores. Esta frase debe mantenerse. La red no era una purga simple contra culpables. Era una forja selectiva: tomar obediencia real, honor real y vulnerabilidad jerarquica, someterlos a crisis fabricada, medir reacciones, quebrar lo necesario y devolver un activo mas docil o mas util. En el Imperium, eso puede parecer disciplina hasta que la autoridad, la firma y el proposito quedan desnudos.
+Los nombres Cuna Vacante, Tutor Vacuus, Camara de Formacion Juramentaria, Mesa de Tutoria Tercera y Voto de Caza de Invierno deben quedar como vocabulario tecnico de esta corrupcion domestica. No son solo titulos atmosfericos. Son mecanismos: vaciar precedencia, sustituir tutor, usar caza como prueba de obediencia, y convertir el retorno de un menor en experimento con testigos controlados.
+V. Vale, Corvin Rane y Severia: la firma muerta como arma
+Severin Vale quedo atrapado por una forma de culpa documental: el archivo derivado VALE-SV. El enemigo no necesitaba su firma viva si podia usar restos de autoridad formativa. Corvin Rane aparecio como custodio de Mesa de Tutoria Tercera y confirmo que la figura de Vale habia sido explotada sin consentimiento operativo vivo. La inocencia de Vale no fue emotiva; fue trazabilidad. No habia firma viva suficiente. Habia derivacion, archivo y manipulación.
+Severia Lorn-Veyr intento activar el marco disciplinario de Correccion de Sangre Menor y la campana de correccion. Su error fue enfrentar a Caelan en un lenguaje que el propio Caelan podia devolver con sangre y derecho. Caelan dejo la carabina Kastellan-M36 prestada en la pared, reclamo el conflicto como sangre y acepto el duelo. Garran autorizo. Bastion recibio orden de no intervenir aunque Caelan muriera. Ese detalle importa porque separa al mastin de la supuesta irregularidad emocional: Caelan no uso a Bastion como escudo ni como excusa. Lo sometio a orden.
+La consecuencia en Caelan fue doble. Por un lado, quedo separado de culpa como autor o beneficiario voluntario. Por otro, quedo marcado como menor que sobrevivio a una maquinaria disenada para probarlo. En una Casa feudal, sobrevivir no significa recibir consuelo. Significa que ahora hay que decidir en que frente gastarlo.
+REGISTRO 1 — Severia Lorn-Veyr
+Nombre: Severia Lorn-Veyr
+Estado / revelacion: Muerta en duelo legitimo despues de confesar estructura.
+Uso de continuidad: Cadaver politico; su muerte cierra una boca pero abre revision de quienes la validaron.
+REGISTRO 2 — Halbrecht Sorn-Veyr
+Nombre: Halbrecht Sorn-Veyr
+Estado / revelacion: Preceptor-Primus revelado.
+Uso de continuidad: Custodio de Liber Correctionis Minor; prisionero o nodo de juicio.
+REGISTRO 3 — Orias Kalth
+Nombre: Orias Kalth
+Estado / revelacion: Formation Confessor revelado.
+Uso de continuidad: Enlace con absoluciones menores, Malrec e Iovan.
+REGISTRO 4 — Nera Vossk
+Nombre: Nera Vossk
+Estado / revelacion: Master of Keys.
+Uso de continuidad: Entrega cuarta llave y mapas; peligrosa por accesos.
+REGISTRO 5 — Corvin Rane
+Nombre: Corvin Rane
+Estado / revelacion: Custodio de Mesa de Tutoria Tercera.
+Uso de continuidad: Une VALE-SV, tutorias y archivo derivado.
+REGISTRO 6 — Mordane Holt-Veyr
+Nombre: Mordane Holt-Veyr
+Estado / revelacion: Tutelar Councilor.
+Uso de continuidad: Abre Hestara/Bren y perfiles de retorno.
+VI. Purga Gris: prisioneros, verdades y clasificacion doctrinal
+La Purga Gris avanzo como operacion de Casa bajo autoridad mayor. Caelan no la manda. Esta restriccion es importante: conserva su inocencia operacional y evita que el jugador convierta cada prisionero en propiedad personal. Garran, Maerwyn, consejo y cadena gris retienen jurisdiccion. Caelan es testigo, afectado, activo disponible y a veces herramienta, no juez supremo.
+Los capturados vivos incluyen a Nera Vossk, Halbrecht Sorn-Veyr, Orias Kalth, Corvin Rane, Mordane Holt-Veyr, Hestara Veyl, Bren Osric-Holt, Frater Malrec, Iovan Thrice, Loran Ceth, Ormella Sarn-Veyr y otros testigos/preceptores/cadetes. La lista importa porque cada uno conserva una forma de retorno: juicio, fuga, chantaje, suicidio, testimonio, rescate o ejecucion ejemplar. Un prisionero vivo en el Imperium no es una vida salvada; es una herramienta vulnerable.
+Las revelaciones consolidaron el diagnostico. Nera entrego llave y mapas. Orias revelo chaplains menores y Libro de Absoluciones Menores. Halbrecht revelo Liber Correctionis Minor. Mordane revelo Hestara y Bren. Hestara confirmo perfiles de retorno usados para predecir reacciones de Caelan. Bren confirmo la sombra documental contra Lysandra. Loran Ceth revelo puerta muda, ruta de canil y orden de huir si Bastion permanecia con Caelan. Ormella formalizo la verdad: leales utiles, no traidores.
+La clasificacion final debe escribirse asi: Doctrina de Forja Selectiva Menor, corrupcion domestica, herejia warp no demostrada. No corregia traidores; explotaba menores leales. Usaba crisis, tutorias, precedencia anulada, caniles, capillas menores y firmas derivadas para medir y rehacer obediencia. Caelan queda separado de culpa como objetivo/vector/testigo de sangre. Lysandra queda reclassificada como pantalla documental probable con sospecha activa retirada bajo sello gris. Vale conserva inocencia operativa con auditoria residual.
+La raiz superior permanece bajo sello negro con titulos velados: Estandarte Alto, Tutoria Remota, Deuda Amarilla y Voto de Invierno. La sospecha sobre Casa Mayor Hawkshroud queda en 1/6, sensible y no apta para discurso publico. Esto no debe explotar sin preparacion: tocar Casa Mayor sin prueba puede destruir a Caelan, no elevarlo.
+REGISTRO 1 — Publica
+Capa de verdad: Publica
+Contenido: Caelan cumplio Calcedon y retorno a Krastellan con pruebas; hay correccion interna de Casa.
+Como debe usarse en mesa: Rumores de merito, miedo y disciplina; no revelar Mater Tacita completa.
+REGISTRO 2 — Secreta gris
+Capa de verdad: Secreta gris
+Contenido: Forja Selectiva Menor uso a Caelan y Bastion como prueba/vector.
+Como debe usarse en mesa: Audiencias, custodia, amenazas internas, interrogatorios.
+REGISTRO 3 — Burocratica
+Capa de verdad: Burocratica
+Contenido: Actas de Yselle, sellos, rutas, prisioneros vivos, clasificaciones.
+Como debe usarse en mesa: Base para acceso, defensa legal, chantaje y futuras ordenes.
+REGISTRO 4 — Sospechada bajo negro
+Capa de verdad: Sospechada bajo negro
+Contenido: Raiz superior: Estandarte Alto, Tutoria Remota, Deuda Amarilla, Voto de Invierno.
+Como debe usarse en mesa: Peligro futuro; no resolver de forma rapida ni limpia.
+REGISTRO 5 — Mentira enemiga
+Capa de verdad: Mentira enemiga
+Contenido: Caelan era menor irregular; Lysandra culpable aparente; Bastion debia separarse.
+Como debe usarse en mesa: Puede regresar como propaganda, rumor, acusacion cortesana o trampa juridica.
+VII. Audiencias, musica y reposicion de Caelan como activo
+Tras la fase mas dura de Krastellan, Caelan no fue liberado a descanso sentimental. Recibio reposicion funcional. La herida del costado fue estabilizada y dejo de importar salvo por infeccion, rendimiento, apariencia o coste. La Casa no pregunto como se sentia; midio disponibilidad, utilidad y riesgo. Este ajuste de tono debe permanecer despues de la correccion del jugador: el Imperium exige hasta que el individuo desaparece o sirve mejor.
+Caelan uso la sala de organo y la musica ritual no como terapia, sino como disciplina de presencia. La Letania de la Furia y luego la Letania de la Furia y Juramento produjeron fervor visible incomodo. Esto prepara Consejo y reputacion, pero tambien puede atraer lectura eclesial o sospecha de vanidad/ardor excesivo. La musica de Caelan no suaviza el grimdark; convierte devocion, linaje y presion social en instrumento.
+En el Consejo de Cadena, Honor y Custodia, Caelan rechazo el elogio sentimental y sostuvo que cumplir el juramento era el deber, no una excusa para la adulacion. Esa postura no renuncia a paga, restitucion, equipo ni privilegios de servicio concedidos despues por acta. Acepto revision, no autoridad sobre Purga Gris. Cuando se trato Bastion, Caelan sostuvo que el mastin es propiedad de la Casa bajo custodia operativa, no simple posesion personal. El Consejo vio el vinculo como recurso y vulnerabilidad.
+La relacion con Yselle fue recalibrada por tono. Ella no debe suavizar a Caelan ni interpretar sus decisiones como trauma moderno. Su funcion es acta, cadena, prueba, advertencia legal y cuchillo de tinta. Si discute, debe hacerlo por jurisdiccion, sello, precedencia o peligro de archivo, no por cuidado emocional.
+VIII. Teatros futuros: Calcedon, Puerta Muda y Frontera de Auxilio
+La Camara de Mapas Menores presento tres teatros. Calcedon quedo como frente de seguimiento, no juramento de Caelan. Puerta Muda quedo como teatro interno de autoridad, tal vez presencia controlada o cebo nominal, pero no mando directo. Frontera de Auxilio aparecio como teatro de alto encaje para un juramento exterior real. Caelan eligio Frontera como candidata si se le asigna con marco operativo completo.
+Esta decision define el estado narrativo actual: no hay mision activa. Caelan esta disponible. La preparacion para nuevo juramento esta completa 4/4, y la candidatura a Frontera de Auxilio lista 3/3, pero falta firma, destino y autoridad. La Casa puede retenerlo, exhibirlo, enviarlo o usarlo como pieza de presion. El DM no debe convertir disponibilidad en libertad absoluta; un noble menor en una Casa de Caballeros siempre pertenece a una red de sellos, sangre y deuda.
+REGISTRO 1 — Calcedon / CANTICUM
+Teatro: Calcedon / CANTICUM
+Estado: Bajo seguimiento local; juramento operativo cumplido.
+Lectura de Caelan: No reclamar como nueva gloria.
+Uso futuro: Puede volver si Saelle/Kastor/Evara fallan o si ruta se contamina.
+REGISTRO 2 — Puerta Muda
+Teatro: Puerta Muda
+Estado: Interno, gris, sensible.
+Lectura de Caelan: Solo presencia nominal o cebo bajo sello.
+Uso futuro: Puede servir para rematar Purga Gris sin dar mando a Caelan.
+REGISTRO 3 — Frontera de Auxilio
+Teatro: Frontera de Auxilio
+Estado: Candidatura lista; sin firma.
+Lectura de Caelan: Unico juramento exterior real digno de nueva asignacion.
+Uso futuro: Proximo arco probable: batalla, rescate, asedio, reputacion de guerra.
+El jugador redefinio el entorno como evento de caceria de guerra: rastrear a alguien en medio de campo de batalla, con nubes, disparos simulados, pasos, olores, ruido y criterios de evaluacion medibles. El maestro de armas acepto y abrio el Foso de Caceria de Guerra VII. Desde ese momento la caza dejo de ser deporte. Se convirtio en doctrina: llegar al objetivo, no perder rastro, medir tiempo y contar impactos.
+La primera Caceria de Guerra uso un penal como presa, tres rastros, humo, ruido y cera roja. Caelan y Bastion identificaron el rastro verdadero, recibieron un impacto simulado, no perdieron la presa y cerraron en siete minutos dieciocho segundos. Esa escena establecio tres verdades: Caelan puede rastrear bajo guerra; Bastion puede mantenerse al flanco; y la Casa no desperdicia penales si pueden seguir sirviendo.
+La Fase III puso presa armada. Caelan fallo el primer rastro por una ruta falsa bien fabricada; Bastion marco correccion sin romper formacion. El condenado disparo hacia Bastion. Caelan tardo un latido, y Bastion aplico protocolo de emergencia: replegar, marcar, no atacar. Caelan neutralizo por margen justo. La leccion es importante: el mastin salvo el rastro, pero el error inicial podria haber matado hombres en una guerra real.
+La Fase IV exigio presa viva y extraccion bajo fuego. Caelan articulo doctrina imperial: un hereje bueno es un hereje muerto, pero un traidor vivo puede abrirse para informacion. El condenado llevaba capsula de laton como dato simulado. Bastion bloqueo sin destripar, Caelan neutralizo no letalmente y extrajo bajo fuego, recibiendo marcas de cera. La presa sobrevivio porque era contenedor de informacion, no porque su vida tuviera valor moral.
+REGISTRO 1 — Fase III - Presa armada
+Fase: Fase III - Presa armada
+Prueba: Rastrear objetivo que dispara de vuelta.
+Resultado: Aprobado con advertencia; 8:51; rastro inicial falso corregido por Bastion.
+Consecuencia mecanica/narrativa: Protocolo de emergencia validado parcialmente.
+X. Desarrollo de Caelan
+Caelan evoluciono desde noble menor que cumplia un auxilio hacia actor incomodo con capacidad de convertir honor en procedimiento. Su rasgo central no es bondad ni rebeldia sentimental. Es la capacidad de usar juramento, prisionero, sello, musica, perro, disparo y frase cortesana como partes de una misma maquina. Esa competencia aumenta su valor y su peligro.
+Caelan no debe narrarse como emocionalmente sano o roto segun categorias modernas. Debe narrarse como producto funcional y desagradablemente exacto de una cultura que convierte personas en linaje util. Su sarcasmo, frialdad, aceptacion de penales y lenguaje de deber no son sintomas externos al Imperium; son la manera en que un noble menor sobrevive sin un Trono Mechanicum propio y sin herencia segura.
+XI. Desarrollo de Bastion
+Bastion paso de mastin de guerra y simbolo de linaje a prueba viva, activo bajo custodia y herramienta de captura. La Sombra de Krastellan intento usarlo como vector de reaccion porque conocia su importancia. La respuesta de Caelan y la cadena de Yselle lo preservaron como propiedad de Casa bajo custodia operativa, no como animal privado susceptible de arrebato sentimental.
+El entrenamiento reciente cambia su ficha narrativa. Bastion aprende flanco fuera de linea de fuego, lectura de rastro contaminado, rechazo de señuelo, marcado corporal, replegarse ante disparo dirigido, bloquear presa viva, no destruir contenedor de informacion, morder solo equipo autorizado, soltar al primer mandato y retroceder contra instinto. Sigue siendo bestia peligrosa; precisamente por eso el avance importa.
+XII. Relaciones y cambios
+REGISTRO 1 — Ser Garran
+Personaje / grupo: Ser Garran
+Cambio confirmado: Autoridad de Casa sobre Purga Gris; autorizo duelo; conserva cuchillo institucional.
+Lectura para futuras escenas: No padre tierno. Mide utilidad, sangre, verguenza y resultado.
+REGISTRO 2 — Lady Maerwyn
+Personaje / grupo: Lady Maerwyn
+Cambio confirmado: Sello privado no usado; duda de cera azul recontextualizada como trampa/counterinteligencia.
+Lectura para futuras escenas: Puede apoyar, manipular, casar, proteger o sacrificar reputacion si conviene.
+REGISTRO 3 — Severin Vale
+Personaje / grupo: Severin Vale
+Cambio confirmado: Inocencia operativa reconocida; auditoria residual abierta por archivo derivado VALE-SV.
+Lectura para futuras escenas: Mentor severo y testigo; no exento de sombra documental.
+REGISTRO 4 — Lysandra
+Personaje / grupo: Lysandra
+Cambio confirmado: Pantalla documental probable; sospecha activa retirada bajo gris.
+Lectura para futuras escenas: Rivalidad cortesana permanece. Puede volver como aliada amarga, victima politica o espejo de culpa fabricada.
+REGISTRO 5 — Rauk Halven
+Personaje / grupo: Rauk Halven
+Cambio confirmado: Custodia y violencia controlada; no central en entrenamiento reciente.
+Lectura para futuras escenas: Usar para prisioneros, golpes, seguridad y frases utilitarias.
+REGISTRO 6 — Talia Voss
+Personaje / grupo: Talia Voss
+Cambio confirmado: Capturo Edras y sostuvo custodia/tiro en arco anterior.
+Lectura para futuras escenas: Contacto de punteria pragmatica; puede aprobar entrenamientos duros o cubrir extracciones.
+XIII. Reputacion y capas de poder al Turno 197
+REGISTRO 1 — Publica noble
+Capa: Publica noble
+Estado: Caelan cumplio Calcedon y sobrevivio una purga domestica sin quedar culpable.
+Consecuencia: Respeto incomodo; rivales buscan grietas.
+REGISTRO 2 — Secreta gris
+Capa: Secreta gris
+Estado: Sabe demasiado sobre Mater Tacita y Forja Selectiva Menor.
+Consecuencia: Puede ser protegido, vigilado o enviado lejos.
+REGISTRO 3 — Burocratica
+Capa: Burocratica
+Estado: Actas sostienen inocencia operativa, custodia Bastion y avances de entrenamiento.
+Consecuencia: Base para asignaciones y defensa ante acusaciones.
+REGISTRO 4 — Eclesial
+Capa: Eclesial
+Estado: Letania y fervor visible incomodo permanecen.
+Consecuencia: Puede abrir puertas o generar vigilancia si se exacerba.
+XIV. Recursos, estado y relojes al cierre
+REGISTRO 1 — Corrupcion visible
+Recurso / reloj: Corrupcion visible
+Estado T197: 0.
+Nota para continuidad: No hay warp demostrado en Forja Selectiva Menor.
+REGISTRO 2 — Sospecha Casa Mayor
+Recurso / reloj: Sospecha Casa Mayor
+Estado T197: 1/6 bajo sello negro.
+Nota para continuidad: No escalar sin prueba o escena de alto riesgo.
+REGISTRO 3 — Preparacion nuevo juramento
+Recurso / reloj: Preparacion nuevo juramento
+Estado T197: 4/4 completa.
+Nota para continuidad: Permite firma futura sin nueva preparacion basica.
+REGISTRO 4 — Candidatura Frontera de Auxilio
+Recurso / reloj: Candidatura Frontera de Auxilio
+Estado T197: 3/3 lista.
+Nota para continuidad: Teatro recomendado, no mision activa.
+XV. Cabos sueltos que deben volver
+La raiz superior de Mater Tacita: Estandarte Alto, Tutoria Remota, Deuda Amarilla, Voto de Invierno. Debe sentirse superior a Severia, no resuelta por su muerte.
+Puerta Muda y Loran Ceth: ruta de canil, puerta muda, orden de huir si Bastion quedaba con Caelan. Puede convertirse en escena de cebo controlado.
+Ormella Sarn-Veyr: llave primaria, viuda de precedencia, testigo vivo. Su supervivencia crea valor y riesgo.
+Los casos previos de menores: dos muertos, uno vivo y util como prueba. Pueden volver como cadaveres politicos, reliquias, testigos o acusacion.
+Lysandra: pantalla probable, no culpable activa. Puede resentir, pactar o ser usada otra vez.
+Vale: inocencia operativa, pero archivo derivado VALE-SV sigue como advertencia de que hasta un tutor puede ser convertido en arma documental.
+Bastion: si lo separan, envenenan o reclaman, la historia debe recordar que es prueba viva y activo legal. No repetir una separacion sin doble sello y causa fuerte.
+Frontera de Auxilio: teatro futuro preparado. Debe presentar guerra real, no solo intriga domestica.
+Fervor visible incomodo: la Letania puede abrir escenas de misa, inspiracion o vigilancia eclesial.
+XVI. Cronologia ampliada por bloques
+REGISTRO 1 — 43-70
+Turnos: 43-70
+Bloque: Calcedon IX
+Hecho central: Caelan convierte auxilio en juicio de Casa; preserva nucleo, captura testigos, valida CANTICUM.
+Consecuencia: Juramento cumplido, deuda local, frente Krastellan abierto.
+REGISTRO 2 — 71-85 aprox.
+Turnos: 71-85 aprox.
+Bloque: Retorno y primera trampa Krastellan
+Hecho central: Rhost Klyr y red de canil intentan separar/reinscribir Bastion.
+Consecuencia: Caelan conserva custodia y evita narrativa de reaccion irregular.
+REGISTRO 3 — 86-100 aprox.
+Turnos: 86-100 aprox.
+Bloque: Galeria de Perros Negros
+Hecho central: Pruebas olfativas, cera azul, placa negro-dorada y Protocolo Halcon Mojado.
+Consecuencia: Lysandra empieza a verse como pantalla documental, no raiz.
+REGISTRO 4 — 101-120 aprox.
+Turnos: 101-120 aprox.
+Bloque: Itinerarios Umbra / Mater Tacita
+Hecho central: Odran Syle, Cyran, Vadra, Edras y Ormella abren doctrina de tutela.
+Consecuencia: Se revela seleccion de menores leales utiles.
+REGISTRO 5 — 121-140 aprox.
+Turnos: 121-140 aprox.
+Bloque: Mesa de Tutoria / VALE-SV
+Hecho central: Corvin Rane y archivo derivado implican a Vale documentalmente sin firma viva.
+Consecuencia: Inocencia operativa de Vale se vuelve defendible pero auditada.
+REGISTRO 6 — 141-149 aprox.
+Turnos: 141-149 aprox.
+Bloque: Severia y duelo
+Hecho central: Severia intenta activar correccion; Caelan reclama sangre y gana duelo.
+Consecuencia: Severia muere, confiesa estructura, Purga Gris acelera.
+REGISTRO 7 — 150-164
+Turnos: 150-164
+Bloque: Reposicion, musica y consejo
+Hecho central: Caelan usa organo/letanias; se prepara para audiencia; Yselle registra.
+Consecuencia: Fervor visible incomodo 4/6; preparacion espiritual completa.
+REGISTRO 8 — 165-179
+Turnos: 165-179
+Bloque: Consejo y correccion de tono
+Hecho central: Caelan rechaza recompensa, acepta revision, no reclama Purga Gris; Bastion es prueba y vulnerabilidad.
+Consecuencia: Caelan queda activo util, no paciente. Yselle vuelve a funcion de acta.
+REGISTRO 9 — 180-186
+Turnos: 180-186
+Bloque: Audiencia doctrinal y teatros
+Hecho central: Forja Selectiva Menor clasificada; Caelan separado de culpa; Frontera de Auxilio elegida como futuro juramento.
+Consecuencia: Sin mision activa; candidatura preparada.
+XVII. Entrada rapida lista para pegar si se necesita resumen corto
+XVIII. Instruccion final de tono para proximos turnos
+________________
+CAPÍTULO III — PUERTA NOVENA Y KROZGAK (T198–T414)
+Estado: INTEGRADO POR ORDEN DEL JUGADOR tras auditoria T358-T414. Esta entrada prevalece sobre T358 para describir el retorno, pero el interludio de descanso y alta medica prevalece para la salud presente.
+Fecha de integracion: 2026-07-09.
+Rango cubierto: turnos 198-414.
+Regla de lectura:
+T358 registra el cierre operativo de Puerta Vargrif. T414 registra el retorno posterior y prevalece sobre T358 en ese arco; el interludio de descanso prevalece sobre T414 solo para salud y disponibilidad corporal. La familia interna expandida T414R queda aprobada sin alterar la linea directa.
+Resumen ejecutivo:
+El Juramento de la Puerta Vargrif fue cumplido y cerrado. Caelan acudió como emisario de auxilio Hawkshroud bajo deuda Vargrif, no como comandante planetario ni salvador universal. La Puerta Novena fue cerrada/sostenida el tiempo exigido para que tres regimientos imperiales cruzaran el Corredor Vargrif. La deuda antigua Hawkshroud-Vargrif quedó limpia en archivo con testigos, metal cerrado y registros evacuados.
+Puerta Novena:
+La compuerta cerró tras el cruce, con cierre registrado en 9 minutos y 12 segundos, integridad 5/6 y contaminación inferior funcional. Caelan prohibió abrir por heridos, civiles, llanto codificado, señales dudosas o presión emocional. La victoria fue exactitud de deuda, no misericordia.
+Brugg Dienteklanza:
+Brugg fue abatido y decapitado por Caelan ante testigos. Su cabeza estuvo inicialmente en pica sobre Puerta Novena como disuasión y prueba de defensa. En el estado actual T414, Ferrum-IX recuperó la cabeza y la trasladó a Krastellan; queda sellada como trofeo secundario bajo custodia de Casa.
+Krozgak Portarruina:
+En T358 Krozgak seguía no localizado y la cacería voluntaria quedaba abierta. En T414 la cacería posterior se resolvió: Krozgak fue abatido y decapitado por Caelan. Su cabeza queda en contención fría, triple sello, biohostil, bajo custodia de Casa y reclamo de Caelan. La cacería fue voluntaria, útil y victoriosa, pero posterior al cumplimiento del juramento, no parte obligatoria del mandato mínimo.
+Estado actual de Caelan:
+Caelan regresó a Krastellan vivo, herido, estable, reconocido como ejecutor del Juramento Vargrif y reclamante de los trofeos Brugg/Krozgak. La Casa no formuló acusación formal de desobediencia en audiencia inicial. La cacería contra Krozgak quedó reconocida como voluntaria, útil y victoriosa, pero su conducta posterior queda bajo rienda, instrucción y recuperación médica obligatoria.
+Heridas y restricciones:
+Costilla fijada, dolor moderado-alto, costado cerrado, hombro estable, ojo funcional, cicatrices recientes limpias, sin sangrado activo. No apto para campaña inmediata, combate, duelo, audiencia prolongada ni porte de armas cargadas. Corrupción visible 0. Capellanía acepta ortodoxia, pero marca peligro de confundir devoción con impulso suicida. Frase doctrinal: vive útil; muere necesario.
+Equipo y trofeos:
+Bastion:
+Bastion sobrevivió, regresó a Krastellan, queda vivo, estable, con cicatrices y vendaje menor. Se reconoce como activo de Casa Hawkshroud bajo custodia operativa de Caelan, con mérito de guerra por participación en abatimiento de Krozgak. Lady Maerwyn autoriza su permanencia con Caelan y le impone función de guardarlo de enemigos y de sí mismo. Bastion puede corregir intrusiones de hermanos o menores imprudentes sin mutilación permanente.
+Contactos y testigos externos:
+Elayne Vargrif vive y mantiene Puerta Novena bajo mando. Idena Voss conserva respaldo comisarial y expediente defendible. Heth-44 sostiene cadena de custodia técnica, picts e informes. Severian Vargrif vive como invocador/testigo. Dho conserva autoridad sobre el mecanismo. El piloto de Ferrum-IX queda como aliado operativo y testigo de traslado, recuperación de Brugg y retorno a Krastellan.
+Krastellan:
+El centro activo de la campaña se desplaza a Krastellan: ala médica de rama, Salón del Ferro-Juramento, armería, cámaras de custodia de trofeos, consejo doméstico, capellanía y recuperación vigilada. Vhal-Mordane Secundus no está salvado; la guerra continúa, aunque Puerta Novena y el frente inmediato fueron estabilizados parcialmente. El frente doméstico Calcedon/Rhost Klyr/canil Veyr/cera azul sigue pendiente y puede reactivarse cuando Caelan se recupere.
+Familia interna expandida:
+Edrik, Ysella y Tavin quedan integrados como familia interna expandida de la línea Garran/Maerwyn. No sustituyen a Elira, Odran, Caelan, Ysabet, Varro ni Lucien. Funcionan como menores domésticos/pupilos/sobrinos de crianza de la rama, útiles para escenas de presión familiar, rumor, afecto calculado, testigos menores y manipulación doméstica.
+Cabos sueltos:
+- Cierre formal de audiencia mixta restringida.
+- Recuperación médica de Caelan.
+- Instrucción marcial, capellánica y de caza.
+- Revisión de pistola con Lady Maerwyn.
+- Reparación del long-las.
+- Certificación/exhibición de trofeos.
+- Escena con hermanos mayores y familia interna expandida.
+- Uso futuro de Elayne/Voss/Heth/Vargrif como testigos externos.
+- Reactivación de Rhost Klyr, canil doméstico Veyr y cera azul.
+Estado final:
+Juramento de la Puerta Vargrif: cumplido, cerrado, misión terminada. Cacería Krozgak: posterior, voluntaria, útil, victoriosa. Caelan: vivo, herido, estable, en Krastellan bajo recuperación e instrucción. Bastion: vivo, mérito de guerra, activo de Casa. Trofeos: Brugg y Krozgak bajo custodia. Puerta Novena: cerrada/operacional bajo Elayne. Krastellan: foco actual de recuperación, juicio doméstico y amenaza pendiente.
+.
+INTERLUDIO — RECUPERACIÓN, RECOMPENSA Y NOVENTA DÍAS (T415–T452)
+Despues del retorno de Vargrif, Caelan permanecio el tiempo suficiente bajo tratamiento, reposo, alimentacion, vigilancia y control de la Casa. No hubo milagro ni curacion instantanea: hubo dias de inmovilidad, respiracion medida, vendajes cambiados, sueno fragmentado, inspeccion medica y disciplina impuesta hasta que el cuerpo cerro lo que la guerra habia abierto.
+Al terminar el interludio, la costilla fijada consolido, el costado dejo de limitar movimiento, el hombro recupero estabilidad y el ojo no presenta deficit mecanico. Las cicatrices permanecen. El dolor antiguo puede volver como sensacion narrativa bajo frio, impacto o memoria, pero no aplica penalizador por defecto.
+No se modifican reputaciones, relaciones, lealtades, sospecha, corrupcion, progresion de habilidades ni estado de Bastion. El descanso cierra la herida; no escribe decisiones que el jugador no tomo.
+Estado mental/espiritual: Sin cambio automatico; corrupcion visible 0 y vigilancia capellanica vigente.
+Disponibilidad: Apto para entrenamiento, viaje, combate, duelo o audiencia si obtiene equipo, permiso y contexto.
+Conflictos vivos: Rhost Klyr, Canil Veyr, cera azul, certificacion del diente de Krozgak, reparacion del long-las, administracion de recompensa, politica familiar y futuro juramento.
+Regla de continuidad: Toda referencia a Caelan herido describe el retorno T414; para el presente manda este interludio de alta medica.
+TIME SKIP CANONICO T415-T451 - ELIPSIS DE 90 días
+No se narran ni reconstruyen los turnos omitidos. El DM anterior desarrollo una trama no solicitada alrededor de sellos azul/blanco en una carabina; esa trama no entra al canon activo.
+Durante 90 días terranos Caelan completo reposo y tratamiento, mantuvo presencia domestica sin decisiones mayores registradas y devolvio el Kastellan-M36 prestado. La armeria cerro el registro de prestamo sin audiencia, conspiracion ni revelacion secreta.
+El long-las personal es un arma distinta y sigue danado. La cera azul del frente Rhost Klyr/Canil Veyr es otra evidencia y no queda cerrada por esta decision.
+T452 es el siguiente turno jugable. Caelan se encuentra en sus aposentos asignados de Krastellan, recuperado, sin mision activa y sin companeros presentes por defecto salvo Bastion si la Casa permite su presencia.
+Duracion: 90 días terranos; T415-T451 omitidos.
+Rifle prestado: Kastellan-M36; carabina laser noble; devuelta descargada; doble sello administrativo azul/blanco.
+Arma personal: Long-las de Caelan; danado, 0/40 portada, pendiente de recalibracion.
+Relaciones y reputacion: Sin cambios automaticos adicionales. Los valores confirmados ya incluyen el cumplimiento Vargrif; la recompensa materializa ese resultado.
+Mision: Ninguna activa al comienzo de T452.
+Recompensa: Concedida durante T415-T451 sin escena canonizada: Ejecutor Juramentado de la Puerta Novena, fondos, aposentos, personal, equipo controlado, Favor 1/1 y Merito 1/3.
+CONSECUENCIA ADMINISTRATIVA DEL JURAMENTO VARGRIF - RECOMPENSA T452
+Entre el retorno herido y la apertura de T452, escribas, armeros y administradores convirtieron el cumplimiento en recursos verificables. La historia conserva el resultado, no inventa la ceremonia ausente.
+La recompensa fortalece la capacidad de accion de Caelan, pero tambien lo hace mas visible, mas costoso de perder y mas facil de auditar. La Casa le entrega herramientas; no le entrega independencia.
+REGISTRO 1 — Reconocimiento
+Hecho canonico: Reconocimiento
+Resultado: Ejecutor Juramentado de la Puerta Novena
+Consecuencia narrativa: Puede ser anunciado, impugnado o usado como precedente de servicio
+REGISTRO 2 — Liquidez
+Hecho canonico: Liquidez
+Resultado: 20.000 tronos mas 2.000/mes por 12 meses
+Consecuencia narrativa: Compra opciones, sobornos legales, equipo y patronazgo; cada gasto puede dejar registro
+REGISTRO 3 — Casa
+Hecho canonico: Casa
+Resultado: Seis estancias, canil adyacente y cinco servidores
+Consecuencia narrativa: Caelan puede recibir, planificar y administrar sin poseer el edificio
+REGISTRO 4 — Movilidad
+Hecho canonico: Movilidad
+Resultado: Vehiculo mas seis hombres por 72 horas, previa autorizacion
+Consecuencia narrativa: Permite una salida limitada sin crear ejercito personal
+REGISTRO 5 — Vargrif
+Hecho canonico: Vargrif
+Resultado: Favor 1/1 y derecho a un diente purificado de Krozgak
+Consecuencia narrativa: Recurso externo consumible y trofeo sujeto a certificacion
+REGISTRO 6 — Crecimiento
+Hecho canonico: Crecimiento
+Resultado: Merito de Juramento 1/3
+Consecuencia narrativa: Dos nuevos juramentos comparables pueden abrir peticion de feudo o Armiger
+CAPÍTULO IV — VANN KERETH, LA CORONA VACANTE (T453–T677)
+JURAMENTO DE LA FRONTERA DE AUXILIO: LA CORONA VACANTE DE VANN KERETH
+Este bloque se añade después de T452 y absorbe, sin duplicar, la propuesta T453-T514 y su continuación T515-T605. Los resultados narrados se conservan. Cuando una fórmula de tirada no quedó registrada, se marca como fórmula no conservada y no se vuelve a tirar ni se inventa una recompensa retroactiva.
+Comisión y preparación — T453-T514
+Caelan recibió la orden de responder la deuda de House Hawkshroud con House Orsain en Vann Kereth. La fuerza inicial real estuvo compuesta por diez humanos —Caelan, Hadran Kest, Borek Tarn, Mira Veyne, Jorren Sable, Sabeth Corven, Rho-17, Jannik Krail, Nera Dhal e Iven Rhael— y Bastion. La Lanza Auxilia XVII de 1.260 soldados no fue asignada, no estaba presente y no podía ser invocada como refuerzo automático.
+Caelan impuso una doctrina contra Drukhari: no perseguir por reflejo, sospechar de las rutas demasiado limpias, aislar recuperados y heridos, preservar pruebas y dejar la tecnología xenos a especialistas. Hadran recibió un relevo operativo sellado, Sabeth autoridad de extracción médica, Iven custodia de actas y Bastion la orden de recuperar a Caelan si quedaba inconsciente. La comisión completó un ejercicio de extracción con 11/11 participantes recuperados.
+El tránsito en el Testigo de Bronce quedó bajo mando naval absoluto de Aurelia Vhorne. Duró 13 días, 7 horas y 19 minutos subjetivos, frente a 19 días, 4 horas y 52 minutos exteriores estimados. La traducción terminó sin bajas ni corrupción persistente.
+En la terraza de mantenimiento noreste, a 7,8 km de Crownkeep, la comisión abatió siete Kabalites y destruyó un transporte ligero compatible con un Venom. Harl Venn murió por splinter fire y toxina. Bastion ejecutó «caza, mata, vuelve»: abatió al enemigo y regresó sin tocar equipo contaminado. La terraza quedó como base provisional bajo Maela Vorr, con una batería antiaérea manual y una descarga completa en el último registro T514.
+Entrada a Crownkeep y autenticación — T515-T558
+La columna cruzó conductos con filamentos, proyectores splinter, cebos humanos y posiciones Kabalite. Rho-17 y Jannik aislaron mecanismos mientras Caelan, Mira y Bastion abrían paso. Eliane Voss fue hallada gravemente herida; Caelan ordenó dejarla viva y sin tratamiento para priorizar Crownkeep. Iven registró la decisión. Su destino sigue desconocido. Censor Hesse apareció muerto en una jaula de ascensor junto a una data box atrapada; cuerpo y caja no fueron recuperados.
+Iven presentó formalmente la comisión. Caelan prometió recuperar Crownkeep por precisión, no por carga indiscriminada. La formación quedó con Caelan, Mira y Bastion en vanguardia; Hadran al mando del cuerpo principal. El código de ruta fue: blanco seguro, ámbar incompleto, rojo sin contacto, doble rojo activo, azul retirada y negro perdido o comprometido.
+Crownkeep conservaba 260 supervivientes en sectores controlados y una estimación de 700 a 1.400 fuera de ellos. La cifra era inteligencia de aquel corte, no una población salvada ni una cantidad actual eterna. Saint Kord, la Sala de Contrapesos y el puesto de Serah Morn fueron recuperados y enlazados mediante guarniciones, técnicos y marcas.
+Antecámara de la Raíz e Ilyra — T559-T578
+En el Spindle se abatieron tres Drukhari, incluida una figura alada, y se recuperaron cuatro personas del ascensor. Caldus Rehn confirmó que Lady Ilyra avanzaba hacia la Antecámara con Hest Var-9. Allí, un oficial Drukhari operaba un marco de cristal negro contra el seal mientras una partida Orsain resistía tras una barricada.
+Lady Ilyra Orsain fue autenticada visual, genealógica y técnicamente. Reconoció a Caelan como Executor dentro de los límites del juramento, sin ceder voluntad, sucesión ni soberanía. Caelan declaró que combatiría antes y junto a la autoridad legítima Orsain, no por encima de ella. Se fijó un protocolo de negativa: Ilyra declara y razona; Caelan objeta, exige prueba y registra; ambos examinan alternativas antes de considerar imposible un objetivo obligatorio.
+Saneamiento, sabotaje humano y corredor — T579-T592
+Caelan priorizó certificar la línea entre Antecámara y Bastión Oriental. El equipo retiró dispositivos de registro, una trampa de caída y un campo de proximidad que dejaba un paso blanco de 40 cm. Un repetidor cortado condujo a Varek Senn, herido y atado, y a una mujer con coraza de Guardia Interior sin identificación que lo obligaba a insertar un relay Drukhari.
+Rho aisló el dispositivo. La cautiva portaba una hoja de cristal, una raíz Imperial robada y un implante xenos capaz de dolor, vigilancia, parálisis o posible ejecución. No se confirmó control mental. Caelan la entregó viva a jurisdicción de Ilyra, exigió nombre, linaje y cadena de intereses, y aceptó que el parentesco sin prueba no bastaba para condenar una familia.
+La línea Antecámara–Bastión Oriental quedó recertificada para infantería, técnicos y camillas disciplinadas, no para carros, escudos pesados ni armas de apoyo completas. Dos enlaces vox redundantes conectaron el mando general con la ciudadela interior. Odran reconoció que la ruta no recuperaba Crownkeep entero, pero evitaba que sus guarniciones murieran aisladas.
+Ascenso al repetidor fijo — T593-T605
+Tras 25 minutos de descanso, cinco de ellos dedicados a soltar músculos, la comisión ascendió al repetidor. Odran asignó apoyo técnico y un destacamento Orsain bajo el sargento Halven Rusk. Para continuidad se fija que eran nueve guardias en total incluyendo al sargento; Halen Rusk, rescatado antes en la Sala de Contrapesos, es una persona distinta.
+El ascensor principal estaba manipulado y fue negado. En la escalera, un guardia herido formaba parte de una trampa de presión y toxina. Caelan abatió al Kabalite que cubría el acceso. En la cámara superior de ventilación, Caelan y Mira mataron a dos Drukhari que forzaban la autenticación neural de Edras Kelm. Rho purgó consolas y Sabeth estabilizó al Adeptus Minor. La cámara quedó como primer punto de control.
+En la sala de alimentación y cifrado, tres cargas splinter estaban enlazadas a la puerta. Iovar Pell permanecía atado dentro mientras un Kabalite y un prisma negro trabajaban sobre la alimentación. Caelan sincronizó una distracción mecánica; Mira abatió al enemigo. Jannik abrió sin detonación y Rho aisló el prisma. El dispositivo había reunido cuatro de siete segmentos para imitar la identidad técnica del repetidor, sin completar el control. Iovar fue liberado y estabilizado.
+Al final de T605, la sala era el segundo punto de control. El prisma seguía incrustado y aislado. La compuerta hacia la plataforma principal permanecía cerrada. Plataforma, núcleo superior y corona de antenas no estaban certificados. El reloj visible reconstruido marcaba 10:02:12 dentro de la ventana de 18 días; esa cifra pertenece al corte, no al turno siguiente.
+Desarrollo, relaciones y reputación del periodo
+REGISTRO 1 — Ilyra / Caelan
+Eje: Ilyra / Caelan
+Cambio canónico T453-T605: Alianza operacional y respeto condicionado; +10 respeto operacional como delta de escena.
+Límite: No amistad, romance, soberanía ni obediencia personal.
+REGISTRO 2 — Odran / Caelan
+Eje: Odran / Caelan
+Cambio canónico T453-T605: Reconocimiento de comisión y +10 respeto operacional por la ruta recuperada.
+Límite: Odran conserva mando general.
+REGISTRO 3 — Mira / Caelan
+Eje: Mira / Caelan
+Cambio canónico T453-T605: +10 respeto y +15 confianza táctica por fuego coordinado y caza compartida.
+Límite: No implica afecto ni romance.
+REGISTRO 4 — Hadran / Caelan
+Eje: Hadran / Caelan
+Cambio canónico T453-T605: +10 respeto y +10 confianza funcional por relevo, informes y disciplina.
+Límite: Sólo dentro de la comisión.
+REGISTRO 5 — House Orsain
+Eje: House Orsain
+Cambio canónico T453-T605: +5 pública, +5 secreta y +10 burocrática en el corte T605.
+Límite: Local y provisional; misión aún abierta.
+REGISTRO 6 — Defensores de Crownkeep
+Eje: Defensores de Crownkeep
+Cambio canónico T453-T605: +10 pública, +5 secreta y +5 burocrática en el corte T605.
+Límite: No equivale a lealtad personal.
+Decisiones que el DM no debe suavizar
+Caelan dejó a Eliane Voss viva y sin tratamiento para priorizar Crownkeep; el acto tiene testigo y consecuencias potenciales.
+Reconoció autoridad Orsain, pero retuvo el derecho de objetar y registrar incumplimientos que vuelvan imposible el juramento.
+Entregó viva a la saboteadora para cirugía, interrogatorio y juicio, sin confundir coerción xenos con inocencia automática.
+Prefirió rutas, marcas, puntos de control, redundancia y descanso a un avance espectacular.
+Usó a Bastion para matar, rastrear, derribar y capturar de forma discriminada.
+Registro breve de personas nombradas no admitidas en PERSONAJES
+Letha Corren, Alessa Vorn, Anja Vess, Corven Hale, Toman Rell, Sera Jann, Caldus Rehn, Vessa Marr, Cale Merrow, Jerek Fane y Renn Vahl permanecen registrados aquí mientras no cumplan los criterios de relevancia persistente. No deben recibir ficha completa por una sola aparición. Halen Rusk se mantiene separado de Halven Rusk.
+Cabos abiertos al final de T605
+Plataforma principal, núcleo superior y corona de antenas del repetidor.
+Extracción, negación o estudio seguro del prisma xenos incrustado.
+Estado interno del Throne-vault y de los tres anchors.
+Identidad, linaje, voluntariedad y cadena de la saboteadora.
+Estado de Eliane Voss, Dervan Sol, Censor Hesse y el enginseer perdido del grupo de Renn.
+Cierre legal de la sucesión Orsain y cadena completa de custodia de material xenos.
+ARCO V — VANN KERETH, CIERRE T606-T677
+ACTUALIZACION CANONICA LOCAL T606-T677
+Bloque historico T606-T677 integrado. Conserva los hechos de ese arco y no gobierna el presente T813.
+1. Identidad del bloque
+Periodo cubierto: T606-T677
+Misión: Juramento de la Frontera de Auxilio — La Corona Vacante de Vann Kereth
+Inicio: Segundo punto de control Imperial en el Spindle alto de Crownkeep
+Cierre formal: 39 h 54 min 32 s desde la llegada; restaban 16 d 8 h 05 min 28 s
+Corte T677: 48 h 55 min 25 s desde la llegada; restaban 15 d 23 h 04 min 35 s
+Reanudación: T678, último transporte Hawkshroud en ascenso al Testigo de Bronce
+2. T606-T648 — ascenso, Dracon y precio corporal
+La comisión continuó desde el segundo punto de control del repetidor hacia las zonas altas de Crownkeep. El registro accesible no conserva todas las fórmulas de ataque, daño y resistencia; sus desenlaces no se repiten ni se reclasifican como críticos retroactivos. El enfrentamiento principal terminó con la muerte de Kaevor Threx, Dracon y Mouth of the Third Feast de la Kabal of the Hollow Feast. Murieron además dos Incubi, seis Kabalites y un especialista técnico. Un combatiente Orsain murió durante la acción.
+3. T649-T659 — medicina, reorganización y mando desde la herida
+4. T660-T667 — recuperación de Crownkeep y guerra orbital
+La red de comunicaciones fue consolidada y Crownkeep alcanzó 9/9 sectores prioritarios certificados. Se abrió un corredor de 6,3 km hacia Misericordia-Delta y se establecieron los puestos Kord-1, Ceniza-2 y Misericordia-3. Medicina, agua, energía y evacuación volvieron a circular bajo autoridad Orsain. Terraza Noreste, Espina Sur y Misericordia-Delta quedaron preservadas: 3/3 posiciones, una por encima de las dos exigidas por el juramento.
+Los tres puntos de retorno conocidos fueron cerrados: el sureste quedó neutralizado; el norte, destruido e inerte; el oeste, neutralizado con memoria extraída y núcleo fundido. Una nave Drukhari escapó durante la ruptura orbital inicial. La segunda fue localizada mediante auspex combinado y destruida por el Testigo de Bronce. El módulo de descenso y la última fuerza móvil conocida fueron destruidos después. La fuerza organizada Drukhari quedó quebrada, sin convertir ese resultado en una certificación imposible de exterminio planetario absoluto.
+5. T668-T669 — acta, juramento y límites de la victoria
+House Orsain reconoció formalmente el cumplimiento excepcional antes del vencimiento de la ventana de dieciocho días. La deuda de Caelan por el juramento quedó cerrada. Orsain reconoció una deuda testimonial distinta: memoria, testimonio, expediente, audiencia y respuesta dentro de su jurisdicción y capacidad. Esa deuda no constituye obediencia, propiedad, feudo ni monto económico.
+La cabeza de Kaevor fue asignada a Caelan como trofeo y prueba, sellada para tránsito. Las manos quedaron en poder de House Orsain. El arma curva fue declarada inerte: su biolock fue neutralizado, su memoria copiada y su capacidad ofensiva sellada. La asignación a Caelan es condicional; Rho-17 mantiene custodia técnica y no existe autorización de uso. Lady Ilyra redactó dos cartas selladas, una para Ser Garran y otra para el consejo competente de House Hawkshroud, conservadas por Meredin Voss durante el tránsito.
+6. T670-T677 — purga residual, rescate y retirada
+La reserva fue registrada como 48 efectivos, además del Proctor-Sergeant Arven Holt: 49 personas en la cadena de repliegue. Murieron un ingeniero y tres hombres de armas entre los 48 efectivos; Holt sobrevivió. La comisión original de diez humanos y Bastion terminó con sus once participantes vivos y localizados. El puesto de enlace Hawkshroud fue desmontado y Crownkeep quedó sin reclamación territorial, llaves abiertas ni autoridad Hawkshroud residual.
+7. Estado material al corte
+REGISTRO 1 — Carabina noble personal
+Elemento: Carabina noble personal
+T605: 37/60 + 120
+T677: 33/60 + 120
+Trazabilidad: Consumo neto de 4; desglose de disparos no conservado
+REGISTRO 2 — Pistola de Maerwyn
+Elemento: Pistola de Maerwyn
+T605: 15 penetradores
+T677: 5 penetradores
+Trazabilidad: Consumo neto de 10; desglose de disparos no conservado
+REGISTRO 3 — Caelan
+Elemento: Caelan
+T605: 39/39
+T677: 32/39
+Trazabilidad: Herido en combate; recuperación parcial registrada
+REGISTRO 4 — Corrupción visible
+Elemento: Corrupción visible
+T605: 0
+T677: 0
+Trazabilidad: Sin fenómeno confirmado en el bloque
+8. Relaciones, reputación y memoria
+Ilyra Orsain conserva soberanía y mando interior; el respeto operativo hacia Caelan aumentó sin subordinación personal.
+Ilyra Orsain conserva soberanía y mando interior; el respeto operativo hacia Caelan aumentó sin subordinación personal.
+Odran Helve validó secuencias de combate, comunicaciones y purga desde el mando general.
+Odran Helve validó secuencias de combate, comunicaciones y purga desde el mando general.
+Maela Vorr sostuvo Terraza Noreste y la ruta de descenso.
+Maela Vorr sostuvo Terraza Noreste y la ruta de descenso.
+Aurelia Vhorne conserva autoridad naval y dirige ascenso y debrief; Caelan no posee mando sobre el Testigo de Bronce.
+Aurelia Vhorne conserva autoridad naval y dirige ascenso y debrief; Caelan no posee mando sobre el Testigo de Bronce.
+Meredin Voss autentica acta, deuda, cartas y cadena de custodia.
+Meredin Voss autentica acta, deuda, cartas y cadena de custodia.
+La comisión temporal no se convierte en séquito permanente por sobrevivir al juramento.
+La comisión temporal no se convierte en séquito permanente por sobrevivir al juramento.
+No se asignan sentimientos, culpa, duelo o decisiones íntimas a Caelan; la evidencia conductual queda separada de la agencia del jugador.
+No se asignan sentimientos, culpa, duelo o decisiones íntimas a Caelan; la evidencia conductual queda separada de la agencia del jugador.
+9. Cosas que el DM no debe olvidar
+Bastion sigue inconsciente; su pronóstico, retiro y puesto de honor no están resueltos.
+Bastion sigue inconsciente; su pronóstico, retiro y puesto de honor no están resueltos.
+Una nave Drukhari escapó antes de la destrucción de la segunda; no existe purga planetaria total certificada.
+Una nave Drukhari escapó antes de la destrucción de la segunda; no existe purga planetaria total certificada.
+Vhal Tern, Eris Pell y los cautivos rescatados permanecen vivos en su último registro.
+Vhal Tern, Eris Pell y los cautivos rescatados permanecen vivos en su último registro.
+La placa física del repetidor fue reconocida como propiedad Orsain, pero su entrega material no fue narrada expresamente.
+La placa física del repetidor fue reconocida como propiedad Orsain, pero su entrega material no fue narrada expresamente.
+Mérito de Juramento permanece 1/3. La elegibilidad para 2/3 exige audiencia y autoridad Hawkshroud competente.
+Mérito de Juramento permanece 1/3. La elegibilidad para 2/3 exige audiencia y autoridad Hawkshroud competente.
+T678 comienza dentro del transporte; no hay tirada pendiente ni nueva misión asignada.
+T678 comienza dentro del transporte; no hay tirada pendiente ni nueva misión asignada.
+INTERLUDIO — RETORNO, BASTION Y DEUDA ORSAIN (T678–T742)
+Estado: INTEGRADO Y CANONICO. Cobertura T678-T742. Ultima accion resuelta: Caelan regreso a sus aposentos despues de visitar a Bastion y continuo el reposo. Este bloque amplia el registro narrativo sin borrar ni reinterpretar los cortes anteriores.
+E01 - T678-T680: el cadaver-portador y el atraque
+Durante el ascenso hacia el Testigo de Bronce, el transporte arrastro un cadaver humano modificado adherido al casco. La masa muerta llevaba una estructura negra, un taladro y una carga organica cuyo proposito no podia establecerse sin abrirla. Caelan no permitio que el cuerpo cruzara la frontera entre el vacio y el interior habitado: ordeno abortar el acoplamiento inmediato, exponer el objeto a las opticas externas y mantenerlo fuera del casco hasta que pudiera retirarse sin introducirlo en la nave.
+Un brazo industrial de mantenimiento arranco el cuerpo. La maniobra destruyo el dispositivo antes de que pudiera ser estudiado por completo, pero evito una entrada no controlada y no se confirmo contaminacion interna del transporte. Las opticas conservaron una secuencia preliminar: KRL-IX / 44-THETA / MORTIS-TRANSPORT / 771. Los tres primeros segmentos coincidieron con una advertencia privada contenida en la carta de Ilyra. Caelan reconocio la coincidencia y decidio no comunicarla a Meredin. La cadena oficial solo conoce un vector organico o hibrido destruido antes del atraque; la posible ruta logistica comprometida permanece como secreto exclusivo de Caelan.
+E02 - T681-T685: debrief, custodia y tratamiento
+Tras el atraque, Bastion fue transferido a cirugia y Caelan recibio tratamiento del costado y de las costillas sin analgesia incapacitante. En el debrief con Meredin relato la secuencia operativa de Vann Kereth, firmo el informe y delimito responsabilidades sobre los muertos, los cautivos, la custodia de Kaevor, el arma xenos y el abandono necesario de Eliane Voss. La declaracion quedo corroborada por Hadran Kest y el sargento Halven Rusk. Cuando tuvo oportunidad de agregar informacion, Caelan declaro que no tenia nada mas que reportar; por ello KRL-IX no ingreso al expediente.
+La cabeza de Kaevor quedo como trofeo y prueba bajo cadena registrada. Caelan solicito un solo colmillo del Dracon despues de la verificacion. Las manos fueron transferidas a House Orsain y el arma xenos continuo inerte bajo custodia tecnica. La victoria fue cerrada como cumplimiento excepcional, no como concesion territorial ni como autoridad permanente sobre Orsain o sus defensores.
+E03 - T686-T698: amputacion y estabilizacion de Bastion
+Sabeth Corven detecto que la toxina habia destruido la continuidad neural de la extremidad posterior izquierda de Bastion. La reconstruccion fracaso y la propagacion obligo a una amputacion alta de emergencia. La cadera, el femur proximal y la base neural se preservaron cuanto fue posible, pero el mastin perdio la extremidad. El pulmon derecho permanecio debil y su estado siguio siendo critico aunque estable.
+E04 - T699-T702: reposo en transito y Caballero Cazador
+E05 - T703-T714: retorno, Maerwyn y consejo de rama
+En Krastellan, Caelan devolvio personalmente a Maerwyn su pistola y los cinco penetradores restantes. Solicito tratamiento continuado y reconocimiento para Bastion antes que una recompensa material inmediata. Luego comparecio ante el consejo con el expediente de Vann Kereth, defendio sus metodos por sus resultados y presento su identidad de cazador como una funcion util para la Casa, no como permiso para ignorar toda consecuencia.
+El consejo reconocio a Bastion, acepto para futuras misiones un actuario movil y una estructura variable de especialistas, concedio a Caelan el titulo Primer Cazador Veyr-Hawkshroud y el Derecho Personal de Presa Viva sobre una unica bestia sin propietario legitimo, sujeto a responsabilidad y limites. El Merito de Juramento avanzo de 1/3 a 2/3. Caelan escogio Ghalmek-Tertius como consulta futura; en ese momento no existian respuesta, oferta formal, juramento ni despliegue.
+E06 - T715-T723: convalecencia y consulta Ghalmek
+E07 - T724-T736: Ysabet, Caldris y la opcion Freeblade
+Ysabet inicio el contacto y visito sola a Caelan durante aproximadamente treinta minutos. Presento una copia no firmada que vinculaba House Caldris con una compatibilidad de linea pendiente de respuesta liturgica y patrimonial. La informacion no identificaba pretendiente, contrato ni condiciones completas. Caelan y Ysabet acordaron investigar sin revelar la copia: el preguntaria a Maerwyn por los matrimonios de todos los hermanos, mientras Ysabet continuaria escuchando dentro de la residencia.
+Caelan dejo abierta una posibilidad futura: si alguna vez se convierte en Freeblade y obtiene independencia, nave y recursos, podria ofrecerle un lugar. Ysabet no acepto partir ni se sometio a un destino decidido por otro; exigio conocer funcion, condiciones y tiempo antes de elegir. El acuerdo de investigacion, la copia Caldris y la posibilidad Freeblade solo son conocidos por Caelan y Ysabet.
+E08 - T737-T742: visita clinica a Bastion
+Caelan acepto ser trasladado en silla medica porque Bastion reconocia el olor antes que la voz. Durante una visita limitada, el mastin lo reconocio, intento moverse una vez, se calmo y tolero el contacto continuo. Caelan no le prometio recuperacion ni retorno al servicio; reconocio que siguiera vivo. Sabeth confirmo que la presencia redujo su frecuencia y autorizo otra visita futura si ambos mantenian estabilidad.
+Estado cuantificado al corte
+REGISTRO 1 — Carabina noble
+Elemento: Carabina noble
+Anterior T677: 33/60 + 120
+Canon T742: 60/60 + 120
+Causa: Reabastecimiento de 27 proyectiles en Krastellan
+REGISTRO 2 — Pistola de Maerwyn
+Elemento: Pistola de Maerwyn
+Anterior T677: Custodia de Caelan; 5 penetradores
+Canon T742: Devuelta; 0 en inventario de Caelan
+Causa: Entrega personal a Maerwyn
+REGISTRO 3 — Bastion
+Elemento: Bastion
+Anterior T677: 2/14; inconsciente
+Canon T742: 4/14; grave, estable y no operativo
+Causa: Cirugia, amputacion y estabilizacion inicial
+REGISTRO 4 — Merito
+Elemento: Merito
+Anterior T677: 1/3
+Canon T742: 2/3
+Causa: Adjudicacion expresa del consejo
+Capas de conocimiento y cabos vivos
+Publico y burocratico: cumplimiento excepcional de Vann Kereth, debrief firmado, titulo Primer Cazador, Derecho Personal de Presa Viva, reconocimiento de Bastion, Merito 2/3 y consulta preliminar a Ghalmek-Tertius. Restringido de Casa y medicae: amputacion, pulmon debil, sedacion, limites de visita y transferencia de Bastion. Privado de Caelan: KRL-IX, la coincidencia con la carta de Ilyra y el cuaderno del Caballero Cazador. Compartido solo con Ysabet: copia Caldris, metodo de investigacion y posibilidad Freeblade condicional.
+CAPÍTULO V — VEINTE SEMANAS Y EL REGRESO DEL CUCHILLO DOMÉSTICO (T743–T813)
+Estado: INTEGRADO Y CANONICO. Cobertura T743-T813. El bloque siguiente conserva el relato extenso del paquete autenticado y transforma sus propuestas aprobadas en estado operativo.
+COBERTURA Y CORTE
+ESCENA 1 — BASTION DESPUÉS DE LA AMPUTACIÓN
+Identidad: T743-T745; ala médica y espacio de rehabilitación de Bastion, Krastellan. Duración interna: varias visitas y controles; exactitud parcial por intervalos.
+Condición de entrada: Caelan seguía en convalecencia; Bastion estaba amputado, grave y no operativo bajo autoridad médica de Sabeth. La Casa debía decidir qué significaba conservarlo vivo sin convertirlo en herramienta degradada.
+Participantes y autoridad: Caelan; Bastion; Sabeth y personal medicae. Sabeth tenía autoridad clínica. La Casa conservaba propiedad/custodia institucional del mastín.
+Acción declarada de Caelan
+Caelan rechazó que una baja de combate justificara lobotomizar a Bastion o reducirlo a funciones útiles mediante conversión integral. Aceptó que una prótesis de apoyo podía ser distinta de convertirlo en cybermastiff. Solicitó que Varro pudiera verlo más adelante bajo condiciones seguras. Durante una visita cruzó la línea amarilla para saludarlo físicamente.
+Iniciativa del mundo
+La medicae reconoció que Bastion podía vivir bien con tres patas y que una prótesis de locomoción no exigía lobotomía, aunque el retorno al combate no estaba garantizado. La Casa lo reconoció como Bastion, Mastín Juramentado de Vann Kereth: retiro, alimentación, espacio, manejadores limitados y proximidad a Caelan; sin reproducción, exhibición, jerarquías ni servicio sin nueva certificación. Sabeth prohibió una implantación irreversible sin revisión.
+Desarrollo
+Resultado material
+Resultado institucional y relacional
+El vínculo persiste, pero el mastín deja de ser una herramienta disponible por simple orden. La visita de Varro queda autorizada sólo en principio: patio o barrera abierta, Bastion entra primero, distancia, manos visibles, sin comida ni contacto inicial, fecha decidida por Sabeth y medicae de Varro.
+Clasificación de información
+Público doméstico: retiro y reconocimiento de Bastion. Restringido médico: pronóstico y límites de prótesis. Privado de Caelan: rechazo expreso a una conversión que destruya la mente del animal.
+Pendientes
+No está establecida una prótesis concreta, su coste, fecha, compatibilidad ni retorno al combate. No se establece recuperación posterior a 9/14.
+ESCENA 2 — GHALMEK EN FASE 0 Y LA CASA COMO MERCADO MATRIMONIAL
+Identidad: T746-T770; aposentos, cámaras familiares y espacios de consulta en Krastellan. Duración exacta NO ESTABLECIDA; varias conversaciones.
+Condición de entrada: Caelan se recuperaba y todavía no había jurado una nueva misión. La Casa acababa de aumentar su valor político tras Vann Kereth.
+Participantes y autoridad: Caelan; Maerwyn; Ysabet; Odran y autoridades domésticas por separado. Maerwyn administraba información matrimonial y protegía términos personales; Garran conservaba decisión de Casa.
+Acción declarada de Caelan
+Caelan exigió que la misión de Ghalmek definiera jurisdicción, fuerza, equipo, actuario y recompensas antes del juramento. Solicitó servo-cráneos rastreadores, auspex térmico/vibratorio, balizas y cable, medios de contención, opción preferente sobre la bestia capturada viva, un favor Mechanicus personal y veinte horas de instrucción en diagnóstico, actuadores y recuperación de maquinaria. En materia matrimonial declaró que no pensaba casarse de inmediato y quería una tercera victoria antes de fijar su valor; ordenó pedir identidades sin prometer reserva ni intención. Con Ysabet habló de una posible vida Freeblade futura y ofreció advertirle antes de preparativos; no obtuvo consentimiento ni rechazo.
+Iniciativa del mundo
+Maerwyn presentó tres clases de interés matrimonial para Caelan y dos líneas para Odran, además del sondeo Caldris sobre Ysabet. Protegió a Ysabet de exámenes, sangre y confesor privado. Ysabet inició una búsqueda discreta de nombres y filtraciones, pidió a Caelan que le comunicara cualquier nombre Caldris primero y mantuvo la conversación en secreto. Las autoridades de Ghalmek aceptaron discutir la estructura del favor, la instrucción y la presa, pero nada quedó perfeccionado.
+Desarrollo
+La oferta de Ghalmek quedó registrada como Fase 0: tres convoyes desaparecidos; mandato preliminar de localizar personas/carga, identificar la causa organizada, reabrir la ruta y preservar una entidad útil si era razonable. Caelan no aceptó, no juró y no desplegó. La instrucción técnica propuesta quedó en 8 horas doctrinales +12 prácticas. El favor debía pertenecer a Caelan, no a la Casa, y no extinguirse por una negativa vacía. La extracción personal de una bestia se separó del deber operativo de capturarla.
+Resultado material
+Sin gasto, fuerza ni plazo activado. Sin propiedad de criatura. Sin instructor nombrado. Sin matrimonio, compromiso o promesa vinculante.
+Resultado institucional y relacional
+Maerwyn pasa a tratar a Caelan como activo difícil de controlar y cada vez más costoso. Ysabet confía en él para una línea de información que no comparte con Maerwyn. Odran continúa como referencia de continuidad interna, pero la comparación entre hermanos se vuelve explícita.
+Clasificación de información
+Público de Casa: interés matrimonial y oferta de misión. Privado familiar: detalles Caldris, posibilidad Freeblade y estrategia de tercera victoria. Secreto del DM de Ghalmek: no se incorpora a este candidato.
+Pendientes
+Identidad de candidata externa, relación con Caldris y términos finales de Ghalmek permanecen abiertos. Ysabet no ha decidido abandonar la Casa.
+ESCENA 3 — PRIMERA INTERPRETACIÓN Y RECONOCIMIENTO DE ODRAN
+Identidad: T771-T779; gran órgano de Krastellan y conversación posterior con Odran.
+Condición de entrada: Caelan ya podía tocar y conversar, aunque su recuperación física aún estaba bajo vigilancia. Odran no había participado en el cierre de campaña y conservaba sospecha sobre los informes.
+Participantes y autoridad: Caelan; Odran; servidores y habitantes de la Casa como audiencia difusa. Corvin, maestro del órgano, ejercía autoridad técnica sobre el instrumento.
+Acción declarada de Caelan
+Caelan interpretó marchas antiguas Hawkshroud y alabanzas de batalla. Después explicó a Odran cómo redujo a los Drukhari a hábitos observables, diseñó equipos para evitar trampas y asumió el combate cuando el 3% de incertidumbre rompió la planificación. Acordó un duelo futuro estrictamente reglado, sin títulos ni consecuencias sucesorias.
+Iniciativa del mundo
+La Casa respondió reuniéndose alrededor del órgano. Odran pasó de sarcasmo a preguntas técnicas y terminó reconociendo que las victorias de Caelan eran reales, no suerte ni cobardía. Decidió leer la comisión de Ghalmek antes del juramento y apoyar recursos adecuados.
+Desarrollo
+Resultado material
+Resultado institucional y relacional
+La relación entre hermanos gana respeto y competencia abierta. Odran acepta que Caelan preserva personas mediante lectura de patrones y que la Casa lo usa para atravesar puertas peligrosas.
+Clasificación de información
+Público doméstico: interpretación y llegada de Odran. Privado entre hermanos: reconocimiento, recursos de Ghalmek y términos del duelo.
+Pendientes
+Fecha del duelo no establecida. Odran no ha aprobado aún la comisión final de Ghalmek.
+ESCENA 4 — EL ÓRGANO COMO DECLARACIÓN DOCTRINAL
+Identidad: T780-T790; gran órgano y Krastellan. Incluye recuperación hasta alta plena antes de la escena con Varro.
+Condición de entrada: Caelan buscó una interpretación más severa, asociada al juicio y supremacía del Emperador. La Casa observaba su retorno, sus cicatrices y el uso político de su nombre.
+Participantes y autoridad: Caelan; Odran; Maerwyn; Corvin; capellán Drost; guardias, servidores y oyentes de distintas alas.
+Acción declarada de Caelan
+Caelan tocó una pieza doctrinal de intención definida. No pidió permiso a Drost para convertirla en declaración doméstica. Mantuvo su posición de que el servicio al Emperador está por encima de la comodidad y del control familiar.
+Iniciativa del mundo
+La estructura vibró, guardias y servidores se arrodillaron, Odran saludó desde la escalera, Maerwyn escuchó y Drost se vio obligado a responder al peso ritual. Corvin aprobó la ejecución y ridiculizó la habilidad de Drost cuando éste intentó reducirla a revisión textual.
+Desarrollo
+Resultado material
+No se concede autoridad eclesiástica ni milagro. Se crea un hecho reputacional: Caelan vuelve a la vida pública como comandante y músico doctrinalmente severo. Corvin y Drost adquieren continuidad suficiente para ficha de personaje.
+Resultado institucional y relacional
+La Casa asocia el retorno de Caelan con servicio imperial, disciplina y peligro político. La capellanía lo observa con más atención; Odran muestra respeto público.
+Clasificación de información
+Público dentro de Krastellan: efecto del órgano. Secreto: ninguno confirmado. Interpretación religiosa: política y doctrinal, no sobrenatural.
+Pendientes
+Drost puede revisar repertorios o intentar imponer marco litúrgico. Corvin puede convertirse en tutor o aliado cultural; no hay compromiso formal.
+ESCENA 5 — VARRO RECONSTRUYE PUERTA NOVENA
+Identidad: T791-T796; biblioteca del invernadero, Krastellan.
+Condición de entrada: Varro estudiaba genealogía y mecánica por cuenta propia. Su mapa de Puerta Novena estaba limpio y equivocado; la Casa le había enseñado una defensa estática y heroica.
+Participantes y autoridad: Caelan; Varro; medicae doméstico de Varro a distancia. El medicae tenía autoridad sobre salud y límites físicos del muchacho.
+Acción declarada de Caelan
+Caelan corrigió el mapa: ruta bajo artillería, coronel moribundo, pistones, túnel Orko, tránsito de regimientos, civiles y niños, brecha izquierda, ariete con garra de Knight, socavón, dos disparos de artillería, retirada por cráter y artillería Orka sobre sus propios guerreros. Explicó que la capitana conocía su salida, recibió el mando temporal y debía hacer valer su sangre si no regresaba. Defendió que su vida pertenece al Emperador, que arriesgar no equivale a buscar la muerte y que su oficio es comandar, delegar, racionar, planear y avanzar. Prometió reconstruir misiones con Varro si volvía. Preguntó por su salud y prometió traer información Mechanicus legítima en su nombre.
+Iniciativa del mundo
+Varro reescribió el mapa y distinguió el objetivo real: comprar tiempo y preservar al observador, no matar perseguidores. El medicae explicó una fragilidad sistémica estable: reserva física baja, mala tolerancia a esfuerzo, frío, humo, infección y privación, sin deterioro agudo. Varro pidió información sobre respiradores, regulación de esfuerzo, diagnóstico metabólico/circulatorio, soporte de infección y opciones reversibles sin perder autoridad sobre su cuerpo.
+Desarrollo
+No hubo tiradas. Varro queda estable, funcional en actividad moderada y no apto para combate, marcha forzada, armadura pesada ni despliegue hostil. Su diagnóstico causal definitivo sigue abierto.
+Resultado material
+Varro gana una función real como lector de estructuras, logística y errores de informe. Solicita ver a Bastion cuando Sabeth autorice; entiende que servicio no exige imitar a Odran. Caelan conserva su consulta como obligación personal sin gastar favor ni comprometer misión.
+Resultado institucional y relacional
+La relación fraterna gana confianza, afecto visible y un proyecto de aprendizaje compartido. Varro reconoce el título Primer Cazador por método, no sólo por trofeos.
+Clasificación de información
+Privado familiar: detalles completos de Puerta Novena y promesa de información. Médico restringido: condición de Varro. Público: no existe informe corregido todavía.
+Pendientes
+La visita a Bastion, la consulta Mechanicus y el acceso de Varro a trabajo real dependen de autoridades futuras.
+ESCENA 6 — LA CONTRAPROPUESTA DE GHALMEK
+Identidad: T797-T812; refectorio familiar, corredor y aposentos de Caelan.
+Condición de entrada: Caelan llegó a comer tras visitar a Varro. Maerwyn recibió la primera respuesta conjunta de Hawkshroud, Ferrum-Vigil y Prefectura.
+Participantes y autoridad: Caelan; Maerwyn; Odran; Soren; servidores. Maerwyn tenía custodia del documento y autoridad negociadora familiar. Soren conservaba autoridad médica.
+Acción declarada de Caelan
+Caelan denunció la dotación de diez integrantes totales como insuficiente para tres convoyes, dos vehículos, una ruta, una organización y una criatura. Exigió movilidad intersectorial sin solicitudes repetidas, contención financiada desde el inicio, instructor nombrado antes del juramento, favor que no se extinguiera con una negativa, archivos completos de responsabilidad, capacidad antiblindaje definida, autonomía real, equipo probado, dossier biológico y análisis de por qué la bestia aparecía ahora. Sostuvo que un solo ataque animal no explicaba un transporte abierto, otro vaciado y un tercero desaparecido. También exigió sedantes/paralizantes graduables, antídotos, redes, anclajes y detección previa.
+Iniciativa del mundo
+Maerwyn convirtió las objeciones en una contrapropuesta escrita; Odran respaldó un total inicial de quince y un mínimo operativo de doce sólo con funciones combinadas y tripulaciones externas. La Casa separó defensa/captura operativa de extracción personal de la bestia. Soren cerró la jornada, confirmó costillas consolidadas y ordenó reposo. El custodio recibió instrucciones de despertar a Caelan por noticia reservada de Maerwyn o visita familiar.
+Desarrollo
+La respuesta inicial proponía diez integrantes totales, dos orugas, doce días, equipo parcialmente indefinido, instructor durante despliegue, favor con caducidad y presa sujeta a declaración territorial discrecional. La contrapropuesta acumuló controles sobre fuerza, persecución, contención, archivos, biología, nidos/crías, preservación de pecios y juramento posterior al cierre de términos. No hubo firma ni gasto.
+Resultado material
+Ghalmek continúa Fase 0. Las autoridades externas deben responder punto por punto. Odran compromete apoyo interno a recursos suficientes; Maerwyn protege la ausencia de juramento.
+Resultado institucional y relacional
+Clasificación de información
+Público de negociación: términos básicos. Privado familiar: sospecha de ineficiencia, posibilidad de ocultamiento y lectura de la criatura como instrumento. Secreto del DM no revelado.
+Pendientes
+Contenido de la respuesta posterior marcada RESERVADA permanece pendiente. No está establecida la especie, número de ejemplares, tamaño real ni causalidad entre los tres convoyes.
+ESCENA 7 — AUDITORÍA DE DESARROLLO Y OBJETOS NOMBRADOS
+Identidad: T813, primera fase de Modo de Gestión; sin escena física nueva.
+Participantes y autoridad: Jugador y DM en modo técnico. Ningún NPC ejecuta nuevas acciones narrativas salvo las autorizadas para la elipsis posterior.
+Acción declarada de Caelan
+Iniciativa del mundo
+Desarrollo
+Resultado material
+La gestion no crea canon por si sola; estas decisiones quedan aprobadas e integradas en el corte T813.
+Resultado institucional y relacional
+No aplica.
+Clasificación de información
+Gestión técnica: decisiones del jugador y adjudicación del DM; no es una escena visible para NPC.
+Pendientes
+El perfil numerico del collar queda aprobado e integrado por este corte.
+ESCENA 8 — VEINTE SEMANAS DE ENTRENAMIENTO
+Identidad: T813; elipsis de 20 semanas / 140 días, 400 horas productivas; Krastellan. Elipsis explícitamente autorizada.
+Condición de entrada: Caelan estaba físicamente recuperado y poseía 20.000 tronos, estipendio mensual, acceso a instructores y apoyo condicionado de la Casa.
+Participantes y autoridad: Caelan; Soren; maestro de armas; instructores físicos; Odran y Maerwyn como apoyos administrativos; Garran como autoridad de fondos. No se inventan diálogos fuera de lo ya fijado por la gestión.
+Acción declarada de Caelan
+Iniciativa del mundo
+Desarrollo
+Resultado material
+Resultado institucional y relacional
+La Casa invierte en Caelan como comandante útil sin concederle dominio. Soren certifica aptitud plena para armadura, combate prolongado y entrenamiento ordinario. El zumbido auditivo permanece intermitente sin deterioro confirmado.
+Clasificación de información
+Administrativo doméstico: gastos y certificación. Privado: detalles de práctica. Misión Ghalmek no avanza por el mero paso del tiempo; la respuesta conjunta reservada llega en semana 18 y queda en poder de Maerwyn.
+Pendientes
+No se resuelve contenido de la respuesta reservada. No se establecen eventos, romances, curación de Bastion ni movimientos del mundo no documentados durante la elipsis.
+CORTE DE REANUDACION CANONICO — FIN DE T813
+Siguiente turno: T814
+Ancla temporal: Veinte semanas después del inicio del régimen de formación; fecha imperial exacta NO ESTABLECIDA.
+Ubicación: Krastellan, sala de armas de la rama Veyr; ciclo de entrenamiento concluido.
+Bastion: Al cierre T813 permanecia retirado y protegido. Consultar FICHA para salud y restricciones; SEQUITO para su vinculo y disponibilidad.
+Mision: Hecho de cierre T813: GT-RES-01 seguia reservada y no presentada. El presente operativo pertenece a MISION ACTIVA.
+Pendientes: Respuesta reservada; matrimonio; consulta de Varro; visita a Bastion; duelo con Odran; términos finales de Ghalmek.
+CABOS ABIERTOS PERSISTENTES
+Ghalmek: identidad y responsabilidad por los convoyes, especie de la criatura, causalidad entre incidentes y términos finales del juramento.
+Bastion: prótesis de apoyo, salud posterior a 9/14, visita con Varro y futuro de retiro.
+Varro: evaluación especializada, acceso a sistemas de asistencia y trabajo intelectual real.
+Odran: duelo reglado todavía no realizado; apoyo a la comisión condicionado al texto final.
+Ysabet y matrimonios: nombres, filtraciones, Caldris y posible salida futura.
+Collar: formula mecanica y alcance reputacional aprobados e integrados.
+Puerta Vargrif: reconstrucción de Varro no ha sido incorporada a un informe oficial.
+COSAS QUE EL DM NO DEBE OLVIDAR
+No abrir ni resumir la respuesta RESERVADA de Ghalmek hasta que Maerwyn la presente en ficción.
+No revelar la red heretek ni la manipulación de la bestia sin prueba, acceso o descubrimiento válido de Caelan.
+Bastion conserva 9/14 como último valor confirmado; veinte semanas no conceden curación, prótesis ni retorno al servicio.
+La consulta médica y técnica de Varro permanece como promesa personal sin gasto de Favor Vargrif.
+Ningún sondeo matrimonial implica consentimiento, reserva, compromiso ni emoción de Caelan o Ysabet.
+Ghalmek continúa en Fase 0: sin juramento, fuerza entregada, plazo operativo ni autoridad ejercida.
+CAPÍTULO VI — LA RED INTERNA Y CINCUENTA Y OCHO MINUTOS DE ALTA (T814–T926)
+Estado: INTEGRADO Y CANÓNICO. Cobertura: T814-T926. Fuente primaria: ruta activa del export de conversación 6a5c4e3a-64dc-83e9-9e03-b387dd4311b8 (6). La corrección de conocimiento privado incluida en este bloque prevalece sobre la etiqueta errónea mostrada durante T886-T893.
+Última acción resuelta: Caelan acepta dormir y guardar silencio bajo tratamiento.
+Siguiente turno: T927.
+Tiempo: Medianoche; revisión médica y declaraciones previstas al amanecer.
+Tono dominante: Traición doméstica, sangre familiar, fe instrumentalizada y quietud armada.
+Amenaza activa: Red interna parcialmente capturada; superior, alcance histórico y receptor exterior desconocidos.
+Regla de agencia: No abrir caja negra, placa ni CALC-IX; no decidir Ghalmek ni tratamiento por Caelan.
+ESCENA 1 — T814-T821 · LA RESPUESTA DE GHALMEK Y LOS DOS DIENTES
+Al concluir veinte semanas y cuatrocientas horas de preparación, Maerwyn abrió GT-RES-01. Ferrum-Vigil, la Prefectura y Hawkshroud concedieron quince integrantes bajo mando de movimiento y combate, doce capaces de combatir o sostener una función crítica; dos transportes de orugas presurizados, un vehículo de recuperación, dieciocho días de suministros y cinco de reserva; cuatro servo-cráneos; contención biológica; persecución intersectorial por setenta y dos horas; un corredor de veinte kilómetros; y veinte horas con Enginseer Prime Hestovar-17. El favor técnico sería personal y no caducaría por una negativa doctrinal.
+La concesión conservaba dos trampas. La Prefectura pretendía declarar una presa capturada como biota industrial crítica y anular el traslado; Ferrum-Vigil mantenía censurada la designación del segundo convoy. Caelan identificó el riesgo de que la criatura y la carga estuvieran relacionadas. Con Maerwyn y Odran exigió responsable técnico identificable, evidencia, consecuencias operativas completas, custodia provisional y responsabilidad por omisión. La última posición fue enviada en T819 sin aceptación, juramento ni renuncia implícita.
+GT-BIO-01 presentó la Viuda de Hierro o kharodonte de escoria: cuadrúpeda de 4,5-5 m, 2-3 toneladas, placas ferríticas y sensibilidad a vibración, calor, olores químicos y campos electromecánicos. El informe no probó un ejemplar único, nido, tejido ni causalidad. Caelan solicitó muestra, toxicología verificable, perfiles de dosis y consulta previa con el Biologis-toxicólogo. La cadena de informe resultó sospechosa por su rapidez y posible interferencia; no quedó demostrado quién la alteró.
+En paralelo, Maerwyn reveló a Dame Aveline Thyr-Kest, 26 años equivalentes, segunda hija de una casa menor de rutas y transporte. Aveline exigió informes íntegros y evaluación recíproca. Caelan autorizó el envío de sus campañas con secretos vivos censurados y aplazó leer los expedientes de ella hasta regresar. La carta salió por sello privado de Maerwyn. No existe propuesta formal, promesa, noviazgo, anuncio familiar ni consentimiento matrimonial.
+ESCENA 2 — T823-T827 · NACIMIENTO DE VICTORIA IMPERATRIX
+La declaración doctrinal posterior obtuvo un crítico con objetivo 75, d100 09 y margen +66. Guardias, servidores y coro respondieron; Drost juzgó la obra severa pero defendible y pendiente de examen antes de uso litúrgico. Corvin preservó su estructura. La pieza entró en memoria de la Rama, pero el éxito no concedió autoridad religiosa, repertorio formal ni cambio reputacional numérico no adjudicado.
+ESCENA 3 — T828-T845 · PÓLVORA, CAZA Y CONFIANZA FRATERNA
+Odran reconoció competencia y aceptó coordinación sin perder rivalidad ni autoridad propia. Ambos consolidaron una confianza operativa: mando interior y legitimidad marcial en Odran; prestigio exterior, precisión y caza en Caelan. Elira, Varro y Maerwyn compartieron después una escena privada donde la familia permitió afecto, humor y advertencias sin convertirlos en séquito ni obediencia.
+ESCENA 4 — T846-T866 · VENENO, TRABAJADORES Y UN PROYECTO PRIVADO
+La familia discutió si proteger primero las pruebas o usar la respuesta toxicológica para localizar al responsable. Caelan exigió autenticación sin anunciar una acusación abierta. Maerwyn convirtió su paranoia en procedimiento: aceptar públicamente una muestra no equivaldría a confiar en ella; se aislaría la cadena, se revisarían sellos y se observarían cambios de personal, rutas y archivos.
+ESCENA 5 — T867-T880 · LA PRÁCTICA DE SIGILO ABRE UNA MADRIGUERA
+Una práctica voluntaria de sigilo llevó a Caelan a observar una entrega irregular en archivos. Interceptó al escriba Lucen Marr y evitó un estilete inyector. Las conversaciones y documentos revelaron una red que utilizaba gris de confesor, correcciones administrativas, sellos, aislamiento familiar y expedientes fabricados. Serevina Holt fue apartada del peligro; Lucen quedó como cooperador bajo coerción, no como cabeza de la red.
+Caelan siguió el rastro hasta Ilyon Rauth, Salien Mordane, Pell Varc y Kyran Voll. La red pretendía mantener a los hijos de Garran separados y gobernables: impedir que Odran aportara legitimidad interior mientras Caelan reunía prestigio exterior. El hallazgo probó una operación activa; todavía no probó su fundador, antigüedad completa ni vínculo de mando con Calcedon.
+ESCENA 6 — T881-T894 · JUICIO DE HUESO Y AUTORIDAD HASTA EL AMANECER
+La documentación mostró vigilancia sobre miembros Veyr, drogas, acusaciones preparadas y una orden contra la consolidación pública de Caelan. Corrección canónica: el texto físico no decía Caballero Cazador. Decía: «Si el cazador retorna victorioso una tercera vez, impedir que la Casa le conceda hombres permanentes, jurisdicción propia o libertad de comisión. El Primer Cazador no debe pasar de símbolo». La red conocía el título público y la trayectoria; no el proyecto privado.
+Garran impuso triple sello sobre la prueba, suspendió custodia clerical independiente y decidió una purga interna antes de convocar autoridad exterior. Drost entregó sello, llave y maza; restringió confesión privada y acceso clerical sin custodios seculares. Odran tomó puertas interiores, Maerwyn cortó comunicaciones privadas y Caelan recibió autoridad temporal de persecución dentro de Krastellan hasta el amanecer. Esa autoridad no era título permanente ni jurisdicción general.
+ESCENA 7 — T895-T916 · VOLL, ELIRA, TAVIA Y CALC-IX
+Caelan localizó a Voll frente al invernadero médico antes de que pudiera usar a Varro. Dos disparos destruyeron sus extremidades armadas: la carabina pasó de 60/60 a 58/60. Voll quedó 0/14, vivo y estabilizado bajo cirugía; su carga no detonó. La captura cerró la Caza de Voll en 100%. Después, una alerta llevó a los osarios donde Elira estaba atada, con un corte en la palma y sin exposición confirmada al gris de confesor.
+Caelan disparó contra Aven Krail: la carabina pasó a 57/60; Krail quedó 0/11, hombro destruido, hemorragia contenida provisionalmente y amputación probable. Jorren Sile se rindió ileso y reveló el nombre de Tavia Meron. Elira fue liberada y quedó estable. Los dispositivos tóxicos y una mina incompleta fueron asegurados sin detonación.
+Tavia, herida en el muslo por un custodio antes de degollarlo, se rindió en 8/10 a cambio de custodia conjunta de Caelan y Odran, declaración registrada y ausencia de confesores. Entregó pistola, folio y sello copiado. Admitió seleccionar a Elira como acceso y preparar la copia del sello de Maerwyn. Un segundo custodio, Iven, quedó en 7/12, paralizado pero vivo.
+En la galería genealógica Caelan y Odran detuvieron una purga química y una evacuación documental. Recuperaron una cápsula cerrada CALC-IX y una indicación de recepción para el Custodio de Continuidad. Confirmado: existe material relativo a Calcedon y un destinatario con ese título o nombre de cobertura. No confirmado: contenido, identidad del receptor, existencia de una institución llamada Continuidad Superior o autoría de los sabotajes de Calcedon.
+ESCENA 8 — T917-T926 · CINCUENTA Y OCHO MINUTOS DE ALTA
+Soren diagnosticó lesión eléctrica periférica en el brazo izquierdo: nervio no seccionado, quemadura profunda localizada, arterias y hueso intactos, función parcial y riesgo inmediato de amputación bajo. El brazo fue inmovilizado; las acciones a dos manos reciben -15 hasta nueva evaluación. La espada sigue operativa con la derecha. La carabina puede usarse sin apoyo estable con penalización, pero ambas armas quedaron sobre una mesa vigilada, no confiscadas.
+La audiencia de Ghalmek quedó reservada, no confirmada. Maerwyn no enviará aceptación antes de la evaluación médica, la apertura autorizada de pruebas y la declaración inicial de Tavia. Caelan cerró T926 aceptando dormir y callar. Afuera, la Casa separaba traidores, testigos y cadáveres; adentro, ningún confesor, escriba o administrador tenía acceso.
+ESTADO DE ACTORES Y PRUEBAS AL CORTE
+REGISTRO 1 — Ilyon Rauth
+Actor o prueba: Ilyon Rauth
+Estado T926: Detenido, 11/11, sin lesiones.
+Certeza y límite: Operador confirmado; superior desconocido.
+REGISTRO 2 — Salien Mordane
+Actor o prueba: Salien Mordane
+Estado T926: Detenida, 13/13, desarmada.
+Certeza y límite: Colaboradora; se fracturó ante la traición de Voll/Rauth.
+REGISTRO 3 — Pell Varc
+Actor o prueba: Pell Varc
+Estado T926: 0/12, inconsciente y bajo medicae.
+Certeza y límite: Confesor traidor confirmado; supervivencia final no cerrada.
+REGISTRO 4 — Kyran Voll
+Actor o prueba: Kyran Voll
+Estado T926: 0/14, estabilizado y en cirugía.
+Certeza y límite: Fugitivo capturado vivo; ambas manos inutilizadas.
+REGISTRO 5 — Lucen Marr
+Actor o prueba: Lucen Marr
+Estado T926: 7/12, herido y detenido.
+Certeza y límite: Cooperación bajo coerción; alcance de culpa pendiente.
+REGISTRO 6 — Teren Vos
+Actor o prueba: Teren Vos
+Estado T926: 5/10, liberado y bajo atención.
+Certeza y límite: Testigo y víctima de borrado inducido.
+REGISTRO 7 — Aven Krail
+Actor o prueba: Aven Krail
+Estado T926: 0/11, crítico y estabilizado provisionalmente.
+Certeza y límite: Amputación probable; supervivencia no garantizada.
+REGISTRO 8 — Jorren Sile
+Actor o prueba: Jorren Sile
+Estado T926: 10/10, rendido y desarmado.
+Certeza y límite: Transportista con conocimiento médico; proporcionó rutas y nombre.
+REGISTRO 9 — Tavia Meron
+Actor o prueba: Tavia Meron
+Estado T926: 8/10, detenida bajo custodia conjunta.
+Certeza y límite: Genealogista colaboradora; declaración prevista al amanecer.
+REGISTRO 10 — Elira
+Actor o prueba: Elira
+Estado T926: Estable; corte en palma.
+Certeza y límite: Rescatada; sin exposición confirmada a gris de confesor.
+REGISTRO 11 — Custodio Iven
+Actor o prueba: Custodio Iven
+Estado T926: 7/12, parálisis tóxica.
+Certeza y límite: Vivo; incapaz de hablar o moverse al último registro.
+REGISTRO 12 — Custodio no identificado
+Actor o prueba: Custodio no identificado
+Estado T926: Muerto por degüello.
+Certeza y límite: Hirió a Tavia antes de morir.
+REGISTRO 13 — Deren Hoss
+Actor o prueba: Deren Hoss
+Estado T926: Identificado y detenido vivo.
+Certeza y límite: Preparó credenciales; intentó beber desinfectante industrial.
+REGISTRO 14 — Caja negra / placa de Krail
+Actor o prueba: Caja negra / placa de Krail
+Estado T926: Cerradas bajo custodia.
+Certeza y límite: No abrir automáticamente.
+REGISTRO 15 — CALC-IX
+Actor o prueba: CALC-IX
+Estado T926: Cerrada, intacta y bajo sello.
+Certeza y límite: Material relativo a Calcedon; contenido desconocido.
+CAPAS DE CONOCIMIENTO Y CORRECCIÓN DE CANON
+Capa: Contenido
+Público/doméstico amplio: Krastellan está cerrada; existe una purga y varios funcionarios fueron detenidos.
+Familia y custodios leales: Red de falsificación, drogas y aislamiento; coordinación Caelan-Odran atacada.
+Caelan/Odran/Maerwyn/Garran: Halcón coronado agrietado, caja negra, placa, CALC-IX y receptor denominado Custodio de Continuidad.
+Inferido: Posible relación de método con Purga Gris, Mater Tacita, Forja Selectiva Menor o Calcedon.
+Desconocido: Superior de Rauth, contenido de CALC-IX, identidad del Custodio, profundidad y antigüedad real de la red.
+CAMBIOS HUMANOS, REPUTACIÓN Y COSAS QUE EL DM NO DEBE OLVIDAR
+Odran y Caelan demostraron coordinación operativa y protección recíproca; Varro confió a Caelan una investigación médica limitada; Elira fue protegida sin quedar subordinada; Garran escuchó el juicio de Caelan y delegó autoridad temporal; Drost aceptó quedar bajo revisión. Ningún vector relacional recibió cifra nueva en el chat. No inventar lealtad, afecto, romance, reputación o obediencia por inferencia.
+No olvidar: revisión del brazo al amanecer; declaración inicial de Tavia; estado de Voll, Pell y Krail; interrogatorio de Hoss; apertura sólo autorizada de caja, placa y CALC-IX; promesa reversible a Varro; respuesta de Aveline; toxicología de Ghalmek; decisión de audiencia; autoridad de persecución caduca al amanecer; la red conoce Primer Cazador, no Caballero Cazador.
+CIERRE CANÓNICO T926
+La purga interna dejó operadores capturados, heridos o bajo custodia; no probó la destrucción total de la red. Garran continuó la operación, Odran aseguró accesos y Maerwyn reconcilió archivos. El superior de la red permaneció desconocido.
+Caelan llegó a la cámara médica con una lesión eléctrica periférica en el brazo izquierdo. Soren indicó seis horas de descanso y revisión al amanecer. Las armas quedaron sobre una mesa vigilada, no confiscadas. Caelan aceptó sueño y silencio. T926 está cerrado y T927 no ha comenzado.
+MISIONES CERRADAS Y XP YA CONCILIADO
+Juramento de Calcedon
+Caelan no salvó Calcedon: salvó una ruta, guardó culpables vivos y llevó a casa una cera que olía a sangre familiar.
+Resultado: CUMPLIDA; cierre operativo local
+Objetivos: Ruta CANTICUM-3/CANTICUM-9 validada; saboteadores locales identificados; honor Hawkshroud preservado; culpables principales capturados vivos.
+Costes: Calcedon no quedó purificado; testigos y prisioneros siguieron vulnerables; DOM-CERAE/RUBRUM y la cera azul conservaron continuidad.
+Continuidad: Rhost Klyr, Canil Veyr, jurisdicción Mechanicus, prisioneros y deuda política.
+XP: XP.CAELAN.CALCEDON.CLOSE · CAMPAIGN · +200
+Juramento de la Puerta Vargrif
+La Puerta no fue salvada: fue mantenida el tiempo suficiente para que el Imperium siguiera sangrando de forma útil.
+Resultado: CUMPLIDA; Puerta Novena sostuvo el corredor y la deuda quedó cerrada
+Objetivos: Puerta operativa/cerrada durante seis horas; tres regimientos cruzaron; archivos, técnicos y Severian Vargrif preservados; Brugg y Krozgak abatidos.
+Costes: Heridas, fatiga, long-las dañado, civiles sacrificados, autoridad agotada y mayor vigilancia doméstica.
+Continuidad: Favor Vargrif, trofeos, frente todavía en guerra, Elayne/Voss/Heth/Dho como testigos.
+XP: XP.CAELAN.VARGRIF.OATH · CAMPAIGN · +200; XP.CAELAN.VARGRIF.KROZGAK · DECISIVE · +100
+Juramento de la Frontera de Auxilio: Vann Kereth
+Crownkeep fue devuelta a Orsain; Caelan regresó con actas, muertos y un compañero al que la guerra le había cobrado una extremidad.
+Resultado: CUMPLIDA EXCEPCIONALMENTE
+Objetivos: Tres fortalezas preservadas; Crownkeep 9/9 certificado; tres puntos de retorno cerrados; diecinueve cautivos recuperados; extracción Drukhari quebrada.
+Costes: Bastion mutilado y retirado; secretos y custodia Orsain persistentes; autoridad de misión terminada.
+Continuidad: Deuda testimonial Orsain, acta Meredin, cartas selladas, placa no reconciliada y arma de Kaevor inerte.
+XP: XP.CAELAN.VANN_KERETH.CLOSE · CAMPAIGN · +200
+RECONCILIACIÓN DE CAPACIDADES — CORTE T926
+Antes de iniciar T927, el jugador aprobó la consolidación completa de las capacidades particulares de Caelan. Réplica del Juramentado II, Dominio de Caza Noble II, Maestría Musical II, Primer Cazador Veyr-Hawkshroud I y Doma del Juramentado II quedan adquiridas por conciliación de campaña. Esta actualización no representa una escena nueva, no consume tiempo y no gasta los 4 PH disponibles. Las mecánicas exactas pertenecen únicamente a FICHA DEL PERSONAJE.
+El Collar del Primer Cazador conserva dos hechos distintos: nació como prueba de las presas y logros de Caelan tras Krozgak, y posteriormente recibió valor de insignia cuando House Hawkshroud concedió el título Primer Cazador Veyr-Hawkshroud. Los dientes autenticados de Krozgak y Kaevor Threx permanecen integrados.
+El aprendizaje histórico con Bastion se reconcilia como VÍNCULO 5. Bastion continúa retirado, no operativo y sin título de bestia asignado; la conciliación no revoca su retiro ni autoriza despliegue, órdenes o rehabilitación automática.
+ACLARACIÓN INTERPRETATIVA — SANGRE MENOR Y PODER PREEXISTENTE
+NATURALEZA: Esta aclaración no altera ningún acontecimiento, decisión, turno, relación, adquisición, pérdida ni consecuencia histórica.
+Las frases “nadie le entregaría poder por simple sangre”, “sin feudo” y “sin soberanía” significan que Caelan no recibió automáticamente un Trono Mechanicum, Knight, feudo, población propia, cargo superior o mando territorial permanente.
+No significan que su sangre careciera de poder. Desde su nacimiento como noble Veyr reconocido, Caelan poseía educación privilegiada, protección dinástica, precedencia, derecho a servicio doméstico, autoridad social sobre inferiores y capacidad coercitiva propia de su clase, siempre subordinada a poderes superiores y derechos rivales.
+La progresión histórica de Caelan consiste en transformar privilegio basal y servicio lateral en poder personal persistente, recursos, cargos, reputación, dominio y fuerzas propias. No parte como plebeyo ni como noble ceremonial incapaz de ordenar.
+AJUSTE DIRECTO DE PH — ANTES DE T927
+Por instrucción directa del jugador, Caelan recibe 3 PH adicionales fuera de escena.
+Saldo anterior confirmado: 4 PH. Delta aplicado: +3 PH. Saldo resultante: 7 PH.
+El ajuste no consume tiempo narrativo, XP o PM; no modifica capacidades adquiridas, costes, estadísticas, relaciones, inventario, heridas ni cronología, y no inicia T927.
+La Ficha gobierna el saldo operativo actualizado mediante PH_AVAILABLE: 7 y STATE_REVISION: CAELAN.T926.R5.
+PAUSE_ID: PAUSE.CAELAN.T927.GHALMEK-ACCEPTED
+T927 — RECUPERACIÓN, CONCORDANCIAS Y ACEPTACIÓN DE GHALMEK-TERTIUS
+Caelan completó una semana de reposo y tratamiento en Krastellan. Por instrucción expresa del jugador, la recuperación funcional del brazo izquierdo fue concedida automáticamente para cerrar una lesión que había dejado de ser narrativamente útil. Salud 47/47, Fatiga 0/6; la cicatriz eléctrica permanece sin efecto mecánico.
+Durante la recuperación, Caelan habló con Varro sobre nobleza, utilidad, sacrificio, autoridad, crueldad, responsabilidad y servicio al Dios-Emperador. Varro afirmó que quiere comprender y participar en las decisiones que afecten su cuerpo, no ser una herramienta ignorante. Soren estableció un protocolo de verificación para cualquier médico externo: identidad comprobada, justificación escrita, instrumentos inventariados, testigo familiar o custodio y ninguna intervención irreversible sin autorización salvo necesidad inmediata de salvar la vida.
+La declaración de Caelan contra los fallos acumulados de la Rama Veyr fue entregada íntegra a Garran, Maerwyn y Odran. Garran ordenó ampliar la revisión doméstica; Odran mantuvo custodia y accesos; Maerwyn reconcilió archivos médicos, genealógicos y de guardia.
+Caelan localizó a Lady Maerwyn Caldris-Veyr mediante rastro dentro de Krastellan. Prueba: base Percepción 77, Caza/Doma 103, modificador total +15, umbral 92, d100 89, margen 3, ÉXITO_1. Coste aproximado: veinte minutos.
+Maerwyn informó que la corrupción documental precedía a los operadores capturados: médicos firmando después de muertos, custodios asignados antes de existir vacantes, muertes corregidas y personas borradas del archivo. Tavia había declarado rutas, duplicación de sellos, selección de vulnerables y preparación de acusaciones, sin identificar al superior de Rauth ni al Custodio de Continuidad.
+Caelan leyó la respuesta privada de Garran. Garran aceptó el fallo de gobierno durante su mandato, rechazó pedir absolución y declaró que una purga exige seguir cada orden hasta quien se benefició de ella. Negó que Caelan pudiera reducirse a una mera herramienta para evitar la carga de decidir. Confirmó que la autoridad excepcional de persecución había expirado, que el título de Primer Cazador no volvería a ser tratado como ornamento y que la posición de Ghalmek no sería aceptada ni rechazada en nombre de Caelan.
+Caelan abrió GT-RES-02, posición institucional final de Ghalmek-Tertius. El mandato propuesto exige investigar la desaparición de tres convoyes, recuperar datos y activos esenciales, capturar o destruir responsables, demostrar el método de ataque y restablecer un corredor. La oferta contempla quince integrantes nominales, dos transportes de orugas, un vehículo de recuperación, autonomía logística, mando de campo para Caelan, instrucción con Hestovar-17 y cadena de custodia distribuida. Permanecen abiertas la categoría BIOTA INDUSTRIAL CRÍTICA, la censura del segundo convoy y el anexo Biologis incompleto.
+Caelan escribió en el campo de aceptación: «Acepto formalmente esta misión dando cuenta de que se me está ocultando datos relevantes y posicionan trampas diplomáticas dentro de sus palabras. Mi respuesta es firme, iré, buscaré, encontraré y registraré, encontraré al culpable si es alguno de los que lean mis palabras, considere eso su sentencia, si alguno vio y mintió, si alguno escuchó y no informó, si alguno cooperó, son culpables. Los encontraré a todos empezando por quien intente evitar que lo observe. El Emperador guíe mi búsqueda contra los traidores y mentirosos. Que alguien en el vacío tenga piedad con sus almas, el Emperador no la tendrá y yo no tengo por qué tenerla».
+La aceptación fue preservada literalmente como aceptación con reservas explícitas. No se anexó la posterior doctrina verbal de Caelan sobre captura, declaraciones, custodia y ejecuciones, por decisión expresa suya. Ghalmek-Tertius queda aceptada pero pendiente de cofirma y juramento; no hay personal, vehículos, instructor, suministros, fecha de partida, plazo ni autoridad territorial activados.
+Caelan abandonó la Cámara de Concordancias, recuperó su carabina y acudió a la sala de tiro. Solicitó la prueba más difícil disponible y munición de práctica. La supervisora configuró el PROTOCOLO BASTIÓN CIEGO.
+Resolución Bastión Ciego: Balística 68; Dominio de Caza Noble II +15 por disparos complicados; apuntar y estabilizar +10; condiciones ambientales −50; umbral final 43; d100 12; margen 31; ÉXITO_2. Resultado: 10/12 hostiles neutralizados, 2/2 blancos variables clasificados, 0/6 protegidos alcanzados, 3/4 señuelos identificados y avería simulada resuelta. Se consumieron 17 cargas de práctica y se expulsaron 2 intactas; la munición operativa permaneció 57/60 con reserva 120.
+No se concedió XP por recuperación, aceptación de misión ni entrenamiento seguro. XP total 1000; nivel 5; progreso 0/500; PM 0; PH 7.
+CHECKPOINT — PAUSE.CAELAN.T927.GHALMEK-ACCEPTED
+T927 queda pausado y confirmado. Momento: tarde avanzada, siete días después del inicio del reposo; fecha imperial no registrada. Lugar: Krastellan, corredores interiores entre la armería y las galerías de servicio. Caelan camina armado por los corredores tras salir de la sala de tiro. La misión Ghalmek-Tertius está aceptada con reservas, pero no jurada ni activada. Ninguna decisión posterior está tomada.
+PAUSE_ID: PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+CHECKPOINT — PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+T928 fue reanudado desde el checkpoint anterior y pausado de inmediato. No hubo acción, decisión, tirada, gasto, aparición de PNJ, avance temporal ni cambio de estado. Caelan permanece en Krastellan, en los corredores interiores entre la armería y las galerías de servicio, durante la tarde avanzada del séptimo día posterior al inicio del reposo.
+Ghalmek-Tertius continúa aceptada con reservas explícitas y pendiente de cofirma y juramento. La comisión no está activa. Salud 47/47; Fatiga 0/6; carabina noble 57/60 con reserva 120; XP total 1000; nivel 5; progreso 0/500; PM 0; PH 7. El siguiente turno permitido es T929.
+Control de continuidad
+ÚLTIMO HECHO CONFIRMADO: 
+T928 fue reanudado y pausado de inmediato sin acción, decisión, tirada, gasto, PNJ nuevo ni avance temporal.
+PUNTO ABIERTO EXACTO: 
+Caelan permanece en los corredores interiores de Krastellan; Ghalmek-Tertius está aceptada con reservas, pendiente de cofirma y juramento.
+SIGUIENTE ENTRADA: 
+Comienza después de PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS; el siguiente turno permitido es T929.
