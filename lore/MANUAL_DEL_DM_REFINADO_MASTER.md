@@ -73,6 +73,10 @@ En **CADA** respuesta narrativa o de resolución de turno, el DM debe incluir ob
 ### 4.3. Automatismo del Estado del Personaje
 - Toda herida, gasto de fatiga, consumo de créditos, almas o munición se refleja inmediatamente en el bloque numérico sin requerir aviso o recordatorio del jugador.
 
+### 4.4. Protocolo de Consulta Autoritativa de Armas, Habilidades y Perfiles (`DM.API.001`)
+- **Consulta Obligatoria:** Cuando en la escena aparezcan armas (como el *Rifle Sólido de Precisión Manufactorum*, *Autopistola Voss*, *Carabina Kord-24*, *Daga Venenosa*), poderes umbrales (*Visión de Oscuridad*, *Toque del Vacío*, *Sombra Infinita*) o equipo médico especializado, el DM debe consultar directamente los endpoints autoritativos (`/api/character/weapons`, `/api/character/abilities`, `/api/character/inventory`) o los expedientes de lore locales.
+- **Acciones No Bélicas (Anti-Disparos Fantasma):** Cuando el jugador declara una acción de percepción (ej. *Visión de Oscuridad*), triaje médico, sigilo, movimiento o diálogo, el DM **NUNCA** ejecuta ni adjunta eventos automáticos de disparo, impacto o daño de armas. Los ataques balísticos y de melé se reservan estrictamente para acciones donde el jugador declara un ataque voluntario.
+
 ---
 
 
