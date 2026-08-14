@@ -1628,12 +1628,15 @@ def get_dashboard_html() -> str:
         <div class="panel-header"><span class="panel-title">📜 ARCHIVO DE CAMPAÑA // DOSSIERS MAESTROS</span></div>
         <div class="panel-body">
           <div class="doc-selector">
-            <button class="doc-btn active" onclick="loadDocument('FICHA_DEL_PERSONAJE', this)">FICHA DEL PERSONAJE</button>
+            <button class="doc-btn active" onclick="loadDocument('FICHA_DEL_PERSONAJE', this)">FICHA DE ALEXANDER</button>
+            <button class="doc-btn" onclick="loadDocument('INSTRUCCIONES_DIRECTAS_DEL_DM', this)">INSTRUCCIONES DEL DM</button>
+            <button class="doc-btn" onclick="loadDocument('MANUAL_DEL_DM_REFINADO_MASTER', this)">MANUAL DEL DM</button>
             <button class="doc-btn" onclick="loadDocument('HISTORIA_DEL_PERSONAJE', this)">HISTORIA & CRÓNICA</button>
             <button class="doc-btn" onclick="loadDocument('PERSONAJES', this)">PERSONAJES & PNJ</button>
             <button class="doc-btn" onclick="loadDocument('BASES_Y_DOMINIOS', this)">BASES Y DOMINIOS</button>
-            <button class="doc-btn" onclick="loadDocument('REPUTACION_DE_FACCIONES', this)">REPUTACIÓN DE FACCIONES</button>
-            <button class="doc-btn" onclick="loadDocument('SEQUITO', this)">SÉQUITO</button>
+            <button class="doc-btn" onclick="loadDocument('REPUTACION_DE_FACCIONES', this)">REPUTACIÓN FACCIONES</button>
+            <button class="doc-btn" onclick="loadDocument('SEQUITO', this)">SÉQUITO RHO-9</button>
+            <button class="doc-btn" onclick="loadDocument('BESTIARIO_Y_CATALOGO_DE_UNIDADES_WH40K', this)">BESTIARIO & UNIDADES</button>
           </div>
           <div class="doc-viewer-area" id="doc-content">Cargando documento maestro...</div>
         </div>
@@ -1724,11 +1727,29 @@ def get_dashboard_html() -> str:
       loadTelemetry();
     }
 
-    function showCanonicalPrompt(promptText) {
-      lastGeneratedPrompt = promptText;
+    function getLiveHudHeader(extraMinutes = 0) {
+      const phase = (currentHour >= 6 && currentHour < 18) ? 'CICLO DIURNO' : 'VIGILIA NOCTURNA';
+      const timeStr = `${String(currentHour).padStart(2, '0')}:${String(currentMinute).padStart(2, '0')}`;
+      const alexAgent = radarAgents.find(a => a.name === 'Alexander');
+      const alexLoc = alexAgent ? alexAgent.currentRoom : 'C-01';
+      return `═══════════════════════════════════════════════════════════════════\n` +
+             `📡 [ESTADO DE CAMPAÑA // MEDICAE STATION RHO-9]\n` +
+             `⏱️ CRONÓMETRO: Día ${String(currentDay).padStart(2, '0')} · ${phase} (${timeStr}) · Turno: ${currentTurn}${extraMinutes > 0 ? ` (+${extraMinutes} min transcurridos)` : ''}\n` +
+             `👤 ALEXANDER: ❤️ Salud: 12/12 PV | ⚡ Fatiga: 0/7 | 🔮 Almas: 10/10 | 🌟 Destino: 3 | 💰 Créditos: ${availableCredits} ¤\n` +
+             `📍 UBICACIÓN: ${alexLoc} // Dust Falls\n` +
+             `🛡️ BASE RHO-9: Fortaleza 75% | Calidad Sanitaria 70% | Red Eléctrica 80%\n` +
+             `═══════════════════════════════════════════════════════════════════\n\n`;
+    }
+
+    function showCanonicalPrompt(promptText, extraMins = 0) {
+      let fullText = promptText;
+      if (!promptText.includes('📡 [ESTADO DE CAMPAÑA')) {
+        fullText = getLiveHudHeader(extraMins) + promptText;
+      }
+      lastGeneratedPrompt = fullText;
       const card = document.getElementById('global-prompt-card');
       const content = document.getElementById('global-prompt-content');
-      content.textContent = promptText;
+      content.textContent = fullText;
       card.style.display = 'block';
       card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
