@@ -206,17 +206,35 @@ ROOM_DEFINITIONS = {
 
 class DomainManagementEngine:
 
-    _state_file = os.path.join(os.path.dirname(__file__), "..", "..", "campaigns", "alexander", "domain_state.json")
+    _memory_cache = None
+
+    @classmethod
+    def _get_storage_path(cls) -> str:
+        primary = os.path.join(os.path.dirname(__file__), "..", "..", "campaigns", "alexander", "domain_state.json")
+        try:
+            test_dir = os.path.dirname(primary)
+            os.makedirs(test_dir, exist_ok=True)
+            test_file = os.path.join(test_dir, ".write_test")
+            with open(test_file, "w") as f:
+                f.write("ok")
+            os.remove(test_file)
+            return primary
+        except Exception:
+            return os.path.join("/tmp", "domain_state.json")
 
     @classmethod
     def _load_domain_data(cls) -> Dict[str, Any]:
-        if os.path.exists(cls._state_file):
+        if cls._memory_cache is not None:
+            return dict(cls._memory_cache)
+        path = cls._get_storage_path()
+        if os.path.exists(path):
             try:
-                with open(cls._state_file, "r", encoding="utf-8") as f:
-                    return json.load(f)
+                with open(path, "r", encoding="utf-8") as f:
+                    cls._memory_cache = json.load(f)
+                    return dict(cls._memory_cache)
             except Exception:
                 pass
-        return {
+        default_data = {
             "upgrades": dict(DEFAULT_UPGRADES),
             "sublevel": dict(DEFAULT_SUBLEVEL_REVEALED),
             "positions": dict(DEFAULT_POSITIONS),
@@ -224,12 +242,19 @@ class DomainManagementEngine:
             "logs": list(DEFAULT_LOGS),
             "chat_events": []
         }
+        cls._memory_cache = default_data
+        return dict(default_data)
 
     @classmethod
     def _save_domain_data(cls, data: Dict[str, Any]):
-        os.makedirs(os.path.dirname(cls._state_file), exist_ok=True)
-        with open(cls._state_file, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
+        cls._memory_cache = dict(data)
+        try:
+            path = cls._get_storage_path()
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+        except Exception:
+            pass
 
     @classmethod
     def sync_chat_event(cls, event_type: str, speaker: str, message: str, target_room: Optional[str] = None, advance_turns: int = 0, advance_minutes: int = 0) -> Dict[str, Any]:
