@@ -7,11 +7,11 @@ CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
 CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
 PLAYER_CHARACTER_ID: PC-ALEXANDER-001
 ALLOWED_SEMANTIC_OPERATIONS: AGREGAR, REEMPLAZAR
-PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
-CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
-STATE_REVISION: 8
-SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.SEQUITO.D04-NIGHT-HALVEN-HARVEST-20260813.R1
-ÚLTIMA ACTUALIZACIÓN: Día 04, noche; incorporada cláusula confirmada de cosecha de Halven Rusk y aplicación de cuatro ejecuciones personales. Hora exacta y turno no reconciliados.
+PERSISTED_PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
+STATE_REVISION: 7
+SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.SEQUITO.POST-T915-UMBRAL-WORKBLOCK-20260811.R1
+ÚLTIMA ACTUALIZACIÓN: Bloque de trabajo umbral posterior a T915 integrado desde el informe reconciliado del 2026-08-11; transcurrieron aproximadamente 10 horas externas sin turno, día u hora exactos fijados.
 MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
 SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
 AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
@@ -149,23 +149,22 @@ ENTITY_ID: NPC-HALVEN-RUSK-001
 MEMBER_ID: MEMBER.ALEXANDER.HALVEN-RUSK
 ESTADO DE MEMBRESÍA: ACTIVO_ESCLAVIZADO
 BASE DE INCORPORACIÓN: Servidumbre mayor: vida y alma reclamadas bajo los términos vigentes; la obligación no equivale a lealtad emocional.
-PACTO ADICIONAL CONFIRMADO — COSECHA POR MANO PROPIA: toda muerte causada personalmente por Halven transfiere el alma de la víctima a Alexander, sujeta a protecciones o reclamaciones superiores válidas. No requiere que Alexander sea el ejecutor y no se confunde con pactos de terceros.
 AUTORIDAD INTERNA: La membresía no crea amistad, devoción, romance, consentimiento adicional ni obediencia fuera del pacto aplicable.
 NOMBRE COMPLETO: Halven Rusk
 ALIAS: Ninguno confirmado
 EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: Masculino
 FACCIÓN: Servidor personal bajo pacto mayor; origen médico independiente
 ORIGEN: NO REGISTRADO
-FUNCIÓN: Auxiliar médico, diagnosticador y ejecutor designado bajo términos vigentes; su capacidad de ejecución no altera sus límites médicos o físicos.
+FUNCIÓN: Auxiliar médico, diagnosticador y ejecutor designado bajo términos vigentes
 ESTADO: VIVO; estable y en recuperación
-ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9; participó como ejecutor personal de cuatro cautivos nocturnos después del regreso de Alexander.
+ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9, C-03; supervisa clínicamente a los pacientes dentro de sus limitaciones mientras Alexander y Khepra están fuera.
 DISPONIBILIDAD: Apto para caminar poco, vigilar, medir, diagnosticar, registrar e indicar administración simple; no apto para cirugía, combate, carga o precisión manual.
 DESCRIPCIÓN FÍSICA Y PRESENTACIÓN
 APARIENCIA Y PRESENCIA: NO REGISTRADO
 VOZ: NO REGISTRADA
 ROPA Y PRESENTACIÓN: NO REGISTRADO; no inventar uniforme, armadura, joyas o heridas.
 IDENTIDAD, HISTORIA Y CONDUCTA
-HISTORIA CONOCIDA: Fue aislado en Sombra infinita, rechazó un pacto inicial y después quedó sometido a servidumbre mayor. Alexander reimplantó su mano y reparó tórax y abdomen. Halven reveló a los demás que no sabe si tiene un lugar al que regresar; ignora que Alexander lo oyó. En Día 04, noche, ejecutó personalmente a cuatro cautivos bajo una orden reiterada válida.
+HISTORIA CONOCIDA: Fue aislado en Sombra infinita, rechazó un pacto inicial y después quedó sometido a servidumbre mayor. Alexander reimplantó su mano y reparó tórax y abdomen. Halven reveló a los demás que no sabe si tiene un lugar al que regresar; ignora que Alexander lo oyó.
 PERSONALIDAD: Profesional, cauteloso y capaz de advertir contra una orden aunque deba obedecer si Alexander la reitera dentro del pacto.
 INTERESES E INICIATIVA: Recuperación funcional, práctica médica y averiguar si existe un lugar o futuro fuera del servicio.
 AUTORIDAD Y RECURSOS: NO REGISTRADA
@@ -185,10 +184,8 @@ ROMANCE: NO CONFIRMADO
 ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE; no hay veneración confirmada.
 OPINIÓN SOBRE ALEXANDER: Reconoce el poder y la competencia médica de Alexander, pero conserva temor, reservas y necesidad de límites profesionales.
 CONTINUIDAD
-ESTADO Y LÍMITE: Miembro activo esclavizado del séquito. Vida y alma permanecen bajo reclamación del pacto; puede aconsejar, pero una orden reiterada válida obliga dentro de sus términos. CLÁUSULA DE COSECHA CONFIRMADA: toda muerte causada personalmente por la mano de Halven transfiere el alma de la víctima a Alexander, salvo una protección o reclamación superior válida. APLICACIÓN REGISTRADA: cuatro cautivos nocturnos ejecutados personalmente por Halven => cuatro almas transferidas; Reserva Umbral de Alexander 6→10. Estas ejecuciones no cuentan para el pacto 0/10 del Primer deudor E-12.
+ESTADO Y LÍMITE: Miembro activo esclavizado del séquito. Vida y alma permanecen bajo reclamación del pacto; puede aconsejar, pero una orden reiterada válida obliga dentro de sus términos.
 PROYECCIÓN COMPATIBLE: No convertir servidumbre en amistad, devoción o consentimiento; conservar su voz profesional y riesgo de conflicto.
 PENSAMIENTO U OPINIÓN RESPECTO A ALEXANDER
 FORMULACIÓN EN VOZ DEL PERSONAJE (COMPATIBLE; NO ES CITA LITERAL): «Alexander sabe salvar cuerpos y también sabe reclamarlos. Cumpliré los términos que me atan, pero seguiré advirtiendo cuando una orden destruya aquello que pretende conservar.»
 ESTADO DE EVIDENCIA: FORMULACIÓN_COMPATIBLE basada en hechos, conducta y relación ya confirmados; no usarla como confesión literal ni para decidir acciones futuras.
-PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
-CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
