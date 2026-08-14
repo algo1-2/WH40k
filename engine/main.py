@@ -226,17 +226,17 @@ def resolve_action(req: ActionRequest):
     cid = req.campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
     state = state_mgr.load_state(cid)
     actor_name = req.actor or "Alexander"
-    actor_sheet = state.get("character_sheet", {})
+    actor_sheet = state.setdefault("character_sheet", {})
 
     parsed = CommandParser.parse_command(req.user_input)
-    if parsed["is_command"]:
+    if parsed.get("is_command"):
         checkpoint = state_mgr.generate_checkpoint(cid)
         return {
             "type": "COMMAND_PARSED",
-            "action_code": parsed["action_code"],
-            "checkpoint": checkpoint["checkpoint_text"],
+            "action_code": parsed.get("action_code"),
+            "checkpoint": checkpoint.get("checkpoint_text"),
             "state_revision": state.get("state_revision"),
-            "message": f"Comando procesado: {parsed['command_body']}"
+            "message": f"Comando procesado: {parsed.get('command_body')}"
         }
 
     combat_info = {}
@@ -253,6 +253,7 @@ def resolve_action(req: ActionRequest):
         if "PSY" in req.ability_used:
             warp_info = WarpEngine.check_warp_phenomena(power_forced=req.force_psy_power)
 
+    # 1. Clasificar y congelar apuestas
     classified = MechanicsEngine.classify_route(
         question=req.user_input,
         method="Acción declarada",
@@ -270,41 +271,43 @@ def resolve_action(req: ActionRequest):
         risks=[{"nivel_base": 1, "techo": req.riesgo_techo, "activador": "CUALQUIER_FALLO"}]
     )
 
+    # 2. Tirada d100 determinista
     roll_result = MechanicsEngine.resolve_d100(
         contract_id=stakes["contract_id"],
         actor=actor_name,
-        target_value=req.atributo_base or 47,
-        modifiers=req.modificadores or []
+        valor_base=req.atributo_base or 47,
+        modificadores=req.modificadores or []
     )
 
-    delta = MechanicsEngine.calculate_delta(
-        roll_result=roll_result,
-        stakes=stakes,
-        current_state=state,
-        weapon_used=req.weapon_used
-    )
+    # 3. Ataque y desgaste de equipo si aplica
+    attack_info = {}
+    if req.weapon_key:
+        weapon_dossier = WeaponTraitsEngine.get_weapon_dossier(req.weapon_key)
+        attack_info = WeaponTraitsEngine.resolve_attack_with_traits(req.weapon_key, roll_result.get("es_exito", True), 3)
 
-    state = MechanicsEngine.apply_delta(state, delta)
+    # 4. Estado y checkpoint
+    state["state_revision"] = state.get("state_revision", 12) + 1
     checkpoint = state_mgr.generate_checkpoint(cid)
     state_mgr.save_state(state, cid)
 
     response_payload = {
-        "success": roll_result["es_exito"],
-        "d100_roll": roll_result["d100"],
-        "target_value": roll_result["umbral_final"],
-        "degrees": roll_result["grados"],
-        "delta": delta,
-        "new_state": state,
-        "checkpoint": checkpoint["checkpoint_text"],
-        "narrative_hint": "Éxito claro" if roll_result["es_exito"] else "Complicación o fallo con consecuencias",
+        "success": roll_result.get("es_exito", True),
+        "d100_roll": roll_result.get("d100_val", 50),
+        "target_value": roll_result.get("umbral_final", 50),
+        "degrees": roll_result.get("grados_num", 0),
+        "public_roll_text": roll_result.get("public_roll_text", ""),
+        "new_state_revision": state.get("state_revision"),
+        "current_health": f"{actor_sheet.get('salud_actual', 12)}/{actor_sheet.get('salud_maxima', 12)}",
+        "narrative_hint": "Éxito claro" if roll_result.get("es_exito") else "Complicación o fallo con consecuencias",
         "combat_info": combat_info,
         "ability_info": ability_info,
-        "warp_info": warp_info
+        "warp_info": warp_info,
+        "attack_info": attack_info,
+        "checkpoint": checkpoint.get("checkpoint_text", "")
     }
 
     if req.weapon_key:
-        dossier = WeaponTraitsEngine.get_weapon_dossier(req.weapon_key)
-        response_payload["weapon_dossier"] = dossier
+        response_payload["weapon_dossier"] = WeaponTraitsEngine.get_weapon_dossier(req.weapon_key)
 
     return response_payload
 

@@ -55,5 +55,10 @@ class CommandParser:
             "command_type": command_type,
             "command_body": command_body,
             "is_ooc": is_ooc,
+            "is_command": is_ooc,
             "action_code": action_code
         }
+
+    @staticmethod
+    def parse_command(raw_input: str) -> Dict[str, Any]:
+        return CommandParser.parse_input(raw_input)
