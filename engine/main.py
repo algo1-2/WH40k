@@ -47,6 +47,7 @@ from subengines.oath_ledger_engine import OathLedgerEngine
 from subengines.naval_combat_engine import NavalCombatEngine
 from subengines.enemy_reinforcement_engine import EnemyReinforcementEngine
 from subengines.combat_progression_engine import CombatProgressionEngine
+from subengines.character_dossier_engine import CharacterDossierEngine
 from dashboard_template import get_dashboard_html
 
 app = FastAPI(
@@ -385,45 +386,86 @@ def fulfill_oath(req: FulfillOathRequest):
 
 @app.get("/api/state", dependencies=[Depends(verify_api_key)])
 def get_state(x_campaign_id: Optional[str] = Header(None)):
+    """Devuelve el estado autoritativo completo de la campaña y la ficha activa de Alexander"""
     cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
     return state_mgr.load_state(cid)
 
+@app.get("/api/character/abilities", dependencies=[Depends(verify_api_key)])
+def get_character_abilities():
+    """Devuelve el catálogo detallado de habilidades pasivas, activas y poderes umbrales de Alexander (Visión de Oscuridad, Sombra Infinita, Reserva Umbral, Cirugía de Trauma) con sus mecánicas, bonos y modificadores exactos"""
+    return CharacterDossierEngine.get_abilities()
+
+@app.get("/api/character/weapons", dependencies=[Depends(verify_api_key)])
+def get_character_weapons():
+    """Devuelve el arsenal y fichas balísticas completas de todas las armas disponibles (daño, penetración, cadencia, alcance, capacidad, munición y rasgos de arma)"""
+    return CharacterDossierEngine.get_weapons()
+
+@app.get("/api/character/inventory", dependencies=[Depends(verify_api_key)])
+def get_character_inventory():
+    """Devuelve el inventario estructurado categorizado en tiempo real (Equipo Activo, Botín Incursión, Municiones, Equipo Médico Avanzado, Fármacos y Consumibles)"""
+    return CharacterDossierEngine.get_full_inventory()
+
+@app.get("/api/documents", dependencies=[Depends(verify_api_key)])
+def list_available_documents():
+    """Devuelve la lista de todos los manuales de reglas, instructivos y expedientes disponibles en el sistema"""
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    docs = []
+    search_dirs = [
+        os.path.join(project_root, "lore"),
+        os.path.join(project_root, "data", "alexander"),
+        os.path.join(project_root, "scripts")
+    ]
+    for d in search_dirs:
+        if os.path.isdir(d):
+            for entry in os.listdir(d):
+                if entry.endswith((".txt", ".md")):
+                    docs.append({"name": entry, "category": os.path.basename(d)})
+    return {"total_documents": len(docs), "documents": docs}
+
 @app.get("/api/documents/{filename}", dependencies=[Depends(verify_api_key)])
 def get_document(filename: str, x_campaign_id: Optional[str] = Header(None)):
+    """Busca y sirve el texto de cualquier documento, manual de DM o ficha de lore"""
     cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    target_dir = os.path.join(project_root, "data", "caelan" if "CAELAN" in cid.upper() else "alexander")
     
-    # Candidates to test directly
+    search_dirs = [
+        os.path.join(project_root, "lore"),
+        os.path.join(project_root, "data", "caelan" if "CAELAN" in cid.upper() else "alexander"),
+        os.path.join(project_root, "scripts")
+    ]
+    
     clean_name = filename.strip()
     norm_name = clean_name.replace(" ", "_")
     candidates = [
         clean_name,
         clean_name + ".txt",
+        clean_name + ".md",
         norm_name,
         norm_name + ".txt",
-        clean_name + ".docx",
-        norm_name + ".docx"
+        norm_name + ".md"
     ]
     
-    for cand in candidates:
-        cand_path = os.path.join(target_dir, cand)
-        if os.path.isfile(cand_path) and cand_path.endswith(".txt"):
-            with open(cand_path, "r", encoding="utf-8", errors="ignore") as f:
-                return {"filename": cand, "content": f.read()}
-    
-    # Case-insensitive / fuzzy match in target_dir
-    if os.path.isdir(target_dir):
-        lookup = norm_name.lower().replace(".txt", "")
-        for entry in os.listdir(target_dir):
-            if entry.endswith(".txt") and entry.lower().replace(".txt", "") == lookup:
-                with open(os.path.join(target_dir, entry), "r", encoding="utf-8", errors="ignore") as f:
-                    return {"filename": entry, "content": f.read()}
+    for s_dir in search_dirs:
+        if not os.path.isdir(s_dir):
+            continue
+        for cand in candidates:
+            cand_path = os.path.join(s_dir, cand)
+            if os.path.isfile(cand_path):
+                with open(cand_path, "r", encoding="utf-8", errors="ignore") as f:
+                    return {"filename": cand, "directory": os.path.basename(s_dir), "content": f.read()}
+        
+        # Case-insensitive / fuzzy match
+        lookup = norm_name.lower().replace(".txt", "").replace(".md", "")
+        for entry in os.listdir(s_dir):
+            base_entry = entry.lower().replace(".txt", "").replace(".md", "")
+            if base_entry == lookup:
+                with open(os.path.join(s_dir, entry), "r", encoding="utf-8", errors="ignore") as f:
+                    return {"filename": entry, "directory": os.path.basename(s_dir), "content": f.read()}
                     
-    raise HTTPException(status_code=404, detail=f"Document '{filename}' not found in {os.path.basename(target_dir)}")
+    raise HTTPException(status_code=404, detail=f"Document '{filename}' not found in server repositories.")
 
 @app.get("/api/inventory", dependencies=[Depends(verify_api_key)])
-def get_inventory(x_campaign_id: Optional[str] = Header(None)):
+def get_inventory_legacy(x_campaign_id: Optional[str] = Header(None)):
     cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
     current_state = state_mgr.load_state(cid)
     sheet = current_state.get("character_sheet", {})
