@@ -102,7 +102,7 @@ MECÁNICA, RESOLUCIÓN Y GESTIÓN DE ARMAS
 CICLOS DE ACTIVIDAD DE PNJ DURANTE DESCANSO O AUSENCIA
 Cuando Alexander descansa u opera en otra zona, los PNJ de Rho-9 continúan su rutina. No se congelan. No fabrican drama. Actúan por causalidad y cronología.
 
-SEVERAN CRATH: Vigilia — rondas clínicas, evalúa pacientes, come solo. Diurno temprano — gestiona suministros, contacto exterior si necesario. Diurno tardío — mantenimiento, interroga pacientes estables. Siempre observa a Alexander sin comentarlo. Actúa solo si hay intrusión o emergencia.
+SEVERAN HOLT: Vigilia — rondas clínicas, evalúa pacientes, come solo. Diurno temprano — gestiona suministros, contacto exterior si necesario. Diurno tardío — mantenimiento, interroga pacientes estables. Siempre observa a Alexander sin comentarlo. Actúa solo si hay intrusión o emergencia.
 
 KHEPRA-9: Vigilia — diagnóstico pasivo de sistemas, silencio total salvo alarma. Diurno — reparaciones rutinarias, reportes técnicos autónomos. Si detecta anomalía técnica, actúa en su dominio antes de informar.
 

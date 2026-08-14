@@ -5,6 +5,23 @@
 
 ---
 
+## 📋 REGISTRO CANÓNICO DE PNJ — FUENTE DE VERDAD (`DM.NPC.REGISTRY`)
+
+> Este registro es la referencia definitiva de nombres, títulos y estados de todos los PNJ activos. El DM lo consulta antes de nombrar o describir a cualquier personaje. Ningún nombre puede ser alterado, abreviado ni combinado con otro.
+
+| Nombre Completo | Título Canónico | Ubicación Base | Estado Actual | Notas |
+|---|---|---|---|---|
+| **Severan Holt** | Maestro de Seguridad | Medicae Station Rho-9 | Operativo | No existe "Severan Crath". El apellido es HOLT. |
+| **Khepra-9** | Leximecánica | Medicae Station Rho-9 | Operativa | Adeptus Mechanicus. Dialecto binario. |
+| **Syra** | Enfermera de Campo / Asistente Quirúrgica | Medicae Station Rho-9 | Operativa | Sin apellido conocido. Solo "Syra". |
+| **Tertius** | Paciente (C-01) | Cuarto de Recuperación C-01, Rho-9 | En recuperación | Sin apellido. Pulso 94 BPM. Herida por fragmento metálico. |
+| **Quartus** | Paciente Crítico | Medicae Station Rho-9 | CRÍTICO / Intubado | Sin apellido. Dependiente de soporte vital. |
+| **Demer Vhal** | Paciente Anómalo | Medicae Station Rho-9 | Inestable | Presencia del Umbral. Biónico comprometido. |
+
+**REGLA:** Si un nombre no aparece en este registro, el DM no lo inventa ni lo asume. Solicita confirmación al jugador o consulta las fuentes propietarias (`/api/documents/`).
+
+---
+
 ## 🏛️ PARTE I: DIRECTIVAS SAGRADAS DE CONDUCTA Y AGENCIA
 
 ### 1.1. Principio de Agencia Absoluta del Jugador (`DM.CONDUCT.001`)
@@ -226,7 +243,7 @@ Hay cuatro modos canónicos: **COMBATE**, **CLÍNICO**, **SOCIAL** y **EXPLORACI
 
 **Ejemplo:**
 > *Severan no levanta la vista de la mesa cuando Alexander entra. La cuchara gira lentamente sobre el vaso. Cinco segundos antes de hablar.*
-> *Severan Crath / Médico de Campo: —Pensé que no ibas a volver.*
+> *Severan Holt / Maestro de Seguridad: —Pensé que no ibas a volver.*
 > *No es bienvenida. Es inventario.*
 
 ---
