@@ -1,4 +1,4 @@
-﻿"""
+"""
 WH40K AUTOSYNC â€” Motor de SincronizaciÃ³n AutomÃ¡tica Permanente
 ==============================================================
 Ejecuta automÃ¡ticamente vÃ­a Windows Task Scheduler.
@@ -35,6 +35,8 @@ DESKTOP_WH40K = r"C:\Users\UsuarioCompuElite\Desktop\WH40K"
 SCRATCH_WATCHER = r"C:\Users\UsuarioCompuElite\.gemini\antigravity\scratch\wh40k_engine"
 LOG_PATH = r"C:\Users\UsuarioCompuElite\.gemini\antigravity\scratch\wh40k_autosync.log"
 HASH_CACHE_PATH = r"C:\Users\UsuarioCompuElite\.gemini\antigravity\scratch\wh40k_file_hashes.json"
+VERCEL_TOKEN_PATH = r"C:\Users\UsuarioCompuElite\.gemini\antigravity\scratch\vercel_token.txt"
+VERCEL_PROJECT_ID = "prj_WZ0kzEi5YeTJO3j7hWDrYI378TQx"
 
 # Mapa de archivos fuente -> destino en el repo (sin espacios)
 DOCUMENT_MAP = {
@@ -290,10 +292,85 @@ def sync():
     return True
 
 
+def get_vercel_token() -> str:
+    """Lee el token de Vercel desde el archivo guardado."""
+    try:
+        if os.path.exists(VERCEL_TOKEN_PATH):
+            with open(VERCEL_TOKEN_PATH, "r", encoding="utf-8-sig") as f:
+                return f.read().strip().replace("\ufeff", "")
+    except Exception as e:
+        log.warning(f"No se pudo leer token Vercel: {e}")
+    return ""
+
+
+def vercel_health_check():
+    """
+    Verifica y auto-corrige la configuracion del proyecto en Vercel:
+    1. Asegura que rootDirectory sea None (repo root)
+    2. Verifica estado del ultimo deployment
+    """
+    import urllib.request
+
+    vtoken = get_vercel_token()
+    if not vtoken:
+        log.info("Vercel health check: sin token, omitiendo.")
+        return
+
+    log.info("=== Vercel Health Check ===")
+
+    # Verificar rootDirectory
+    try:
+        req = urllib.request.Request(
+            "https://api.vercel.com/v9/projects/" + VERCEL_PROJECT_ID,
+            headers={"Authorization": "Bearer " + vtoken}
+        )
+        with urllib.request.urlopen(req, timeout=10) as r:
+            proj = json.loads(r.read())
+        root_dir = proj.get("rootDirectory")
+        if root_dir is not None:
+            log.warning(f"  rootDirectory = '{root_dir}' (incorrecto). Corrigiendo...")
+            patch = json.dumps({"rootDirectory": None}).encode("utf-8")
+            req2 = urllib.request.Request(
+                "https://api.vercel.com/v9/projects/" + VERCEL_PROJECT_ID,
+                data=patch,
+                headers={"Authorization": "Bearer " + vtoken, "Content-Type": "application/json"},
+                method="PATCH"
+            )
+            urllib.request.urlopen(req2, timeout=10).close()
+            log.info("  rootDirectory corregido a None (repo root).")
+        else:
+            log.info("  rootDirectory: OK (None = repo root)")
+    except Exception as e:
+        log.warning(f"  Error verificando rootDirectory: {e}")
+
+    # Verificar ultimo deployment
+    try:
+        req = urllib.request.Request(
+            "https://api.vercel.com/v6/deployments?projectId=" + VERCEL_PROJECT_ID + "&limit=1",
+            headers={"Authorization": "Bearer " + vtoken}
+        )
+        with urllib.request.urlopen(req, timeout=10) as r:
+            data = json.loads(r.read())
+        deploys = data.get("deployments", [])
+        if deploys:
+            state = deploys[0].get("state", "?")
+            url = deploys[0].get("url", "?")
+            err = deploys[0].get("errorMessage", "")
+            if state == "READY":
+                log.info(f"  Ultimo deployment: READY ({url})")
+            else:
+                log.warning(f"  Ultimo deployment: {state} | {err[:80] if err else 'sin detalle'}")
+    except Exception as e:
+        log.warning(f"  Error verificando deployments: {e}")
+
+    log.info("==========================")
+
+
 if __name__ == "__main__":
     try:
+        vercel_health_check()
         sync()
     except Exception as e:
-        log.exception(f"Error crÃ­tico en AutoSync: {e}")
+        log.exception(f"Error critico en AutoSync: {e}")
         sys.exit(1)
 

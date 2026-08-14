@@ -342,16 +342,35 @@ def get_state(x_campaign_id: Optional[str] = Header(None)):
 def get_document(filename: str, x_campaign_id: Optional[str] = Header(None)):
     cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    if "CAELAN" in cid.upper():
-        doc_path = os.path.join(project_root, "data", "caelan", filename)
-    else:
-        doc_path = os.path.join(project_root, "data", "alexander", filename)
+    target_dir = os.path.join(project_root, "data", "caelan" if "CAELAN" in cid.upper() else "alexander")
     
-    if os.path.exists(doc_path):
-        with open(doc_path, "r", encoding="utf-8") as f:
-            content = f.read()
-        return {"filename": filename, "content": content}
-    raise HTTPException(status_code=404, detail="Document not found")
+    # Candidates to test directly
+    clean_name = filename.strip()
+    norm_name = clean_name.replace(" ", "_")
+    candidates = [
+        clean_name,
+        clean_name + ".txt",
+        norm_name,
+        norm_name + ".txt",
+        clean_name + ".docx",
+        norm_name + ".docx"
+    ]
+    
+    for cand in candidates:
+        cand_path = os.path.join(target_dir, cand)
+        if os.path.isfile(cand_path) and cand_path.endswith(".txt"):
+            with open(cand_path, "r", encoding="utf-8", errors="ignore") as f:
+                return {"filename": cand, "content": f.read()}
+    
+    # Case-insensitive / fuzzy match in target_dir
+    if os.path.isdir(target_dir):
+        lookup = norm_name.lower().replace(".txt", "")
+        for entry in os.listdir(target_dir):
+            if entry.endswith(".txt") and entry.lower().replace(".txt", "") == lookup:
+                with open(os.path.join(target_dir, entry), "r", encoding="utf-8", errors="ignore") as f:
+                    return {"filename": entry, "content": f.read()}
+                    
+    raise HTTPException(status_code=404, detail=f"Document '{filename}' not found in {os.path.basename(target_dir)}")
 
 @app.post("/api/state/checkpoint", dependencies=[Depends(verify_api_key)])
 def get_checkpoint(req: CampaignSwitchRequest):
