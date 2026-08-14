@@ -1,12 +1,14 @@
 """
 WH40K Entity Registry Engine (entity_registry_engine.py)
-Authoritative, structured database & query engine for all Campaign NPCs, Retinue Members, Patients,
+Authoritative, structured database & query engine for ALL Campaign NPCs, Retinue Members, Patients,
 Security Personnel, External Contacts, Debtors, and Shadow Figures.
 
 Eliminates ambiguity between Retinue vs NPCs vs Clinical Patients vs Debtors.
 """
 
 from typing import Dict, List, Any, Optional
+import os
+import json
 import re
 
 RETINUE_MEMBERS = [
@@ -148,83 +150,28 @@ RHO9_PATIENTS = [
     }
 ]
 
-EXTERNAL_CONTACTS_AND_FACTIONS = [
-    {
-        "entity_id": "NPC-KERRIN-HOLT-001",
-        "nombre_completo": "Kerrin Holt",
-        "familia": "Familia Holt",
-        "categoria": "CONTACTO_EXTERIOR",
-        "rol_principal": "Lugarteniente operativo de Darrik Vane",
-        "estado": "VIVO · Crítico estable posoperatorio",
-        "ubicacion": "Emplazamiento exterior de Darrik Vane en Dust Falls"
-    },
-    {
-        "entity_id": "NPC-DARRIK-VANE-001",
-        "nombre_completo": "Darrik Vane",
-        "categoria": "CONTRATISTA_EXTERIOR",
-        "rol_principal": "Traficante local y contratante semanal del Médico Negro en Dust Falls",
-        "estado": "VIVO · Operativo"
-    },
-    {
-        "entity_id": "NPC-ENFORCER-UMBRAL-001",
-        "nombre_completo": "Especialista Enforcer Umbral",
-        "categoria": "CONTRAPARTE_PACTADA",
-        "rol_principal": "Antiguo perseguidor obligado por pacto a transporte de mercancías e inteligencia",
-        "estado": "VIVO · Bajo pacto de transporte"
-    },
-    {
-        "entity_id": "NPC-BREN-ORSTAG-001",
-        "nombre_completo": "Bren Orstag",
-        "categoria": "FACCION_CALDEREROS",
-        "rol_principal": "Líder de grupo armado Calderero vinculado a Kappa-Nueve y la búsqueda de Sael",
-        "estado": "VIVO · Hostilidad latente"
-    },
-    {
-        "entity_id": "NPC-HADRIX-VALE-001",
-        "nombre_completo": "Hadrix Vale",
-        "categoria": "AUXILIA_TECHNICA",
-        "rol_principal": "Técnico cibernético de la estación bajo Elevador Doce; descubrió derivaciones clandestinas",
-        "estado": "VIVO"
-    },
-    {
-        "entity_id": "NPC-JOREN-PELL-001",
-        "nombre_completo": "Joren Pell",
-        "categoria": "RECUPERADOR",
-        "rol_principal": "Recuperador independiente rescatado de un millisaur por Alexander; confidente de E-12",
-        "estado": "VIVO"
-    },
-    {
-        "entity_id": "NPC-SARDA-E12-001",
-        "nombre_completo": "Sarda (E-12)",
-        "categoria": "FIGURA_EN_LA_SOMBRA",
-        "rol_principal": "Autoridad desconocida de la estación E-12 que ordenaba traslados de sujetos M-01",
-        "estado": "DESCONOCIDO"
-    },
-    {
-        "entity_id": "NPC-ORVEN-UNKNOWN-001",
-        "nombre_completo": "M. Orven",
-        "categoria": "FIGURA_EN_LA_SOMBRA",
-        "rol_principal": "Supervisor de investigación ('NO VOX') que esperaba los resultados de Demer Vhal",
-        "estado": "DESCONOCIDO"
-    },
-    {
-        "entity_id": "NPC-DERVAN-KOL-001",
-        "nombre_completo": "Dervan Kol",
-        "familia": "Familia Kol",
-        "categoria": "ALMA_COSECHADA",
-        "rol_principal": "Deudor ejecutado. Su alma está almacenada en la Reserva Umbral de Alexander.",
-        "estado": "FALLECIDO / ALMA ALMACENADA"
-    },
-    {
-        "entity_id": "NPC-PELL-E12-001",
-        "nombre_completo": "Pell del puesto E-12",
-        "categoria": "ALMA_COSECHADA",
-        "rol_principal": "Guardia de E-12 ejecutado. Su alma saldó el pacto médico de 2 almas.",
-        "estado": "FALLECIDO / COSECHADO"
-    }
-]
+# Load additional 40+ raw entities from JSON if present, otherwise default to core
+CORE_ENTITIES = RETINUE_MEMBERS + RHO9_STATION_PERSONNEL + RHO9_PATIENTS
 
-ALL_ENTITIES = RETINUE_MEMBERS + RHO9_STATION_PERSONNEL + RHO9_PATIENTS + EXTERNAL_CONTACTS_AND_FACTIONS
+def _load_all_entities():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(current_dir, "all_entities_data.json")
+    entities = list(CORE_ENTITIES)
+    existing_ids = {e["entity_id"] for e in entities}
+    
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r", encoding="utf-8") as f:
+                extra = json.load(f)
+                for item in extra:
+                    if item.get("entity_id") not in existing_ids:
+                        entities.append(item)
+                        existing_ids.add(item.get("entity_id"))
+        except Exception:
+            pass
+    return entities
+
+ALL_ENTITIES = _load_all_entities()
 
 class EntityRegistryEngine:
 
@@ -241,7 +188,10 @@ class EntityRegistryEngine:
                 if s in e.get("nombre_completo", "").lower() 
                 or s in e.get("entity_id", "").lower() 
                 or s in e.get("familia", "").lower()
+                or s in e.get("categoria", "").lower()
                 or s in e.get("rol_principal", "").lower()
+                or s in e.get("alias_historico", "").lower()
+                or s in e.get("personalidad", "").lower()
             ]
         return results
 
@@ -249,11 +199,15 @@ class EntityRegistryEngine:
     def get_entity_by_id_or_name(cls, identifier: str) -> Optional[Dict[str, Any]]:
         clean_id = identifier.strip().lower()
         for e in ALL_ENTITIES:
+            eid = e.get("entity_id", "").lower()
+            ename = e.get("nombre_completo", "").lower()
+            alias = e.get("alias_historico", "").lower()
+            
             if (
-                e.get("entity_id", "").lower() == clean_id 
-                or e.get("nombre_completo", "").lower() == clean_id
-                or clean_id in e.get("nombre_completo", "").lower()
-                or e.get("alias_historico", "").lower() == clean_id
+                eid == clean_id 
+                or ename == clean_id
+                or clean_id in ename
+                or (alias and clean_id in alias)
             ):
                 return e
         return None

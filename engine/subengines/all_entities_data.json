@@ -1,0 +1,462 @@
+[
+  {
+    "entity_id": "NPC-SAEL-VEYL-001",
+    "nombre_completo": "Sael Veyl",
+    "familia": "Familia Veyl",
+    "categoria": "PACIENTE_LIBRE",
+    "rol_principal": "Testigo, portador de información y paciente de Alexander",
+    "estado": "VIVO — ESTABLE, 10/10; drenaje torácico funcional; incapaz de caminar",
+    "ubicacion": "Rho-9, C-03; estable con drenaje torácico.",
+    "raw_summary": "ENTITY_ID: NPC-SAEL-VEYL-001 NOMBRE COMPLETO: Sael Veyl ALIAS: Ninguno confirmado TÍTULOS: Ninguno EDAD: NO REGISTRADO ESPECIE: Humano SEXO: Masculino FACCIÓN: Antiguo contable de tránsito de los Caldereros ORIGEN: Dust Falls FUNCIÓN: Testigo, portador de información y paciente de Alexander ESTADO: "
+  },
+  {
+    "entity_id": "NPC-BREN-ORSTAG-001",
+    "nombre_completo": "Bren Orstag",
+    "familia": "Independiente",
+    "categoria": "FACCION_CALDEREROS",
+    "rol_principal": "Líder de grupo Calderero vinculado a la recuperación de Sael y la cápsula de Kappa-Nueve",
+    "estado": "DESCONOCIDO",
+    "ubicacion": "En ruta hacia Santuario de Bombeo 9, Conducto Kappa-Nueve",
+    "raw_summary": "ENTITY_ID: NPC-BREN-ORSTAG-001 NOMBRE COMPLETO: Bren Orstag ALIAS: Ninguno confirmado TÍTULOS: Dirigente Calderero local EDAD: NO REGISTRADO ESPECIE: Humano SEXO: Masculino FACCIÓN: Caldereros ORIGEN: Dust Falls FUNCIÓN: Líder de grupo Calderero vinculado a la recuperación de Sael y la cápsula de Ka"
+  },
+  {
+    "entity_id": "NPC-ENFORCER-UMBRAL-001",
+    "nombre_completo": "TERTIUS HOLT",
+    "familia": "Familia Holt",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Antiguo perseguidor de Alexander; contraparte externa obligada por pacto a transportar mercancías e información.",
+    "estado": "VIVO al momento de la liberación; condición vital actual DESCONOCIDA",
+    "ubicacion": "espacio material tras su liberación; ubicación actual, rutas, destinos y lugares de operación DESCONOCIDOS",
+    "raw_summary": "ENTITY_ID: NPC-ENFORCER-UMBRAL-001 NOMBRE COMPLETO: NO IDENTIFICADO ALIAS: Especialista Enforcer liberado; identidad no confirmada TÍTULOS: Especialista Enforcer EDAD: NO REGISTRADO ESPECIE: Humano SEXO: NO CONFIRMADO FACCIÓN: Enforcers de la Casa Helmawr ORIGEN: NO REGISTRADO FUNCIÓN: Antiguo perse"
+  },
+  {
+    "entity_id": "NPC-CANDELA-TERTIUS-001",
+    "nombre_completo": "Tertius Holt",
+    "familia": "Familia Holt",
+    "categoria": "PACIENTE_CLINICO",
+    "rol_principal": "Superviviente y compañero de Severan; paciente en recuperación y deudor bajo pacto por recuperación y tratamiento.",
+    "estado": "VIVO, 8/11; consciente y estable",
+    "ubicacion": "Rho-9, C-03; consciente, estable, en recuperación torácica con drenaje.",
+    "raw_summary": "ENTITY_ID: NPC-CANDELA-TERTIUS-001 NOMBRE COMPLETO: Tertius Holt ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Candela Hueca ORIGEN: NO REGISTRADO FUNCIÓN: Superviviente y compañero de Severan; paciente en recuperación y deudor bajo pacto por recupera"
+  },
+  {
+    "entity_id": "NPC-CANDELA-QUARTUS-001",
+    "nombre_completo": "Quartus Holt",
+    "familia": "Familia Holt",
+    "categoria": "PACIENTE_CLINICO",
+    "rol_principal": "Paciente crítico y deudor bajo pacto por extracción y cuidados; términos pendientes hasta recuperar la conciencia.",
+    "estado": "VIVO, 4/11; crítico estable, inconsciente e intubado",
+    "ubicacion": "Rho-9, C-03; crítico estable, inconsciente e intubado.",
+    "raw_summary": "ENTITY_ID: NPC-CANDELA-QUARTUS-001 NOMBRE COMPLETO: Quartus Holt ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Candela Hueca ORIGEN: NO REGISTRADO FUNCIÓN: Paciente crítico y deudor bajo pacto por extracción y cuidados; términos pendientes hasta recup"
+  },
+  {
+    "entity_id": "NPC-MALREC-VOSS-001",
+    "nombre_completo": "Malrec Voss",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Propietario anterior de equipo e información vinculada a N-BLACK/3",
+    "estado": "DESCONOCIDO",
+    "ubicacion": "Último paradero material no confirmado tras una detonación",
+    "raw_summary": "ENTITY_ID: NPC-MALREC-VOSS-001 NOMBRE COMPLETO: Malrec Voss ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Candela Hueca / Custodia de Fenómenos Negros, vínculo no resuelto ORIGEN: NO REGISTRADO FUNCIÓN: Propietario anterior de equipo e información vin"
+  },
+  {
+    "entity_id": "NPC-VEYRA-MANDIBULA-001",
+    "nombre_completo": "Veyra",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Figura de mando vinculada al depósito y a Oren Vale",
+    "estado": "DESCONOCIDO",
+    "ubicacion": "Último rastro: evacuación occidental",
+    "raw_summary": "ENTITY_ID: NPC-VEYRA-MANDIBULA-001 NOMBRE COMPLETO: Veyra ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Mandíbula Blanca ORIGEN: NO REGISTRADO FUNCIÓN: Figura de mando vinculada al depósito y a Oren Vale ESTADO: DESCONOCIDO ÚLTIMA UBICACIÓN CONFIRMADA"
+  },
+  {
+    "entity_id": "NPC-OREN-VALE-001",
+    "nombre_completo": "Oren Vale",
+    "familia": "Familia Vale",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Cautivo y testigo vinculado a Veyra",
+    "estado": "VIVO al último contacto, 7/9",
+    "ubicacion": "Bajo custodia de Veyra al último contacto",
+    "raw_summary": "ENTITY_ID: NPC-OREN-VALE-001 NOMBRE COMPLETO: Oren Vale ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: NO REGISTRADA ORIGEN: NO REGISTRADO FUNCIÓN: Cautivo y testigo vinculado a Veyra ESTADO: VIVO al último contacto, 7/9 ÚLTIMA UBICACIÓN CONFIRMADA: Ba"
+  },
+  {
+    "entity_id": "NPC-LYSA-RENN-001",
+    "nombre_completo": "Lysa Renn",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Trabajadora herida y testigo protegida por acuerdo de silencio",
+    "estado": "VIVA, 6/8 al último contacto; herida estabilizada",
+    "ubicacion": "Ruta de evacuación separada de Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-LYSA-RENN-001 NOMBRE COMPLETO: Lysa Renn ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Servicios Hídricos ORIGEN: NO REGISTRADO FUNCIÓN: Trabajadora herida y testigo protegida por acuerdo de silencio ESTADO: VIVA, 6/8 al último contacto"
+  },
+  {
+    "entity_id": "NPC-DAREK-MOLL-001",
+    "nombre_completo": "Darek Moll",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Compañero de turno y familia elegida de Lysa Renn",
+    "estado": "VIVO, 8/8 al último contacto",
+    "ubicacion": "Ruta de evacuación separada de Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-DAREK-MOLL-001 NOMBRE COMPLETO: Darek Moll ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Servicios Hídricos ORIGEN: NO REGISTRADO FUNCIÓN: Compañero de turno y familia elegida de Lysa Renn ESTADO: VIVO, 8/8 al último contacto ÚLTIMA UBI"
+  },
+  {
+    "entity_id": "NPC-SEVERAN-HOLT-001",
+    "nombre_completo": "Severan Holt",
+    "familia": "Familia Holt",
+    "categoria": "SEGURIDAD_TERRITORIAL",
+    "rol_principal": "Guardia, contención, seguridad e investigación del refugio",
+    "estado": "VIVO, 11/11; operativo",
+    "ubicacion": "Rho-9; mantiene función de guardia y seguridad del refugio designado.",
+    "raw_summary": "ENTITY_ID: NPC-SEVERAN-HOLT-001 NOMBRE COMPLETO: Severan Holt ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: Masculino FACCIÓN: Antiguo especialista de Candela Hueca; servidor temporal bajo pacto ORIGEN: NO REGISTRADO FUNCIÓN: Guardia, contención, seguridad e investigación d"
+  },
+  {
+    "entity_id": "NPC-JAREK-WHITE-MEAT-001",
+    "nombre_completo": "Jarek, jefe del destacamento de la clínica",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Jefe de unidad, superviviente y testigo de pactos cerrados",
+    "estado": "VIVO, 8/11 al último contacto; herida torácica estabilizada",
+    "ubicacion": "Abandonó la ruta de entrega sin conocer QTN-3",
+    "raw_summary": "ENTITY_ID: NPC-JAREK-WHITE-MEAT-001 NOMBRE COMPLETO: Jarek, jefe del destacamento de la clínica ALIAS: Jarek de la clínica del Mercado de Carne Blanca EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Destacamento de incautación que actuó en nombre de la Lex; afiliación exacta no "
+  },
+  {
+    "entity_id": "NPC-SYRA-KOL-001",
+    "nombre_completo": "Syra Kol",
+    "familia": "Familia Kol",
+    "categoria": "PERSONAL_ADMINISTRATIVO",
+    "rol_principal": "Trabajadora no pactada de registros, inventario, contabilidad y clasificación logística en Rho-9. Entró a Sombra infinita para inventariar sin exposición a pacientes o muestras peligrosas; no es administradora general ni jefa de seguridad.",
+    "estado": "VIVA; móvil y estable",
+    "ubicacion": "Rho-9, ADM-01; trabajo y alojamiento provisional.",
+    "raw_summary": "ENTITY_ID: NPC-SYRA-KOL-001 NOMBRE COMPLETO: Syra Kol ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: Femenino FACCIÓN: Independiente; fugitiva administrativa vinculada a registros de deuda ORIGEN: NO REGISTRADO FUNCIÓN: Trabajadora no pactada de registros, inventario, contab"
+  },
+  {
+    "entity_id": "NPC-KHEPRA-9-001",
+    "nombre_completo": "Khepra-9",
+    "familia": "Independiente",
+    "categoria": "PERSONAL_TECNICO",
+    "rol_principal": "Colaboradora técnica independiente y compañera operacional preferente; responsable prevista de un taller técnico todavía no construido en Rho-9. Actualmente evalúa junto con Alexander el componente mecánico y las interfaces de Demer Vhal.",
+    "estado": "VIVA, 10/10 en el último perfil numérico confirmado; la fuente compartida no aporta una nueva medición.",
+    "ubicacion": "Rho-9; participa en evaluación clínica-técnica y planificación de seguridad/confidencialidad. La ubicación actual de su servidor de carga no fue actualizada por la fuente compartida.",
+    "raw_summary": "ENTITY_ID: NPC-KHEPRA-9-001 NOMBRE COMPLETO: Khepra-9 ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Lexmecánico auxiliar independiente y de mercado gris ORIGEN: NO REGISTRADO FUNCIÓN: Colaboradora técnica independiente y compañera operacional preferen"
+  },
+  {
+    "entity_id": "NPC-BRANN-VESK-001",
+    "nombre_completo": "Brann Vesk",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Superviviente y antiguo contraparte de pacto cerrado",
+    "estado": "VIVO, 10/10 al último contacto",
+    "ubicacion": "Santa Misericordia al último contacto",
+    "raw_summary": "ENTITY_ID: NPC-BRANN-VESK-001 NOMBRE COMPLETO: Brann Vesk ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Defensores de Santa Misericordia al último contacto ORIGEN: NO REGISTRADO FUNCIÓN: Superviviente y antiguo contraparte de pacto cerrado ESTADO: VIV"
+  },
+  {
+    "entity_id": "NPC-IOVAN-KRAIL-001",
+    "nombre_completo": "Iovan Krail",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Paciente salvado como prestación del pacto de Brann",
+    "estado": "VIVO, 9/10 al último contacto",
+    "ubicacion": "Santa Misericordia",
+    "raw_summary": "ENTITY_ID: NPC-IOVAN-KRAIL-001 NOMBRE COMPLETO: Iovan Krail ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Santa Misericordia ORIGEN: NO REGISTRADO FUNCIÓN: Paciente salvado como prestación del pacto de Brann ESTADO: VIVO, 9/10 al último contacto ÚLTIM"
+  },
+  {
+    "entity_id": "NPC-ODRAN-PELL-001",
+    "nombre_completo": "Odran Pell",
+    "familia": "Familia Pell",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Técnico farmacéutico y testigo",
+    "estado": "VIVO, 8/8 al último contacto",
+    "ubicacion": "Santa Misericordia o ruta posterior no registrada",
+    "raw_summary": "ENTITY_ID: NPC-ODRAN-PELL-001 NOMBRE COMPLETO: Odran Pell ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Personal farmacéutico de Santa Misericordia ORIGEN: NO REGISTRADO FUNCIÓN: Técnico farmacéutico y testigo ESTADO: VIVO, 8/8 al último contacto ÚLTI"
+  },
+  {
+    "entity_id": "NPC-MARDA-SENN-001",
+    "nombre_completo": "Marda Senn",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Superviviente y evacuadora de un paciente sedado",
+    "estado": "VIVA, 9/9 al último contacto",
+    "ubicacion": "Santa Misericordia o ruta de evacuación no registrada",
+    "raw_summary": "ENTITY_ID: NPC-MARDA-SENN-001 NOMBRE COMPLETO: Marda Senn ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Santa Misericordia ORIGEN: NO REGISTRADO FUNCIÓN: Superviviente y evacuadora de un paciente sedado ESTADO: VIVA, 9/9 al último contacto ÚLTIMA UBIC"
+  },
+  {
+    "entity_id": "NPC-DERVAN-KOL-001",
+    "nombre_completo": "Dervan Kol",
+    "familia": "Familia Kol",
+    "categoria": "ALMA_COSECHADA",
+    "rol_principal": "Deudor ejecutado y alma almacenada",
+    "estado": "MUERTO",
+    "ubicacion": "Cuerpo material: destino no registrado; alma en Reserva Umbral",
+    "raw_summary": "ENTITY_ID: NPC-DERVAN-KOL-001 NOMBRE COMPLETO: Dervan Kol ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Red de deuda vinculada al Cobrador ORIGEN: NO REGISTRADO FUNCIÓN: Deudor ejecutado y alma almacenada ESTADO: MUERTO ÚLTIMA UBICACIÓN CONFIRMADA: Cu"
+  },
+  {
+    "entity_id": "NPC-DARRIK-VANE-001",
+    "nombre_completo": "Darrik Vane",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Contratante semanal del Médico Negro",
+    "estado": "VIVO; estado de salud no registrado por separado",
+    "ubicacion": "Emplazamiento propio en Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-DARRIK-VANE-001 NOMBRE COMPLETO: Darrik Vane ALIAS: Ninguno confirmado EDAD: Aproximadamente 40 años | ESPECIE: Humano | SEXO: Masculino FACCIÓN: Traficante y empleador local independiente ORIGEN: NO REGISTRADO FUNCIÓN: Contratante semanal del Médico Negro ESTADO: VIVO; estado de salu"
+  },
+  {
+    "entity_id": "NPC-KERRIN-HOLT-001",
+    "nombre_completo": "Kerrin Holt",
+    "familia": "Familia Holt",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Lugarteniente operativo y paciente posoperatorio",
+    "estado": "VIVO; CRÍTICO ESTABLE POSOPERATORIO",
+    "ubicacion": "Emplazamiento de Darrik Vane",
+    "raw_summary": "ENTITY_ID: NPC-KERRIN-HOLT-001 NOMBRE COMPLETO: Kerrin Holt ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Lugarteniente de Darrik Vane ORIGEN: NO REGISTRADO FUNCIÓN: Lugarteniente operativo y paciente posoperatorio ESTADO: VIVO; CRÍTICO ESTABLE POSOPE"
+  },
+  {
+    "entity_id": "NPC-SABLE-RHO9-001",
+    "nombre_completo": "Sable",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Antigua controladora de Rho-9 y contraparte de pacto medio",
+    "estado": "VIVA; sin herida confirmada",
+    "ubicacion": "Se retiró de Rho-9 después del pacto",
+    "raw_summary": "ENTITY_ID: NPC-SABLE-RHO9-001 NOMBRE COMPLETO: Sable ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: Femenino FACCIÓN: Traficante y contrabandista independiente ORIGEN: NO REGISTRADO FUNCIÓN: Antigua controladora de Rho-9 y contraparte de pacto medio ESTADO: VIVA; sin herida "
+  },
+  {
+    "entity_id": "NPC-JAREK-RHO9-001",
+    "nombre_completo": "Jarek, representante de Rho-9",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Representante ordinario de tránsito y carga",
+    "estado": "VIVO; salud no registrada",
+    "ubicacion": "Se retiró de Rho-9 con el grupo de Sable",
+    "raw_summary": "ENTITY_ID: NPC-JAREK-RHO9-001 NOMBRE COMPLETO: Jarek, representante de Rho-9 ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Hombre de Sable ORIGEN: NO REGISTRADO FUNCIÓN: Representante ordinario de tránsito y carga ESTADO: VIVO; salud no registrada ÚLT"
+  },
+  {
+    "entity_id": "NPC-MEREK-RHO9-001",
+    "nombre_completo": "Merek",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Paciente en recuperación en Rho-9",
+    "estado": "VIVO; estable tras drenaje y desbridamiento",
+    "ubicacion": "Rho-9, recuperación general C-02",
+    "raw_summary": "ENTITY_ID: NPC-MEREK-RHO9-001 NOMBRE COMPLETO: Merek ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Hombre de Sable ORIGEN: NO REGISTRADO FUNCIÓN: Paciente en recuperación en Rho-9 ESTADO: VIVO; estable tras drenaje y desbridamiento ÚLTIMA UBICACIÓN CO"
+  },
+  {
+    "entity_id": "NPC-TOREN-RHO9-001",
+    "nombre_completo": "Toren",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Cuidador improvisado de Merek",
+    "estado": "VIVO; salud no registrada",
+    "ubicacion": "Rho-9, recuperación general C-02",
+    "raw_summary": "ENTITY_ID: NPC-TOREN-RHO9-001 NOMBRE COMPLETO: Toren ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Hombre de Sable ORIGEN: NO REGISTRADO FUNCIÓN: Cuidador improvisado de Merek ESTADO: VIVO; salud no registrada ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9, recup"
+  },
+  {
+    "entity_id": "NPC-RELLAN-001",
+    "nombre_completo": "Rellan",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Contacto sujeto a pacto de secreto",
+    "estado": "VIVO; salud no registrada",
+    "ubicacion": "Dust Falls; ubicación exacta no registrada",
+    "raw_summary": "ENTITY_ID: NPC-RELLAN-001 NOMBRE COMPLETO: Rellan ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Intermediario menor de información ORIGEN: NO REGISTRADO FUNCIÓN: Contacto sujeto a pacto de secreto ESTADO: VIVO; salud no registrada ÚLTIMA UBICACIÓN CON"
+  },
+  {
+    "entity_id": "NPC-SENN-VARKO-001",
+    "nombre_completo": "Senn Varko",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Intermediario y verificador de reputación del Médico Negro",
+    "estado": "VIVO; salud no registrada",
+    "ubicacion": "Dust Falls; ubicación exacta no registrada",
+    "raw_summary": "ENTITY_ID: NPC-SENN-VARKO-001 NOMBRE COMPLETO: Senn Varko ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Corredor de empeños e información ORIGEN: NO REGISTRADO FUNCIÓN: Intermediario y verificador de reputación del Médico Negro ESTADO: VIVO; salud no "
+  },
+  {
+    "entity_id": "NPC-LYSA-VERIFIER-001",
+    "nombre_completo": "Lysa, verificadora de Senn Varko",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Verificadora independiente de mercancía médica",
+    "estado": "VIVA; salud no registrada",
+    "ubicacion": "Dust Falls; ubicación exacta no registrada",
+    "raw_summary": "ENTITY_ID: NPC-LYSA-VERIFIER-001 NOMBRE COMPLETO: Lysa, verificadora de Senn Varko ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Red de Senn Varko ORIGEN: NO REGISTRADO FUNCIÓN: Verificadora independiente de mercancía médica ESTADO: VIVA; salud no reg"
+  },
+  {
+    "entity_id": "NPC-VELA-001",
+    "nombre_completo": "Vela",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Transportista y contacto capaz de hacer cumplir instrucciones posoperatorias",
+    "estado": "VIVA; salud no registrada",
+    "ubicacion": "Dust Falls; ubicación exacta no registrada",
+    "raw_summary": "ENTITY_ID: NPC-VELA-001 NOMBRE COMPLETO: Vela ALIAS: Ninguno confirmado EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO FACCIÓN: Contacto armado y transportista ORIGEN: NO REGISTRADO FUNCIÓN: Transportista y contacto capaz de hacer cumplir instrucciones posoperatorias ESTADO: VIVA; salud"
+  },
+  {
+    "entity_id": "NPC-HADRIX-VALE-001",
+    "nombre_completo": "Hadrix Vale",
+    "familia": "Familia Vale",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "antiguo trabajador de la estación bajo Elevador Doce, obligado a mantener una derivación clandestina. Vio residuos orgánicos en conductos, válvulas y filtros impropios; sus preguntas provocaron restricciones. Interpreta las entradas y salidas repetidas como un proceso deliberado, hipótesis fuerte pero no propósito probado.",
+    "estado": "VIVO y en recuperación. El pulmón derecho conserva zonas funcionales aunque está muy reducido; el izquierdo compensa. El riñón derecho está muy comprometido y el izquierdo es suficiente. Infecciones de interfaz localizadas, antibiótico tolerado y arritmia de componentes metabólico y crónico. Despertó brevemente orientado, habló y mostró mejoría objetiva; no está plenamente recuperado ni listo para trabajar.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-HADRIX-VALE-001 | NOMBRE: Hadrix Vale | Humano extensamente cibernético | antiguo Auxilia Technica de tratamiento/retorno; no Magos ordenado. ESTADO: VIVO y en recuperación. El pulmón derecho conserva zonas funcionales aunque está muy reducido; el izquierdo compensa. El riñón derecho "
+  },
+  {
+    "entity_id": "NPC-VREK-SOLN-001",
+    "nombre_completo": "Vrek Soln",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "acordó explorar una relación no exclusiva de venta de ubicaciones de salvamento demasiado grandes o peligrosas para recuperar por cuenta propia.",
+    "estado": "VIVO al último contacto; sin herida grave confirmada. Alexander lo rescató junto con Joren Pell de un millisaur y devolvió su trineo.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-VREK-SOLN-001 | NOMBRE: Vrek Soln | recuperador independiente de Dust Falls. ESTADO: VIVO al último contacto; sin herida grave confirmada. Alexander lo rescató junto con Joren Pell de un millisaur y devolvió su trineo. HISTORIA/FUNCIÓN: acordó explorar una relación no exclusiva de ven"
+  },
+  {
+    "entity_id": "NPC-JOREN-PELL-001",
+    "nombre_completo": "Joren Pell",
+    "familia": "Familia Pell",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "Alexander lo rescató de un millisaur, trató una laceración de pierna y le pagó 100 créditos por información sobre la estación bajo Elevador de Ceniza Doce.",
+    "estado": "VIVO en el último estado legítimamente confirmado anterior a la rectificación errónea. Su paradero y condición actuales no están registrados; no inventarlos.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-JOREN-PELL-001 | NOMBRE: Joren Pell | recuperador independiente de Dust Falls; compañero anterior de Vrek Soln. ESTADO: VIVO en el último estado legítimamente confirmado anterior a la rectificación errónea. Su paradero y condición actuales no están registrados; no inventarlos. HISTORI"
+  },
+  {
+    "entity_id": "NPC-YELLOW-CHIEF-001",
+    "nombre_completo": "OPERADOR M-01 NO IDENTIFICADO",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "selló Pacto Mayor para sobrevivir y abandonar el combate sin que Alexander lo persiguiera por ese enfrentamiento.",
+    "estado": "VIVO al último contacto, 1/10, huyó tras el combate nocturno.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-YELLOW-CHIEF-001 | NOMBRE: NO IDENTIFICADO | jefe de grupo armado marcado de amarillo. ESTADO: VIVO al último contacto, 1/10, huyó tras el combate nocturno. HISTORIA/FUNCIÓN: selló Pacto Mayor para sobrevivir y abandonar el combate sin que Alexander lo persiguiera por ese enfrentamien"
+  },
+  {
+    "entity_id": "NPC-M01-OPERATOR-001",
+    "nombre_completo": "SUJETO M-01 I",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "",
+    "estado": "VIVO e inconsciente. Deshidratación, volumen bajo, desnutrición y atrofia en rehabilitación controlada; tolera líquidos, electrolitos y vitaminas, conserva función renal bilateral y muestra reflejos y respuestas espontáneas más organizadas. Se aproxima a consciencia recuperable, pero no hay despertar sostenido confirmado.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-M01-OPERATOR-001 | NOMBRE: NO IDENTIFICADO | operador humano con implantes moderados. ESTADO: VIVO e inconsciente. Deshidratación, volumen bajo, desnutrición y atrofia en rehabilitación controlada; tolera líquidos, electrolitos y vitaminas, conserva función renal bilateral y muestra r"
+  },
+  {
+    "entity_id": "NPC-M01-SUBJECT-01",
+    "nombre_completo": "SUJETO M-01 II",
+    "familia": "Independiente",
+    "categoria": "PACIENTE_CLINICO",
+    "rol_principal": "",
+    "estado": "VIVO, inconsciente y suspendido. Atrofia grave, desnutrición y deshidratación.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-M01-SUBJECT-01 | NOMBRE: NO IDENTIFICADO | varón adulto con implante craneal y puerto abdominal. ESTADO: VIVO, inconsciente y suspendido. Atrofia grave, desnutrición y deshidratación. DIAGNÓSTICO: focos anómalos pequeños, vivos y vascularizados en interfaces, cicatrices y vasos; depen"
+  },
+  {
+    "entity_id": "NPC-M01-SUBJECT-02",
+    "nombre_completo": "NO IDENTIFICADA",
+    "familia": "Independiente",
+    "categoria": "PACIENTE_CLINICO",
+    "rol_principal": "",
+    "estado": "VIVA, inconsciente y suspendida; corazón débil e inflamación crónica de interfaces.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-M01-SUBJECT-02 | NOMBRE: NO IDENTIFICADA | mujer adulta con prótesis de pierna izquierda y otros implantes menores. ESTADO: VIVA, inconsciente y suspendida; corazón débil e inflamación crónica de interfaces. DIAGNÓSTICO: focos multifocales forman una red incompleta que alcanza músculo"
+  },
+  {
+    "entity_id": "NPC-M01-SUBJECT-03",
+    "nombre_completo": "SUJETO M-01 IV / REFERENCIA HISTÓRICA",
+    "familia": "Independiente",
+    "categoria": "PACIENTE_CLINICO",
+    "rol_principal": "",
+    "estado": "VIVO en condición crítica extrema y suspendido antes de completar el colapso.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-M01-SUBJECT-03 | NOMBRE: NO IDENTIFICADO | varón probable, muy implantado en tórax y cuello. ESTADO: VIVO en condición crítica extrema y suspendido antes de completar el colapso. DIAGNÓSTICO: integración avanzada con dependencia. La red anómala participa en vasos, perfusión e interfaz"
+  },
+  {
+    "entity_id": "NPC-SARDA-E12-001",
+    "nombre_completo": "Sarda",
+    "familia": "Independiente",
+    "categoria": "FIGURA_EN_LA_SOMBRA",
+    "rol_principal": "guardias de E-12 afirmaron que debía ser avisada cuando varios testigos se activaran y que emitía autorizaciones o cambios de cápsula. Demer recuerda que el personal invocaba autorización de Sarda para continuar procedimientos. Esto no demuestra que sea autoridad máxima.",
+    "estado": "DESCONOCIDO; no existe contacto directo con Alexander.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-SARDA-E12-001 | NOMBRE: Sarda | sexo, apariencia, afiliación y ubicación NO CONFIRMADOS. ESTADO: DESCONOCIDO; no existe contacto directo con Alexander. HISTORIA/FUNCIÓN: guardias de E-12 afirmaron que debía ser avisada cuando varios testigos se activaran y que emitía autorizaciones o "
+  },
+  {
+    "entity_id": "NPC-PELL-E12-001",
+    "nombre_completo": "Pell",
+    "familia": "Familia Pell",
+    "categoria": "ALMA_COSECHADA",
+    "rol_principal": "conocía testigos, lotes y protocolos logísticos de E-12. Su alma pagó, junto con la del miembro amarillo capturado, el acuerdo médico anterior de 2 almas, que queda CERRADO.",
+    "estado": "MUERTO. Fue emboscado, capturado vivo, suspendido, ejecutado posteriormente y procesado como donante selectivo por trauma y pérdida de sangre.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-PELL-E12-001 | NOMBRE/ALIAS: Pell | hombre con prótesis parcial de mano; guardia/ocupante del puesto de transferencia E-12. ESTADO: MUERTO. Fue emboscado, capturado vivo, suspendido, ejecutado posteriormente y procesado como donante selectivo por trauma y pérdida de sangre. HISTORIA/F"
+  },
+  {
+    "entity_id": "NPC-DEMER-VHAL-001",
+    "nombre_completo": "MIEMBRO AMARILLO NO IDENTIFICADO",
+    "familia": "Independiente",
+    "categoria": "PACIENTE_CLINICO",
+    "rol_principal": "trabajó en carga y mantenimiento básico, no en el Mechanicus. Recuerda brazo derecho industrial tras accidente, refuerzo lumbar y regulador cardíaco antiguo. Aceptó trabajo experimental bien pagado para mejorar integración y dolor; el contrato mencionaba riesgo funcional y cesión de material al morir, pero no la transformación actual. Khepra encontró interfaces que Demer no recuerda.",
+    "estado": "VIVO, consciente y capaz de conversar; Rho-9, aislamiento privado. Un circuito combinado humano+anomalía+máquina permite un intervalo funcional sostenido fuera de M-01. Salud numérica y mapa completo de implantes NO REGISTRADOS.",
+    "ubicacion": "VIVO, consciente y capaz de conversar; Rho-9, aislamiento privado. Un circuito combinado humano+anomalía+máquina permite un intervalo funcional sostenido fuera de M-01. Salud numérica y mapa completo de implantes NO REGISTRADOS.",
+    "raw_summary": "ENTITY_ID: NPC-DEMER-VHAL-001 | ALIAS HISTÓRICO: NPC-M01-SUBJECT-04 / Sujeto M-01 IV | Humano aumentado | Masculino. ESTADO Y UBICACIÓN: VIVO, consciente y capaz de conversar; Rho-9, aislamiento privado. Un circuito combinado humano+anomalía+máquina permite un intervalo funcional sostenido fuera de "
+  },
+  {
+    "entity_id": "NPC-YELLOW-WOUNDED-001",
+    "nombre_completo": "CORREDOR CLANDESTINO NO IDENTIFICADO",
+    "familia": "Independiente",
+    "categoria": "ALMA_COSECHADA",
+    "rol_principal": "",
+    "estado": "MUERTO, ejecutado y procesado. Su alma, junto con la de Pell E-12, cerró el acuerdo médico anterior de 2 almas.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-YELLOW-WOUNDED-001 | NOMBRE: NO IDENTIFICADO | miembro capturado de la banda amarilla; no es el jefe que escapó. ESTADO: MUERTO, ejecutado y procesado. Su alma, junto con la de Pell E-12, cerró el acuerdo médico anterior de 2 almas. PROCESAMIENTO: la evaluación falló y un órgano ocult"
+  },
+  {
+    "entity_id": "NPC-CLANDESTINE-BROKER-001",
+    "nombre_completo": "HOMBRE NO IDENTIFICADO DEL ABRIGO",
+    "familia": "Independiente",
+    "categoria": "ALMA_COSECHADA",
+    "rol_principal": "",
+    "estado": "MUERTO. Terminó inconsciente, fue ejecutado por el Primer deudor E-12 y procesado como donante. Un pulmón tenía daño menor; el otro y varios tejidos u órganos eran potencialmente útiles, siempre sujetos a compatibilidad.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-CLANDESTINE-BROKER-001 | NOMBRE: NO IDENTIFICADO | vendedor de información en un nodo clandestino. ESTADO: MUERTO. Terminó inconsciente, fue ejecutado por el Primer deudor E-12 y procesado como donante. Un pulmón tenía daño menor; el otro y varios tejidos u órganos eran potencialmente"
+  },
+  {
+    "entity_id": "NPC-COAT-MAN-UNIDENTIFIED-001",
+    "nombre_completo": "PRIMER DEUDOR E-12",
+    "familia": "Independiente",
+    "categoria": "ALMA_COSECHADA",
+    "rol_principal": "",
+    "estado": "MUERTO. Hirió gravemente al Segundo deudor, fue capturado mediante dominación de Voluntad, ejecutado por el Primer deudor y procesado como donante mixto con material vascular y muestra de identificación separada.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-COAT-MAN-UNIDENTIFIED-001 | NOMBRE: NO IDENTIFICADO | investigaba quién había cruzado la ruta oriental esa mañana. ESTADO: MUERTO. Hirió gravemente al Segundo deudor, fue capturado mediante dominación de Voluntad, ejecutado por el Primer deudor y procesado como donante mixto con mater"
+  },
+  {
+    "entity_id": "NPC-JOREN-DEBTOR-01",
+    "nombre_completo": "SEGUNDO DEUDOR E-12",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "",
+    "estado": "VIVO, 0/9, consciente y estabilizado antes de cirugía; Trauma 2. Herida grave de torso por disparo, cuchillada posterior y exposición química. Vasos y planos reparados con cierre estable; apto para recuperación, sin restauración automática de Salud.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-JOREN-DEBTOR-01 | NOMBRE: NO IDENTIFICADO | guardia superviviente de E-12. El ID conserva «JOREN» solo por compatibilidad; no existe vínculo con Joren Pell. ESTADO: VIVO, 0/9, consciente y estabilizado antes de cirugía; Trauma 2. Herida grave de torso por disparo, cuchillada posterior"
+  },
+  {
+    "entity_id": "NPC-JOREN-DEBTOR-02",
+    "nombre_completo": "ORVEN / POSIBLE M. ORVEN",
+    "familia": "Independiente",
+    "categoria": "CONTACTO_EXTERIOR",
+    "rol_principal": "",
+    "estado": "VIVO, 0/9, inconsciente; Trauma 4 y Sangrado 4 suspendido antes de cirugía. Brazo izquierdo salvado con continuidad vascular, nervios útiles y potencial funcional. Brazo derecho amputado reconstructivamente; muñón apto para una futura prótesis. Fuentes principales de sangrado corregidas; recuperación pendiente.",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-JOREN-DEBTOR-02 | NOMBRE: NO IDENTIFICADO | guardia superviviente de E-12. El ID conserva «JOREN» solo por compatibilidad; no existe vínculo con Joren Pell. ESTADO: VIVO, 0/9, inconsciente; Trauma 4 y Sangrado 4 suspendido antes de cirugía. Brazo izquierdo salvado con continuidad vasc"
+  },
+  {
+    "entity_id": "NPC-ORVEN-UNKNOWN-001",
+    "nombre_completo": "Orven; posible inicial M.",
+    "familia": "Independiente",
+    "categoria": "FIGURA_EN_LA_SOMBRA",
+    "rol_principal": "",
+    "estado": "VIVO",
+    "ubicacion": "Dust Falls",
+    "raw_summary": "ENTITY_ID: NPC-ORVEN-UNKNOWN-001 | NOMBRE: Orven; posible inicial M. | sexo, apariencia, facción, rango, ubicación y estado NO REGISTRADOS. EVIDENCIA: Demer recuerda una frase según la cual Orven quería resultados completos antes de moverlo. Una nota del hombre del abrigo dice «M. ORVEN — NO VOX». L"
+  }
+]
