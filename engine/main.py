@@ -47,11 +47,12 @@ from subengines.oath_ledger_engine import OathLedgerEngine
 from subengines.naval_combat_engine import NavalCombatEngine
 from subengines.enemy_reinforcement_engine import EnemyReinforcementEngine
 from subengines.combat_progression_engine import CombatProgressionEngine
+from dashboard_template import get_dashboard_html
 
 app = FastAPI(
-    title="WH40K Narrative Mechanics Engine API - Clean Architecture v16.0",
-    description="API REST determinista con Estructura Limpia (subengines/, manuales_originales/, scripts_y_herramientas/) y Dashboard Web",
-    version="16.0.0",
+    title="WH40K Narrative Mechanics Engine API - Clean Architecture v17.0",
+    description="API REST determinista con Estructura Limpia y Tactical Command Dashboard",
+    version="17.0.0",
     servers=[
         {
             "url": "https://wh-40k.vercel.app",
@@ -59,6 +60,11 @@ app = FastAPI(
         }
     ]
 )
+
+@app.get("/", response_class=HTMLResponse)
+def get_dashboard():
+    """Sirve el Dashboard de Comando Táctico interactivo de Warhammer 40k"""
+    return get_dashboard_html()
 
 API_KEY_SECRET = os.getenv("API_KEY_SECRET", "wh40k_secret_key_12345")
 state_mgr = StateManager()
