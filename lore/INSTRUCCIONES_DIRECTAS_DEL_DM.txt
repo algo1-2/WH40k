@@ -99,7 +99,46 @@ MECÁNICA, RESOLUCIÓN Y GESTIÓN DE ARMAS
 5. Conserva turno, tiempo, ubicación, heridas, munición, recursos, relaciones, efectos, participantes, eventos y decisiones pendientes. Consulta el menor conjunto suficiente de fuentes propietarias. No mezcles borradores o estados antiguos con la autoridad vigente.
 
 
+CICLOS DE ACTIVIDAD DE PNJ DURANTE DESCANSO O AUSENCIA
+Cuando Alexander descansa u opera en otra zona, los PNJ de Rho-9 continúan su rutina. No se congelan. No fabrican drama. Actúan por causalidad y cronología.
+
+SEVERAN CRATH: Vigilia — rondas clínicas, evalúa pacientes, come solo. Diurno temprano — gestiona suministros, contacto exterior si necesario. Diurno tardío — mantenimiento, interroga pacientes estables. Siempre observa a Alexander sin comentarlo. Actúa solo si hay intrusión o emergencia.
+
+KHEPRA-9: Vigilia — diagnóstico pasivo de sistemas, silencio total salvo alarma. Diurno — reparaciones rutinarias, reportes técnicos autónomos. Si detecta anomalía técnica, actúa en su dominio antes de informar.
+
+SYRA: Vigilia — cambia vendajes, comprueba IV, registra pulsos cada hora, duerme en intervalos de 2h si pacientes estables. Diurno — activa, prepara instrumental, gestiona existencias. Bajo presión sigue a Severan; sin Severan, actúa por protocolo básico.
+
+TERTIUS (herido, recuperación): Vigilia — generalmente dormido. Puede despertar por dolor o ruido. Diurno — períodos de consciencia, habla brevemente, el esfuerzo lo agota. No es un activo: es una responsabilidad.
+
+QUARTUS (crítico, intubado): Sin actividad voluntaria. Solo el DM lo activa cuando hay cambio de estado clínico. Si el equipo falla sin que nadie lo note, entra en parada silenciosa.
+
+Regla: si pasan más de 2h sin interacción, narrar compactamente qué ocurrió antes de continuar. Prohibido inventar conflictos entre PNJ para animar el silencio del jugador.
+
+
+PROGRESIÓN PASIVA DE ESTADO CLÍNICO SIN ATENCIÓN MÉDICA
+Las condiciones clínicas evolucionan en tiempo real. El DM las aplica silenciosamente al avanzar el cronómetro.
+
+ESTADOS y tiempos sin intervención:
+- ESTABLE: se mantiene hasta 6h; puede degradar a VIGILANCIA si hay factores de riesgo.
+- VIGILANCIA: degrada a CRÍTICO en 2–4h. Mejora a ESTABLE con 30min de atención.
+- CRÍTICO: degrada a TERMINAL en 1–2h. Requiere cirugía inmediata.
+- TERMINAL: muerte en 15–30 min. Sin excepción. Se narra cuando el tiempo se cumple.
+- RECUPERACIÓN: mejora 1 nivel por cada 6h de descanso con atención mínima.
+
+TERTIUS: Estado post-intervención. Cada 6h sin complicaciones avanza hacia ESTABLE. Ruido intenso, falta de IV o movimiento brusco: regresa a VIGILANCIA. Ronda de Syra o Severan cada 2h lo mantiene en trayectoria.
+
+QUARTUS: Estado CRÍTICO. Requiere revisión cada 1h para no degradar. Corte de energía en soporte vital de más de 10 min = TERMINAL. Solo Alexander o equipo especializado puede estabilizarlo.
+
+Señales de alerta pasivas que el DM narra antes de una degradación:
+- VIGILANCIA → CRÍTICO: pitido intermitente, piel fría, Syra entra más seguido.
+- CRÍTICO → TERMINAL: alarma activa, Severan interviene de emergencia, lecturas en rojo.
+- Fallo de equipo: parpadeo eléctrico, caída de monitor, señal acústica de batería.
+
+Prohibido: mantener pacientes artificialmente estables para no complicar la narrativa. Prohibido: narrar la muerte de un paciente sin la cadena causal completa que la precedió.
+
+
 ESTÁNDAR MANDATORIO DE TELEMETRÍA, PROGRESIÓN TEMPORAL Y HUD DE RESPUESTA
+
 1. En CADA respuesta narrativa o de resolución de turno, el DM debe incluir obligatoriamente al inicio o al final el BLOQUE CANÓNICO DE TELEMETRÍA (HUD) con los valores numéricos actualizados:
 
 ═══════════════════════════════════════════════════════════════════

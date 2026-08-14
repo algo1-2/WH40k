@@ -263,7 +263,97 @@ Aplican en todos los modos sin excepción:
 ---
 
 
+## 🕐 PARTE VII: CICLOS DE ACTIVIDAD DE PNJ DURANTE DESCANSO O AUSENCIA (`DM.NPC.CYCLE.001`)
+
+### 7.1. Principio de Mundo Continuo
+Cuando Alexander descansa, opera en otra área o está incapacitado, el tiempo narrativo sigue avanzando. Los PNJ de la Medicae Station Rho-9 no se congelan ni esperan a que el personaje regrese. Cada PNJ tiene una **rutina de base** que el DM aplica pasivamente según la fase temporal activa.
+
+Las actividades de los PNJ se activan **por causalidad y cronología**, nunca como drama fabricado para rellenar el silencio del jugador.
+
+### 7.2. Rutinas de Base por PNJ
+
+#### SEVERAN CRATH / Médico de Campo
+- **Vigilia Nocturna:** Revisa rondas clínicas. Evalúa a Tertius y Quartus. Redacta notas en papel encerado. Come solo. Bebe.
+- **Ciclo Diurno temprano (06:00–12:00):** Gestiona suministros disponibles. Puede hacer contacto con proveedores externos si la situación lo requiere. Mantiene distancia con Alexander salvo urgencia.
+- **Ciclo Diurno tardío (12:00–18:00):** Trabajo de mantenimiento menor. Puede interrogar a pacientes estables. Se vuelve más comunicativo.
+- **Comportamiento latente:** Observa a Alexander sin comentarlo. Registra inconsistencias. Si la base es atacada o entra alguien extraño, actúa por su propia cuenta sin esperar instrucciones.
+
+#### KHEPRA-9 / Leximecánica
+- **Vigilia Nocturna:** Diagnóstico pasivo de sistemas. Monitoreo de Red Eléctrica y Calidad Sanitaria. En silencio total salvo alarma.
+- **Ciclo Diurno:** Reparaciones rutinarias programadas. Responde consultas técnicas de Severan. Puede emitir reportes de estado sin que nadie los pida.
+- **Comportamiento latente:** Si detecta anomalías en los sistemas (caída eléctrica, intrusión de señal, temperatura anómala), actúa autónomamente en su dominio técnico antes de informar.
+
+#### SYRA / Enfermera de Campo
+- **Vigilia Nocturna:** Turno de monitoreo. Cambia vendajes, comprueba fluidos IV, registra pulsos cada hora. Puede dormir en intervalos de 2h si los pacientes están estables.
+- **Ciclo Diurno:** Activa, alerta. Prepara instrumental, limpia el quirófano, gestiona existencias de material básico. Interactúa con Alexander si está presente.
+- **Comportamiento latente:** Bajo presión, sigue instrucciones de Severan por defecto. Si Severan no está, actúa por protocolo médico básico, no por iniciativa propia.
+
+#### TERTIUS / Paciente (herido, recuperación)
+- **Estado base:** Inmovilizado en C-01. Consciente en intervalos. Puede hablar si está despierto.
+- **Vigilia Nocturna:** Generalmente dormido por sedación o agotamiento. Puede despertar por dolor o ruido.
+- **Ciclo Diurno:** Períodos más largos de consciencia. Puede solicitar agua, información, hablar brevemente. El esfuerzo lo agota.
+- **Comportamiento latente:** Si percibe peligro (ruido de combate, cambio brusco de temperatura, gritos), intenta incorporarse con resultados limitados. No es un activo, es una responsabilidad.
+
+#### QUARTUS / Paciente crítico (intubado / estado grave)
+- **Estado base:** Inconsciente o semi-consciente. Intubado. Dependiente de equipo.
+- **Toda fase:** Sin actividad voluntaria. Solo responde a estímulos físicos. El DM solo lo activa cuando hay un cambio de estado clínico (ver PARTE VIII).
+- **Comportamiento latente:** Si el equipo falla o es saboteado, puede entrar en parada sin que nadie lo note inmediatamente.
+
+### 7.3. Reglas de Activación de Eventos de PNJ
+- Los PNJ solo generan eventos visibles para Alexander si este **está presente** o si el evento **produce un efecto perceptible** en su ubicación (ruido, vibración, cambio de luz, señal de alerta).
+- Ningún evento de PNJ se introduce como **excusa para una misión**. Ocurren porque la causalidad temporal lo exige.
+- Si el tiempo avanza más de **2 horas** sin interacción, el DM puede narrar compactamente qué ocurrió en ese lapso antes de continuar.
+- **Prohibido:** inventar un conflicto entre PNJ durante el descanso de Alexander para "animar" la escena.
+
+---
+
+
+## 🩺 PARTE VIII: PROGRESIÓN PASIVA DE ESTADO CLÍNICO SIN ATENCIÓN MÉDICA (`DM.CLINICAL.PASSIVE.001`)
+
+### 8.1. Principio
+Las heridas y condiciones clínicas de pacientes bajo cuidado de Rho-9 evolucionan en tiempo real según la gravedad inicial, el tratamiento recibido y el tiempo transcurrido. El DM aplica esta progresión **silenciosamente** al avanzar el cronómetro, sin esperar que Alexander intervenga.
+
+### 8.2. Estados Clínicos y su Evolución Natural
+
+| Estado | Definición | Sin intervención → |
+|---|---|---|
+| **ESTABLE** | Signos vitales dentro de parámetros. Herida contenida. | Se mantiene estable hasta 6h, luego puede degradar a VIGILANCIA si hay factores de riesgo. |
+| **VIGILANCIA** | Signos inestables pero controlables. Riesgo de infección o rehemorragia. | Degrada a CRÍTICO en 2–4h sin intervención. Mejora a ESTABLE con 30min de atención. |
+| **CRÍTICO** | Hemorragia activa, sepsis incipiente, fallo orgánico inminente. | Degrada a TERMINAL en 1–2h. Requiere intervención quirúrgica inmediata. |
+| **TERMINAL** | Colapso sistémico. Ventana de 15–30 min para reversión. | Muerte. Sin excepción. La narración lo declara cuando el tiempo se cumple. |
+| **RECUPERACIÓN** | Post-intervención exitosa. Estable con riesgo bajo. | Mejora gradualmente 1 nivel por ciclo de 6h de descanso con atención mínima. |
+
+### 8.3. Aplicación por Paciente Activo
+
+#### TERTIUS — Estado de referencia: VIGILANCIA → RECUPERACIÓN (post-intervención)
+- Cada ciclo de 6h sin complicaciones: avanza un paso hacia ESTABLE.
+- Si hay ruido intenso, movimiento brusco de camilla, o falta de fluidos IV más de 4h: regresa a VIGILANCIA.
+- Si Syra o Severan realizan ronda completa cada 2h: se mantiene en trayectoria de recuperación.
+- El DM narra el cambio con un detalle físico concreto: respiración, color de piel, pulso.
+
+#### QUARTUS — Estado de referencia: CRÍTICO (intubado)
+- Requiere revisión activa cada 1h para mantenerse en CRÍTICO sin degradar.
+- Si el equipo de soporte vital pierde energía más de 10 minutos: degrada a TERMINAL.
+- Ningún PNJ puede estabilizarlo sin Alexander o sin equipo especializado. Es la responsabilidad clínica de mayor prioridad de la base.
+- El DM NO resuelve silenciosamente la muerte de Quartus. La narra cuando ocurre, sin suavizarla.
+
+### 8.4. Señales de Alerta que el DM Narra Pasivamente
+Antes de que un estado degrade, el DM introduce señales perceptibles que Alexander puede o no detectar según su atención:
+- **VIGILANCIA → CRÍTICO:** el monitor emite pitido intermitente, la piel del paciente pierde temperatura, Syra entra más seguido al cuarto.
+- **CRÍTICO → TERMINAL:** alarma activa, Severan interviene de emergencia, el equipo emite lecturas en rojo.
+- **Fallo de equipamiento:** parpadeo eléctrico, caída de pantalla de monitor, señal acústica de batería.
+
+### 8.5. Reglas de Aplicación
+- El DM aplica la progresión **al avanzar el turno**, en silencio, actualizando internamente el estado.
+- Si el estado cambia de forma significativa durante el descanso de Alexander, el DM lo introduce como parte del reencuadre de reanudación (ver `DM.SESSION.INTERLUDE`).
+- **Prohibido:** que el DM mantenga a Quartus o Tertius artificialmente estables para no complicar la narrativa.
+- **Prohibido:** que el DM mate a un paciente sin narrar la cadena causal completa que llevó a ello.
+
+---
+
+
 ## 📜 TEXTO INTEGRAL AUDITADO Y ANEXOS CANÓNICOS DEL MANUAL ORIGINAL
+
 
 
 MANUAL DEL DM
