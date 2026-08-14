@@ -24,9 +24,12 @@ class StateManager:
             local_path = os.path.join(project_root, "campaigns", "alexander", "campaign_state.json")
             filename = "campaign_state.json" # for tmp
 
-        # Priorizar /tmp en Vercel Serverless
         tmp_path = os.path.join("/tmp", filename)
         if os.path.exists(tmp_path):
+            if os.path.exists(local_path):
+                if os.path.getmtime(tmp_path) > os.path.getmtime(local_path):
+                    return tmp_path
+                return local_path
             return tmp_path
 
         return local_path

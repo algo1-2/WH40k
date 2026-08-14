@@ -655,7 +655,7 @@
       }
     },
     "recursos_economicos": {
-      "creditos_disponibles": 1196,
+      "creditos_disponibles": 1046,
       "pagos_contractuales_pendientes": [
         {
           "origen": "Darrik Vane",
@@ -909,5 +909,13 @@
         "reputacion": "No registrada"
       }
     ]
+  },
+  "domain_state": {
+    "upgrades": {
+      "C-03": 2,
+      "E-01": 0,
+      "Q-01": 1,
+      "GATE-01": 1
+    }
   }
 }

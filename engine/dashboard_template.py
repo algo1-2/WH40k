@@ -1,11 +1,9 @@
 """
-WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v4.0
+WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v5.0
 Includes:
-- Tactical Blueprint & Sublevel Explorer
-- Live Surgery Lab & Alchemy Synthesizer
-- Factions Matrix & Favors Ledger
-- Clandestine Patient & Night Incidents Generator
-- Campaign State, Inventory & Deterministic Dice Roller
+- Dynamic Header State Sync (credits, souls, health directly from /api/state)
+- Persistent Blueprint & Room Upgrades (Level 2 Quartus C-03 recognized)
+- Surgery Lab, Alchemy Synthesizer, Factions & Night Incidents
 """
 
 def get_dashboard_html() -> str:
@@ -789,7 +787,7 @@ def get_dashboard_html() -> str:
     </div>
     <div class="status-badge-container">
       <div class="badge badge-live">API EN LÍNEA</div>
-      <div class="badge badge-green" id="badge-credits">1.196 ¤ DISPONIBLES</div>
+      <div class="badge badge-green" id="badge-credits">1.046 ¤ DISPONIBLES</div>
       <div class="badge badge-brass" id="badge-souls">10 ALMAS</div>
     </div>
   </header>
@@ -816,8 +814,8 @@ def get_dashboard_html() -> str:
         </div>
         <div class="panel" style="padding:1rem;">
           <div class="stat-label">🧼 Calidad Sanitaria</div>
-          <div class="stat-val amber" id="metric-sanidad" style="font-size:1.2rem; margin-top:0.25rem;">65%</div>
-          <div class="progress-bar-bg"><div class="progress-fill fill-amber" id="bar-sanidad" style="width: 65%;"></div></div>
+          <div class="stat-val amber" id="metric-sanidad" style="font-size:1.2rem; margin-top:0.25rem;">70%</div>
+          <div class="progress-bar-bg"><div class="progress-fill fill-amber" id="bar-sanidad" style="width: 70%;"></div></div>
         </div>
         <div class="panel" style="padding:1rem;">
           <div class="stat-label">⚡ Red Eléctrica (Plasma)</div>
@@ -894,7 +892,7 @@ def get_dashboard_html() -> str:
             <div class="form-group">
               <label class="form-label">Seleccionar Paciente</label>
               <select id="surg-patient" class="form-control">
-                <option value="Quartus Holt">Quartus Holt (4/11 · Coma Intubado · C-03)</option>
+                <option value="Quartus Holt">Quartus Holt (4/11 · Desintubación Activa · C-03)</option>
                 <option value="Tertius Holt">Tertius Holt (8/11 · Drenaje Torácico · C-01)</option>
                 <option value="Paciente C-02">Paciente de Emergencia (Cama C-02)</option>
                 <option value="Jarek Venn">Jarek Venn (0/9 · Torso Reconstruido)</option>
@@ -1041,7 +1039,7 @@ def get_dashboard_html() -> str:
             <div class="progress-bar-bg"><div class="progress-fill fill-amber" style="width: 0%;"></div></div>
             <div class="stat-row" style="margin-top: 0.75rem;"><span class="stat-label">🔮 Reserva Umbral:</span><span class="stat-val brass" id="pc-souls">10 Almas</span></div>
             <div class="stat-row"><span class="stat-label">🌟 Puntos de Destino:</span><span class="stat-val brass">3</span></div>
-            <div class="stat-row"><span class="stat-label">💰 Saldo Disponible:</span><span class="stat-val green" id="pc-credits">1.196 Créditos (+300 pendientes)</span></div>
+            <div class="stat-row"><span class="stat-label">💰 Saldo Disponible:</span><span class="stat-val green" id="pc-credits">1.046 Créditos (+300 pendientes)</span></div>
             <div class="stat-row"><span class="stat-label">📈 Experiencia Total:</span><span class="stat-val">1.335 XP (335 / 500)</span></div>
           </div>
         </div>
@@ -1068,7 +1066,7 @@ def get_dashboard_html() -> str:
           </div>
           <div class="panel-body" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
             <div class="char-card"><div class="char-card-header"><span>Tertius Holt</span><span class="stat-val green">8 / 11 · Despierto</span></div><div class="char-role">Especialista Enforcer / Deudor</div><div class="char-status">Consciente y estable. Drenaje torácico funcional. Pregunta por su deuda.</div></div>
-            <div class="char-card"><div class="char-card-header"><span>Quartus Holt</span><span class="stat-val crimson">4 / 11 · En Coma</span></div><div class="char-role">Paciente Crítico / C-03</div><div class="char-status">Crítico estable. Inconsciente e intubado por metralla a quemarropa (&lt;3m).</div></div>
+            <div class="char-card"><div class="char-card-header"><span>Quartus Holt</span><span class="stat-val amber">4 / 11 · Desintubación</span></div><div class="char-role">Paciente en C-03 (Nivel 2)</div><div class="char-status">Perfusión tisular continua activa. Desintubación iniciada de forma segura.</div></div>
             <div class="char-card"><div class="char-card-header"><span>Halven Rusk</span><span class="stat-val brass">Pacto de Cosecha</span></div><div class="char-role">Auxiliar Médico / Diagnosticador</div><div class="char-status">Activo. Ejecutó a los 4 cautivos (+4 almas transferidas a Alexander).</div></div>
             <div class="char-card"><div class="char-card-header"><span>Severan Holt</span><span class="stat-val green">Maestro de Seguridad</span></div><div class="char-role">Comando Táctico y Accesos</div><div class="char-status">A cargo de cerraduras, guardias y fortificación. Asistente: Jarek Venn.</div></div>
             <div class="char-card"><div class="char-card-header"><span>Jarek Venn</span><span class="stat-val amber">0 / 9 · Débil</span></div><div class="char-role">Primer Deudor E-12</div><div class="char-status">Extraído de Sombra. Torso reparado. Asignado a Severan (Pacto: 0/10 ejecuciones + 1 año).</div></div>
@@ -1184,7 +1182,7 @@ def get_dashboard_html() -> str:
     const API_KEY = "wh40k_secret_key_12345";
     let currentFloor = 0;
     let currentSelectedRoom = null;
-    let availableCredits = 1196;
+    let availableCredits = 1046;
     let currentPatient = null;
 
     function switchTab(tabId) {
@@ -1202,6 +1200,29 @@ def get_dashboard_html() -> str:
         const activeDocBtn = document.querySelector('.doc-btn.active') || document.querySelector('.doc-btn');
         if (activeDocBtn) activeDocBtn.click();
       }
+    }
+
+    async function loadStateHeader() {
+      try {
+        const resp = await fetch('/api/state', { headers: { 'x-api-key': API_KEY } });
+        if (resp.ok) {
+          const data = await resp.json();
+          const sheet = data.character_sheet || {};
+          const recursos = sheet.recursos_economicos || {};
+          if (recursos.creditos_disponibles !== undefined) {
+            availableCredits = recursos.creditos_disponibles;
+            document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
+            document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+          }
+          if (sheet.salud_actual !== undefined) {
+            document.getElementById('pc-hp').textContent = `${sheet.salud_actual} / ${sheet.salud_maxima || 12}`;
+          }
+          if (sheet.reserva_almas !== undefined) {
+            document.getElementById('badge-souls').textContent = `${sheet.reserva_almas} ALMAS`;
+            document.getElementById('pc-souls').textContent = `${sheet.reserva_almas} Almas`;
+          }
+        }
+      } catch (e) { console.error(e); }
     }
 
     async function changeFloor(floor) {
@@ -1540,6 +1561,7 @@ def get_dashboard_html() -> str:
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      loadStateHeader();
       loadBlueprint();
       loadTelemetry();
       loadDocument('FICHA_DEL_PERSONAJE');
