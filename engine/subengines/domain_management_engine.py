@@ -1,11 +1,12 @@
 """
-WH40K Domain & Base Management Engine v6.0 (domain_management_engine.py)
+WH40K Domain & Base Management Engine v7.0 (domain_management_engine.py)
 Includes:
 - Standardized 5/3 Room Upgrade Tree (15 Sectors)
+- Robust Mathematical Imperial Time & Turn Engine (Minute/Hour/Day Tracking)
+- Time Directive Generator for ChatGPT (Canonical Clock Rules)
 - Intelligent Narrative Text Parser (parse_narrative_to_sync) from ChatGPT
 - Full Turn Report Generator (generate_full_turn_report)
-- Canonical System Instruction Prompt Generator (generate_chatgpt_system_prompt)
-- Chat Synchronization Bridge & Real-time Chrono State Tracking
+- Active ChatGPT Sync Bridge & Real-time Chrono State Tracking
 """
 
 import json
@@ -264,19 +265,15 @@ class DomainManagementEngine:
         chat_events = data.get("chat_events", [])
         logs = data.get("logs", DEFAULT_LOGS)
 
-        if advance_turns > 0:
-            chrono["turn"] = chrono.get("turn", 918) + advance_turns
-            chrono["minute"] = (chrono.get("minute", 54) + (advance_turns * 5)) % 60
-            if chrono["minute"] < (advance_turns * 5):
-                chrono["hour"] = (chrono.get("hour", 23) + 1) % 24
-                if chrono["hour"] == 0:
-                    chrono["day"] = chrono.get("day", 4) + 1
-        elif advance_minutes > 0:
-            chrono["minute"] = (chrono.get("minute", 54) + advance_minutes) % 60
-            if chrono["minute"] < advance_minutes:
-                chrono["hour"] = (chrono.get("hour", 23) + 1) % 24
-                if chrono["hour"] == 0:
-                    chrono["day"] = chrono.get("day", 4) + 1
+        # Precise Minute & Hour Progression
+        total_mins_to_add = (advance_turns * 5) + advance_minutes
+        if total_mins_to_add > 0:
+            current_total_mins = (chrono.get("day", 4) * 24 * 60) + (chrono.get("hour", 23) * 60) + chrono.get("minute", 54) + total_mins_to_add
+            chrono["turn"] = chrono.get("turn", 918) + max(1, total_mins_to_add // 5)
+            chrono["minute"] = current_total_mins % 60
+            total_hours = current_total_mins // 60
+            chrono["hour"] = total_hours % 24
+            chrono["day"] = total_hours // 24
 
         chrono["phase"] = "CICLO DIURNO" if (6 <= chrono.get("hour", 23) < 18) else "VIGILIA NOCTURNA"
 
@@ -336,10 +333,9 @@ class DomainManagementEngine:
     def parse_narrative_to_sync(cls, raw_text: str) -> Dict[str, Any]:
         """
         Interpreta un fragmento de texto narrativo del rol en ChatGPT,
-        extrayendo personajes, salas de destino, diálogos y avances de turno.
+        extrayendo personajes, salas de destino, diálogos y avances de tiempo.
         """
         text_lower = raw_text.lower()
-        events_found = []
         
         # Character map
         char_names = {
@@ -396,6 +392,15 @@ class DomainManagementEngine:
                 detected_room = r_id
                 break
 
+        # Minute detection in text (e.g. "+15 minutos", "30 min", "1 hora")
+        advance_mins = 5
+        min_match = re.search(r'(\d+)\s*(?:minutos?|min)', text_lower)
+        hour_match = re.search(r'(\d+)\s*(?:horas?|hrs?|h)', text_lower)
+        if hour_match:
+            advance_mins = int(hour_match.group(1)) * 60
+        elif min_match:
+            advance_mins = int(min_match.group(1))
+
         # Dialogue quote search
         dialogue_match = re.search(r'["«]([^"»]+)["»]', raw_text)
         extracted_dialogue = dialogue_match.group(1) if dialogue_match else raw_text[:120]
@@ -405,7 +410,7 @@ class DomainManagementEngine:
             speaker=detected_speaker,
             message=extracted_dialogue,
             target_room=detected_room,
-            advance_turns=1
+            advance_minutes=advance_mins
         )
 
         return {
@@ -413,8 +418,9 @@ class DomainManagementEngine:
             "detected_speaker": detected_speaker,
             "detected_room": detected_room,
             "extracted_dialogue": extracted_dialogue,
+            "advanced_minutes": advance_mins,
             "sync_details": sync_result,
-            "message": f"Texto del chat procesado: [{detected_speaker}] -> {detected_room or 'Ubicación actual'}."
+            "message": f"Texto del chat procesado: [{detected_speaker}] -> {detected_room or 'Ubicación actual'} (+{advance_mins} min)."
         }
 
     @classmethod
@@ -425,7 +431,6 @@ class DomainManagementEngine:
         data = cls._load_domain_data()
         chrono = data.get("chrono", DEFAULT_CHRONO)
         positions = data.get("positions", DEFAULT_POSITIONS)
-        upgrades = data.get("upgrades", DEFAULT_UPGRADES)
         
         pos_lines = "\n".join([f"  • {k}: Sector {v}" for k, v in positions.items()])
 
@@ -438,7 +443,32 @@ class DomainManagementEngine:
             f"👥 DESPLIEGUE DEL SÉQUITO:\n{pos_lines}\n"
             f"🩺 ESTADO DE PACIENTES:\n"
             f"  • Quartus Holt: Cama C-03 (4/11 PV · Soporte de Perfusión Tisular Nvl 2 Activo)\n"
-            f"  • Tertius Holt: Cama C-01 (8/11 PV · Drenaje Pleural Operativo)\n"
+            f"  • Tertius Holt: Cama C-01 (8/11 PV · Drenaje Pleural Operativo · Consciente)\n"
+            f"═══════════════════════════════════════════════════════════════════"
+        )
+
+    @classmethod
+    def generate_time_directive_prompt(cls) -> str:
+        """
+        Genera el bloque de instrucciones mandatorias para que ChatGPT
+        gestione e imprima el paso del tiempo en cada respuesta.
+        """
+        data = cls._load_domain_data()
+        chrono = data.get("chrono", DEFAULT_CHRONO)
+        return (
+            f"═══════════════════════════════════════════════════════════════════\n"
+            f"⏱️ [DIRECTIVA MANDATORIA DE GESTIÓN DEL TIEMPO // CHATGPT]\n"
+            f"A partir de este momento, en CADA respuesta de rol debes incluir obligatoriamente al inicio o final el encabezado de tiempo transcurrido:\n\n"
+            f"⏱️ CRONÓMETRO IMPERIAL // MEDICAE STATION RHO-9\n"
+            f"Día: {chrono.get('day', 4):02d} · Fase: {chrono.get('phase', 'VIGILIA NOCTURNA')} · Hora: {chrono.get('hour', 23):02d}:{chrono.get('minute', 54):02d} · Turno: {chrono.get('turn', 918)} (+X min transcurridos)\n\n"
+            f"TABLA DE TIEMPOS ESTÁNDAR POR ACCIÓN:\n"
+            f"• Diálogo breve / Orden táctica rápida: +5 a 10 min\n"
+            f"• Curación menor / Sutura / Estabilización: +15 a 30 min\n"
+            f"• Intervención quirúrgica mayor (Q-01): +45 a 60 min\n"
+            f"• Fabricación de biónico o síntesis compleja (T-01 / F-02): +60 a 90 min\n"
+            f"• Exploración de subnivel / Despeje de niebla: +60 a 120 min\n"
+            f"• Descanso breve / Meditación Umbral: +2 a 4 horas\n"
+            f"• Ciclo de descanso nocturno completo: +6 a 8 horas (+1 Alma recuperada)\n"
             f"═══════════════════════════════════════════════════════════════════"
         )
 
@@ -455,7 +485,6 @@ class DomainManagementEngine:
         for room_id, defn in ROOM_DEFINITIONS.items():
             lvl = upgrades.get(room_id, 0 if room_id in ["E-01", "HAB-04", "SUB-01"] else 1)
             tier_info = defn["tiers"].get(lvl, defn["tiers"].get(1))
-            
             occupants = [name for name, pos in positions.items() if pos == room_id]
 
             sectors.append({
@@ -587,6 +616,9 @@ class DomainManagementEngine:
         data["logs"] = logs
         cls._save_domain_data(data)
 
+        # Advance 120 minutes for room construction
+        cls.sync_chat_event("UPGRADE", "Khepra-9", f"Completó la mejora de {sector['name']}", target_room=room_id, advance_minutes=120)
+
         return {
             "success": True,
             "room_id": room_id,
@@ -625,6 +657,9 @@ class DomainManagementEngine:
         data["sublevel"] = sublevel
         data["logs"] = logs
         cls._save_domain_data(data)
+
+        # Advance 60 minutes for exploration
+        cls.sync_chat_event("EXPLORATION", actor, f"Exploró el sector subterráneo {sector['name']}", target_room="SUB-01", advance_minutes=60)
 
         return {
             "success": True,

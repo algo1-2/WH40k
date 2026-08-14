@@ -1095,7 +1095,8 @@ def get_dashboard_html() -> str:
     </div>
 
     <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
-      <button class="btn-header-action" onclick="fetchFullTurnReport()">📡 REPORTE DE TURNO</button>
+      <button class="btn-header-action" onclick="fetchFullTurnReport()" title="Genera el reporte de estado completo del turno">📡 REPORTE DE TURNO</button>
+      <button class="btn-header-action" onclick="fetchTimeDirective()" title="Genera la directiva de tiempo para ChatGPT">⏱️ DIRECTIVA DE TIEMPO</button>
       <button class="btn-red-alert" id="btn-red-alert-toggle" onclick="toggleRedAlert()">🚨 ALERTA ROJA</button>
     </div>
 
@@ -1728,6 +1729,16 @@ def get_dashboard_html() -> str:
         if (resp.ok) {
           const d = await resp.json();
           showCanonicalPrompt(d.turn_report);
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    async function fetchTimeDirective() {
+      try {
+        const resp = await fetch('/api/chat/time_directive', { headers: { 'x-api-key': API_KEY } });
+        if (resp.ok) {
+          const d = await resp.json();
+          showCanonicalPrompt(d.time_directive);
         }
       } catch (e) { console.error(e); }
     }
