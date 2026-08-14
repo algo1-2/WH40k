@@ -67,3 +67,20 @@ paths:
       responses:
         '200':
           description: Estado actual devuelto
+  /api/documents/{filename}:
+    get:
+      summary: Obtiene el contenido de un documento dinamico de la campaña (ej. PERSONAJES.txt)
+      operationId: getDocument
+      x-openai-isConsequential: false
+      parameters:
+        - name: filename
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Nombre del archivo a descargar (ej. PERSONAJES.txt, HISTORIA DEL PERSONAJE.txt)
+      responses:
+        '200':
+          description: Contenido del archivo
+        '404':
+          description: Archivo no encontrado

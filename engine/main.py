@@ -338,6 +338,21 @@ def get_state(x_campaign_id: Optional[str] = Header(None)):
     cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
     return state_mgr.load_state(cid)
 
+@app.get("/api/documents/{filename}", dependencies=[Depends(verify_api_key)])
+def get_document(filename: str, x_campaign_id: Optional[str] = Header(None)):
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if "CAELAN" in cid.upper():
+        doc_path = os.path.join(project_root, "data", "caelan", filename)
+    else:
+        doc_path = os.path.join(project_root, "data", "alexander", filename)
+    
+    if os.path.exists(doc_path):
+        with open(doc_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        return {"filename": filename, "content": content}
+    raise HTTPException(status_code=404, detail="Document not found")
+
 @app.post("/api/state/checkpoint", dependencies=[Depends(verify_api_key)])
 def get_checkpoint(req: CampaignSwitchRequest):
     return state_mgr.generate_checkpoint(req.campaign_id)

@@ -156,9 +156,9 @@
       "deudor": "Severan Holt (Especialista Enforcer Desertor)",
       "estado": "MONITOREO_ACTIVO",
       "ciclo_1": "CUMPLIDO (Por extracción y refugio en QTN-3)",
-      "ciclo_2": "PENDIENTE (Condicionado a conciencia de Tertius)",
-      "condicion_de_cumplimiento": "Severan debe comenzar su segundo ciclo de servicio una vez Tertius despierte o se defina su estado.",
-      "sensor_de_alexander": "Alexander sentirá un tirón de tensión álmica cuando Tertius despierte, notificándole que la deuda de Severan ha entrado en fase ejecutable.",
+      "ciclo_2": "PENDIENTE",
+      "condicion_de_cumplimiento": "Severan debe comenzar su segundo ciclo de servicio ahora que Tertius ha despertado.",
+      "sensor_de_alexander": "El Hilo Álmico reconoce el despertar de Tertius. El segundo ciclo está listo para ser ejecutado a voluntad de Alexander.",
       "evaluacion_pasiva_dm": true
     }
   ],
