@@ -1,0 +1,522 @@
+================================================================================
+  WH40K NARRATIVE ENGINE — INSTRUCTIVO TÉCNICO COMPLETO
+  Sistema de Sincronización Automática y API en Producción
+  Versión: Agosto 2026 | Autor: Antigravity (IA de Google DeepMind)
+================================================================================
+
+ÍNDICE
+──────
+  1. QUÉ ES EL SISTEMA Y PARA QUÉ SIRVE
+  2. ARQUITECTURA COMPLETA — MAPA DE TODO LO QUE EXISTE
+  3. FLUJO DE DATOS — CÓMO VIAJA LA INFORMACIÓN
+  4. EL AUTOSYNC — CÓMO FUNCIONA EXACTAMENTE
+  5. VERCEL — CÓMO FUNCIONA EL SERVIDOR EN PRODUCCIÓN
+  6. EL GPT — CÓMO LEE Y USA LA API
+  7. QUÉ PUEDE FALLAR Y CÓMO ARREGLARLO (DIAGNÓSTICO PASO A PASO)
+  8. COMANDOS DE EMERGENCIA ÚTILES
+  9. REGLAS PERMANENTES (NO ROMPER)
+
+================================================================================
+  1. QUÉ ES EL SISTEMA Y PARA QUÉ SIRVE
+================================================================================
+
+El sistema es un backend en Python (FastAPI) que actúa como "cerebro externo"
+de una campaña de rol Warhammer 40K. El GPT de OpenAI consulta este backend
+cada vez que necesita saber el estado actual de la campaña.
+
+SIN este sistema:
+  - El GPT inventa datos, mezcla personajes, pone a Alexander en QTN-3,
+    dice que Tertius está inconsciente cuando está despierto, etc.
+
+CON este sistema:
+  - El GPT consulta GET /api/state y recibe JSON con el estado real
+  - El GPT consulta GET /api/documents/{nombre} para leer fichas exactas
+  - El GPT no puede alucinar porque tiene datos en tiempo real
+
+================================================================================
+  2. ARQUITECTURA COMPLETA — MAPA DE TODO LO QUE EXISTE
+================================================================================
+
+CAPA 1: ARCHIVOS MAESTROS (Fuente de Verdad)
+---------------------------------------------
+Ubicación: C:\Users\UsuarioCompuElite\Desktop\WH40K\
+Archivos:
+  BASES Y DOMINIOS.docx         Dominios y bases (Rho-9 es la principal)
+  FICHA DEL PERSONAJE.docx      Estadísticas de Alexander
+  HISTORIA DEL PERSONAJE.docx   Crónica narrativa acumulativa
+  PERSONAJES.docx               Perfiles de PNJ (Tertius, Quartus, Severan...)
+  REPUTACION DE FACCIONES.docx  Reputación con facciones de Necromunda
+  SEQUITO.docx                  Miembros del séquito de Alexander
+
+Estos son los ÚNICOS archivos que el usuario edita manualmente.
+Nunca se suben directamente a ningún lado. Son la fuente original.
+
+CAPA 2: REPOSITORIOS DE GITHUB
+--------------------------------
+Repositorio principal: https://github.com/algo1-2/WH40K-API
+Repositorio espejo:    https://github.com/algo1-2/WH40k
+
+Ambos son idénticos (el espejo existe como respaldo).
+El repositorio principal es el que usa Vercel para deployar.
+
+Estructura relevante dentro del repositorio:
+
+  /
+  ├── api/
+  │   ├── index.py              Punto de entrada para Vercel (no tocar)
+  │   ├── instructions_gpt.md   Instrucciones anti-alucinación para el GPT
+  │   ├── openapi.json          Descripción de la API para el GPT
+  │   └── openapi.yaml          Idem en YAML
+  ├── campaigns/
+  │   └── alexander/
+  │       └── campaign_state.json   Estado JSON de la campaña (Revisión activa)
+  ├── data/
+  │   └── alexander/
+  │       ├── BASES_Y_DOMINIOS.txt        Versión txt del docx (sin espacios)
+  │       ├── FICHA_DEL_PERSONAJE.txt
+  │       ├── HISTORIA_DEL_PERSONAJE.txt
+  │       ├── PERSONAJES.txt
+  │       ├── REPUTACION_DE_FACCIONES.txt
+  │       └── SEQUITO.txt
+  ├── engine/
+  │   ├── main.py               Lógica central de la API (rutas, endpoints)
+  │   ├── state_manager.py      Lectura y escritura del estado JSON
+  │   ├── mechanics_engine.py   Motor de tiradas d100
+  │   └── subengines/           18 submotores especializados
+  ├── lore/                     Enciclopedias y manuales de reglas
+  ├── scripts/
+  │   ├── wh40k_autosync.py         Motor del AutoSync automático
+  │   └── install_autosync_task.py  Instalador de la tarea de Windows
+  ├── requirements.txt          fastapi, uvicorn, pydantic
+  ├── runtime.txt               python-3.11
+  ├── .python-version           3.11
+  └── vercel.json               Configuración del deployment
+
+CAPA 3: AUTOSYNC (Proceso Local en tu PC)
+-------------------------------------------
+Programa:  C:\...\scripts\wh40k_autosync.py
+Tarea:     WH40K_AutoSync (Windows Task Scheduler)
+Log:       C:\Users\UsuarioCompuElite\.gemini\antigravity\scratch\wh40k_autosync.log
+Hashes:    C:\Users\UsuarioCompuElite\.gemini\antigravity\scratch\wh40k_file_hashes.json
+
+CAPA 4: VERCEL (Servidor en la Nube)
+--------------------------------------
+Dashboard:       https://vercel.com/wh-40k/wh-40k
+URL producción:  https://wh-40k.vercel.app
+
+CAPA 5: GPT DE OPENAI
+-----------------------
+GPT configurado en ChatGPT Plus con acciones que apuntan a la URL de Vercel.
+Lee instrucciones desde api/instructions_gpt.md.
+Hace GET /api/state al inicio de cada sesión nueva.
+
+================================================================================
+  3. FLUJO DE DATOS — CÓMO VIAJA LA INFORMACIÓN
+================================================================================
+
+ACTUALIZACIÓN AUTOMÁTICA (sin intervención del usuario):
+
+  [Usuario guarda cambios en PERSONAJES.docx en su escritorio]
+           |
+  [AutoSync corre cada 6 horas o al reiniciar Windows]
+           |
+  [Detecta cambio por hash SHA-256]
+           |
+  [Extrae texto del .docx con xml.etree.ElementTree]
+           |
+  [Escribe PERSONAJES.txt en data/alexander/ con nombre sin espacios]
+           |
+  [git add -A -> git commit -> git push --force]
+           |
+  [Vercel detecta el push -> lanza nuevo deployment automáticamente]
+           |
+  [Vercel instala dependencias (fastapi, uvicorn, pydantic)]
+           |
+  [Vercel activa el nuevo deployment en producción]
+           |
+  [GET https://wh-40k.vercel.app/api/documents/PERSONAJES -> texto actualizado]
+           |
+  [El GPT recibe el perfil de Tertius correcto -> sin alucinaciones]
+
+LECTURA EN UNA SESIÓN DE ROL:
+
+  [Usuario abre nuevo chat con el GPT]
+           |
+  [GPT ejecuta GET /api/state -> recibe location, personajes, pactos, revisión]
+           |
+  [GPT genera escena de apertura con datos reales]
+           |
+  [Usuario declara acción: "Alexander examina a Tertius"]
+           |
+  [GPT hace POST /api/action -> atributo_base=65, modificadores=[10]]
+           |
+  [API tira d100 determinístico, calcula grados de éxito]
+           |
+  [API devuelve resultado + narrativa de roll]
+           |
+  [GPT narra el resultado sin inventar el dado]
+           |
+  [Estado cambia -> POST /api/state/delta -> nueva revisión]
+
+================================================================================
+  4. EL AUTOSYNC — CÓMO FUNCIONA EXACTAMENTE
+================================================================================
+
+ARCHIVO: scripts/wh40k_autosync.py en el repositorio
+
+TRIGGER (cuándo corre):
+  - Al iniciar sesión en Windows (LogonTrigger)
+  - Cada 6 horas automáticamente (TimeTrigger, repetición PT6H)
+  - Tiempo máximo de ejecución: 30 minutos (protección ante cuelgues)
+
+PASO A PASO DE CADA EJECUCIÓN:
+
+  Paso 1: Cargar caché de hashes
+    Lee wh40k_file_hashes.json para saber los hashes SHA-256 de la
+    última ejecución. Si un archivo no cambió, lo omite.
+
+  Paso 2: Buscar archivos fuente (orden de prioridad)
+    PRIORIDAD 1: C:\Users\UsuarioCompuElite\Desktop\WH40K\
+      Busca los 6 archivos .docx directamente en tu escritorio.
+    PRIORIDAD 2: C:\...\wh40k_engine\ (carpeta watcher)
+      Si hay un .zip en esa carpeta, lo abre, extrae los .docx y los usa.
+
+  Paso 3: Comparar hashes
+    Calcula SHA-256 para cada .docx encontrado.
+    Si hash == hash en caché Y el .txt ya existe: OMITE el archivo.
+    Si hash cambió O el .txt no existe: PROCESA el archivo.
+
+  Paso 4: Convertir .docx a .txt
+    Abre el .docx como ZIP (los .docx son ZIPs internamente).
+    Lee word/document.xml con xml.etree.ElementTree.
+    Extrae párrafos del namespace WordprocessingML.
+    Une los párrafos con salto de línea.
+    Guarda como UTF-8 puro.
+
+  Paso 5: Escribir en el repositorio
+    Guarda NOMBRE_SIN_ESPACIOS.txt en data/alexander/
+    Guarda también el .docx original en data/alexander/
+
+  Paso 6: Git add + commit
+    git add -A (incluye todos los cambios)
+    git commit -m "AutoSync FECHA: lista de archivos cambiados"
+    Si no hay nada que commitear, termina aquí.
+
+  Paso 7: Leer token de GitHub
+    Lee el token OAuth desde Windows Credential Manager usando
+    Advapi32.dll/CredReadW.
+    Target: "GitHub - https://api.github.com/algo1-2"
+    Sin este token, el push falla.
+
+  Paso 8: Push a ambos repositorios
+    git push --force .../WH40K-API.git main:main
+    git push --force .../WH40k.git main:main
+    El --force evita rechazos por divergencia de historial.
+
+  Paso 9: Guardar caché de hashes actualizado
+    Guarda wh40k_file_hashes.json con los nuevos hashes.
+
+  Paso 10: Log
+    Registra todo en wh40k_autosync.log con timestamp.
+
+================================================================================
+  5. VERCEL — CÓMO FUNCIONA EL SERVIDOR EN PRODUCCIÓN
+================================================================================
+
+Vercel aloja la API. Cuando detecta un push en GitHub, lanza deployment.
+
+CONFIGURACIÓN CRÍTICA (vercel.json — NO MODIFICAR):
+  {
+    "version": 2,
+    "builds": [{"src": "api/index.py", "use": "@vercel/python"}],
+    "routes": [{"src": "/(.*)", "dest": "api/index.py"}]
+  }
+
+  NOTA: La configuración usa "routes" (no "rewrites").
+  NOTA: El destino es "api/index.py" (no "/api" ni "api/").
+  Si se cambia esto, el deployment falla o devuelve 404 en todo.
+
+PROCESO DE DEPLOYMENT EN VERCEL:
+  1. Vercel recibe el webhook de GitHub (push detectado)
+  2. Clona el repositorio en Amazon Linux 2
+  3. Lee vercel.json -> sabe qué construir
+  4. Lee runtime.txt -> instala Python 3.11
+  5. Instala dependencias de requirements.txt
+  6. Empaqueta api/index.py como función serverless
+  7. Activa el deployment -> reemplaza el anterior en producción
+  8. La memoria del proceso es EFÍMERA (sin estado persistente en RAM)
+
+ESTADO PERSISTENTE:
+  campaign_state.json vive en el repositorio de GitHub.
+  Los cambios vía POST /api/state/delta se escriben en disco del servidor,
+  pero NO persisten entre deployments (Vercel es serverless).
+  Para persistir cambios de estado: ejecutar el autosync manualmente.
+
+RUTAS DE LA API EN PRODUCCIÓN:
+  GET  /api/state
+  POST /api/action
+  POST /api/state/delta
+  GET  /api/documents/{filename}
+  GET  /api/domain/status
+  POST /api/state/checkpoint
+  (ver api/openapi.json para lista completa)
+
+AUTENTICACIÓN:
+  Todas las rutas requieren header: x-api-key: wh40k_secret_key_12345
+  Sin este header, la API devuelve 403.
+
+REGLA ABSOLUTA DE FILENAMES EN GIT:
+  El servidor Linux de Vercel NO acepta filenames con espacios en el repo.
+  Causa crashes silenciosos durante el packaging del deployment.
+  TODOS los archivos en el repo deben usar guiones bajos, nunca espacios.
+    CORRECTO:   BASES_Y_DOMINIOS.txt
+    INCORRECTO: BASES Y DOMINIOS.txt
+
+================================================================================
+  6. EL GPT — CÓMO LEE Y USA LA API
+================================================================================
+
+El GPT está configurado como GPT personalizado en ChatGPT con:
+  - Instrucciones del sistema con reglas narrativas y anti-alucinación
+  - Acciones personalizadas apuntando a https://wh-40k.vercel.app
+  - El archivo openapi.json describe todos los endpoints disponibles
+
+FLUJO DE UNA SESIÓN NUEVA:
+  1. Usuario abre un chat NUEVO (sin historial anterior)
+  2. GPT ejecuta automáticamente GET /api/state
+  3. Lee location, characters, pacts_and_debts, character_sheet
+  4. Genera escena de apertura con esos datos exactos
+  5. Nunca menciona QTN-3 como base activa (prohibido en instructions_gpt.md)
+  6. Nunca dice que Tertius está inconsciente (prohibido explícitamente)
+
+DOCUMENTOS QUE EL GPT PUEDE CONSULTAR:
+  GET /api/documents/BASES_Y_DOMINIOS
+  GET /api/documents/FICHA_DEL_PERSONAJE
+  GET /api/documents/HISTORIA_DEL_PERSONAJE
+  GET /api/documents/PERSONAJES
+  GET /api/documents/REPUTACION_DE_FACCIONES
+  GET /api/documents/SEQUITO
+  (sin extensión .txt — la API agrega el .txt internamente)
+
+================================================================================
+  7. QUÉ PUEDE FALLAR Y CÓMO ARREGLARLO
+================================================================================
+
+FALLO 1: El GPT narra con datos incorrectos (QTN-3, Tertius inconsciente, etc.)
+---------------------------------------------------------------------------------
+
+DIAGNÓSTICO:
+  Ejecutar en PowerShell:
+    Invoke-RestMethod -Uri "https://wh-40k.vercel.app/api/state" `
+      -Headers @{"x-api-key"="wh40k_secret_key_12345"}
+
+  Si location dice "Refugio QTN-3" -> problema en Vercel (ver Fallo 2).
+  Si location dice "Medicae Station Rho-9" -> problema en el GPT (ver abajo).
+
+SOLUCIÓN A (Vercel sirve estado viejo):
+  Ejecutar autosync manualmente:
+    python "C:\Users\UsuarioCompuElite\Documents\GitHub\WH40K-API\scripts\wh40k_autosync.py"
+  Esto force-pushea el estado correcto y dispara redeploy.
+
+SOLUCIÓN B (API bien, GPT alucina igual):
+  Abrir configuración del GPT en ChatGPT -> "Edit GPT"
+  Verificar que el system prompt incluya la instrucción de consultar /api/state.
+  Verificar que openapi.json apunte a https://wh-40k.vercel.app.
+
+FALLO 2: Vercel deployment falla (Build Error o Function Error)
+---------------------------------------------------------------
+
+CAUSAS POSIBLES (en orden de probabilidad):
+
+  A) Archivos con espacios en el nombre subidos al repositorio
+     DIAGNÓSTICO (PowerShell desde el repo):
+       & "C:\...\git.exe" -C "C:\...\WH40K-API" ls-files | Where-Object { $_ -match " " }
+     Si devuelve archivos: esos son el problema.
+     SOLUCIÓN: Ejecutar el autosync. Siempre escribe archivos sin espacios.
+
+  B) vercel.json fue modificado incorrectamente
+     DIAGNÓSTICO: Ver el contenido actual de vercel.json
+     SOLUCIÓN: Restaurar manualmente:
+       {
+         "version": 2,
+         "builds": [{"src": "api/index.py", "use": "@vercel/python"}],
+         "routes": [{"src": "/(.*)", "dest": "api/index.py"}]
+       }
+
+  C) requirements.txt tiene error de versión o dependencia inexistente
+     DIAGNÓSTICO: Ver logs de build en Vercel Dashboard
+     SOLUCIÓN: El requirements.txt correcto es:
+       fastapi>=0.100.0
+       uvicorn>=0.20.0
+       pydantic>=2.0.0
+
+  D) Error de importación en engine/main.py
+     DIAGNÓSTICO: Los logs de Vercel muestran el traceback exacto
+     SOLUCIÓN: Revisar el import que falla y corregir la ruta o el módulo
+
+  E) runtime.txt no existe o tiene formato incorrecto
+     DIAGNÓSTICO: Verificar que runtime.txt dice exactamente: python-3.11
+     SOLUCIÓN: Crear/corregir el archivo con ese contenido exacto
+
+FALLO 3: El AutoSync no corre automáticamente
+----------------------------------------------
+
+DIAGNÓSTICO:
+  1. Verificar que la tarea existe:
+       schtasks /Query /TN "WH40K_AutoSync"
+  2. Ver el log:
+       Get-Content "C:\...\.gemini\antigravity\scratch\wh40k_autosync.log" -Tail 50
+
+CAUSAS Y SOLUCIONES:
+
+  A) La tarea no está instalada
+     SOLUCIÓN: Ejecutar como administrador:
+       python "C:\...\scripts\install_autosync_task.py"
+
+  B) La tarea existe pero falla silenciosamente
+     SOLUCIÓN: Correr manualmente para ver el error:
+       python "C:\...\scripts\wh40k_autosync.py"
+
+  C) El token de GitHub venció o fue revocado
+     SÍNTOMA EN LOG: "No se pudo leer token" o "authentication failed"
+     SOLUCIÓN:
+       1. Abrir GitHub Desktop -> File -> Options -> Accounts
+       2. Sign out -> Sign in again (renueva el token en Credential Manager)
+       3. El autosync lo toma automáticamente en la próxima ejecución
+
+  D) Python no está en el PATH del Task Scheduler
+     SÍNTOMA: Log vacío, tarea dice "Last Run Result: 0x1"
+     SOLUCIÓN:
+       1. En PowerShell: where.exe python
+          Copia la ruta exacta que devuelve (ej: C:\Program Files\Python311\python.exe)
+       2. Editar install_autosync_task.py -> cambiar la variable PYTHON por esa ruta
+       3. Reinstalar la tarea: python install_autosync_task.py
+
+  E) Los archivos .docx no están en Desktop/WH40K/
+     SÍNTOMA EN LOG: "No se encontraron archivos .docx fuente. Abortando."
+     SOLUCIÓN: Verificar que los 6 .docx están en Desktop/WH40K/
+
+FALLO 4: La API devuelve 404 en todas las rutas
+------------------------------------------------
+
+CAUSAS:
+
+  A) Deployment de Vercel caído o en error
+     SOLUCIÓN: Ir a https://vercel.com/wh-40k/wh-40k -> ver estado
+     Si está en "Building": esperar 2-3 minutos
+     Si está en "Error": ver los logs y corregir el error señalado
+
+  B) vercel.json tiene destination incorrecto
+     SOLUCIÓN: Restaurar vercel.json correcto (ver sección 5)
+
+  C) El proyecto en Vercel está desconectado del repositorio
+     SÍNTOMA: No hay deployments recientes aunque se hicieran pushes
+     SOLUCIÓN:
+       1. Ir a https://vercel.com/wh-40k/wh-40k/settings
+       2. Ver "Git Repository" -> verificar que apunta a algo1-2/WH40K-API
+       3. Si está desconectado -> reconnectar manualmente en el dashboard
+
+FALLO 5: El estado se resetea o pierde datos entre sesiones
+------------------------------------------------------------
+
+CAUSA: Vercel es serverless. Un nuevo deployment borra el estado en RAM.
+El estado persistente es campaign_state.json en el repositorio de GitHub.
+Si el autosync no lo actualizó antes del deployment, vuelve al estado previo.
+
+SOLUCIÓN PREVENTIVA:
+  Después de una sesión con cambios importantes, ejecutar:
+    python "C:\...\scripts\wh40k_autosync.py"
+
+SOLUCIÓN DE EMERGENCIA (si se perdió el estado):
+  1. Abrir C:\...\WH40K-API\campaigns\alexander\campaign_state.json
+  2. Corregir manualmente: location, characters, pacts_and_debts, state_revision
+  3. Ejecutar autosync para pushear la corrección a GitHub
+
+FALLO 6: git push falla con "rejected non-fast-forward"
+--------------------------------------------------------
+
+SÍNTOMA EN LOG: "rejected main -> main (non-fast-forward)"
+CAUSA: El repositorio remoto tiene commits que el local no tiene.
+
+SOLUCIÓN (PowerShell desde C:\...\WH40K-API):
+  $git = "C:\...\git.exe"
+  & $git -C "." fetch origin
+  & $git -C "." push origin main --force
+
+FALLO 7: AutoSync no detecta cambios en el .docx
+-------------------------------------------------
+
+CAUSA: El hash SHA-256 en caché coincide con el archivo actual
+(el docx se abrió y cerró sin modificar su contenido binario real).
+
+SOLUCIÓN: Borrar el caché de hashes para forzar resincronización total:
+  Remove-Item "C:\...\.gemini\antigravity\scratch\wh40k_file_hashes.json" -Force
+  python "C:\...\scripts\wh40k_autosync.py"
+
+================================================================================
+  8. COMANDOS DE EMERGENCIA ÚTILES
+================================================================================
+
+VERIFICAR QUE LA API ESTÁ VIVA:
+  Invoke-RestMethod `
+    -Uri "https://wh-40k.vercel.app/api/state" `
+    -Headers @{"x-api-key"="wh40k_secret_key_12345"}
+
+EJECUTAR AUTOSYNC MANUALMENTE:
+  python "C:\Users\UsuarioCompuElite\Documents\GitHub\WH40K-API\scripts\wh40k_autosync.py"
+
+VER EL LOG DEL AUTOSYNC (últimas 50 líneas):
+  Get-Content "C:\Users\UsuarioCompuElite\.gemini\antigravity\scratch\wh40k_autosync.log" -Tail 50
+
+REINSTALAR LA TAREA DEL SCHEDULER:
+  python "C:\Users\UsuarioCompuElite\Documents\GitHub\WH40K-API\scripts\install_autosync_task.py"
+
+VERIFICAR QUE NO QUEDAN ARCHIVOS CON ESPACIOS EN GIT:
+  & "C:\...\git.exe" -C "C:\...\WH40K-API" ls-files | Where-Object { $_ -match " " }
+  (si no devuelve nada: correcto, todo limpio)
+
+VER ESTADO DE LA TAREA DEL SCHEDULER:
+  schtasks /Query /TN "WH40K_AutoSync" /FO LIST
+
+BORRAR CACHÉ DE HASHES (forzar resincronización total):
+  Remove-Item "C:\...\.gemini\antigravity\scratch\wh40k_file_hashes.json" -Force
+
+FORZAR REDEPLOY EN VERCEL SIN CAMBIOS DE CÓDIGO:
+  & "C:\...\git.exe" -C "C:\...\WH40K-API" commit --allow-empty -m "force redeploy"
+  & "C:\...\git.exe" -C "C:\...\WH40K-API" push origin main
+
+================================================================================
+  9. REGLAS PERMANENTES (NO ROMPER)
+================================================================================
+
+REGLA 1 — NOMBRES DE ARCHIVOS EN GIT
+  Nunca subir al repositorio archivos con espacios en el nombre.
+  Usar siempre guión bajo. El autosync hace esto automáticamente.
+  No hacerlo a mano: siempre dejar que el autosync sincronice.
+
+REGLA 2 — vercel.json NO SE MODIFICA SIN ENTENDER EL IMPACTO
+  La configuración actual es la única que funciona con @vercel/python.
+  Si se cambia, el servidor puede dejar de responder en todas las rutas.
+
+REGLA 3 — LOS .DOCX DEL ESCRITORIO SON LA FUENTE DE VERDAD
+  Nunca editar los .txt directamente en el repositorio.
+  Siempre editar los .docx del escritorio y dejar que el autosync sincronice.
+
+REGLA 4 — EL ESTADO CANÓNICO ACTIVO ES RHO-9
+  La campaña activa de Alexander está en Medicae Station Rho-9.
+  QTN-3 es solo un almacén secundario. No confundir.
+
+REGLA 5 — TERTIUS ESTÁ DESPIERTO, QUARTUS ESTÁ INCONSCIENTE
+  Tertius Holt: VIVO, 8/11; CONSCIENTE Y ESTABLE. Puede hablar.
+  Quartus Holt: VIVO, 4/11; INCONSCIENTE e intubado. No puede interactuar.
+  Esta distinción es crítica y aparece en api/instructions_gpt.md.
+
+REGLA 6 — PERSISTIR EL ESTADO DESPUÉS DE UNA SESIÓN IMPORTANTE
+  Después de una sesión con cambios relevantes de estado, ejecutar:
+    python "C:\...\scripts\wh40k_autosync.py"
+
+================================================================================
+  FIN DEL INSTRUCTIVO
+  WH40K Narrative Engine — Sistema AutoSync
+  Actualizado: Agosto 2026
+================================================================================
