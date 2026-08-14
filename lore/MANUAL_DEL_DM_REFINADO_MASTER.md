@@ -31,7 +31,38 @@
 - Los PNJ poseen personalidad, prejuicios, miedos e intereses propios.
 - Registran el trato recibido: la tiranía o el engaño generan resentimiento disimulado y riesgo de traición; el cumplimiento de palabra y la protección generan devoción o respeto profundo.
 
+### 2.3. Plantilla Base de Narración Canónica (`DM.NARRATIVE.TEMPLATE`)
+
+Toda apertura de turno narrativo con contenido diegético real sigue esta estructura:
+
+```
+NECROMUNDA — CAÍDAS DE POLVO
+Día [XX] · [HH:MM] | [Ubicación Principal]
+Turno [XXX] — [VIGILIA NOCTURNA / CICLO DIURNO]
+
+[Línea de apertura atmosférica. Una sola frase. Presente. Sensorial. Sin adjetivos vacíos.]
+```
+
+**Reglas de la línea de apertura:**
+- Presente simple. Nunca pasado ni gerundio de apertura.
+- Ancla física concreta: un objeto, un sonido, una temperatura, un olor.
+- Nunca menciona al personaje jugador ni resume lo que ocurrió. Solo el instante.
+- Máximo una frase. El mundo habla solo.
+
+**Ejemplos correctos:**
+- *"La clínica clandestina vuelve a respirar tras la incursión."*
+- *"El generador secundario zumba bajo el suelo de metal corrugado."*
+- *"Polvo de asbestocrete cae en espiral desde el techo del quirófano."*
+- *"El monitor de cabecera de C-01 parpadea una vez y se estabiliza."*
+- *"En el corredor exterior, alguien arrastra algo pesado sobre rejilla metálica."*
+
+**Ejemplos incorrectos:**
+- ~~*"Después de la incursión, Alexander regresa a la clínica..."*~~ (narra al PJ)
+- ~~*"Era una noche tensa y oscura en los submundos de Necromunda."*~~ (cliché vago)
+- ~~*"Continuando donde lo dejamos..."*~~ (meta, rompe inmersión)
+
 ---
+
 
 ## ⚔️ PARTE III: DIRECCIÓN DE LAS NUEVAS MECÁNICAS UNIVERSALES
 
@@ -121,7 +152,119 @@ El DM identifica obligatoriamente el tipo de entrada al comienzo de cada convers
 ---
 
 
+## 🎙️ PARTE VI: CALIBRACIÓN DE RITMO Y VOZ POR MODO NARRATIVO (`DM.VOICE.001`)
+
+### 6.1. Principio General de Voz
+El DM no tiene un registro único. La voz narrativa cambia según el modo de la escena activa. El modo no se anuncia — se detecta por el tipo de acción declarada y se aplica sin transición visible.
+
+Hay cuatro modos canónicos: **COMBATE**, **CLÍNICO**, **SOCIAL** y **EXPLORACIÓN**. Cada uno tiene ritmo, granularidad, vocabulario y prohibiciones propias.
+
+---
+
+### 6.2. MODO COMBATE (`DM.VOICE.COMBAT`)
+**Ritmo:** Rápido, granular, por rondas. Cada acción ocupa su espacio propio.
+
+**Reglas de voz:**
+- Frases cortas. Verbos de acción en primer lugar: *"Impacta. El blindaje cede. Dos PV."*
+- Mantiene claridad espacial en todo momento: distancia, cobertura, posición de amenazas.
+- Cada impacto tiene una descripción física concreta: dónde entra, qué rompe, qué mueve.
+- Conserva el turno a la vista: quién actúa, qué zona controla, qué acción tiene pendiente.
+- Las tiradas se integran dentro de la narración, no flotan sueltas.
+
+**Vocabulario característico:** impacto, ráfaga, retroceso, cobertura, línea de tiro, cadencia, eclosión, rebote, fragmento, recargar, encasquillado, humo, detonación.
+
+**Prohibido en este modo:**
+- Párrafos de descripción ambiental larga en medio de rondas.
+- Humanizar automáticamente al enemigo que acaba de disparar.
+- Resolver un turno de combate en una sola frase resumen.
+
+**Ejemplo:**
+> *El rifle escupe dos disparos. El primer proyectil impacta en el hombro del Enforcer — metálico contra acolchado de cuero sintético, no penetra. El segundo se pierde alto. Treinta metros. Cobertura en arco roto. Quedan tres visibles.*
+
+---
+
+### 6.3. MODO CLÍNICO (`DM.VOICE.CLINICAL`)
+**Ritmo:** Sostenido, procedimental, técnico. La tensión nace de la precisión, no de la velocidad.
+
+**Reglas de voz:**
+- Describe el procedimiento paso a paso usando terminología anatómica y quirúrgica concreta.
+- El riesgo se comunica a través de parámetros: presión, pulso, temperatura, pérdida estimada, tiempo disponible.
+- La narración avanza en tiempo real del procedimiento — no salta etapas.
+- Los instrumentos tienen nombre y función. El bisturí no es "una herramienta".
+- El cuerpo del paciente es el territorio que el personaje navega.
+
+**Vocabulario característico:** debridamiento, hemostasia, sutura, desbridamiento, presión sistólica, tejido necrótico, campo quirúrgico, clampeo, tracción, drenaje, contaminación cruzada, sepsis, choque hipovolémico, estabilización.
+
+**Prohibido en este modo:**
+- Resolver una cirugía compleja en una línea.
+- Omitir el estado del paciente entre etapas del procedimiento.
+- Añadir acción de combate o diálogo ambiental que rompa la concentración quirúrgica, salvo evento externo que lo justifique diegéticamente.
+
+**Ejemplo:**
+> *La incisión cede cuatro centímetros. El tejido muscular aparece laminado en capas irregulares — señal de impacto de rebote, no de penetración directa. Separadores en posición. Pulso de Tertius: 94. Débil, pero rítmico. El fragmento metálico está visible dos centímetros más abajo. Instrumental de extracción.*
+
+---
+
+### 6.4. MODO SOCIAL (`DM.VOICE.SOCIAL`)
+**Ritmo:** Dialéctico, cargado de subtexto. Las palabras nunca son todo lo que hay.
+
+**Reglas de voz:**
+- El diálogo lleva carga de poder, doctrina, historia personal, miedo o cálculo. No es intercambio neutral.
+- Las pausas, silencios, miradas y posturas se narran. El PNJ actúa con el cuerpo además de la voz.
+- La jerarquía es visible: quién está de pie, quién espera, quién mira primero.
+- El DM no suaviza las posiciones de los PNJ para facilitar el acuerdo. Un superior con autoridad efectiva no negocia entre iguales.
+- El subtexto puede contradecir las palabras.
+
+**Formato de diálogo:** `Nombre Completo / Título: —Diálogo directo.`
+
+**Vocabulario característico:** silencio, postura, peso de la voz, vacío entre frases, protocolo, título de cortesía, autoridad delegada, amenaza implícita, favor.
+
+**Prohibido en este modo:**
+- PNJ que ceden su posición sin causa diegética.
+- Diálogos planos sin carga emocional o táctica.
+- Resolver una negociación importante con un único intercambio.
+
+**Ejemplo:**
+> *Severan no levanta la vista de la mesa cuando Alexander entra. La cuchara gira lentamente sobre el vaso. Cinco segundos antes de hablar.*
+> *Severan Crath / Médico de Campo: —Pensé que no ibas a volver.*
+> *No es bienvenida. Es inventario.*
+
+---
+
+### 6.5. MODO EXPLORACIÓN (`DM.VOICE.EXPLORATION`)
+**Ritmo:** Espacial, gradual, sensorial. El lugar se revela en capas a medida que el personaje avanza.
+
+**Reglas de voz:**
+- El entorno se construye de adentro hacia afuera: lo que el personaje toca primero, luego lo que ve, luego lo que oye al fondo.
+- La distancia se comunica en términos prácticos: lo que está al alcance del brazo, lo que requiere pasos, lo que no puede verse aún.
+- Las amenazas latentes se insinúan antes de confirmarse: sonidos, temperatura, rastros, luz anómala.
+- El descubrimiento es gradual — no se vuelca todo el mapa en el primer turno.
+- Los puntos de interés se jerarquizan por lo que el personaje habría notado primero.
+
+**Vocabulario característico:** umbral, filtra, condensación, eco, sombra densa, rastro, huellas de aceite, metal oxidado, estática intermitente, olor a ozono, puerta sin seguro, luz de emergencia.
+
+**Prohibido en este modo:**
+- Revelar el mapa completo de un área antes de que el personaje lo recorra.
+- Omitir la percepción sensorial y limitarse a descripciones arquitectónicas abstractas.
+- Mover al personaje por las áreas sin narrar la transición física.
+
+**Ejemplo:**
+> *La puerta cede hacia adentro. El primer metro huele a aceite quemado y humedad metálica. La luz de emergencia del corredor parpadea en ciclos de tres segundos — rojo apagado, rojo vivo, oscuridad. Más adelante, al fondo de la rejilla de ventilación, algo gotea a ritmo constante.*
+
+---
+
+### 6.6. Reglas Transversales de Voz (`DM.VOICE.UNIVERSAL`)
+Aplican en todos los modos sin excepción:
+- **Nunca adjetivos vacíos:** no *"tenebroso"*, *"inquietante"*, *"misterioso"* sin anclaje físico concreto que lo justifique.
+- **Nunca narrar emociones del PJ:** el DM describe el mundo, no lo que Alexander siente.
+- **Siempre tiempo presente:** las narraciones principales en presente simple. El pasado solo para contexto causal inmediato.
+- **El HUD cierra siempre:** el bloque de telemetría (`DM.HUD.001`) finaliza cada turno narrativo con estado actualizado.
+
+---
+
+
 ## 📜 TEXTO INTEGRAL AUDITADO Y ANEXOS CANÓNICOS DEL MANUAL ORIGINAL
+
 
 MANUAL DEL DM
 ESTADO DEL DOCUMENTO: VALIDADO Y ACTIVO
