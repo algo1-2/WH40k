@@ -1,6 +1,6 @@
 """
-WH40K Alchemy & Clandestine Pharmacology Engine (alchemy_engine.py)
-Síntesis de fármacos, stimms de combate y antídotos en la Clínica Rho-9.
+WH40K Alchemy & Clandestine Pharmacology Engine v3.0 (alchemy_engine.py)
+Síntesis de fármacos, stimms de combate, antídotos y reactivos alquímicos en la Clínica Rho-9.
 """
 
 from typing import Dict, List, Any
@@ -38,6 +38,38 @@ COMPOUND_RECIPES = {
         "coste_creditos": 25,
         "categoria": "Traumatología"
     },
+    "SUERO_VERDAD_ESCHER": {
+        "key": "SUERO_VERDAD_ESCHER",
+        "nombre": "Suero Químico de la Verdad Escher",
+        "efecto": "+20 a tiradas de Interrogatorio y Persuasión contra prisioneros o sospechosos durante 1 escena.",
+        "requisito_medicina": 55,
+        "coste_creditos": 45,
+        "categoria": "Inquisición & Inteligencia"
+    },
+    "TONICO_FUNGICO_COAGULANTE": {
+        "key": "TONICO_FUNGICO_COAGULANTE",
+        "nombre": "Tónico Coagulante Fúngico del Submundo",
+        "efecto": "Estabiliza automáticamente a un paciente en estado agónico (0 PV) evitando la tirada de muerte.",
+        "requisito_medicina": 40,
+        "coste_creditos": 20,
+        "categoria": "Urgencias Clandestinas"
+    },
+    "NEURO_BLOQUEADOR_DOLOR": {
+        "key": "NEURO_BLOQUEADOR_DOLOR",
+        "nombre": "Neuro-Bloqueador de Dolor Grado Militar",
+        "efecto": "Permite al portador ignorar todos los penalizadores por heridas críticas y dolor durante 4 turnos.",
+        "requisito_medicina": 50,
+        "coste_creditos": 35,
+        "categoria": "Farmacología Táctica"
+    },
+    "INCIENSO_PURIFICADOR_SANCTUM": {
+        "key": "INCIENSO_PURIFICADOR_SANCTUM",
+        "nombre": "Incienso Litúrgico de Purificación Disforme",
+        "efecto": "Reduce la perturbación psíquica en Rho-9 y permite a Alexander canalizar +1 Alma en la Reserva Umbral.",
+        "requisito_medicina": 60,
+        "coste_creditos": 50,
+        "categoria": "Bio-Ocultismo"
+    },
     "SUERO_UMBRAL": {
         "key": "SUERO_UMBRAL",
         "nombre": "Suero Estabilizador de Mente Umbral",
@@ -55,7 +87,7 @@ class AlchemyEngine:
         return list(COMPOUND_RECIPES.values())
 
     @staticmethod
-    def synthesize_compound(compound_key: str, medic_skill: int = 65, available_credits: int = 1196) -> Dict[str, Any]:
+    def synthesize_compound(compound_key: str, medic_skill: int = 65, available_credits: int = 1046) -> Dict[str, Any]:
         """
         Sintetiza un fármaco o compuesto químico en el laboratorio de Rho-9.
         """
@@ -78,12 +110,23 @@ class AlchemyEngine:
             }
 
         new_credits = available_credits - recipe["coste_creditos"]
+        
+        chat_prompt = (
+            f"[ACCIÓN COGITADOR RHO-9 // ALQUIMIA & FARMACOLOGÍA]\n"
+            f"Alexander sintetizó 1 dosis de {recipe['nombre']}.\n"
+            f"Categoría: {recipe['categoria']} | Coste: {recipe['coste_creditos']} ¤ (Saldo restante: {new_credits} ¤)\n"
+            f"Efecto Activo: {recipe['efecto']}\n"
+            f"Estado: Añadido al alijo de Sombra Infinita."
+        )
+
         return {
             "success": True,
             "compound_key": recipe["key"],
             "compound_name": recipe["nombre"],
+            "category": recipe["categoria"],
             "effect": recipe["efecto"],
             "cost_paid": recipe["coste_creditos"],
             "remaining_credits": new_credits,
+            "chat_prompt": chat_prompt,
             "message": f"¡SÍNTESIS EXITOSA! Se ha creado 1 dosis de '{recipe['nombre']}'. Añadido a Sombra Infinita."
         }

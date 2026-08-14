@@ -1,9 +1,9 @@
 """
-WH40K Bioware, Surgery, Cybernetics & Trauma Engine v2.0 (bioware_engine.py)
+WH40K Bioware, Surgery, Cybernetics & Trauma Engine v3.0 (bioware_engine.py)
 Incluye:
 - Diagnóstico anatómico zonal (Cabeza, Tórax, Abdomen, Extremidades)
-- Simulador de Cirugías en 4 Fases Clínicas
-- Fabricación de Implantes Cibernéticos y Prótesis Mecatrónicas de Khepra-9
+- Simulador de Cirugías Avanzadas con generación de reportes canónicos para ChatGPT
+- Fabricación de Implantes Cibernéticos de Khepra-9
 """
 
 import random
@@ -13,32 +13,32 @@ ANATOMICAL_ZONES = {
     "CABEZA": {
         "nombre": "Cráneo & Red Neural",
         "trauma_default": "Conmoción / Presión Intracraneal",
-        "procedures": ["TREPANACION_DESCOMPRESION", "NEURO_ESTIMULACION"]
+        "procedures": ["TREPANACION_DESCOMPRESION", "ESTIMULACION_NEURAL_COMA"]
     },
     "TORAX": {
         "nombre": "Caja Torácica & Pulmones",
         "trauma_default": "Perforación Pleural / Hemorragia Interna",
-        "procedures": ["TORACICA", "PERFUSION_TISULAR"]
+        "procedures": ["TORACICA", "PERFUSION_TISULAR", "TRAQUEOTOMIA_EMERGENCIA"]
     },
     "ABDOMEN": {
         "nombre": "Abdomen & Vísceras",
         "trauma_default": "Laceración Esplénica / Shock Hipovolémico",
-        "procedures": ["SUTURA_MAYOR", "INFUSION_SHOCK"]
+        "procedures": ["SUTURA_MAYOR", "INFUSION_SHOCK", "EXTRACCION_PARASITOS"]
     },
     "BRAZO_IZQ": {
         "nombre": "Brazo Izquierdo",
         "trauma_default": "Fractura Expuesta / Amputación Traumática",
-        "procedures": ["INJERTO_TISULAR", "INSTALACION_BIONICA"]
+        "procedures": ["INJERTO_TISULAR", "AMPUTACION_LIMPIA", "INSTALACION_BIONICA"]
     },
     "BRAZO_DER": {
         "nombre": "Brazo Derecho",
         "trauma_default": "Desgarro Muscular Profundo",
-        "procedures": ["INJERTO_TISULAR", "INSTALACION_BIONICA"]
+        "procedures": ["INJERTO_TISULAR", "AMPUTACION_LIMPIA", "INSTALACION_BIONICA"]
     },
     "PIERNAS": {
         "nombre": "Extremidades Inferiores",
         "trauma_default": "Impacto de Metralla / Pérdida de Movilidad",
-        "procedures": ["EXTRACCION_METRALLA", "SUTURA_MAYOR"]
+        "procedures": ["SUTURA_MAYOR", "EXTRACCION_PARASITOS", "INJERTO_TISULAR"]
     }
 }
 
@@ -74,11 +74,23 @@ CYBERNETICS_CATALOG = {
 }
 
 SURGERY_PROCEDURES = {
+    "PERFUSION_TISULAR": {
+        "nombre": "Mantenimiento de Perfusión Tisular & Desintubación (Quartus)",
+        "base_target": 70,
+        "pv_recovered": 3,
+        "consumes": "1 Ampolla neuro-sedante + Solución oxigenada"
+    },
     "TORACICA": {
         "nombre": "Cirugía Torácica Mayor / Drenaje Pleural",
         "base_target": 65,
         "pv_recovered": 3,
         "consumes": "1 Tubo torácico + 2 Vendas + 1 Anestésico local"
+    },
+    "TRAQUEOTOMIA_EMERGENCIA": {
+        "nombre": "Traqueotomía de Emergencia & Desobstrucción Aérea",
+        "base_target": 70,
+        "pv_recovered": 2,
+        "consumes": "1 Cánula traqueal + 1 Antiséptico"
     },
     "SUTURA_MAYOR": {
         "nombre": "Desbridamiento & Sutura Antiséptica Profunda",
@@ -98,11 +110,23 @@ SURGERY_PROCEDURES = {
         "pv_recovered": 3,
         "consumes": "1 Unidad Sangre (Biobanco) + 1 Salina IV"
     },
-    "PERFUSION_TISULAR": {
-        "nombre": "Mantenimiento de Perfusión Tisular & Desintubación (Quartus)",
-        "base_target": 70,
+    "AMPUTACION_LIMPIA": {
+        "nombre": "Amputación Quirúrgica Limpia & Cauterización con Láser",
+        "base_target": 60,
+        "pv_recovered": 2,
+        "consumes": "1 Sierra quirúrgica + 1 Cauterizador + 2 Vendas hemostáticas"
+    },
+    "EXTRACCION_PARASITOS": {
+        "nombre": "Extracción de Parásitos & Quistes del Sumidero",
+        "base_target": 65,
         "pv_recovered": 3,
-        "consumes": "1 Ampolla neuro-sedante + Solución oxigenada"
+        "consumes": "1 Antiséptico concentrado + 1 Pinza de biopsia"
+    },
+    "ESTIMULACION_NEURAL_COMA": {
+        "nombre": "Electro-Estimulación Neural para Despertar de Coma",
+        "base_target": 55,
+        "pv_recovered": 2,
+        "consumes": "1 Estimulador galvánico + 1 Ampolla neuro-trópica"
     },
     "INSTALACION_BIONICA": {
         "nombre": "Implante & Sincronización Neural de Prótesis Biónica",
@@ -122,12 +146,12 @@ class BiowareEngine:
                 "vital_hp": "4 / 11",
                 "status": "Coma / Perfusión Tisular Activa",
                 "zones": {
-                    "CABEZA": {"status": "ESTABLE", "damage": 0, "condition": "Sedación controlada"},
-                    "TORAX": {"status": "CRÍTICO", "damage": 6, "condition": "Perforación torácica profunda por proyectil"},
-                    "ABDOMEN": {"status": "MODERADO", "damage": 1, "condition": "Laceración superficial"},
-                    "BRAZO_IZQ": {"status": "ESTABLE", "damage": 0, "condition": "Línea IV insertada"},
-                    "BRAZO_DER": {"status": "ESTABLE", "damage": 0, "condition": "Monitores de pulso"},
-                    "PIERNAS": {"status": "ESTABLE", "damage": 0, "condition": "Perfusión normal"}
+                    "CABEZA": {"status": "ESTABLE", "damage": 0, "condition": "Sedación controlada", "rec_proc": "ESTIMULACION_NEURAL_COMA"},
+                    "TORAX": {"status": "CRÍTICO", "damage": 6, "condition": "Perforación torácica profunda por proyectil", "rec_proc": "PERFUSION_TISULAR"},
+                    "ABDOMEN": {"status": "MODERADO", "damage": 1, "condition": "Laceración superficial", "rec_proc": "SUTURA_MAYOR"},
+                    "BRAZO_IZQ": {"status": "ESTABLE", "damage": 0, "condition": "Línea IV insertada", "rec_proc": "INJERTO_TISULAR"},
+                    "BRAZO_DER": {"status": "ESTABLE", "damage": 0, "condition": "Monitores de pulso", "rec_proc": "INJERTO_TISULAR"},
+                    "PIERNAS": {"status": "ESTABLE", "damage": 0, "condition": "Perfusión normal", "rec_proc": "SUTURA_MAYOR"}
                 }
             }
         elif "Tertius" in patient_name:
@@ -136,12 +160,12 @@ class BiowareEngine:
                 "vital_hp": "8 / 11",
                 "status": "Consciente / Drenaje Activo",
                 "zones": {
-                    "CABEZA": {"status": "ESTABLE", "damage": 0, "condition": "Alerta y orientado"},
-                    "TORAX": {"status": "MODERADO", "damage": 3, "condition": "Drenaje intercostal funcionando"},
-                    "ABDOMEN": {"status": "ESTABLE", "damage": 0, "condition": "Normal"},
-                    "BRAZO_IZQ": {"status": "ESTABLE", "damage": 0, "condition": "Normal"},
-                    "BRAZO_DER": {"status": "LEVE", "damage": 1, "condition": "Contusión por retroceso"},
-                    "PIERNAS": {"status": "ESTABLE", "damage": 0, "condition": "Reposo"}
+                    "CABEZA": {"status": "ESTABLE", "damage": 0, "condition": "Alerta y orientado", "rec_proc": "ESTIMULACION_NEURAL_COMA"},
+                    "TORAX": {"status": "MODERADO", "damage": 3, "condition": "Drenaje intercostal funcionando", "rec_proc": "TORACICA"},
+                    "ABDOMEN": {"status": "ESTABLE", "damage": 0, "condition": "Normal", "rec_proc": "SUTURA_MAYOR"},
+                    "BRAZO_IZQ": {"status": "ESTABLE", "damage": 0, "condition": "Normal", "rec_proc": "INJERTO_TISULAR"},
+                    "BRAZO_DER": {"status": "LEVE", "damage": 1, "condition": "Contusión por retroceso", "rec_proc": "INJERTO_TISULAR"},
+                    "PIERNAS": {"status": "ESTABLE", "damage": 0, "condition": "Reposo", "rec_proc": "SUTURA_MAYOR"}
                 }
             }
         else:
@@ -150,12 +174,12 @@ class BiowareEngine:
                 "vital_hp": "5 / 10",
                 "status": "Urgencia Clandestina",
                 "zones": {
-                    "CABEZA": {"status": "LEVE", "damage": 1, "condition": "Contusión"},
-                    "TORAX": {"status": "MODERADO", "damage": 2, "condition": "Herida de esquirlas"},
-                    "ABDOMEN": {"status": "LEVE", "damage": 1, "condition": "Impacto amortiguado"},
-                    "BRAZO_IZQ": {"status": "ESTABLE", "damage": 0, "condition": "Normal"},
-                    "BRAZO_DER": {"status": "ESTABLE", "damage": 0, "condition": "Normal"},
-                    "PIERNAS": {"status": "LEVE", "damage": 1, "condition": "Rozadura de bala"}
+                    "CABEZA": {"status": "LEVE", "damage": 1, "condition": "Contusión por culatazo", "rec_proc": "ESTIMULACION_NEURAL_COMA"},
+                    "TORAX": {"status": "MODERADO", "damage": 2, "condition": "Herida de esquirlas", "rec_proc": "TRAQUEOTOMIA_EMERGENCIA"},
+                    "ABDOMEN": {"status": "LEVE", "damage": 1, "condition": "Impacto amortiguado", "rec_proc": "EXTRACCION_PARASITOS"},
+                    "BRAZO_IZQ": {"status": "ESTABLE", "damage": 0, "condition": "Normal", "rec_proc": "AMPUTACION_LIMPIA"},
+                    "BRAZO_DER": {"status": "ESTABLE", "damage": 0, "condition": "Normal", "rec_proc": "INSTALACION_BIONICA"},
+                    "PIERNAS": {"status": "LEVE", "damage": 1, "condition": "Rozadura de bala", "rec_proc": "SUTURA_MAYOR"}
                 }
             }
 
@@ -170,11 +194,21 @@ class BiowareEngine:
             return {"success": False, "error": f"Créditos insuficientes ({available_credits} ¤ disponibles, requiere {cost} ¤)."}
         
         roll = random.randint(1, 100)
-        target = tech_skill + 10 # Bono por banco mecatrónico de Rho-9
+        target = tech_skill + 10
         is_success = roll <= target
         degrees = abs((target - roll) // 10)
         
         new_credits = available_credits - cost
+
+        chat_prompt = (
+            f"[ACCIÓN COGITADOR RHO-9 // FORJA MECATRÓNICA]\n"
+            f"Khepra-9 ha completado la fabricación de: {implant['nombre']}.\n"
+            f"Tirada Técnica: {roll} vs {target} ({degrees} Grados de {'Éxito' if is_success else 'Fallo'}).\n"
+            f"Coste: {cost} ¤ (Saldo restante: {new_credits} ¤) | Destinatario: {implant['recipient']}\n"
+            f"Bono Permanente: {implant['bonus']}\n"
+            f"💬 Khepra-9: \"La carne es débil; el acero del Dios Máquina perdura.\""
+        )
+
         return {
             "success": is_success,
             "implant_key": implant_key,
@@ -186,6 +220,7 @@ class BiowareEngine:
             "roll": roll,
             "target": target,
             "degrees": degrees,
+            "chat_prompt": chat_prompt,
             "message": f"⚙️ ¡FABRICACIÓN {'EXITOSA' if is_success else 'DEFECTUOSA'}! Khepra-9 ensambló '{implant['nombre']}'. Tirada: {roll} vs {target} ({degrees} Grados). Bono: {implant['bonus']}"
         }
 
@@ -199,6 +234,16 @@ class BiowareEngine:
         degrees = abs((target - roll) // 10)
 
         pv_gain = proc["pv_recovered"] if is_success else 1
+
+        chat_prompt = (
+            f"[ACCIÓN COGITADOR RHO-9 // INTERVENCIÓN QUIRÚRGICA]\n"
+            f"Alexander ejecutó: {proc['nombre']} sobre {patient_name}.\n"
+            f"Tirada Médica: {roll} vs {target} ({degrees} Grados de {'Éxito' if is_success else 'Complicación'}).\n"
+            f"Soporte Empleado: {'Diagnostor Multispectral (+15%)' if use_diagnostor else ''} {'Unidad de Sangre (+10%)' if use_blood else ''}\n"
+            f"Efecto Vital: +{pv_gain} Puntos de Vida recuperados.\n"
+            f"Consumibles: {proc['consumes']}\n"
+            f"💬 Alexander: \"El flujo arterial responde y los signos vitales se estabilizan.\""
+        )
         
         return {
             "success": is_success,
@@ -209,5 +254,6 @@ class BiowareEngine:
             "degrees": degrees,
             "pv_healed": pv_gain,
             "consumables_used": proc["consumes"],
+            "chat_prompt": chat_prompt,
             "message": f"{'✅ CIRUGÍA EXITOSA' if is_success else '⚠️ CIRUGÍA COMPLICADA'}: {patient_name} ha recibido {proc['nombre']}. Tirada: {roll} vs {target} ({degrees} Grados). Recuperados: +{pv_gain} PV."
         }

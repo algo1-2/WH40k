@@ -590,7 +590,7 @@
     .quick-orders-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
+      gap: 0.45rem;
       margin-top: 0.6rem;
     }
 
@@ -599,8 +599,8 @@
       border: 1px solid var(--border-panel);
       color: var(--text-main);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      padding: 0.45rem 0.6rem;
+      font-size: 0.7rem;
+      padding: 0.45rem 0.55rem;
       border-radius: 4px;
       cursor: pointer;
       text-align: left;
@@ -662,6 +662,45 @@
     .anatomy-zone-card:hover {
       border-color: var(--brass-dim);
       background: #131a24;
+    }
+
+    /* CHAT PROMPT COPIER BOX */
+    .prompt-copier-box {
+      background: #0a0e14;
+      border: 1px solid var(--brass-dim);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      margin-top: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .prompt-text-pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #93c5fd;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .btn-copy-prompt {
+      background: var(--brass-dim);
+      color: #080a0d;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 0.5rem;
+    }
+
+    .btn-copy-prompt:hover {
+      background: var(--brass);
+      box-shadow: 0 0 10px var(--amber-glow);
     }
 
     /* Modal / Drawer for Room Details */
@@ -1055,6 +1094,7 @@
     <button class="tab-btn active" onclick="switchTab('tab-blueprint')">🗺️ PLANO & MEJORAS</button>
     <button class="tab-btn" onclick="switchTab('tab-radar')">📡 RADAR & MOVIMIENTO</button>
     <button class="tab-btn" onclick="switchTab('tab-medicae')">🩸 CIRUGÍA & BIÓNICA</button>
+    <button class="tab-btn" onclick="switchTab('tab-alchemy')">⚗️ FARMACOLOGÍA</button>
     <button class="tab-btn" onclick="switchTab('tab-factions')">⚖️ FACCIONES & MERCADO</button>
     <button class="tab-btn" onclick="switchTab('tab-status')">⚙️ ESTADO & SÉQUITO</button>
     <button class="tab-btn" onclick="switchTab('tab-inventory')">📦 SOMBRA INFINITA</button>
@@ -1063,6 +1103,15 @@
   </nav>
 
   <main class="container">
+
+    <!-- GLOBAL CHAT PROMPT COPIER BAR (WHEN AN ACTION IS GENERATED) -->
+    <div id="global-prompt-card" class="prompt-copier-box" style="display:none; margin-bottom:1.5rem; border-color:var(--green-auspex);">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--green-auspex);">📋 PROMPT CANÓNICO LISTO PARA CHATGPT</span>
+        <button class="btn-copy-prompt" onclick="copyCanonicalPrompt()">📋 COPIAR AL PORTAPAPELES</button>
+      </div>
+      <pre id="global-prompt-content" class="prompt-text-pre" style="margin-top:0.5rem;"></pre>
+    </div>
 
     <!-- TAB 0: BLUEPRINT & BASE UPGRADES -->
     <section id="tab-blueprint" class="tab-content active">
@@ -1159,23 +1208,27 @@
             </div>
             
             <div class="radar-sidebar">
-              <!-- CHAT BRIDGE & QUICK ORDER CONSOLE -->
+              <!-- CHAT BRIDGE & QUICK ORDER CONSOLE (ENRICHED PRESETS) -->
               <div class="chat-sync-box">
                 <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); display:flex; justify-content:space-between; align-items:center;">
                   <span>💬 CONSOLA DE ENLACE CHAT</span>
                   <span class="badge badge-live" style="font-size:0.65rem; padding:0.15rem 0.4rem;">SYNC</span>
                 </div>
                 <p style="font-size:0.7rem; color:var(--text-muted); margin:0.35rem 0 0.5rem 0;">
-                  Envía órdenes en vivo al mapa para desplazar a tu personal y generar el prompt formateado para el chat de ChatGPT.
+                  Órdenes directas del submundo que desplazan a los agentes y generan el prompt para ChatGPT.
                 </p>
 
                 <div class="quick-orders-grid">
                   <button class="btn-quick-order" onclick="dispatchChatOrder('Severan Holt', 'GATE-01', 'Inspección de cerrojos y guardia en compuerta principal')">🛡️ Severan a Compuerta</button>
-                  <button class="btn-quick-order" onclick="dispatchChatOrder('Khepra-9', 'E-01', 'Calibración de circuito aséptico en esterilización')">⚙️ Khepra a Filtros</button>
-                  <button class="btn-quick-order" onclick="dispatchChatOrder('Alexander', 'Q-01', 'Revisión quirúrgica y signos vitales')">👤 Alexander a Quirófano</button>
-                  <button class="btn-quick-order" onclick="dispatchChatOrder('Syra Kol', 'F-02', 'Auditoría de estimulantes y biobanco')">📋 Syra a Farmacia</button>
-                  <button class="btn-quick-order" onclick="dispatchChatOrder('Halven Rusk', 'C-03', 'Control de perfusión tisular de Quartus')">🩺 Halven a Cama C-03</button>
                   <button class="btn-quick-order" onclick="dispatchChatOrder('Severan Holt', 'COMM-01', 'Ronda nocturna por sala común')">🌙 Severan Ronda Comedor</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Khepra-9', 'E-01', 'Calibración de circuito aséptico en esterilización')">⚙️ Khepra a Filtros</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Khepra-9', 'T-01', 'Supervisión de generador de plasma en T-01')">⚡ Khepra a Plasma</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Alexander', 'Q-01', 'Revisión quirúrgica y signos vitales')">👤 Alex a Quirófano</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Alexander', 'HAB-01', 'Meditación y canalización de almas en Sanctum')">🔮 Alex a Sanctum</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Syra Kol', 'F-02', 'Auditoría de estimulantes y biobanco')">📋 Syra a Farmacia</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Syra Kol', 'ADM-01', 'Intercepción vox de patrullas Enforcers')">📻 Syra a Intercepción Vox</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Halven Rusk', 'C-03', 'Control de perfusión tisular de Quartus')">🩺 Halven a C-03 (Quartus)</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Jarek Venn', 'GATE-01', 'Centinela armado en tronera izquierda')">⛓️ Jarek Guardia Compuerta</button>
                 </div>
 
                 <div style="margin-top:0.75rem; display:flex; gap:0.4rem;">
@@ -1223,10 +1276,14 @@
               <label class="form-label">Procedimiento Clínico</label>
               <select id="surg-procedure" class="form-control">
                 <option value="PERFUSION_TISULAR">Mantenimiento de Perfusión & Desintubación (Quartus) (+3 PV)</option>
-                <option value="TORACICA">Cirugía Torácica Mayor / Drenaje (+3 PV)</option>
-                <option value="SUTURA_MAYOR">Desbridamiento & Sutura Profunda (+2 PV)</option>
-                <option value="INJERTO_TISULAR">Injerto Tisular Biológico (+4 PV)</option>
-                <option value="INFUSION_SHOCK">Transfusión & Estabilización de Shock (+3 PV)</option>
+                <option value="TORACICA">Cirugía Torácica Mayor / Drenaje Pleural (+3 PV)</option>
+                <option value="TRAQUEOTOMIA_EMERGENCIA">Traqueotomía de Emergencia & Desobstrucción Aérea (+2 PV)</option>
+                <option value="SUTURA_MAYOR">Desbridamiento & Sutura Antiséptica Profunda (+2 PV)</option>
+                <option value="INJERTO_TISULAR">Injerto Tisular Biológico de Biobanco (+4 PV)</option>
+                <option value="INFUSION_SHOCK">Estabilización de Shock Hemorrágico & Transfusión (+3 PV)</option>
+                <option value="AMPUTACION_LIMPIA">Amputación Quirúrgica Limpia & Cauterización Láser (+2 PV)</option>
+                <option value="EXTRACCION_PARASITOS">Extracción de Parásitos & Quistes del Sumidero (+3 PV)</option>
+                <option value="ESTIMULACION_NEURAL_COMA">Electro-Estimulación Neural para Despertar de Coma (+2 PV)</option>
                 <option value="INSTALACION_BIONICA">Instalación y Sincronización de Prótesis Biónica (+2 PV)</option>
               </select>
             </div>
@@ -1244,7 +1301,7 @@
           </div>
         </div>
 
-        <!-- Khepra-9 Cybernetics Forge & Alchemy -->
+        <!-- Khepra-9 Cybernetics Forge -->
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">⚙️ FORJA MECATRÓNICA DE KHEPRA-9 (T-01)</span>
@@ -1299,7 +1356,86 @@
       </div>
     </section>
 
-    <!-- TAB 3: FACTIONS, CONTRACTS & BLACK MARKET -->
+    <!-- TAB 3: ALCHEMY & CLANDESTINE PHARMACOLOGY -->
+    <section id="tab-alchemy" class="tab-content">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">⚗️ LABORATORIO ALQUÍMICO & FARMACOLOGÍA DE RHO-9</span>
+          <span class="badge badge-green">FÓRMULAS MAESTRAS</span>
+        </div>
+        <div class="panel-body">
+          <div class="grid-dashboard" style="grid-template-columns:repeat(auto-fill, minmax(290px, 1fr));">
+            
+            <div class="char-card">
+              <div class="char-card-header"><span>Stimm de Combate Hiper-Adrenal</span><span class="stat-val green">30 ¤</span></div>
+              <div class="char-role">Farmacología Táctica · Req. Med 50</div>
+              <div class="char-status">+10 a Reflejos y Fuerza x 3 turnos. Anula fatiga.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('STIMM_COMBATE')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Concentrado Neurotóxico E-12 [Toxic(1)]</span><span class="stat-val green">40 ¤</span></div>
+              <div class="char-role">Toxinas & Armas · Req. Med 60</div>
+              <div class="char-status">Impregna arma blanca. Daño de veneno 1d5 PV/turno.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('VENENO_TOXIC1')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Antídoto Químico Amplio Espectro</span><span class="stat-val green">35 ¤</span></div>
+              <div class="char-role">Farmacología Médica · Req. Med 55</div>
+              <div class="char-status">Neutraliza quimio-toxinas Escher y venenos orgánicos.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('ANTIDOTO_UNIVERSAL')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Bálsamo Hemostático Cauterizante</span><span class="stat-val green">25 ¤</span></div>
+              <div class="char-role">Traumatología · Req. Med 45</div>
+              <div class="char-status">Detiene hemorragias al instante (+3 PV y sella vasos).</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('BALSAMO_CAUTERIZANTE')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Suero Químico de la Verdad Escher</span><span class="stat-val green">45 ¤</span></div>
+              <div class="char-role">Inquisición & Inteligencia · Req. Med 55</div>
+              <div class="char-status">+20 a Interrogatorio y Persuasión durante 1 escena.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('SUERO_VERDAD_ESCHER')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Tónico Coagulante Fúngico</span><span class="stat-val green">20 ¤</span></div>
+              <div class="char-role">Urgencias Clandestinas · Req. Med 40</div>
+              <div class="char-status">Estabiliza inmediatamente a pacientes en estado agónico (0 PV).</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('TONICO_FUNGICO_COAGULANTE')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Neuro-Bloqueador de Dolor</span><span class="stat-val green">35 ¤</span></div>
+              <div class="char-role">Farmacología Táctica · Req. Med 50</div>
+              <div class="char-status">Ignora penalizadores de dolor y heridas críticas x 4 turnos.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('NEURO_BLOQUEADOR_DOLOR')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Incienso Litúrgico de Purificación</span><span class="stat-val green">50 ¤</span></div>
+              <div class="char-role">Bio-Ocultismo · Req. Med 60</div>
+              <div class="char-status">Purifica Sanctum y restaura +1 Alma a la Reserva Umbral.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('INCIENSO_PURIFICADOR_SANCTUM')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header"><span>Suero Estabilizador de Mente Umbral</span><span class="stat-val green">60 ¤</span></div>
+              <div class="char-role">Bio-Ocultismo · Req. Med 65</div>
+              <div class="char-status">+15 de bono de Voluntad contra fenómenos Disformes.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('SUERO_UMBRAL')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+          </div>
+          <div id="alchemy-result-box" style="margin-top:1rem; display:none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: FACTIONS, CONTRACTS & BLACK MARKET -->
     <section id="tab-factions" class="tab-content">
       <div class="grid-dashboard">
         
@@ -1336,7 +1472,7 @@
       </div>
     </section>
 
-    <!-- TAB 4: ESTADO & SÉQUITO -->
+    <!-- TAB 5: ESTADO & SÉQUITO -->
     <section id="tab-status" class="tab-content">
       <div class="grid-dashboard">
         <div class="panel">
@@ -1358,22 +1494,36 @@
 
         <div class="panel">
           <div class="panel-header">
-            <span class="panel-title">🏥 MEDICAE STATION RHO-9</span>
-            <span class="badge badge-live">OPERATIVA</span>
+            <span class="panel-title">👥 EQUIPAMIENTO TÁCTICO DEL SÉQUITO</span>
+            <span class="badge badge-brass">ARMAMENTO ASIGNADO</span>
           </div>
           <div class="panel-body">
-            <div class="stat-row"><span class="stat-label">📍 Ubicación:</span><span class="stat-val" style="font-size:0.75rem;">Caídas de Polvo / Dust Falls</span></div>
-            <div class="stat-row"><span class="stat-label">🛡️ Seguridad:</span><span class="stat-val brass">Severan Holt (Cap: 200 ¤/sem)</span></div>
-            <div class="stat-row"><span class="stat-label">🚪 Estado Base:</span><span class="stat-val amber">Cerrada al Público / Cuarentena</span></div>
-            <div class="stat-row"><span class="stat-label">🍖 Raciones Comunes:</span><span class="stat-val">24 raciones</span></div>
-            <div class="stat-row"><span class="stat-label">🎖️ Raciones Militares / Médicas:</span><span class="stat-val">10 Militares · 9 Médicas · 5 Alta Nutrición</span></div>
-            <div class="stat-row"><span class="stat-label">💧 Agua Potable:</span><span class="stat-val green">16 Botellas (1L)</span></div>
+            <div class="char-card">
+              <div class="char-card-header"><span>Severan Holt (Capitán)</span><span class="badge badge-brass">L-01 // Carabina Kord-24</span></div>
+              <div class="char-role">Seguridad & Mando · Armadura: Chaleco Antibalas (3 pts)</div>
+              <div class="char-status">D5 | Pen 0 | Alcance 60m | Fiable / Ráfaga 3</div>
+            </div>
+            <div class="char-card">
+              <div class="char-card-header"><span>Jarek Venn (Deudor)</span><span class="badge badge-brass">L-03 // Escopeta Compacta</span></div>
+              <div class="char-role">Centinela de Compuerta · Armadura: Cuero Endurecido (1 pt)</div>
+              <div class="char-status">D6 | Pen 0 | Alcance 30m | Dispersión / Potente</div>
+            </div>
+            <div class="char-card">
+              <div class="char-card-header"><span>Syra Kol (Logística)</span><span class="badge badge-brass">P-01 // Pistola Compacta Hesh-9</span></div>
+              <div class="char-role">Recepción & Farmacia · Armadura: Ropa Reforzada (1 pt)</div>
+              <div class="char-status">D4 | Pen 0 | Alcance 20m | Ocultable</div>
+            </div>
+            <div class="char-card">
+              <div class="char-card-header"><span>Khepra-9 (Tecnosacerdote)</span><span class="badge badge-brass">P-04 // Autopistola Vex</span></div>
+              <div class="char-role">Taller & Plasma · Armadura: Túnicas Blindadas (2 pts)</div>
+              <div class="char-status">D4 | Pen 0 | Alcance 25m | Ráfaga 3 / Automática</div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 5: SOMBRA INFINITA -->
+    <!-- TAB 6: SOMBRA INFINITA -->
     <section id="tab-inventory" class="tab-content">
       <div class="filter-bar">
         <input type="text" id="inv-search" class="search-input" placeholder="🔍 Filtrar armas, fármacos, consumibles, herramientas o muestras..." onkeyup="filterInventory()">
@@ -1399,7 +1549,7 @@
       </div>
     </section>
 
-    <!-- TAB 6: SIMULATOR -->
+    <!-- TAB 7: SIMULATOR -->
     <section id="tab-roller" class="tab-content">
       <div class="panel" style="max-width: 800px; margin: 0 auto;">
         <div class="panel-header">
@@ -1419,7 +1569,7 @@
       </div>
     </section>
 
-    <!-- TAB 7: DOSSIERS -->
+    <!-- TAB 8: DOSSIERS -->
     <section id="tab-docs" class="tab-content">
       <div class="panel">
         <div class="panel-header"><span class="panel-title">📜 ARCHIVO DE CAMPAÑA // DOSSIERS MAESTROS</span></div>
@@ -1478,6 +1628,7 @@
     let availableCredits = 1046;
     let currentPatient = null;
     let isRedAlert = false;
+    let lastGeneratedPrompt = "";
 
     // REAL-TIME CHRONO CLOCK (TICKING CONTINUOUSLY EVERY SECOND)
     let currentDay = 4;
@@ -1520,6 +1671,24 @@
       loadTelemetry();
     }
 
+    function showCanonicalPrompt(promptText) {
+      lastGeneratedPrompt = promptText;
+      const card = document.getElementById('global-prompt-card');
+      const content = document.getElementById('global-prompt-content');
+      content.textContent = promptText;
+      card.style.display = 'block';
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function copyCanonicalPrompt() {
+      if (!lastGeneratedPrompt) return;
+      navigator.clipboard.writeText(lastGeneratedPrompt).then(() => {
+        alert("¡Prompt canónico copiado al portapapeles! Pégalo directamente en ChatGPT.");
+      }).catch(err => {
+        prompt("Copia el texto manualmente:", lastGeneratedPrompt);
+      });
+    }
+
     function toggleRedAlert() {
       isRedAlert = !isRedAlert;
       document.body.classList.toggle('red-alert-active', isRedAlert);
@@ -1529,10 +1698,20 @@
 
       if (isRedAlert) {
         document.getElementById('live-chat-ticker').textContent = '🚨 [ALERTA ROJA] ¡COMPUERTA PRINCIPAL SELLADA! Personal a puestos de combate.';
-        // Rush agents to battle stations
         dispatchChatOrder('Severan Holt', 'GATE-01', 'Tomando posición con carabina en tronera principal');
         dispatchChatOrder('Jarek Venn', 'GATE-01', 'Armando afuste de escopeta en compuerta');
         dispatchChatOrder('Alexander', 'Q-01', 'Preparando instrumental quirúrgico de emergencia');
+        showCanonicalPrompt(
+          `[ALERTA ROJA // PROTOCOLO DE DEFENSA EN MEDICAE STATION RHO-9]
+` +
+          `Turno ${currentTurn} · Día ${currentDay:02d} · VIGILIA NOCTURNA
+` +
+          `Severan Holt y Jarek Venn han sellado los cerrojos blindados de GATE-01 con carabina Kord-24 y escopeta listas.
+` +
+          `Alexander toma posición en el Quirófano Q-01 con el Diagnostor Multispectral encendido.
+` +
+          `Defensa Perimetral activa: 75% | Estado: Zafarrancho de Combate.`
+        );
       } else {
         document.getElementById('live-chat-ticker').textContent = '✅ [VIGILIA ESTÁNDAR] Protocolo de alerta levantado. Personal en guardia rutinaria.';
       }
@@ -1741,6 +1920,17 @@
           document.getElementById('live-chat-ticker').textContent = `[${speaker}] ${customTask || 'Traslado táctico a ' + targetRoom}`;
           advanceCycleHour();
           renderRadarLegend();
+          showCanonicalPrompt(
+            `[DESPLAZAMIENTO TÁCTICO // COGITADOR RHO-9]
+` +
+            `Operador: ${speaker}
+` +
+            `Sector Destino: ${targetRoom} (${room ? room.name : 'Sector'})
+` +
+            `Acción Ejecutada: ${customTask || 'Traslado de reconocimiento'}
+` +
+            `Turno Actual: ${currentTurn} · Día ${currentDay:02d}`
+          );
         }
       } catch (err) { console.error(err); }
     }
@@ -1770,6 +1960,17 @@
         });
         input.value = '';
         await loadTelemetry();
+        showCanonicalPrompt(
+          `[ORDEN NARRATIVA // COGITADOR RHO-9]
+` +
+          `Emisor: ${agent.name} (${agent.role})
+` +
+          `Ubicación: ${agent.currentRoom}
+` +
+          `Transmisión Vox: "${text}"
+` +
+          `Turno: ${currentTurn}`
+        );
       } catch (e) { console.error(e); }
     }
 
@@ -1919,7 +2120,7 @@
             card.innerHTML = `
               <div>
                 <span style="font-weight:700; color:var(--text-main); font-size:0.8rem;">[${zoneKey}] ${z.condition}</span>
-                <div style="font-size:0.7rem; color:var(--text-muted);">Daño: ${z.damage} pts</div>
+                <div style="font-size:0.7rem; color:var(--text-muted);">Daño: ${z.damage} pts · Proc. recomendado: ${z.rec_proc || 'SUTURA_MAYOR'}</div>
               </div>
               <span class="badge" style="border-color:${color}; color:${color}; font-size:0.68rem;">${z.status}</span>
             `;
@@ -1927,6 +2128,35 @@
           });
         }
       } catch (e) { console.error(e); }
+    }
+
+    async function executeSurgery() {
+      const p = document.getElementById('surg-patient').value;
+      const proc = document.getElementById('surg-procedure').value;
+      const useDiag = document.getElementById('surg-diag').checked;
+      const useBlood = document.getElementById('surg-blood').checked;
+      const res = document.getElementById('surgery-result-box');
+
+      res.style.display = 'block';
+      res.innerHTML = '<span style="color:var(--amber);">[CIRUGÍA EN CURSO // APLICANDO ANESTESIA E INSTRUMENTAL...]</span>';
+
+      try {
+        const resp = await fetch('/api/medicae/operate', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ patient_name: p, procedure: proc, medic_skill: 65, use_diagnostor: useDiag, use_blood: useBlood })
+        });
+        const d = await resp.json();
+        res.innerHTML = `
+          <div class="upgrade-box" style="border-color:${d.success ? 'var(--green-auspex)' : 'var(--crimson-light)'};">
+            <div style="font-weight:800; color:${d.success ? 'var(--green-auspex)' : 'var(--crimson-light)'};">${d.message}</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.35rem;">Consumibles empleados: ${d.consumables_used}</div>
+          </div>
+        `;
+        await loadTelemetry();
+        await loadPatientAnatomy(p);
+        if (d.chat_prompt) showCanonicalPrompt(d.chat_prompt);
+      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
     }
 
     async function craftCybernetic(implantKey) {
@@ -1947,6 +2177,32 @@
           document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
           res.innerHTML = `<div class="upgrade-box" style="border-color:var(--green-auspex); color:var(--green-auspex); font-weight:700;">${d.message}</div>`;
           await loadTelemetry();
+          if (d.chat_prompt) showCanonicalPrompt(d.chat_prompt);
+        } else {
+          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--crimson-light); color:var(--crimson-light);">${d.error || 'Fallo'}</div>`;
+        }
+      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
+    }
+
+    async function synthesizeCompound(key) {
+      const res = document.getElementById('alchemy-result-box');
+      res.style.display = 'block';
+      res.innerHTML = '<span style="color:var(--amber);">[CALENTANDO REACTORES Y CONDENSADORES...]</span>';
+
+      try {
+        const resp = await fetch('/api/alchemy/synthesize', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ compound_key: key, medic_skill: 65, available_credits: availableCredits })
+        });
+        const d = await resp.json();
+        if (resp.ok && d.success) {
+          availableCredits = d.remaining_credits;
+          document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
+          document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--green-auspex); color:var(--green-auspex); font-weight:700;">${d.message}</div>`;
+          await loadTelemetry();
+          if (d.chat_prompt) showCanonicalPrompt(d.chat_prompt);
         } else {
           res.innerHTML = `<div class="upgrade-box" style="border-color:var(--crimson-light); color:var(--crimson-light);">${d.error || 'Fallo'}</div>`;
         }
@@ -1957,7 +2213,6 @@
     // CONTRACTS & BLACK MARKET METHODS
     // ==========================================
     async function loadContractsAndMarket() {
-      // Load Contracts
       const cBox = document.getElementById('contracts-container');
       try {
         const resp = await fetch('/api/factions/contracts', { headers: { 'x-api-key': API_KEY } });
@@ -1983,7 +2238,6 @@
         }
       } catch (e) { console.error(e); }
 
-      // Load Black Market items
       const mBox = document.getElementById('market-items-container');
       try {
         const respM = await fetch('/api/market/items', { headers: { 'x-api-key': API_KEY } });
@@ -2024,6 +2278,7 @@
           await loadFactions();
           await loadContractsAndMarket();
           await loadTelemetry();
+          if (d.chat_prompt) showCanonicalPrompt(d.chat_prompt);
         } else { alert(d.error || 'Error completando contrato'); }
       } catch (e) { alert(e.message); }
     }
@@ -2042,8 +2297,48 @@
           document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
           alert(d.message);
           await loadTelemetry();
+          if (d.chat_prompt) showCanonicalPrompt(d.chat_prompt);
         } else { alert(d.error || 'Error al comprar'); }
       } catch (e) { alert(e.message); }
+    }
+
+    async function executeRoll() {
+      const act = document.getElementById('roll-action').value;
+      const attr = parseInt(document.getElementById('roll-attr').value);
+      const mod = parseInt(document.getElementById('roll-mod').value);
+      const actor = document.getElementById('roll-actor').value;
+      const res = document.getElementById('roll-result');
+
+      res.style.display = 'block';
+      res.innerHTML = '<span style="color:var(--amber);">[CONSULTANDO MOTOR DETERMINISTA REST API...]</span>';
+
+      try {
+        const resp = await fetch('/api/action', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ user_input: act, actor: actor, target_stat: attr, modifier: mod })
+        });
+        const d = await resp.json();
+        const outcome = d.outcome || {};
+        const success = outcome.success;
+        res.innerHTML = `
+          <div style="font-size:0.95rem; font-weight:800; color:${success ? 'var(--green-auspex)' : 'var(--crimson-light)'};">
+            ${success ? '✅ ÉXITO DETERMINISTA' : '❌ FALLO DETERMINISTA'} (d100: ${outcome.roll} vs Objetivo: ${outcome.target_number || (attr + mod)})
+          </div>
+          <div style="font-size:0.8rem; color:var(--text-main); margin-top:0.35rem;">Grados: ${outcome.degrees_of_success || outcome.degrees_of_failure || 0} | Efecto: ${d.resolution || 'Acción completada.'}</div>
+        `;
+        showCanonicalPrompt(
+          `[TIRADA DETERMINISTA // SISTEMA WH40K]
+` +
+          `Actor: ${actor}
+` +
+          `Acción Declarada: ${act}
+` +
+          `Resultado d100: ${outcome.roll} vs Objetivo ${attr + mod} (${outcome.degrees_of_success || outcome.degrees_of_failure || 0} Grados de ${success ? 'Éxito' : 'Fallo'})
+` +
+          `Resolución: ${d.resolution || 'Completado.'}`
+        );
+      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
     }
 
     // ==========================================
@@ -2218,6 +2513,17 @@
           feedback.innerHTML = `<span style="color:var(--green-auspex); font-weight:700;">✅ ${data.message}</span>`;
           await loadBlueprint();
           await loadTelemetry();
+          showCanonicalPrompt(
+            `[MEJORA ARQUITECTÓNICA // COGITADOR RHO-9]
+` +
+            `Sector Desarrollado: ${currentSelectedRoom.name} (${currentSelectedRoom.code})
+` +
+            `Nuevo Nivel: ${data.new_level}
+` +
+            `Créditos Restantes: ${data.remaining_credits} ¤
+` +
+            `Métricas Base: Defensa ${document.getElementById('metric-defensa').textContent} | Sanidad ${document.getElementById('metric-sanidad').textContent}`
+          );
           setTimeout(() => { document.getElementById('room-modal').style.display = 'none'; }, 1800);
         } else {
           feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ ${data.error || 'Error'}</span>`;
@@ -2242,39 +2548,20 @@
           feedback.innerHTML = `<span style="color:var(--cyan-plasma); font-weight:700;">✅ ${data.message}</span>`;
           await loadBlueprint();
           await loadTelemetry();
+          showCanonicalPrompt(
+            `[EXPLORACIÓN DE SUBNIVEL // COGITADOR RHO-9]
+` +
+            `Alexander ha explorado y asegurado: ${currentSelectedRoom.name} (${currentSelectedRoom.code}).
+` +
+            `Sector despejado de la niebla de guerra.
+` +
+            `Nuevo Bono Activado: ${currentSelectedRoom.bonus || 'Acceso asegurado'}`
+          );
           setTimeout(() => { document.getElementById('room-modal').style.display = 'none'; }, 1800);
         } else {
           feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ ${data.error || 'Error'}</span>`;
         }
       } catch (err) { feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ ${err.message}</span>`; }
-    }
-
-    async function executeSurgery() {
-      const p = document.getElementById('surg-patient').value;
-      const proc = document.getElementById('surg-procedure').value;
-      const useDiag = document.getElementById('surg-diag').checked;
-      const useBlood = document.getElementById('surg-blood').checked;
-      const res = document.getElementById('surgery-result-box');
-
-      res.style.display = 'block';
-      res.innerHTML = '<span style="color:var(--amber);">[CIRUGÍA EN CURSO // APLICANDO ANESTESIA E INSTRUMENTAL...]</span>';
-
-      try {
-        const resp = await fetch('/api/medicae/operate', {
-          method: 'POST',
-          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ patient_name: p, procedure: proc, medic_skill: 65, use_diagnostor: useDiag, use_blood: useBlood })
-        });
-        const d = await resp.json();
-        res.innerHTML = `
-          <div class="upgrade-box" style="border-color:${d.success ? 'var(--green-auspex)' : 'var(--crimson-light)'};">
-            <div style="font-weight:800; color:${d.success ? 'var(--green-auspex)' : 'var(--crimson-light)'};">${d.message}</div>
-            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.35rem;">Consumibles empleados: ${d.consumables_used}</div>
-          </div>
-        `;
-        await loadTelemetry();
-        await loadPatientAnatomy(p);
-      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
     }
 
     async function loadFactions() {
@@ -2319,6 +2606,7 @@
         alert(d.message || (d.success ? 'Favor cobrado' : d.error));
         await loadFactions();
         await loadTelemetry();
+        if (d.chat_prompt) showCanonicalPrompt(d.chat_prompt);
       } catch (e) { alert(e.message); }
     }
 

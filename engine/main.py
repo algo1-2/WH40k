@@ -614,8 +614,28 @@ def evaluate_tactical(req: TacticalEvalRequest):
     return TacticalMapEngine.evaluate_tactical_shot(req.attacker_zone, req.target_zone, req.target_cover, req.attacker_elevated, req.target_flanked)
 
 @app.post("/api/alchemy/synthesize", dependencies=[Depends(verify_api_key)])
-def synthesize_alchemy(req: AlchemySynthesizeRequest):
-    return AlchemyEngine.synthesize_compound(req.compound_key, req.medic_skill, req.available_credits)
+def synthesize_alchemy(req: AlchemySynthesizeRequest, x_campaign_id: Optional[str] = Header(None)):
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    res = AlchemyEngine.synthesize_compound(req.compound_key, req.medic_skill, req.available_credits)
+    if res.get("success"):
+        current_state = state_mgr.load_state(cid)
+        sheet = current_state.get("character_sheet", {})
+        sombra = sheet.get("inventario_sombra_infinita", {})
+        farmacos = sombra.get("farmacos_y_consumibles", [])
+        farmacos.append({
+            "nombre": res.get("compound_name"),
+            "efecto": res.get("effect"),
+            "categoria": res.get("category", "Farmacología")
+        })
+        sombra["farmacos_y_consumibles"] = farmacos
+        sheet["inventario_sombra_infinita"] = sombra
+        
+        recursos = current_state.get("recursos_economicos", {})
+        recursos["creditos_disponibles"] = res.get("remaining_credits", req.available_credits)
+        current_state["recursos_economicos"] = recursos
+        current_state["character_sheet"] = sheet
+        state_mgr.save_state(current_state, cid)
+    return res
 
 @app.get("/api/weapon/dossier/{weapon_key}", dependencies=[Depends(verify_api_key)])
 def get_weapon_dossier_endpoint(weapon_key: str):

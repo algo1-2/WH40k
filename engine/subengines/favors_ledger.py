@@ -1,9 +1,10 @@
 """
-WH40K Favors Ledger & Faction Obligations Engine v3.0 (favors_ledger.py)
+WH40K Favors Ledger & Faction Obligations Engine v4.0 (favors_ledger.py)
 Incluye:
 - Matriz de Facciones & Favores
 - Bolsa de Contratos Clandestinos
 - Tienda del Mercado Negro de Dust Falls (Materiales de Mejora & Reactivos)
+- Generador de Prompts Canónicos para ChatGPT
 """
 
 from typing import Dict, List, Any
@@ -183,12 +184,23 @@ class FavorsLedgerEngine:
             return {"success": False, "error": f"Favores insuficientes con '{fac['name']}' (Disponibles: {fac['favors_available']}, Requeridos: {perk['cost_favors']})."}
         
         fac["favors_available"] -= perk["cost_favors"]
+
+        chat_prompt = (
+            f"[ACCIÓN COGITADOR RHO-9 // COBRO DE FAVOR DIPLOMÁTICO]\n"
+            f"Alexander ha ejercido influencia sobre: {fac['name']}.\n"
+            f"Beneficio Reclamado: {perk['title']}\n"
+            f"Efecto en Campaña: {perk['effect']}\n"
+            f"Favores Restantes con la Facción: {fac['favors_available']}\n"
+            f"💬 Emisario de {fac['name']}: \"Deuda saldada, amo Alexander. El pacto se mantiene firme.\""
+        )
+
         return {
             "success": True,
             "faction": fac["name"],
             "perk_claimed": perk["title"],
             "applied_effect": perk["effect"],
             "favors_remaining": fac["favors_available"],
+            "chat_prompt": chat_prompt,
             "message": f"¡FAVOR COBRADO! Has ejercido tu influencia sobre '{fac['name']}'. Concedido: {perk['title']} ({perk['effect']})."
         }
 
@@ -208,12 +220,21 @@ class FavorsLedgerEngine:
 
         c["status"] = "COMPLETADO"
 
+        chat_prompt = (
+            f"[ACCIÓN COGITADOR RHO-9 // CONTRATO CLANDESTINO LIQUIDADO]\n"
+            f"Contrato Completado: '{c['title']}' para {c['faction_name']}.\n"
+            f"Recompensa Económica: +{reward} ¤ (Nuevo saldo: {new_credits} ¤)\n"
+            f"Reputación Ganada: +5 de reputación y +{c.get('reward_favors', 1)} Favor diplomático.\n"
+            f"💬 Contacto Faccional: \"Excelente trabajo. En Dust Falls sabemos apreciar la discreción quirúrgica.\""
+        )
+
         return {
             "success": True,
             "contract_title": c["title"],
             "faction_name": c["faction_name"],
             "reward_credits": reward,
             "new_credits": new_credits,
+            "chat_prompt": chat_prompt,
             "message": f"🏆 ¡CONTRATO CUMPLIDO! '{c['title']}' para {c['faction_name']}. Recompensa: +{reward} ¤ y +1 Favor ganado."
         }
 
@@ -228,6 +249,15 @@ class FavorsLedgerEngine:
             return {"success": False, "error": f"Créditos insuficientes ({current_credits} ¤ disponibles, requiere {price} ¤)."}
         
         new_credits = current_credits - price
+
+        chat_prompt = (
+            f"[ACCIÓN COGITADOR RHO-9 // MERCADO NEGRO DE DUST FALLS]\n"
+            f"Alexander adquirió: {item['name']}.\n"
+            f"Categoría: {item['category']} | Precio Pagado: {price} ¤ (Saldo restante: {new_credits} ¤)\n"
+            f"Utilidad: {item['effect']}\n"
+            f"Estado: Almacenado en la despensa técnica de Rho-9."
+        )
+
         return {
             "success": True,
             "item_name": item["name"],
@@ -235,5 +265,6 @@ class FavorsLedgerEngine:
             "price_paid": price,
             "remaining_credits": new_credits,
             "effect": item["effect"],
+            "chat_prompt": chat_prompt,
             "message": f"📦 ¡COMPRA EFECTUADA! Has adquirido '{item['name']}' por {price} ¤. Almacenado en la despensa de Rho-9."
         }
