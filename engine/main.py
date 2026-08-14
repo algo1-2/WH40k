@@ -442,9 +442,17 @@ def get_domain_blueprint(floor: int = 0):
     return DomainManagementEngine.get_rho9_blueprint(floor)
 
 @app.post("/api/domain/upgrade", dependencies=[Depends(verify_api_key)])
-def upgrade_room_endpoint(req: RoomUpgradeRequest):
+def upgrade_room_endpoint(req: RoomUpgradeRequest, x_campaign_id: Optional[str] = Header(None)):
     """Ejecuta un proyecto de mejora para una sala descontando créditos de la base"""
-    return DomainManagementEngine.execute_room_upgrade(req.room_id, req.available_credits)
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    res = DomainManagementEngine.execute_room_upgrade(req.room_id, req.available_credits)
+    if res.get("success"):
+        current_state = state_mgr.load_state(cid)
+        recursos = current_state.get("recursos_economicos", {})
+        recursos["creditos_disponibles"] = res.get("remaining_credits", req.available_credits)
+        current_state["recursos_economicos"] = recursos
+        state_mgr.save_state(current_state, cid)
+    return res
 
 @app.post("/api/domain/explore_step", dependencies=[Depends(verify_api_key)])
 def explore_sublevel_endpoint(req: ExploreSectorRequest):
@@ -462,9 +470,30 @@ def perform_surgery_endpoint(req: SurgeryRequest):
     return BiowareEngine.perform_surgery(req.patient_name, req.procedure, req.medic_skill, req.use_diagnostor, req.use_blood)
 
 @app.post("/api/medicae/synthesize", dependencies=[Depends(verify_api_key)])
-def synthesize_alchemy_endpoint(req: AlchemyRequest):
-    """Sintetiza un compuesto químico/farmacológico en el laboratorio de Rho-9"""
-    return AlchemyEngine.synthesize_compound(req.compound_key, req.medic_skill, req.available_credits)
+def synthesize_alchemy_endpoint(req: AlchemyRequest, x_campaign_id: Optional[str] = Header(None)):
+    """Sintetiza un compuesto químico/farmacológico en el laboratorio de Rho-9 y lo añade a Sombra"""
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    res = AlchemyEngine.synthesize_compound(req.compound_key, req.medic_skill, req.available_credits)
+    if res.get("success"):
+        current_state = state_mgr.load_state(cid)
+        sheet = current_state.get("character_sheet", {})
+        sombra = sheet.get("inventario_sombra_infinita", {})
+        farmacos = sombra.get("farmacos_y_consumibles", [])
+        
+        farmacos.append({
+            "item": res.get("compound_name"),
+            "efecto": res.get("effect"),
+            "categoria": "Farmacología Sintetizada en Rho-9"
+        })
+        sombra["farmacos_y_consumibles"] = farmacos
+        sheet["inventario_sombra_infinita"] = sombra
+        
+        recursos = current_state.get("recursos_economicos", {})
+        recursos["creditos_disponibles"] = res.get("remaining_credits", req.available_credits)
+        current_state["recursos_economicos"] = recursos
+        current_state["character_sheet"] = sheet
+        state_mgr.save_state(current_state, cid)
+    return res
 
 @app.get("/api/factions/status", dependencies=[Depends(verify_api_key)])
 def get_factions_status_endpoint():
