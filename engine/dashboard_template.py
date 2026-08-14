@@ -1,9 +1,9 @@
 """
-WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v5.0
+WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v6.0
 Includes:
-- Dynamic Header State Sync (credits, souls, health directly from /api/state)
-- Persistent Blueprint & Room Upgrades (Level 2 Quartus C-03 recognized)
-- Surgery Lab, Alchemy Synthesizer, Factions & Night Incidents
+- Imperial Chrono-Clock with live time and +1 Hour cycle advance
+- Secondary Auspex Motion Radar (Canvas 2D animated personnel patrols)
+- Standardized 5/3 Room Upgrade Tree & Live Surgery/Alchemy/Factions Suite
 """
 
 def get_dashboard_html() -> str:
@@ -55,7 +55,7 @@ def get_dashboard_html() -> str:
     header {
       background: #0b0e12;
       border-bottom: 2px solid var(--brass-dim);
-      padding: 1rem 1.5rem;
+      padding: 0.85rem 1.5rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -78,7 +78,7 @@ def get_dashboard_html() -> str:
 
     .brand-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 900;
       letter-spacing: 2px;
       color: var(--brass);
@@ -86,14 +86,61 @@ def get_dashboard_html() -> str:
     }
 
     .brand-sub {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-dim);
       letter-spacing: 1px;
     }
 
+    .chrono-clock-box {
+      background: #06090d;
+      border: 1px solid var(--border-panel);
+      padding: 0.4rem 0.85rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    }
+
+    .chrono-display {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chrono-time {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--brass);
+      letter-spacing: 1px;
+    }
+
+    .chrono-sub {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+    }
+
+    .btn-advance-time {
+      background: #161d28;
+      border: 1px solid var(--brass-dim);
+      color: var(--brass);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.35rem 0.6rem;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-advance-time:hover {
+      background: var(--brass);
+      color: #080a0d;
+      box-shadow: 0 0 10px var(--amber-glow);
+    }
+
     .status-badge-container {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.6rem;
       align-items: center;
       flex-wrap: wrap;
     }
@@ -155,9 +202,9 @@ def get_dashboard_html() -> str:
       border: none;
       color: var(--text-muted);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      padding: 0.85rem 1.25rem;
+      padding: 0.8rem 1.15rem;
       cursor: pointer;
       border-bottom: 2px solid transparent;
       transition: all 0.2s ease;
@@ -422,6 +469,79 @@ def get_dashboard_html() -> str:
       border-radius: 50%;
       display: inline-block;
       margin-right: 0.35rem;
+    }
+
+    /* SECONDARY MOTION RADAR STYLES */
+    .radar-container-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .radar-container-layout { grid-template-columns: 1fr; }
+    }
+
+    .radar-canvas-box {
+      background: #05080c;
+      border: 2px solid var(--border-panel);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 0 15px rgba(16, 185, 129, 0.15);
+      min-height: 480px;
+    }
+
+    #radarCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .radar-scanline {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(16, 185, 129, 0) 50%, rgba(16, 185, 129, 0.08) 50%);
+      background-size: 100% 4px;
+      pointer-events: none;
+    }
+
+    .radar-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .agent-tracker-card {
+      background: #111620;
+      border: 1px solid var(--border-panel);
+      border-radius: 4px;
+      padding: 0.65rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .agent-tracker-card:hover, .agent-tracker-card.active {
+      border-color: var(--green-auspex);
+      background: #16202c;
+      transform: translateX(3px);
+    }
+
+    .agent-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .agent-task {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
     }
 
     /* Modal / Drawer for Room Details */
@@ -785,6 +905,17 @@ def get_dashboard_html() -> str:
         <div class="brand-sub">MEDICAE STATION RHO-9 · SUBMUNDO DE NECROMUNDA</div>
       </div>
     </div>
+
+    <!-- IMPERIAL CHRONO-CLOCK -->
+    <div class="chrono-clock-box">
+      <span style="font-size:1.2rem;">⏱️</span>
+      <div class="chrono-display">
+        <div class="chrono-time" id="chrono-clock-time">DÍA 04 · NOCHE (23:54:10)</div>
+        <div class="chrono-sub" id="chrono-clock-turn">TURNO 918 · VIGILIA NOCTURNA RHO-9</div>
+      </div>
+      <button class="btn-advance-time" onclick="advanceCycleHour()" title="Simula el avance de 1 hora/turno en la base">⏩ +1 HORA</button>
+    </div>
+
     <div class="status-badge-container">
       <div class="badge badge-live">API EN LÍNEA</div>
       <div class="badge badge-green" id="badge-credits">1.046 ¤ DISPONIBLES</div>
@@ -794,6 +925,7 @@ def get_dashboard_html() -> str:
 
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('tab-blueprint')">🗺️ PLANO & MEJORAS</button>
+    <button class="tab-btn" onclick="switchTab('tab-radar')">📡 RADAR & MOVIMIENTO</button>
     <button class="tab-btn" onclick="switchTab('tab-medicae')">🩸 CIRUGÍA & ALQUIMIA</button>
     <button class="tab-btn" onclick="switchTab('tab-factions')">⚖️ FACCIONES & EVENTOS</button>
     <button class="tab-btn" onclick="switchTab('tab-status')">⚙️ ESTADO DE CAMPAÑA</button>
@@ -878,11 +1010,37 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
-    <!-- TAB 1: SURGERY LAB & ALCHEMY -->
+    <!-- TAB 1: SECONDARY MOTION RADAR -->
+    <section id="tab-radar" class="tab-content">
+      <div class="panel" style="margin-bottom:1rem;">
+        <div class="panel-header">
+          <div class="panel-title">
+            <span>📡 AUSPEX TÁCTICO // RADAR DE MOVIMIENTO EN VIVO</span>
+          </div>
+          <div style="display:flex; gap:0.5rem; align-items:center;">
+            <span class="badge badge-live">PATRULLAS ACTIVAS</span>
+            <span class="badge badge-brass" id="radar-agent-count">7 OPERADORES</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="radar-container-layout">
+            <div class="radar-canvas-box">
+              <canvas id="radarCanvas" width="750" height="480"></canvas>
+              <div class="radar-scanline"></div>
+            </div>
+            
+            <div class="radar-legend">
+              <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); margin-bottom:0.25rem;">📍 CENSO DE POSICIONES EN VIVO</div>
+              <div id="radar-agents-list" style="display:flex; flex-direction:column; gap:0.5rem; max-height:440px; overflow-y:auto;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: SURGERY LAB & ALCHEMY -->
     <section id="tab-medicae" class="tab-content">
       <div class="grid-dashboard">
-        
-        <!-- Operating Table -->
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">🩸 MESA QUIRÚRGICA & TRAUMA (Q-01)</span>
@@ -923,14 +1081,12 @@ def get_dashboard_html() -> str:
           </div>
         </div>
 
-        <!-- Alchemy Synthesizer -->
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">⚗️ SINTETIZADOR ALQUÍMICO & FÁRMACOS</span>
             <span class="badge badge-green">RECETAS ACTIVAS</span>
           </div>
           <div class="panel-body">
-            
             <div class="char-card">
               <div class="char-card-header">
                 <span>Stimm de Combate Hiper-Adrenal</span>
@@ -970,30 +1126,23 @@ def get_dashboard_html() -> str:
               <div class="char-status">Detiene hemorragias al instante (+3 PV y sella vasos).</div>
               <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('BALSAMO_CAUTERIZANTE')">🧪 SINTETIZAR DOSIS</button>
             </div>
-
             <div id="alchemy-result-box" style="margin-top:1rem; display:none;"></div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- TAB 2: FACTIONS, FAVORS & INCIDENTS -->
+    <!-- TAB 3: FACTIONS & INCIDENTS -->
     <section id="tab-factions" class="tab-content">
       <div class="grid-dashboard">
-        
-        <!-- Factions Matrix -->
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">⚖️ MATRIZ DE FACCIONES & FAVORES</span>
             <span class="badge badge-brass">DUST FALLS</span>
           </div>
-          <div class="panel-body" id="factions-container">
-            <!-- Injected dynamically via JS -->
-          </div>
+          <div class="panel-body" id="factions-container"></div>
         </div>
 
-        <!-- Night Patient Generator -->
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">🚪 GOLPE EN LA COMPUERTA // SUCESOS NOCTURNOS</span>
@@ -1020,11 +1169,10 @@ def get_dashboard_html() -> str:
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- TAB 3: ESTADO DE CAMPAÑA -->
+    <!-- TAB 4: ESTADO DE CAMPAÑA -->
     <section id="tab-status" class="tab-content">
       <div class="grid-dashboard">
         <div class="panel">
@@ -1058,35 +1206,16 @@ def get_dashboard_html() -> str:
             <div class="stat-row"><span class="stat-label">💧 Agua Potable:</span><span class="stat-val green">16 Botellas (1L)</span></div>
           </div>
         </div>
-
-        <div class="panel" style="grid-column: 1 / -1;">
-          <div class="panel-header">
-            <span class="panel-title">👥 SÉQUITO, PACIENTES Y PACTOS ACTIVOS</span>
-            <span class="badge badge-brass">CENSO RHO-9</span>
-          </div>
-          <div class="panel-body" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
-            <div class="char-card"><div class="char-card-header"><span>Tertius Holt</span><span class="stat-val green">8 / 11 · Despierto</span></div><div class="char-role">Especialista Enforcer / Deudor</div><div class="char-status">Consciente y estable. Drenaje torácico funcional. Pregunta por su deuda.</div></div>
-            <div class="char-card"><div class="char-card-header"><span>Quartus Holt</span><span class="stat-val amber">4 / 11 · Desintubación</span></div><div class="char-role">Paciente en C-03 (Nivel 2)</div><div class="char-status">Perfusión tisular continua activa. Desintubación iniciada de forma segura.</div></div>
-            <div class="char-card"><div class="char-card-header"><span>Halven Rusk</span><span class="stat-val brass">Pacto de Cosecha</span></div><div class="char-role">Auxiliar Médico / Diagnosticador</div><div class="char-status">Activo. Ejecutó a los 4 cautivos (+4 almas transferidas a Alexander).</div></div>
-            <div class="char-card"><div class="char-card-header"><span>Severan Holt</span><span class="stat-val green">Maestro de Seguridad</span></div><div class="char-role">Comando Táctico y Accesos</div><div class="char-status">A cargo de cerraduras, guardias y fortificación. Asistente: Jarek Venn.</div></div>
-            <div class="char-card"><div class="char-card-header"><span>Jarek Venn</span><span class="stat-val amber">0 / 9 · Débil</span></div><div class="char-role">Primer Deudor E-12</div><div class="char-status">Extraído de Sombra. Torso reparado. Asignado a Severan (Pacto: 0/10 ejecuciones + 1 año).</div></div>
-            <div class="char-card"><div class="char-card-header"><span>Syra Kol</span><span class="stat-val green">16 Años · ADM-01</span></div><div class="char-role">Auxiliar Logística y Registros</div><div class="char-status">A cargo de la contabilidad de consumibles, medicamentos y gastos autorizados.</div></div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- TAB 4: SOMBRA INFINITA -->
+    <!-- TAB 5: SOMBRA INFINITA -->
     <section id="tab-inventory" class="tab-content">
       <div class="filter-bar">
         <input type="text" id="inv-search" class="search-input" placeholder="🔍 Filtrar armas, fármacos, consumibles, herramientas o muestras..." onkeyup="filterInventory()">
       </div>
-
-      <div class="panel" style="margin-bottom: 1.5rem;">
-        <div class="panel-header">
-          <span class="panel-title">⚔️ ARMAS Y BOTÍN DE LA INCURSIÓN NOCTURNA</span>
-          <span class="badge badge-brass">SOMBRA INFINITA</span>
-        </div>
+      <div class="panel">
+        <div class="panel-header"><span class="panel-title">⚔️ ARMAS Y BOTÍN DE LA INCURSIÓN NOCTURNA</span><span class="badge badge-brass">SOMBRA INFINITA</span></div>
         <div class="panel-body">
           <div class="inv-category-grid" id="weapons-grid">
             <div class="inv-item-card"><div class="inv-item-title"><span>P-01 // Pistola Compacta Hesh-9</span><span class="badge badge-brass">8 / 8</span></div><div class="inv-item-detail">D4 | Pen 0 | Alcance 20m | Compacta / Ocultable</div></div>
@@ -1106,7 +1235,7 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
-    <!-- TAB 5: SIMULATOR -->
+    <!-- TAB 6: SIMULATOR -->
     <section id="tab-roller" class="tab-content">
       <div class="panel" style="max-width: 800px; margin: 0 auto;">
         <div class="panel-header">
@@ -1126,7 +1255,7 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
-    <!-- TAB 6: DOSSIERS -->
+    <!-- TAB 7: DOSSIERS -->
     <section id="tab-docs" class="tab-content">
       <div class="panel">
         <div class="panel-header"><span class="panel-title">📜 ARCHIVO DE CAMPAÑA // DOSSIERS MAESTROS</span></div>
@@ -1185,6 +1314,284 @@ def get_dashboard_html() -> str:
     let availableCredits = 1046;
     let currentPatient = null;
 
+    // CHRONO CLOCK STATE
+    let currentDay = 4;
+    let currentHour = 23;
+    let currentMinute = 54;
+    let currentTurn = 918;
+
+    function updateClockDisplay() {
+      const hh = String(currentHour).padStart(2, '0');
+      const mm = String(currentMinute).padStart(2, '0');
+      const phase = (currentHour >= 6 && currentHour < 18) ? 'CICLO DIURNO' : 'VIGILIA NOCTURNA';
+      document.getElementById('chrono-clock-time').textContent = `DÍA ${String(currentDay).padStart(2, '0')} · ${phase} (${hh}:${mm})`;
+      document.getElementById('chrono-clock-turn').textContent = `TURNO ${currentTurn} · MEDICAE STATION RHO-9`;
+    }
+
+    function advanceCycleHour() {
+      currentHour = (currentHour + 1) % 24;
+      if (currentHour === 0) currentDay++;
+      currentTurn++;
+      updateClockDisplay();
+      triggerRadarSweep();
+      loadTelemetry();
+    }
+
+    setInterval(() => {
+      currentMinute = (currentMinute + 1) % 60;
+      if (currentMinute === 0) currentHour = (currentHour + 1) % 24;
+      updateClockDisplay();
+    }, 15000);
+
+    // ==========================================
+    // SECONDARY MOTION RADAR (CANVAS 2D SIMULATOR)
+    // ==========================================
+    const radarRooms = [
+      { id: 'GATE-01', name: 'Compuerta', x: 80, y: 240, w: 90, h: 70 },
+      { id: 'ADM-01', name: 'Recepción', x: 210, y: 140, w: 90, h: 65 },
+      { id: 'COMM-01', name: 'Sala Común', x: 210, y: 240, w: 90, h: 75 },
+      { id: 'HAB-02', name: 'Dorm. Guardia', x: 210, y: 355, w: 90, h: 65 },
+      { id: 'HAB-01', name: 'Sanctum Alex', x: 340, y: 70, w: 95, h: 60 },
+      { id: 'Q-01', name: 'Quirófano', x: 340, y: 170, w: 105, h: 90 },
+      { id: 'E-01', name: 'Esterilización', x: 340, y: 290, w: 95, h: 65 },
+      { id: 'T-01', name: 'Taller Khepra', x: 340, y: 385, w: 95, h: 65 },
+      { id: 'F-02', name: 'Farmacia', x: 485, y: 110, w: 95, h: 70 },
+      { id: 'C-01', name: 'Cama Tertius', x: 485, y: 210, w: 85, h: 55 },
+      { id: 'C-02', name: 'Cama Triaje', x: 485, y: 285, w: 85, h: 55 },
+      { id: 'C-03', name: 'Cama Quartus', x: 485, y: 360, w: 85, h: 55 },
+      { id: 'HAB-03', name: 'Dorm. Syra', x: 610, y: 150, w: 90, h: 70 },
+      { id: 'HAB-04', name: 'Refugio Cland.', x: 610, y: 260, w: 90, h: 70 },
+      { id: 'SUB-01', name: 'Escaleras Sub', x: 610, y: 370, w: 90, h: 60 }
+    ];
+
+    const radarAgents = [
+      {
+        id: 'severan',
+        name: 'Severan Holt',
+        role: 'Mando de Seguridad',
+        icon: '🛡️',
+        color: '#10b981',
+        x: 120, y: 275,
+        targetX: 255, targetY: 275,
+        path: [
+          { x: 120, y: 275, task: 'Inspección de Cerrojos en Compuerta' },
+          { x: 255, y: 275, task: 'Ronda en Pasillo Central' },
+          { x: 255, y: 385, task: 'Verificación de Armero en Dormitorio' },
+          { x: 120, y: 275, task: 'Vigilancia en Compuerta Principal' }
+        ],
+        pathIdx: 0,
+        speed: 0.65
+      },
+      {
+        id: 'khepra',
+        name: 'Khepra-9',
+        role: 'Tecnosacerdote',
+        icon: '⚙️',
+        color: '#06b6d4',
+        x: 385, y: 415,
+        targetX: 385, targetY: 320,
+        path: [
+          { x: 385, y: 415, task: 'Calibración de Servos en Taller T-01' },
+          { x: 385, y: 320, task: 'Purga de Filtros en Esterilización' },
+          { x: 385, y: 215, task: 'Chequeo de Monitores en Quirófano' },
+          { x: 385, y: 415, task: 'Mantenimiento en Taller T-01' }
+        ],
+        pathIdx: 0,
+        speed: 0.45
+      },
+      {
+        id: 'syra',
+        name: 'Syra Kol (16a)',
+        role: 'Logística & Farmacia',
+        icon: '📋',
+        color: '#f59e0b',
+        x: 255, y: 170,
+        targetX: 530, targetY: 145,
+        path: [
+          { x: 255, y: 170, task: 'Registro de Entradas en Cogitador' },
+          { x: 530, y: 145, task: 'Inventario de Ampollas en Farmacia' },
+          { x: 255, y: 275, task: 'Reabastecimiento de Raciones en Comedor' },
+          { x: 255, y: 170, task: 'Auditoría en Recepción ADM-01' }
+        ],
+        pathIdx: 0,
+        speed: 0.55
+      },
+      {
+        id: 'jarek',
+        name: 'Jarek Venn',
+        role: 'Deudor en Guardia',
+        icon: '⛓️',
+        color: '#94a3b8',
+        x: 100, y: 255,
+        targetX: 130, targetY: 285,
+        path: [
+          { x: 100, y: 255, task: 'Guardia en Tronera Izquierda' },
+          { x: 130, y: 285, task: 'Guardia en Tronera Derecha' }
+        ],
+        pathIdx: 0,
+        speed: 0.25
+      },
+      {
+        id: 'halven',
+        name: 'Halven Rusk',
+        role: 'Auxiliar Quirúrgico',
+        icon: '🩺',
+        color: '#c99a3e',
+        x: 375, y: 215,
+        targetX: 520, targetY: 390,
+        path: [
+          { x: 375, y: 215, task: 'Limpieza de Instrumental en Q-01' },
+          { x: 520, y: 390, task: 'Vigilancia de Perfusión en Cama Quartus' },
+          { x: 520, y: 235, task: 'Control de Drenaje en Cama Tertius' },
+          { x: 375, y: 215, task: 'Asistencia en Quirófano Central' }
+        ],
+        pathIdx: 0,
+        speed: 0.5
+      },
+      {
+        id: 'alexander',
+        name: 'Alexander',
+        role: 'Operador Umbral',
+        icon: '👤',
+        color: '#e2e8f0',
+        x: 390, y: 100,
+        targetX: 390, targetY: 200,
+        path: [
+          { x: 390, y: 100, task: 'Meditación Umbral en Sanctum' },
+          { x: 390, y: 200, task: 'Inspección Clínica en Quirófano Q-01' }
+        ],
+        pathIdx: 0,
+        speed: 0.35
+      }
+    ];
+
+    let radarSweepAngle = 0;
+    let selectedAgentId = 'severan';
+
+    function initRadar() {
+      renderRadarLegend();
+      requestAnimationFrame(renderRadarLoop);
+    }
+
+    function renderRadarLegend() {
+      const list = document.getElementById('radar-agents-list');
+      if (!list) return;
+      list.innerHTML = '';
+
+      radarAgents.forEach(a => {
+        const card = document.createElement('div');
+        card.className = `agent-tracker-card ${a.id === selectedAgentId ? 'active' : ''}`;
+        card.onclick = () => { selectedAgentId = a.id; renderRadarLegend(); };
+        card.innerHTML = `
+          <div class="agent-header">
+            <span>${a.icon} ${a.name}</span>
+            <span style="color:${a.color}; font-size:0.7rem;">[ACTIVO]</span>
+          </div>
+          <div class="agent-task">📍 ${a.path[a.pathIdx].task}</div>
+        `;
+        list.appendChild(card);
+      });
+    }
+
+    function triggerRadarSweep() {
+      radarSweepAngle = 0;
+    }
+
+    function renderRadarLoop() {
+      const canvas = document.getElementById('radarCanvas');
+      if (canvas && canvas.offsetParent !== null) {
+        const ctx = canvas.getContext('2d');
+        const w = canvas.width;
+        const h = canvas.height;
+
+        // Clear with slight trailing opacity
+        ctx.fillStyle = 'rgba(5, 8, 12, 0.25)';
+        ctx.fillRect(0, 0, w, h);
+
+        // Draw grid
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.08)';
+        ctx.lineWidth = 1;
+        for (let x = 0; x < w; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+        for (let y = 0; y < h; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+
+        // Draw connecting corridors
+        ctx.strokeStyle = 'rgba(201, 154, 62, 0.2)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(125, 275); ctx.lineTo(255, 275);
+        ctx.lineTo(255, 170); ctx.lineTo(390, 100);
+        ctx.moveTo(255, 275); ctx.lineTo(390, 215);
+        ctx.lineTo(525, 145);
+        ctx.moveTo(390, 215); ctx.lineTo(390, 320); ctx.lineTo(390, 415);
+        ctx.moveTo(390, 215); ctx.lineTo(525, 235);
+        ctx.moveTo(525, 235); ctx.lineTo(525, 385);
+        ctx.moveTo(525, 385); ctx.lineTo(655, 400);
+        ctx.stroke();
+
+        // Draw Room boxes
+        radarRooms.forEach(r => {
+          ctx.fillStyle = 'rgba(15, 20, 28, 0.75)';
+          ctx.strokeStyle = 'rgba(38, 46, 59, 0.9)';
+          ctx.lineWidth = 1.5;
+          ctx.fillRect(r.x, r.y, r.w, r.h);
+          ctx.strokeRect(r.x, r.y, r.w, r.h);
+
+          ctx.fillStyle = 'rgba(148, 163, 184, 0.65)';
+          ctx.font = '9px "JetBrains Mono"';
+          ctx.fillText(r.id, r.x + 5, r.y + 12);
+          ctx.fillStyle = 'rgba(226, 232, 240, 0.85)';
+          ctx.fillText(r.name, r.x + 5, r.y + 24);
+        });
+
+        // Update and draw agents
+        radarAgents.forEach(a => {
+          const target = a.path[a.pathIdx];
+          const dx = target.x - a.x;
+          const dy = target.y - a.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 2.5) {
+            a.pathIdx = (a.pathIdx + 1) % a.path.length;
+          } else {
+            a.x += (dx / dist) * a.speed;
+            a.y += (dy / dist) * a.speed;
+          }
+
+          // Blip circle
+          ctx.beginPath();
+          ctx.arc(a.x, a.y, a.id === selectedAgentId ? 6 : 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = a.color;
+          ctx.fill();
+
+          // Blip pulse ring
+          ctx.beginPath();
+          ctx.arc(a.x, a.y, (Date.now() / 150) % 14 + 4, 0, Math.PI * 2);
+          ctx.strokeStyle = a.color + '44';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          // Agent label
+          ctx.fillStyle = a.color;
+          ctx.font = 'bold 9px "JetBrains Mono"';
+          ctx.fillText(`${a.icon} ${a.name.split(' ')[0]}`, a.x + 7, a.y + 3);
+        });
+
+        // Sweep line
+        radarSweepAngle = (radarSweepAngle + 0.02) % (Math.PI * 2);
+        const sweepLen = Math.max(w, h);
+        ctx.beginPath();
+        ctx.moveTo(w / 2, h / 2);
+        ctx.lineTo(w / 2 + Math.cos(radarSweepAngle) * sweepLen, h / 2 + Math.sin(radarSweepAngle) * sweepLen);
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.35)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+      requestAnimationFrame(renderRadarLoop);
+    }
+
+    // ==========================================
+    // STANDARD DASHBOARD METHODS
+    // ==========================================
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
@@ -1195,6 +1602,7 @@ def get_dashboard_html() -> str:
       const targetContent = document.getElementById(tabId);
       if (targetContent) targetContent.classList.add('active');
 
+      if (tabId === 'tab-radar') initRadar();
       if (tabId === 'tab-factions') loadFactions();
       if (tabId === 'tab-docs') {
         const activeDocBtn = document.querySelector('.doc-btn.active') || document.querySelector('.doc-btn');
@@ -1271,14 +1679,16 @@ def get_dashboard_html() -> str:
         if (sec.status_color === 'cyan') statusDotColor = 'var(--cyan-plasma)';
         if (sec.status_color === 'text-dim') statusDotColor = 'var(--text-dim)';
 
+        const vitalTag = sec.is_vital ? '<span style="color:var(--brass); margin-left:0.3rem;">[VITAL · 5 TIERS]</span>' : '';
+
         card.innerHTML = `
           <div>
             <div style="display:flex; justify-content:space-between; align-items:center;">
-              <span class="room-code-tag">${sec.code}</span>
+              <span class="room-code-tag">${sec.code} ${vitalTag}</span>
               <span style="font-size:0.7rem; color:var(--text-muted);"><span class="room-status-dot" style="background:${statusDotColor};"></span>${sec.status}</span>
             </div>
             <div class="room-name">${sec.name}</div>
-            <div class="room-level-badge">${sec.level_title}</div>
+            <div class="room-level-badge">${sec.level_title} (Nvl ${sec.level}/${sec.max_level || 3})</div>
           </div>
           <div class="room-occupants-mini">${isFog ? '🔍 ' + (sec.exploration_cost || 'Por explorar') : '👥 ' + sec.occupants.join(', ')}</div>
         `;
@@ -1292,9 +1702,9 @@ def get_dashboard_html() -> str:
       const feedback = document.getElementById('modal-feedback');
       feedback.style.display = 'none';
 
-      document.getElementById('modal-room-code').textContent = sec.code + ' // SECTOR DE ' + sec.type.toUpperCase();
+      document.getElementById('modal-room-code').textContent = `${sec.code} // SECTOR DE ${sec.type.toUpperCase()} ${sec.is_vital ? '(SALA VITAL · MÁX 5 NIVELES)' : '(SALA ESTÁNDAR · MÁX 3 NIVELES)'}`;
       document.getElementById('modal-room-name').textContent = sec.name;
-      document.getElementById('modal-room-level').textContent = `${sec.level_title} (Nivel ${sec.level})`;
+      document.getElementById('modal-room-level').textContent = `${sec.level_title} (Nivel ${sec.level} de ${sec.max_level || 3})`;
       document.getElementById('modal-room-occupants').textContent = sec.occupants ? sec.occupants.join(' · ') : 'Ninguno';
       document.getElementById('modal-room-equipment').textContent = sec.equipment ? sec.equipment.join(', ') : 'Ninguno';
       document.getElementById('modal-room-bonus').textContent = sec.bonus || 'Sin bonificación especial';
@@ -1312,13 +1722,13 @@ def get_dashboard_html() -> str:
         document.getElementById('modal-upgrade-title').textContent = '🚀 ' + sec.next_upgrade.title;
         document.getElementById('modal-upgrade-effect').textContent = 'Efecto: ' + sec.next_upgrade.effect;
         document.getElementById('modal-upgrade-credits').textContent = sec.next_upgrade.cost_credits + ' Créditos';
-        document.getElementById('modal-upgrade-mats').textContent = sec.next_upgrade.cost_materials;
+        document.getElementById('modal-upgrade-mats').textContent = sec.next_upgrade.cost_mats || sec.next_upgrade.cost_materials || '-';
         document.getElementById('btn-execute-upgrade').style.display = 'block';
       } else {
         upgSection.style.display = 'block';
         expSection.style.display = 'none';
-        document.getElementById('modal-upgrade-title').textContent = '⭐ Nivel Máximo Alcanzado';
-        document.getElementById('modal-upgrade-effect').textContent = 'Esta sala está plenamente desarrollada.';
+        document.getElementById('modal-upgrade-title').textContent = `⭐ Nivel Máximo Alcanzado (Nivel ${sec.max_level || 3})`;
+        document.getElementById('modal-upgrade-effect').textContent = 'Esta sala está plenamente desarrollada en su tier máximo.';
         document.getElementById('modal-upgrade-credits').textContent = '0 ¤';
         document.getElementById('modal-upgrade-mats').textContent = 'Ninguno';
         document.getElementById('btn-execute-upgrade').style.display = 'none';
@@ -1561,6 +1971,7 @@ def get_dashboard_html() -> str:
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      updateClockDisplay();
       loadStateHeader();
       loadBlueprint();
       loadTelemetry();
