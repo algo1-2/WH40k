@@ -125,20 +125,23 @@
       color: var(--text-dim);
     }
 
-    .btn-advance-time {
+    .btn-header-action {
       background: #161d28;
       border: 1px solid var(--brass-dim);
       color: var(--brass);
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.35rem 0.6rem;
+      padding: 0.35rem 0.65rem;
       border-radius: 3px;
       cursor: pointer;
       transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
     }
 
-    .btn-advance-time:hover {
+    .btn-header-action:hover {
       background: var(--brass);
       color: #080a0d;
       box-shadow: 0 0 10px var(--amber-glow);
@@ -538,7 +541,7 @@
     /* ENHANCED HD MOTION RADAR STYLES */
     .radar-container-layout {
       display: grid;
-      grid-template-columns: 2.2fr 1fr;
+      grid-template-columns: 2fr 1.2fr;
       gap: 1.5rem;
     }
 
@@ -670,7 +673,6 @@
       border: 1px solid var(--brass-dim);
       border-radius: 6px;
       padding: 0.85rem 1rem;
-      margin-top: 1rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.6);
       position: relative;
     }
@@ -1072,10 +1074,13 @@
         <div class="chrono-time" id="chrono-clock-time">DÍA 04 · NOCHE 23:54:00</div>
         <div class="chrono-sub" id="chrono-clock-turn">TURNO 918 · VIGILIA NOCTURNA RHO-9</div>
       </div>
-      <button class="btn-advance-time" onclick="advanceCycleHour()" title="Avanza 1 hora/turno en la base">+1 HORA</button>
+      <button class="btn-header-action" onclick="advanceCycleHour()" title="Avanza 1 hora/turno en la base">+1 HORA</button>
     </div>
 
-    <button class="btn-red-alert" id="btn-red-alert-toggle" onclick="toggleRedAlert()">🚨 ALERTA ROJA</button>
+    <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+      <button class="btn-header-action" onclick="fetchFullTurnReport()">📡 REPORTE DE TURNO</button>
+      <button class="btn-red-alert" id="btn-red-alert-toggle" onclick="toggleRedAlert()">🚨 ALERTA ROJA</button>
+    </div>
 
     <div class="status-badge-container">
       <div class="badge badge-live">API EN LÍNEA</div>
@@ -1208,16 +1213,27 @@
             </div>
             
             <div class="radar-sidebar">
-              <!-- CHAT BRIDGE & QUICK ORDER CONSOLE (ENRICHED PRESETS) -->
-              <div class="chat-sync-box">
-                <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); display:flex; justify-content:space-between; align-items:center;">
-                  <span>💬 CONSOLA DE ENLACE CHAT</span>
-                  <span class="badge badge-live" style="font-size:0.65rem; padding:0.15rem 0.4rem;">SYNC</span>
+              
+              <!-- CHATGPT LIVE NARRATIVE IMPORTER / FAST PARSER -->
+              <div class="chat-sync-box" style="border-color:var(--cyan-plasma);">
+                <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--cyan-plasma); display:flex; justify-content:space-between; align-items:center;">
+                  <span>📥 IMPORTAR NARRATIVA DE CHATGPT</span>
+                  <span class="badge badge-live" style="font-size:0.65rem; padding:0.15rem 0.4rem;">PARSER</span>
                 </div>
                 <p style="font-size:0.7rem; color:var(--text-muted); margin:0.35rem 0 0.5rem 0;">
-                  Órdenes directas del submundo que desplazan a los agentes y generan el prompt para ChatGPT.
+                  Pega cualquier texto o respuesta del rol en ChatGPT. El cogitador extraerá automáticamente personajes, diálogos y los moverá en el radar.
                 </p>
+                <textarea id="narrative-import-input" class="form-control" style="font-size:0.75rem; height:65px; resize:none;" placeholder="Ej: Severan avanza a la compuerta y grita '¡Cerrojos listos!' mientras Alexander supervisa el quirófano..."></textarea>
+                <button class="btn-synth" style="margin-top:0.4rem; width:100%; border-color:var(--cyan-plasma); color:var(--cyan-plasma);" onclick="importChatNarrative()">⚡ PROCESAR Y MOVER AGENTES EN EL MAPA</button>
+              </div>
 
+              <!-- QUICK ORDER CONSOLE -->
+              <div class="chat-sync-box">
+                <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); display:flex; justify-content:space-between; align-items:center;">
+                  <span>💬 CONSOLA DE ENLACE RÁPIDO</span>
+                  <span class="badge badge-live" style="font-size:0.65rem; padding:0.15rem 0.4rem;">SYNC</span>
+                </div>
+                
                 <div class="quick-orders-grid">
                   <button class="btn-quick-order" onclick="dispatchChatOrder('Severan Holt', 'GATE-01', 'Inspección de cerrojos y guardia en compuerta principal')">🛡️ Severan a Compuerta</button>
                   <button class="btn-quick-order" onclick="dispatchChatOrder('Severan Holt', 'COMM-01', 'Ronda nocturna por sala común')">🌙 Severan Ronda Comedor</button>
@@ -1232,14 +1248,14 @@
                 </div>
 
                 <div style="margin-top:0.75rem; display:flex; gap:0.4rem;">
-                  <input type="text" id="custom-chat-msg" class="form-control" style="font-size:0.75rem; padding:0.4rem 0.6rem;" placeholder="Escribir acción o diálogo del chat...">
+                  <input type="text" id="custom-chat-msg" class="form-control" style="font-size:0.75rem; padding:0.4rem 0.6rem;" placeholder="Escribir orden personalizada...">
                   <button class="btn-synth" style="padding:0.4rem 0.8rem;" onclick="dispatchCustomChatOrder()">ENVIAR</button>
                 </div>
               </div>
 
               <!-- AGENT CENSO -->
               <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); margin-top:0.25rem;">📍 CENSO DE POSICIÓN Y ACCIONES</div>
-              <div id="radar-agents-list" style="display:flex; flex-direction:column; gap:0.45rem; max-height:220px; overflow-y:auto;"></div>
+              <div id="radar-agents-list" style="display:flex; flex-direction:column; gap:0.45rem; max-height:200px; overflow-y:auto;"></div>
             </div>
 
           </div>
@@ -1404,7 +1420,7 @@
             <div class="char-card">
               <div class="char-card-header"><span>Tónico Coagulante Fúngico</span><span class="stat-val green">20 ¤</span></div>
               <div class="char-role">Urgencias Clandestinas · Req. Med 40</div>
-              <div class="char-status">Estabiliza inmediatamente a pacientes en estado agónico (0 PV).</div>
+              <div class="char-status">Estabiliza inmediatamente a pacientes agónicos (0 PV).</div>
               <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('TONICO_FUNGICO_COAGULANTE')">🧪 SINTETIZAR DOSIS</button>
             </div>
 
@@ -1687,6 +1703,58 @@
       }).catch(err => {
         prompt("Copia el texto manualmente:", lastGeneratedPrompt);
       });
+    }
+
+    async function fetchFullTurnReport() {
+      try {
+        const resp = await fetch('/api/chat/turn_report', { headers: { 'x-api-key': API_KEY } });
+        if (resp.ok) {
+          const d = await resp.json();
+          showCanonicalPrompt(d.turn_report);
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    async function importChatNarrative() {
+      const input = document.getElementById('narrative-import-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      try {
+        const resp = await fetch('/api/chat/parse_narrative', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ narrative_text: text })
+        });
+        const d = await resp.json();
+        if (resp.ok && d.success) {
+          input.value = '';
+          alert(`✅ Sincronización Exitosa: ${d.detected_speaker} se desplaza a ${d.detected_room || 'su sector'}. Reloj y telemetría actualizados.`);
+          
+          if (d.detected_speaker && d.detected_room) {
+            const agent = radarAgents.find(a => a.name.toLowerCase().includes(d.detected_speaker.toLowerCase().split(' ')[0]));
+            const room = roomNodes[d.detected_room];
+            if (agent && room) {
+              agent.dialogue = d.extracted_dialogue || 'Órden en curso.';
+              agent.dialogueTimer = 240;
+              agent.currentRoom = d.detected_room;
+              agent.path.unshift({
+                x: room.x + room.w / 2,
+                y: room.y + room.h / 2,
+                task: `Misión activa en ${room.name}`,
+                room: d.detected_room
+              });
+              agent.pathIdx = 0;
+            }
+          }
+          
+          advanceCycleHour();
+          renderRadarLegend();
+          await loadTelemetry();
+        } else {
+          alert(d.error || 'Error procesando texto');
+        }
+      } catch (e) { alert("Error: " + e.message); }
     }
 
     function toggleRedAlert() {

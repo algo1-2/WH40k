@@ -239,6 +239,9 @@ class BuyMarketItemRequest(BaseModel):
     item_id: str
     current_credits: int = 1046
 
+class NarrativeParseRequest(BaseModel):
+    narrative_text: str
+
 class DeltaRequest(BaseModel):
     campaign_id: Optional[str] = "CAMPAIGN.ALEXANDER.NECROMUNDA"
     expected_revision: Any = 11
@@ -722,3 +725,13 @@ def sync_chat_action(req: ChatSyncRequest):
 @app.get("/api/chat/live_events", dependencies=[Depends(verify_api_key)])
 def get_chat_live_events():
     return DomainManagementEngine.get_live_events()
+
+@app.post("/api/chat/parse_narrative", dependencies=[Depends(verify_api_key)])
+def parse_chat_narrative(req: NarrativeParseRequest):
+    return DomainManagementEngine.parse_narrative_to_sync(req.narrative_text)
+
+@app.get("/api/chat/turn_report", dependencies=[Depends(verify_api_key)])
+def get_turn_report_endpoint():
+    state = state_mgr.load_state()
+    creds = state.get("character_sheet", {}).get("recursos_economicos", {}).get("creditos_disponibles", 1046)
+    return {"turn_report": DomainManagementEngine.generate_full_turn_report(creds)}
