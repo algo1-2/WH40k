@@ -1,0 +1,461 @@
+import sys
+import os
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
+sub_dir = os.path.join(base_dir, "subengines")
+
+if base_dir not in sys.path:
+    sys.path.insert(0, base_dir)
+if sub_dir not in sys.path:
+    sys.path.insert(0, sub_dir)
+# Asegurar que el directorio actual y subengines estén en sys.path para Vercel
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "subengines"))
+
+from fastapi import FastAPI, Header, HTTPException, Depends
+from fastapi.responses import HTMLResponse, FileResponse
+from pydantic import BaseModel
+from typing import List, Optional, Dict, Any
+
+from mechanics_engine import MechanicsEngine
+from state_manager import StateManager
+from command_parser import CommandParser
+from universal_engine_master import UniversalEngineMaster
+
+from subengines.npc_generator import NPCGenerator
+from subengines.warp_engine import WarpEngine
+from subengines.bioware_engine import BiowareEngine
+from subengines.pact_ledger import PactLedgerEngine
+from subengines.base_engine import BaseDefenseEngine
+from subengines.psychology_engine import PsychologyEngine
+from subengines.weapon_traits import WeaponTraitsEngine
+from subengines.corruption_engine import CorruptionEngine
+from subengines.miracles_engine import MiraclesEngine
+from subengines.favors_ledger import FavorsLedgerEngine
+from subengines.map_exploration_engine import MapExplorationEngine
+from subengines.loot_engine import LootEngine
+from subengines.economy_engine import EconomyEngine
+from subengines.lore_encyclopedia_engine import LoreEncyclopediaEngine
+from subengines.tactical_map_engine import TacticalMapEngine
+from subengines.alchemy_engine import AlchemyEngine
+from subengines.domain_management_engine import DomainManagementEngine
+from subengines.world_context_engine import WorldContextEngine
+from subengines.beast_taming_engine import BeastTamingEngine
+from subengines.anomalous_research_engine import AnomalousResearchEngine
+from subengines.duel_engine import DuelEngine
+from subengines.oath_ledger_engine import OathLedgerEngine
+from subengines.naval_combat_engine import NavalCombatEngine
+from subengines.enemy_reinforcement_engine import EnemyReinforcementEngine
+from subengines.combat_progression_engine import CombatProgressionEngine
+
+app = FastAPI(
+    title="WH40K Narrative Mechanics Engine API - Clean Architecture v16.0",
+    description="API REST determinista con Estructura Limpia (subengines/, manuales_originales/, scripts_y_herramientas/) y Dashboard Web",
+    version="16.0.0",
+    servers=[
+        {
+            "url": "https://wh-40k.vercel.app",
+            "description": "Servidor de Producción Vercel"
+        }
+    ]
+)
+
+API_KEY_SECRET = os.getenv("API_KEY_SECRET", "wh40k_secret_key_12345")
+state_mgr = StateManager()
+
+def verify_api_key(x_api_key: Optional[str] = Header(None)):
+    if x_api_key != API_KEY_SECRET:
+        raise HTTPException(status_code=401, detail="X-API-Key inválida o no proporcionada.")
+    return x_api_key
+
+# Modelos de solicitud
+class ProgressionUpdateRequest(BaseModel):
+    current_percentage: int
+    delta: int
+    cause: str
+
+class ReinforcementSpawnRequest(BaseModel):
+    enemy_type: str
+    requested_count: int
+    current_reinforcement_pool: int
+
+class NavalSalvoRequest(BaseModel):
+    attacker_ship: str
+    defender_ship: str
+    defender_void_shields: int
+    defender_hull: int
+
+class BoardingActionRequest(BaseModel):
+    target_ship_point: str
+
+class OathRequest(BaseModel):
+    actor_name: str
+    oath_title: str
+    objective: str
+
+class FulfillOathRequest(BaseModel):
+    oath_id: str
+    actor_name: str
+
+class DuelRequest(BaseModel):
+    attacker_name: str
+    defender_name: str
+    defender_stance: str = "DEFENSIVA"
+
+class CampaignSwitchRequest(BaseModel):
+    campaign_id: str = "CAMPAIGN.ALEXANDER.NECROMUNDA"
+
+class ActionRequest(BaseModel):
+    user_input: str
+    campaign_id: Optional[str] = "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    actor: Optional[str] = "Alexander"
+    atributo_base: Optional[int] = 47
+    modificadores: Optional[List[int]] = []
+    base_logro: Optional[str] = "Cumplir objetivo planteado"
+    base_fallo: Optional[str] = "Insuficiencia o peligro activado"
+    riesgo_techo: Optional[int] = 3
+    weapon_used: Optional[str] = None
+    weapon_key: Optional[str] = "PISTOLA_BOLTER"
+    weapon_status: Optional[str] = "LIMPIA"
+    ability_used: Optional[str] = None
+    combat_action: Optional[str] = None
+    force_psy_power: Optional[bool] = False
+
+class TamingRequest(BaseModel):
+    creature_name: str
+    actor_taming_skill: int = 52
+    creature_ferocity: int = 40
+
+class AnomalousRequest(BaseModel):
+    subject_id: str
+    stability_level: int = 80
+
+class AssignTaskRequest(BaseModel):
+    npc_name: str
+    task: str
+
+class LocationQueryRequest(BaseModel):
+    location_key: str = "DUST_FALLS"
+
+class TacticalEvalRequest(BaseModel):
+    attacker_zone: str = "ZONA_A_QUIRÓFANO"
+    target_zone: str = "ZONA_C_ELEVADA"
+    target_cover: str = "PESADA"
+    attacker_elevated: bool = False
+    target_flanked: bool = False
+
+class AlchemySynthesizeRequest(BaseModel):
+    compound_key: str = "STIMM_COMBATE"
+    medic_skill: int = 75
+    available_credits: int = 450
+
+class LoreQueryRequest(BaseModel):
+    subfaction_key: str
+
+class LoreSearchRequest(BaseModel):
+    keyword: str
+
+class ExploreRequest(BaseModel):
+    sublevel_index: int = 1
+
+class LootRequest(BaseModel):
+    table_key: str = "RHO9_SUBNIVELES"
+
+class BuyRequest(BaseModel):
+    item_key: str
+    current_credits: int = 450
+
+class AddCreditsRequest(BaseModel):
+    amount: int
+    source: str
+
+class MiracleRequest(BaseModel):
+    miracle_key: str
+
+class CorruptionAddRequest(BaseModel):
+    added_points: int
+    cause: str
+
+class FavorRegisterRequest(BaseModel):
+    faction_name: str
+    favor_value: str
+    origin: str
+
+class FavorClaimRequest(BaseModel):
+    favor_id: str
+    faction_name: str
+
+class UnjamRequest(BaseModel):
+    weapon_name: str
+
+class DeltaRequest(BaseModel):
+    campaign_id: Optional[str] = "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    expected_revision: Any = 11
+    deltas: List[Dict[str, Any]]
+
+# DASHBOARD WEB VISUAL
+@app.get("/", response_class=HTMLResponse)
+@app.get("/dashboard", response_class=HTMLResponse)
+def get_dashboard():
+    # El archivo dashboard.html ahora está en ../api/dashboard.html
+    dashboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "api", "dashboard.html")
+    if os.path.exists(dashboard_path):
+        with open(dashboard_path, "r", encoding="utf-8") as f:
+            return f.read()
+    return "<h1>WH40K API ONLINE - Dashboard HTML not found</h1>"
+
+@app.post("/api/action", dependencies=[Depends(verify_api_key)])
+def resolve_action(req: ActionRequest, x_campaign_id: Optional[str] = Header(None)):
+    cid = req.campaign_id or x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    state = state_mgr.load_state(cid)
+    actor_sheet = state.get("character_sheet", {})
+    actor_name = req.actor or actor_sheet.get("nombre", "Alexander")
+    
+    parsed = CommandParser.parse_input(req.user_input)
+
+    if parsed["is_ooc"]:
+        checkpoint = state_mgr.generate_checkpoint(cid)
+        return {
+            "type": "SYSTEM_RESPONSE",
+            "campaign_id": cid,
+            "action_code": parsed["action_code"],
+            "checkpoint": checkpoint["checkpoint_text"],
+            "state_revision": state.get("state_revision"),
+            "message": f"Comando procesado: {parsed['command_body']}"
+        }
+
+    combat_info = {}
+    if req.combat_action:
+        curr_combat = state.get("combat_state", {"active": False})
+        new_combat = MechanicsEngine.process_combat_state(curr_combat, req.combat_action)
+        state["combat_state"] = new_combat
+        combat_info = new_combat
+
+    ability_info = {}
+    warp_info = {}
+    if req.ability_used:
+        ability_info = MechanicsEngine.resolve_ability(req.ability_used, actor_sheet)
+        if "PSY" in req.ability_used:
+            warp_info = WarpEngine.check_warp_phenomena(power_forced=req.force_psy_power)
+
+    classified = MechanicsEngine.classify_route(
+        question=req.user_input,
+        method="Acción declarada",
+        actor=actor_name,
+        objective="Objetivo en escena",
+        desired_result=req.base_logro
+    )
+
+    stakes = MechanicsEngine.freeze_stakes(
+        activation_id=classified["activation_id"],
+        actor=actor_name,
+        desired_result=req.base_logro,
+        base_logro=req.base_logro,
+        base_fallo=req.base_fallo,
+        risks=[{"nivel_base": 1, "techo": req.riesgo_techo, "activador": "CUALQUIER_FALLO"}]
+    )
+
+    roll_result = MechanicsEngine.resolve_d100(
+        contract_id=stakes["contract_id"],
+        actor=actor_name,
+        valor_base=req.atributo_base,
+        modificadores=req.modificadores
+    )
+
+    attack_info = {}
+    if req.weapon_used or req.weapon_key:
+        w_key = req.weapon_key or ("PISTOLA_BOLTER" if "Bólter" in str(req.weapon_used) else "ESPADA_ENERGIA")
+        curr_ammo = 12 if "BOLTER" in w_key else 10
+        attack_info = WeaponTraitsEngine.process_weapon_attack(w_key, curr_ammo, req.weapon_status or "LIMPIA", roll_result)
+
+    try:
+        curr_rev = state.get("state_revision", 11)
+        curr_turn = state.get("turn", 916)
+        
+        deltas = [{
+            "field": "turn",
+            "operation": "INCREMENT",
+            "value": 1
+        }]
+
+        success, status_msg, updated_state = state_mgr.apply_deltas(curr_rev, deltas, cid)
+        rev_num = updated_state.get("state_revision")
+        health_actual = updated_state.get("character_sheet", {}).get("salud_actual", 12)
+        health_max = updated_state.get("character_sheet", {}).get("salud_maxima", 12)
+        health_str = f"{health_actual}/{health_max}"
+    except Exception as e:
+        success = False
+        rev_num = 11
+        health_str = "12/12"
+
+    return {
+        "type": "RESOLVED_ACTION",
+        "campaign_id": cid,
+        "classification": classified,
+        "stakes": stakes,
+        "roll_result": roll_result,
+        "public_roll_text": roll_result["public_roll_text"],
+        "combat_info": combat_info,
+        "ability_info": ability_info,
+        "warp_info": warp_info,
+        "attack_info": attack_info,
+        "state_applied": success,
+        "new_state_revision": rev_num,
+        "current_health": health_str
+    }
+
+# ENDPOINTS DE LA API (v16.0 CLEAN ARCHITECTURE)
+@app.post("/api/combat/progression", dependencies=[Depends(verify_api_key)])
+def update_progression(req: ProgressionUpdateRequest):
+    return CombatProgressionEngine.update_combat_progression(req.current_percentage, req.delta, req.cause)
+
+@app.post("/api/enemy/spawn_reinforcements", dependencies=[Depends(verify_api_key)])
+def spawn_reinforcements(req: ReinforcementSpawnRequest):
+    return EnemyReinforcementEngine.spawn_reinforcements(req.enemy_type, req.requested_count, req.current_reinforcement_pool)
+
+@app.post("/api/naval/salvo", dependencies=[Depends(verify_api_key)])
+def resolve_naval_salvo(req: NavalSalvoRequest):
+    return NavalCombatEngine.resolve_naval_salvo(req.attacker_ship, req.defender_ship, req.defender_void_shields, req.defender_hull)
+
+@app.post("/api/naval/boarding", dependencies=[Depends(verify_api_key)])
+def initiate_boarding(req: BoardingActionRequest):
+    return NavalCombatEngine.initiate_boarding_action(req.target_ship_point)
+
+@app.post("/api/duel/resolve", dependencies=[Depends(verify_api_key)])
+def resolve_duel(req: DuelRequest):
+    return DuelEngine.resolve_duel_round(req.attacker_name, req.defender_name, req.defender_stance, {"resultado_base": "FALLO", "distancia": 25})
+
+@app.post("/api/oath/swear", dependencies=[Depends(verify_api_key)])
+def swear_oath(req: OathRequest):
+    return OathLedgerEngine.swear_oath(req.actor_name, req.oath_title, req.objective)
+
+@app.post("/api/oath/fulfill", dependencies=[Depends(verify_api_key)])
+def fulfill_oath(req: FulfillOathRequest):
+    return OathLedgerEngine.fulfill_oath(req.oath_id, req.actor_name)
+
+@app.get("/api/state", dependencies=[Depends(verify_api_key)])
+def get_state(x_campaign_id: Optional[str] = Header(None)):
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    return state_mgr.load_state(cid)
+
+@app.get("/api/documents/{filename}", dependencies=[Depends(verify_api_key)])
+def get_document(filename: str, x_campaign_id: Optional[str] = Header(None)):
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if "CAELAN" in cid.upper():
+        doc_path = os.path.join(project_root, "data", "caelan", filename)
+    else:
+        doc_path = os.path.join(project_root, "data", "alexander", filename)
+    
+    if os.path.exists(doc_path):
+        with open(doc_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        return {"filename": filename, "content": content}
+    raise HTTPException(status_code=404, detail="Document not found")
+
+@app.post("/api/state/checkpoint", dependencies=[Depends(verify_api_key)])
+def get_checkpoint(req: CampaignSwitchRequest):
+    return state_mgr.generate_checkpoint(req.campaign_id)
+
+@app.post("/api/beast/tame", dependencies=[Depends(verify_api_key)])
+def tame_beast(req: TamingRequest):
+    return BeastTamingEngine.attempt_taming(req.creature_name, req.actor_taming_skill, req.creature_ferocity)
+
+@app.post("/api/anomalous/inspect", dependencies=[Depends(verify_api_key)])
+def inspect_anomalous(req: AnomalousRequest):
+    return AnomalousResearchEngine.inspect_containment_subject(req.subject_id, req.stability_level)
+
+@app.get("/api/domain/status", dependencies=[Depends(verify_api_key)])
+def get_domain_status():
+    return DomainManagementEngine.get_rho9_status()
+
+@app.post("/api/domain/assign", dependencies=[Depends(verify_api_key)])
+def assign_staff(req: AssignTaskRequest):
+    return DomainManagementEngine.assign_staff_task(req.npc_name, req.task)
+
+@app.post("/api/domain/revenue", dependencies=[Depends(verify_api_key)])
+def collect_revenue():
+    return DomainManagementEngine.collect_weekly_revenue(450)
+
+@app.post("/api/world/info", dependencies=[Depends(verify_api_key)])
+def get_world_info(req: LocationQueryRequest):
+    return WorldContextEngine.get_location_info(req.location_key)
+
+@app.post("/api/tactical/evaluate", dependencies=[Depends(verify_api_key)])
+def evaluate_tactical(req: TacticalEvalRequest):
+    return TacticalMapEngine.evaluate_tactical_shot(req.attacker_zone, req.target_zone, req.target_cover, req.attacker_elevated, req.target_flanked)
+
+@app.post("/api/alchemy/synthesize", dependencies=[Depends(verify_api_key)])
+def synthesize_alchemy(req: AlchemySynthesizeRequest):
+    return AlchemyEngine.synthesize_compound(req.compound_key, req.medic_skill, req.available_credits)
+
+@app.get("/api/weapon/dossier/{weapon_key}", dependencies=[Depends(verify_api_key)])
+def get_weapon_dossier_endpoint(weapon_key: str):
+    return WeaponTraitsEngine.get_weapon_dossier(weapon_key)
+
+@app.post("/api/lore/query", dependencies=[Depends(verify_api_key)])
+def query_subfaction_lore(req: LoreQueryRequest):
+    return LoreEncyclopediaEngine.query_subfaction(req.subfaction_key)
+
+@app.post("/api/lore/search", dependencies=[Depends(verify_api_key)])
+def search_subfaction_lore(req: LoreSearchRequest):
+    return LoreEncyclopediaEngine.search_lore(req.keyword)
+
+@app.post("/api/exploration/explore", dependencies=[Depends(verify_api_key)])
+def explore_sublevel(req: ExploreRequest):
+    return MapExplorationEngine.explore_sector(req.sublevel_index)
+
+@app.post("/api/loot/generate", dependencies=[Depends(verify_api_key)])
+def generate_loot(req: LootRequest):
+    return LootEngine.generate_loot(req.table_key)
+
+@app.post("/api/economy/buy", dependencies=[Depends(verify_api_key)])
+def buy_item(req: BuyRequest):
+    return EconomyEngine.buy_item(req.item_key, req.current_credits)
+
+@app.post("/api/economy/credits/add", dependencies=[Depends(verify_api_key)])
+def add_credits(req: AddCreditsRequest):
+    return EconomyEngine.add_credits(450, req.amount, req.source)
+
+@app.post("/api/weapon/unjam", dependencies=[Depends(verify_api_key)])
+def unjam_weapon(req: UnjamRequest):
+    return WeaponTraitsEngine.unjam_weapon(req.weapon_name)
+
+@app.post("/api/corruption/add", dependencies=[Depends(verify_api_key)])
+def add_corruption(req: CorruptionAddRequest):
+    state = state_mgr.load_state()
+    curr_corr = state.get("character_sheet", {}).get("corrupcion", 0)
+    result = CorruptionEngine.add_corruption(curr_corr, req.added_points, req.cause)
+    state_mgr.apply_deltas(state.get("state_revision", 11), [{
+        "field": "character_sheet/corrupcion",
+        "operation": "SET",
+        "value": result["new_points"]
+    }])
+    return result
+
+@app.post("/api/miracles/invoke", dependencies=[Depends(verify_api_key)])
+def invoke_miracle(req: MiracleRequest):
+    state = state_mgr.load_state()
+    curr_fe = state.get("character_sheet", {}).get("fe", 10)
+    return MiraclesEngine.invoke_miracle(req.miracle_key, curr_fe)
+
+@app.post("/api/favors/register", dependencies=[Depends(verify_api_key)])
+def register_favor(req: FavorRegisterRequest):
+    return FavorsLedgerEngine.register_favor(req.faction_name, req.favor_value, req.origin)
+
+@app.post("/api/favors/claim", dependencies=[Depends(verify_api_key)])
+def claim_favor(req: FavorClaimRequest):
+    return FavorsLedgerEngine.claim_favor(req.favor_id, req.faction_name)
+
+@app.post("/api/state/delta", dependencies=[Depends(verify_api_key)])
+def apply_custom_delta(req: DeltaRequest):
+    cid = req.campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    success, msg, new_state = state_mgr.apply_deltas(req.expected_revision, req.deltas, cid)
+    if not success:
+        raise HTTPException(status_code=409, detail=msg)
+    return {
+        "status": "APLICADA",
+        "campaign_id": cid,
+        "new_revision": new_state.get("state_revision"),
+        "checkpoint": state_mgr.generate_checkpoint(cid)["checkpoint_text"]
+    }

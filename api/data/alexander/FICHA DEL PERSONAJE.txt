@@ -1,0 +1,570 @@
+Ficha del personaje
+Autoridad del estado actual y de las capacidades particulares del personaje jugador — campaña de Alexander
+Control del registro
+DOCUMENT_KEY: 
+SHEET
+DOCUMENT_ID: 
+FICHA.ALEXANDER.MAIN
+CAMPAIGN_ID: 
+CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: 
+CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: 
+PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: 
+ACTUALIZAR, AGREGAR
+PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
+STATE_REVISION: 11
+SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.SHEET.D04-NIGHT-RHO9-POST-INCURSION-20260813.R1
+ÚLTIMA ACTUALIZACIÓN: Día 04, noche; cierre documental equivalente a pausa confirmado por orden expresa. Integrados Rho-9, incursión nocturna, botín físico, ejecuciones de Halven, censo umbral y auditoría de XP. Hora exacta y número de turno no reconciliados.
+MIGRATION_ID: 
+CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: 
+Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: 
+Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: 
+No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: 
+Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+Reglas de actualización
+ACTUALIZAR: 
+Sustituir únicamente los valores que cambiaron en estado, estadísticas, progresión, armas, munición, inventario, recursos, obligaciones o referencias.
+AGREGAR: 
+Crear una capacidad, objeto, pacto, título o módulo nuevo solo cuando su adquisición o activación esté confirmada.
+BLOQUE PROTEGIDO: 
+Identidad, prólogo, historia previa, aspecto físico basal y personalidad definida por el jugador no cambian durante una pausa ordinaria.
+AUTORIDAD MECÁNICA: 
+Esta Ficha gobierna las capacidades particulares del personaje. El Protocolo Universal gobierna las reglas generales.
+Contenido vigente
+ESTADO ACTUAL
+SALUD ACTUAL: 12
+SALUD MÁXIMA: 12
+HERIDAS: tres perdigones costales retirados y fragmentos clínicamente dañinos extraídos; posibles residuos microscópicos inertes encapsulados sin efecto activo; flanco derecho reconstruido; surco balístico e incisiones intercostales limpios y suturados; sin hemorragia activa, infección ni daño pleural o pulmonar confirmado.
+CONDICIONES: Estable; Salud 12/12 y Fatiga 0/7 son los últimos valores mecánicos confirmados. No existe combate ni emergencia inmediata confirmada en el punto de pausa.
+FATIGA: 0/7
+TRAUMA: 0
+CORRUPCIÓN: 0
+EFECTOS PSÍQUICOS: Visión de oscuridad Rango I permanente e involuntariamente activa; Paso sombrío Rango II; Factor Psíquico 1; Agarre umbral Rango II; Sombra infinita Rango I; Reserva Umbral actual de 10 almas completas.
+EFECTOS RELIGIOSOS: Ninguno confirmado
+EFECTOS PENDIENTES: mantener Rho-9 cerrada al público; completar seguridad material, agua segura, esterilización, ventilación, frío, drenaje y cuarentena; explorar subniveles; reconciliar perfiles y municiones provisionales del arsenal nocturno con la autoridad ACTIVE; decidir distribución del arsenal; continuar recuperación de pacientes y deudores; mantener aislados Demer, M-01-A, Testigos y material anómalo; resolver formalización final de Khepra/taller, deudas pendientes y consecuencias externas del depósito. No inferir hora, turno, destino de la rata ni propagación reputacional.
+UBICACIÓN ACTUAL: Medicae Station Rho-9, al cierre del bloque de trabajo umbral posterior a T915. La sala exacta no está registrada. Presentes confirmados en la coordinación: Alexander, Khepra-9, Hadrix Vale, Syra Kol y Demer Vhal; Severan opera en Rho-9 como guardia con mando temporal general. La clínica no está abierta formalmente y no hay combate activo.
+TURNO_DE_REANUDACIÓN: POST-T915; Día 04, tarde temprana, ciclo local diurno. T915 comenzó durante la madrugada y el bloque consumió aproximadamente 10 horas externas/materiales. La franja equivale a 12:00–16:00 local, pero la hora exacta y el número de turno posterior siguen no registrados; no inferir T916 ni T960.
+LOCAL_TIME_BAND_ID: TIME.NECROMUNDA.LOCAL.DAY04.EARLY-AFTERNOON | DAY: 04 | PHASE: EARLY_AFTERNOON | LIGHT_CYCLE: LOCAL_DIURNAL | EXACT_CLOCK: UNKNOWN
+PUNTO DE CONTROL: Medicae Station Rho-9, Día 04 durante la tarde temprana, después del bloque de cirugía, investigación, rehabilitación y clasificación. Alexander aún no ha emitido la orden específica ni asignado recursos para fortificación o rearme. Presentar estado e inventario disponible y devolver control antes de actuar.
+AUTORIDAD DE REANUDACIÓN: estos campos y la última entrada de Historia sustituyen la coordinación anterior y T915/E-12 como escena vigente. E-12 permanece como antecedente; no reconstruir por inferencia el tramo omitido ni adoptar una numeración de turno no confirmada.
+PARTICIPANTES DE ESCENA: Alexander; Khepra-9; Hadrix Vale; Syra Kol; Demer Vhal. Severan Holt se encuentra en Rho-9 bajo mando operativo temporal general.
+PUNTO DE INICIO CONFIRMADO: Sistema de Necromunda; planeta Necromunda; Palatine Cluster; Hive Primus; Underhive; Dust Falls; Nodo de tránsito D-17
+LOCATION_ID INICIAL: NECROMUNDA.PRIMUS.DUSTFALLS.D17
+REFUGIO INICIAL: Clínica clandestina improvisada; propiedad no confirmada; no es dominio formal
+AUTORIDAD LOCAL: Fragmentada
+MONEDA LOCAL ACTIVA: Crédito de Necromunda
+IDENTIDAD
+CHARACTER_ID: PC-ALEXANDER-001
+NOMBRE COMPLETO: Alexander; apellido desconocido o inexistente en registros
+ALIAS: Médico Fantasma; Cirujano de la Penumbra
+TÍTULOS: Ninguno
+ESPECIE: Humano
+SEXO: Masculino
+EDAD AL INICIO: Aproximadamente 23 años
+EDAD ACTUAL: Aproximadamente 23 años
+MUNDO NATAL: No registrado; probable nacimiento en estación imperial
+ORIGEN: Cubiertas inferiores de una estación imperial de tránsito
+FACCIÓN: Ninguna; presencia inicial independiente en el submundo de Necromunda
+FUNCIÓN: Operador Umbral; infiltrador, médico clandestino y psíquico no sancionado
+DESCRIPCIÓN FÍSICA
+ALTURA: 1,90 metros
+COMPLEXIÓN: Alta, delgada y fibrosa; preparada para carrera prolongada, escalada y movimiento silencioso
+ROSTRO: Sereno, pálido, sin cicatrices visibles y con expresión habitualmente desinteresada
+OJOS: Muy oscuros, casi negros
+CABELLO: Oscuro
+PIEL: Pálida
+VOZ: Serena, seca y poco expresiva
+VESTIMENTA: Ropa oscura y gabardina robada usada como abrigo, depósito de instrumental y sustituto de bata médica
+CICATRICES: Ninguna visible en el rostro
+IMPLANTES: Ninguno confirmado
+PRÓTESIS: Ninguna
+MUTACIONES: Ninguna visible; condición psíquica no sancionada
+OTRAS MARCAS: Manos firmes con señales menores de trabajo médico y supervivencia industrial
+PERSONALIDAD CONFIRMADA
+RASGOS: Serio, lúgubre, sereno, sarcástico, ocasionalmente irritante, pragmático y difícil de leer. Suele permanecer solo o rodearse de pocas personas porque la superposición constante de señales vitales vuelve las multitudes desagradables y agotadoras.
+CREENCIAS: No confirmadas
+FE: No confirmada
+DOCTRINAS: No confirmadas
+LEALTADES: Ninguna facción confirmada; mantiene deudas y favores personales
+PREJUICIOS: No confirmados
+INTERESES: Medicina, supervivencia, suministros, refugios, información y redes de favores
+OBJETIVOS DECLARADOS: Sobrevivir, alimentarse, conseguir refugio y desarrollar recursos útiles; otros objetivos pendientes de campaña
+LÍMITES CONFIRMADOS: No registrados
+CARACTERÍSTICAS Y ESTADÍSTICAS
+CARACTERÍSTICAS: Cuerpo a cuerpo 43; Balística 37; Fuerza 39; Resistencia 41; Agilidad 47; Inteligencia 48; Percepción 46; Voluntad 43; Empatía/Presencia 29
+DEFENSAS: Esquiva 52; Resiliencia corporal 3; Armadura natural 0
+MOVIMIENTO: 4 metros por 1 PA; 8 metros por 2 PA; carrera 16 metros por 2 PA, sin atacar durante ese turno
+INICIATIVA: 1d10 + 4; desempate por Agilidad 47 y Percepción 46
+RECURSOS ESPECIALES: Factor Psíquico 1; máximo 1 poder sostenido; 2 PA y 1 reacción disponibles al inicio de cada ronda
+COMPETENCIAS Y PROGRESIÓN
+COMPETENCIAS: Medicina 65; Sigilo 57; Supervivencia urbana 52; Atletismo 52; Esquiva 52; Percepción aplicada 51; Prestidigitación y robo 45; Seguridad 42; Armas ligeras 42; Investigación 40; Comercio clandestino 38; Proyectiles 32
+TALENTOS INCLUIDOS: Aún no está muerto — Rango I, integrado en Maestría Médica.
+HABILIDADES ESPECIALES: Paso sombrío — Rango II; Visión de oscuridad — Rango I; Maestría médica — Rango I; Pacto Oscuro — Rango I; Agarre umbral — Rango II; Sombra infinita — Rango I
+PODERES PSÍQUICOS: PSY.ALEXANDER.SHADOWSTEP.R2; PSY.ALEXANDER.DARKVISION.R1. HABILIDAD ESPECIAL NO PSÍQUICA: SPECIAL.ALEXANDER.MEDICALMASTERY.R1. CAPACIDADES UMBRALES ESPECIALES: SPECIAL.ALEXANDER.DARKPACT.R1; SPECIAL.ALEXANDER.UMBRALGRIP.R2; SOULUSE.ALEXANDER.INFINITE_SHADOW.R1
+IDENTIFICADORES DE ESTADÍSTICA: STAT.ALEXANDER.WS = Cuerpo a cuerpo 43; STAT.ALEXANDER.BS = Balística 37; STAT.ALEXANDER.S = Fuerza 39; STAT.ALEXANDER.T = Resistencia 41; STAT.ALEXANDER.AG = Agilidad 47; STAT.ALEXANDER.INT = Inteligencia 48; STAT.ALEXANDER.PER = Percepción 46; STAT.ALEXANDER.WP = Voluntad 43; STAT.ALEXANDER.FEL = Empatía/Presencia 29.
+ESTADO UNIVERSAL DE AVANCE
+LEVEL: 5
+XP_TOTAL: 1335
+XP_AT_LEVEL_START: 1000
+XP_PROGRESS: 335
+XP_REQUIRED_NEXT: 500
+XP_NEXT_LEVEL_TOTAL: 1500
+XP_AVAILABLE: NO SE USA; la experiencia acumulada nunca se gasta.
+IMPROVEMENT_POINTS_EARNED: 8
+IMPROVEMENT_POINTS_SPENT: 6
+PM_AVAILABLE: 2
+MILESTONE_POINTS_EARNED: 4
+MILESTONE_POINTS_SPENT: 3
+PH_AVAILABLE: 1
+MEJORAS ADQUIRIDAS CON PM O PH: Fuerza 34→39, 1 PM; Resistencia 36→41, 1 PM; Atletismo 47→52, 1 PM; Esquiva 47→52, 1 PM; Cuerpo a cuerpo 38→43, 1 PM; Balística 32→37, 1 PM; Paso sombrío Rango I→II, 2 PH; Agarre umbral Rango I→II, 1 PH. Agarre umbral Rango I fue adquirido mediante COSTE_ÁLMICO_EN_LUGAR_DE_PH de 3 almas completas.
+ESTADO AUTORITATIVO DE HABILIDADES ESPECIALES
+REVISIÓN CONJUNTA DE HABILIDADES: Enlaces de precedencia e interacción confirmados sin reescribir perfiles, efectos, límites, activadores, costes ni descripciones originales. Las cláusulas de interacción solo resuelven solapamientos entre capacidades ACTUALES.
+REGLA: Las antiguas barras, marcas, ecos y puertas narrativas están RETIRED y no se consultan para comprar rangos. Toda mejora futura usa exclusivamente rango siguiente, PH disponibles, elección del jugador y ADVANCE.* del Protocolo Universal.
+PASO SOMBRÍO | CURRENT_RANK: II | NEXT_RANK: III | PH_COST: 3 | CURRENT_PROFILE_STATUS: ACTUAL | NEXT_PROFILE_STATUS: DEFINABLE | VISIBLE_STATUS: FALTAN 3 PH | PURCHASE_STATUS: RANGO II ADQUIRIDO.
+VISIÓN DE OSCURIDAD | CURRENT_RANK: I | NEXT_RANK: II | PH_COST: 2 | CURRENT_PROFILE_STATUS: ACTUAL | NEXT_PROFILE_STATUS: DEFINABLE | VISIBLE_STATUS: FALTAN 2 PH | PURCHASE_STATUS: RANGO II NO ADQUIRIDO.
+PACTO OSCURO | CURRENT_RANK: I | NEXT_RANK: II | PH_COST: 2 | CURRENT_PROFILE_STATUS: ACTUAL | NEXT_PROFILE_STATUS: DEFINABLE | VISIBLE_STATUS: FALTAN 2 PH | ACQUISITION_STATUS: RANGO I CONFIRMADO; RANGO II NO ADQUIRIDO.
+MAESTRÍA MÉDICA | CURRENT_RANK: I | NEXT_RANK: II | PH_COST: 2 | CURRENT_PROFILE_STATUS: ACTUAL | NEXT_PROFILE_STATUS: DEFINABLE | VISIBLE_STATUS: FALTAN 2 PH | PURCHASE_STATUS: RANGO II NO ADQUIRIDO.
+AGARRE UMBRAL | CURRENT_RANK: II | NEXT_RANK: III | PH_COST: NO DEFINIDO | CURRENT_PROFILE_STATUS: ACTUAL | NEXT_PROFILE_STATUS: DEFINABLE | VISIBLE_STATUS: LISTO PARA DEFINIR COSTE Y EFECTO; NO DISPONIBLE | ACQUISITION_STATUS: RANGO I adquirido con 3 almas completas; RANGO II adquirido por 1 PH.
+SOMBRA INFINITA | CURRENT_RANK: I | NEXT_RANK: II | PH_COST: NO DEFINIDO | CURRENT_PROFILE_STATUS: ACTUAL | NEXT_PROFILE_STATUS: NO DEFINIDO | ACQUISITION_STATUS: RANGO I CONFIRMADO.
+CONTROL DE AUDITORÍA: Perfil mecánico confirmado hasta T915: CC43, B37, F39, R41, Ag47, Int48, Per46, Vol43, Emp29, Esquiva52 y Resiliencia3; Nivel 5, XP1335, PM2 y PH1; Salud12/12 y Fatiga1/7. El bloque posterior no concede XP/PM/PH, no restaura Salud ni Fatiga y no fija turno nuevo.
+REGLA DE RANGOS ACUMULATIVOS: Cada rango nuevo conserva todos los efectos, límites, riesgos, activadores, acciones, pasivas y campos dependientes del rango actual salvo reemplazo expreso aceptado por el jugador. La opción de mejora define el cambio; el perfil ACTUAL resultante debe copiar la capacidad completa y quedar autocontenido.
+RESOLUCIÓN OBLIGATORIA: Antes de usar una habilidad especial, el DM lee su perfil ACTUAL completo en esta Ficha o el último perfil ACTUAL aceptado en sesión. Un perfil parcial se fusiona con el rango efectivo anterior antes de resolverlo. Ninguna regla universal puede eliminar o sustituir ARRASTRE UMBRAL, una percepción pasiva, un límite, un riesgo u otro efecto particular no reemplazado expresamente.
+PERFILES OPERATIVOS DE HABILIDAD
+PASO SOMBRÍO — RANGO II
+ID: PSY.ALEXANDER.SHADOWSTEP.R2 | PROFILE_STATUS: ACTUAL | PROFILE_SOURCE: CURRENT_CHARACTER_SHEET | MODE: ACTIVE | CURRENT_RANK: II | MAX_RANK: SIN LÍMITE FIJADO | NEXT_RANK: III | PH_COST: 3 | CHOSEN_OPTION: ALCANCE_25_AUTOMÁTICO_MATERIALIZACIÓN_PARCIAL | CUMULATIVE_PROFILE: TRUE | RETAINED_CLAUSES: ALL_R1_NOT_REPLACED | STACK_RULE: RANKED_TO_LIMIT | DEPENDENT_FIELDS: alcance, carga y modos | VISIBILITY: VISIBLE | PSY_POWER_PROFILE_ID: PSY.ALEXANDER.SHADOWSTEP.R2 | ACTION_PROFILE_ID: ACTION.ALEXANDER.SHADOWSTEP.R2 | USER_TYPE: PSYKER | Tipo: poder psíquico umbral | Acción: PARCIAL | Coste: 1 PA | Subtipos: PSÍQUICA, MOVIMIENTO, UMBRAL | Repetible: no, máximo una vez por turno | BASE_PSY_RATING: 1 | FOCUS_SKILL: Voluntad 43 | PHENOMENA_PROFILE_ID: PHEN.DEFAULT | PERILS_PROFILE_ID: PERIL.DEFAULT | Duración: instantánea | Sostenido: no.
+ALCANCE: 25 metros × EFFECTIVE_PSY_RATING. Con Factor Psíquico efectivo 1/2/3/4, el alcance es 25/50/75/100 metros. Requiere una sombra de entrada capaz de cubrir al menos media silueta y una sombra de salida con espacio suficiente. La salida debe ser visible, conocida o percibida mediante Visión de Oscuridad.
+ACTIVACIÓN AUTOMÁTICA: Si existen sombras válidas de entrada y salida dentro del alcance, Alexander desaparece y reaparece sin tirada incluso en combate, oposición, urgencia, bajo heridas, sombra inestable, luz intensa, carga considerable o interferencia psíquica ordinaria. Declara destino y modo antes de ejecutarlo. Campos nulos, campos Gellar, campos de vacío cerrados, sellos hexagramáticos, barreras antiteleportación y defensas expresamente capaces de bloquear tránsito umbral pueden impedirlo.
+RESULTADO AUTOMÁTICO: Con entrada, salida, alcance y espacio válidos, el desplazamiento se completa. No se realiza prueba de activación. Una contención especializada válida puede volverlo IMPOSIBLE o exigir la resolución específica de la contención; nunca se inventa un fallo ordinario.
+EFECTO: durante la transición abandona el espacio físico y atraviesa el Umbral Negro, una dimensión oscura habitada por formas extrañas. No puede ser atacado desde el espacio material, observar normalmente, actuar, detenerse ni cambiar el destino. Al salir recibe +20 a Sigilo si existe ocultación; la desaparición y llegada todavía pueden ser observadas. La presencia del Observador Profundo no impone un coste automático ni aparece en cada uso.
+CARGA: equipo personal más 15 kg. No transporta otra criatura viva. Puede atravesar materia común, pero no campos nulos, campos Gellar, campos de vacío cerrados, sellos hexagramáticos ni barreras antiteleportación.
+MODOS HEREDADOS: FETTERED o Controlado mantiene EFFECTIVE_PSY_RATING 1. UNFETTERED o Sin restricciones mantiene EFFECTIVE_PSY_RATING 1 e ignora hasta −10 por sombra deficiente cuando una regla secundaria exige prueba. PUSH o Forzado añade PUSH_AMOUNT +1/+2/+3, eleva el Factor efectivo a 2/3/4 y concede alcance 50/75/100 metros; los fenómenos y peligros se resuelven solo cuando el modo o una interferencia específica los active.
+LÍMITES RANGO II: no funciona como reacción ordinaria; no permite explorar o permanecer libremente dentro del Umbral salvo durante una recuperación dirigida; no permite atacar durante el tránsito; no crea oscuridad por sí mismo; no transporta acompañantes voluntarios.
+SOMBRAS MÓVILES: Las sombras proyectadas por personas, criaturas, vehículos, maquinaria u objetos en movimiento son válidas. La salida ocurre en la posición que la sombra ocupe al completarse el tránsito.
+REDIRECCIÓN DE SALIDA: Si la sombra elegida desaparece, Alexander puede elegir otra sombra válida cercana al destino original, incluso en suelo, pared, techo, objeto o criatura. Debe sentir o detectar la sombra y confirmar que existe espacio suficiente. Si no existe una salida válida, puede retraerse al Umbral y regresar al origen o buscar la opción segura más próxima.
+POSTURA Y ORIENTACIÓN: Alexander elige la posición físicamente posible en que emerge: de pie, agachado, tendido, arrodillado, colgado, en carrera o dirigido hacia una orientación concreta. La gravedad vuelve a afectarlo al completar la materialización.
+MATERIALIZACIÓN PARCIAL PROTEGIDA: Después de reaparecer, Alexander permanece parcialmente intangible hasta el final de su turno o hasta que establece una interacción material directa que rompa la protección, lo que ocurra primero. Puede moverse, observar, orientarse, hablar, sacar, sostener y apuntar un arma sin romper la protección por esas acciones por sí solas. Ataques o contactos procedentes solo del espacio material no pueden alcanzarlo mientras la protección siga activa. Usar Agarre Umbral o Golpe Umbral no rompe ni termina la materialización parcial protegida: Alexander puede manifestar manos, garras, cuchillas u otras formas umbrales; atacar mediante ellas; tomar, extraer, mover, orientar o manipular objetos; y tomar, apuntar o disparar armas mediante Agarre Umbral sin perder esta protección, porque el contacto material lo realiza la manifestación umbral y no el cuerpo parcialmente materializado de Alexander. La protección se rompe cuando Alexander establece contacto material directo con un objetivo mediante su propio cuerpo o mediante un objeto que él sostiene y hace contactar físicamente con ese objetivo; por ejemplo, apoyar personalmente el cañón de un arma contra la nuca de alguien o poner un cuchillo que Alexander sostiene en contacto con el cuello de una persona. Apuntar o amenazar sin ese contacto no la rompe. Campos nulos, inhibidores, sellos, efectos disformes y ataques capaces de alcanzar formas parcialmente inmateriales sí pueden afectarlo.
+CANCELACIÓN DE SALIDA: Durante la materialización protegida puede retraerse sin consumir una segunda activación y buscar otra salida válida. Solo exige prueba adicional cuando existe interferencia psíquica, un campo de contención o un bloqueo especializado.
+ESCAPE DE SUJECIÓN: Agarres, llaves, grilletes, cadenas, esposas y celdas ordinarias no impiden la activación. Alexander se desmaterializa en sombra alrededor de dedos, manos y restricciones; los objetos que no forman parte de su equipo quedan en el espacio material.
+ARRASTRE UMBRAL: Una criatura que lo sujete directamente y continúe aferrada durante toda la desmaterialización recibe una advertencia clara de frío, caída y pérdida de consistencia. Puede soltarlo inmediatamente. Si insiste, es arrastrada al Umbral Negro, pierde contacto con Alexander y no comparte su salida. El efecto es defensivo y no permite secuestrar normalmente a alguien mediante un simple toque.
+EQUIPO DEL CAPTOR: El captor entra con ropa, armadura y objetos equipados. Vehículos, estructuras, cadenas ancladas y objetos desproporcionados permanecen fuera sin seccionar automáticamente su cuerpo.
+CONTENCIÓN ESPECIALIZADA: Campos nulos, parias cercanos, grilletes psíquicos, sellos hexagramáticos, barreras antiteleportación, campos Gellar, sedación completa o ausencia total de una sombra utilizable pueden impedir o dificultar Paso sombrío.
+SOMBRAS ARTIFICIALES: Alexander puede producir una sombra válida apagando una luz, interponiendo un objeto, usando una capa o manipulando una fuente luminosa. El poder no crea la sombra; utiliza una oscuridad real ya formada.
+OBJETOS EN EL UMBRAL: En Rango II no puede utilizar el Umbral como almacén voluntario. Puede recuperar un objeto concreto durante una búsqueda dirigida si este quedó allí por un acontecimiento previo.
+INTERACCIÓN CON SOMBRA INFINITA: Las limitaciones de Paso sombrío Rango II sobre permanencia libre, almacenamiento voluntario y transporte de acompañantes describen Paso sombrío usado por sí solo. Sombra infinita Rango I habilita únicamente las excepciones que su propio perfil declara: autodepósito, almacenamiento, aberturas mantenidas, rutas autorizadas e ingreso voluntario por esas aberturas. No convierte a otra criatura en CARGA de Paso sombrío, no altera ARRASTRE UMBRAL y no borra ningún otro límite de Paso sombrío.
+VISIÓN DE OSCURIDAD — RANGO I
+ID: PSY.ALEXANDER.DARKVISION.R1 | PROFILE_STATUS: ACTUAL | PROFILE_SOURCE: CURRENT_CHARACTER_SHEET | MODE: PASSIVE | CURRENT_RANK: I | MAX_RANK: SIN LÍMITE FIJADO | NEXT_RANK: II | PH_COST: 2 | CHOSEN_OPTION: NINGUNA | EFFECT: definido en este perfil | LIMITS: definidos en este perfil | RISKS: saturación e interferencia psíquica | STACK_RULE: RANKED_TO_LIMIT | DEPENDENT_FIELDS: alcance, detalle, mapa espacial, sombras válidas y aplicación táctica | VISIBILITY: VISIBLE | Tipo: percepción psíquica pasiva | Alcance: 15 metros esféricos | Coste: ninguno | Activación: permanente, involuntaria y constantemente activa. Alexander no necesita encenderla ni mantener concentración para conservar la percepción general.
+PERCEPCIÓN ESPACIAL UMBRAL: Dentro de una esfera de 15 metros centrada en Alexander, Visión de oscuridad funciona como un detector tridimensional de 360 grados semejante a un sonar umbral. Alexander percibe continuamente todo lo que ocupa el espacio dentro del alcance y puede distinguir materia de vacío, animado de inanimado, vivo de muerto, formas generales, cantidad, posición, distancia, orientación y movimiento. La percepción no depende de hacia dónde miran sus ojos y puede entregar una posición suficientemente precisa para designar un objetivo.
+PRECISIÓN Y LÍMITE DE IDENTIFICACIÓN: La habilidad informa con precisión qué volumen ocupa algo, qué forma general posee, dónde está, cómo está orientado y cómo se mueve, pero no concede identificación semántica automática. Percibir una pieza rectangular dentro de un bolsillo no revela por sí mismo su nombre, modelo, función, propietario ni importancia. Alexander puede reconocer objetos cuya forma, contexto o funcionamiento ya conozca. Visión de oscuridad no concede conocimiento que Alexander no posea.
+CONTENIDOS, CAVIDADES Y COMPARTIMENTOS: Alexander percibe el interior de bolsillos, cajas, cargadores, fundas, depósitos, carcasas, cajones, mecanismos, recipientes y compartimentos ordinarios no protegidos psíquicamente. Puede saber, por ejemplo, cuántos cartuchos quedan en un cargador, si existe algo dentro de un bolsillo y qué forma tiene, qué ocupa una caja, dónde pasa un cable, cuánto espacio libre queda en una cavidad o dónde se encuentra un contenido sólido o líquido. La cubierta física ordinaria no vuelve desconocido aquello que permanece dentro de los 15 metros.
+LECTURA DE SERES VIVOS: Los organismos vivos producen una lectura especialmente detallada. Alexander puede percibir silueta corporal, postura, orientación del cuerpo y de la cabeza, dirección hacia la que parece mirar, movimiento de extremidades, respiración, pulso, ritmo cardíaco, circulación, flujo y pérdida de sangre, hemorragias internas, interrupciones orgánicas, tejido muerto, alteraciones fisiológicas y funcionamiento preciso de órganos dentro de lo que la capacidad pueda resolver. Puede inferir qué está haciendo físicamente alguien por su postura y movimientos, como caminar, correr, agacharse, apuntar, buscar en un bolsillo, girarse, levantar un brazo, manipular un objeto o permanecer inmóvil. Esto no revela pensamientos, intención, lealtad ni decisiones futuras.
+MATERIA, OBSTÁCULOS E INTERFERENCIA: Ropa, paredes, plastiacero, blindaje, humo, oscuridad, cobertura visual y otros materiales físicos ordinarios no bloquean por sí solos la percepción mientras el objetivo permanezca dentro del alcance. Campos nulos, presencia de un paria, sellos psíquicos, protección psíquica específica, fuerte interferencia disforme u otros efectos cuyo perfil suprima o distorsione percepción psíquica pueden reducir, falsear o negar la lectura. La limitación procede de la interferencia psíquica, no del grosor del material.
+SOMBRAS VÁLIDAS Y SINERGIA UMBRAL: Visión de oscuridad permite identificar la ubicación, forma aproximada, extensión y continuidad de sombras o zonas de oscuridad existentes dentro del alcance, incluso cuando están ocultas a la visión ordinaria. Alexander puede reconocer sombras bajo ropa, entre una prenda y el cuerpo, debajo de personas u objetos, dentro de cajas, bolsillos, compartimentos, mecanismos, cavidades o detrás de estructuras. Una sombra detectada puede servir como punto conocido para Paso sombrío, Agarre Umbral, Golpe Umbral u otra capacidad que acepte sombras, siempre que el perfil de esa capacidad cumpla sus propios requisitos de tamaño, espacio, alcance y uso. Esto permite, por ejemplo, manifestar Agarre Umbral desde una sombra válida dentro de una prenda, bolsillo, caja o debajo de un objeto para tomar, golpear, arrastrar o manipular un objetivo permitido.
+CONCENTRACIÓN DIRIGIDA: ACTION_PROFILE_ID: ACTION.ALEXANDER.DARKVISION.FOCUS.R1 | Acción: PARCIAL | Coste: 1 PA | Repetible: no. Alexander fija su atención en un único objetivo, estructura, contenido o zona dentro del alcance. La percepción general continúa activa, pero obtiene una lectura más precisa de forma, posición, orientación, movimiento, estructura espacial o funcionamiento biológico. Fuera de combate, cuando no existe presión ni oposición, la concentración es automática y requiere desde varios segundos hasta un minuto. No revela identidad, pensamientos ni intenciones.
+PRUEBA: Usar Percepción con +15 únicamente cuando exista incertidumbre real, como separar un objetivo concreto dentro de una multitud, distinguir señales casi idénticas, interpretar una fisiología desconocida, localizar una anomalía extremadamente pequeña, resolver formas superpuestas o enfrentarse a ocultación psíquica activa. La invisibilidad, el camuflaje óptico, la cobertura visual ordinaria y la falta de línea de visión no evitan por sí solos la detección dentro del alcance.
+LECTURA MÉDICA ESPECIALIZADA: Visión de oscuridad permite examinar circulación, respiración, hemorragias internas, interrupciones orgánicas, tejido muerto, cuerpos extraños perceptibles, funcionamiento de órganos y cambios fisiológicos durante un tratamiento. Concede +10 a Medicina para localizar y tratar daños internos; este beneficio ya está incluido cuando Maestría médica utiliza Medicina 75 y no se acumula una segunda vez. La precisión espacial de la lectura puede señalar dónde se encuentra una alteración sin identificar automáticamente su causa clínica cuando Alexander carece del conocimiento correspondiente.
+SATURACIÓN Y APLICACIÓN TÁCTICA: La habilidad nunca se apaga. En lugares densamente poblados o saturados de objetos, señales biológicas y estructuras superpuestas, la cantidad de información puede resultar desagradable y difícil de separar. La saturación no impone una penalización automática constante, pero distinguir detalles finos puede exigir concentración dirigida o prueba. Contra objetivos detectados, la percepción elimina la dependencia exclusiva de visión óptica para conocer su posición, pero no concede por sí sola línea de efecto, penetración de materia, alcance adicional ni capacidad de causar un efecto que otra habilidad no permita.
+VISIÓN DENTRO DEL UMBRAL: En el Umbral Negro la habilidad actúa como los ojos de Alexander. Le permite comprender el espacio inmediato, distinguir rutas, entidades, formas, movimientos, ausencias y zonas umbrales dentro del alcance que la dimensión permita representar. No revela automáticamente toda la dimensión ni elimina su geometría inestable. El Observador Profundo se percibe como una presencia o ausencia inmensa antes que como un cuerpo completamente visible.
+MAESTRÍA MÉDICA — RANGO I
+ID: SPECIAL.ALEXANDER.MEDICALMASTERY.R1 | PROFILE_STATUS: ACTUAL | PROFILE_SOURCE: CURRENT_CHARACTER_SHEET | MODE: MIXED | CURRENT_RANK: I | MAX_RANK: SIN LÍMITE FIJADO | NEXT_RANK: II | PH_COST: 2 | CHOSEN_OPTION: NINGUNA | EFFECT: definido en este perfil | LIMITS: definidos en este perfil | RISKS: complicaciones declaradas y consumo de recursos | STACK_RULE: RANKED_TO_LIMIT | DEPENDENT_FIELDS: Medicina asistida, acciones y recuperación | VISIBILITY: VISIBLE | Tipo: habilidad especial aprendida | Naturaleza: no psíquica | Moneda de progresión: PH | Medicina base: 65 | Medicina asistida por Visión de Oscuridad: 75 | Especialidades: diagnóstico, trauma, estabilización, cirugía humana y recuperación.
+PRINCIPIO OPERATIVO: Maestría médica no es una bonificación genérica. Reúne procedimientos concretos que Alexander puede ejecutar cuando exista una posibilidad médica real. Las lesiones evidentes y tareas rutinarias no requieren prueba; se tira únicamente ante incertidumbre, presión, oposición, recursos insuficientes o consecuencias relevantes.
+DIAGNÓSTICO CLÍNICO: Alexander reconoce automáticamente hemorragias externas, fracturas abiertas, quemaduras, asfixia visible, amputaciones, inconsciencia y muerte inequívoca. Usar Medicina 65 ante daño interno, síntomas contradictorios, toxinas, enfermedades, contaminación, implantes desconocidos, fisiología no humana o falta crítica de tiempo. Cuando Visión de oscuridad puede asistirlo, usar Medicina 75; este valor ya incorpora su beneficio y no recibe otro +10 adicional.
+LECTURA MÉDICA CONCENTRADA: ACTION_PROFILE_ID: ACTION.ALEXANDER.DARKVISION.FOCUS.R1 | Acción: PARCIAL | Coste: 1 PA | Repetible: no. Concentrar Visión de oscuridad sobre un paciente permite examinar sin abrir el cuerpo la circulación, fuerza respiratoria, localización aproximada de hemorragias, colapso pulmonar, fracturas internas, tejido muerto, funcionamiento general de órganos y cuerpos extraños de tamaño apreciable. Fuera de combate requiere desde varios segundos hasta un minuto. No identifica automáticamente la composición exacta de una toxina, una enfermedad desconocida ni tecnología incomprendida.
+TRIAJE: ACTION_PROFILE_ID: ACTION.ALEXANDER.TRIAGE.R1 | Acción: PARCIAL | Coste: 1 PA | Repetible: sí, sobre objetivos distintos. Clasifica al paciente como Estable, Urgente, Crítico, Terminal recuperable, Irrecuperable o Muerto. Determina riesgo de traslado, necesidad inmediata y recursos mínimos, pero no estabiliza. Mediante Visión de oscuridad puede clasificar superficialmente hasta tres organismos dentro de 5 metros con una sola acción.
+PRIMEROS AUXILIOS: ACTION_PROFILE_ID: ACTION.ALEXANDER.FIRSTAID.R1 | Acción en combate: COMPLETA | Coste: 2 PA | Repetible: no sobre la misma lesión. Alexander puede vendar, limpiar, inmovilizar, cerrar cortes tratables, controlar dolor, atender quemaduras menores y administrar medicamentos conocidos. Un éxito puede detener una hemorragia menor, evitar deterioro, retirar una condición temporal apropiada, reducir recuperación o restaurar Salud cuando las reglas generales de heridas lo permitan.
+ESTABILIZACIÓN DE EMERGENCIA: ID: SPECIAL.ALEXANDER.MEDICALMASTERY.STABILIZE.R1 | ACTION_PROFILE_ID: ACTION.ALEXANDER.STABILIZE.R1 | Acción: COMPLETA | Coste: 2 PA | Repetible: no sin cambio relevante | Umbral: Medicina 65, o Medicina 75 cuando Visión de Oscuridad pueda asistir | Requisito: acceso físico al paciente. Puede detener temporalmente hemorragia grave, shock, asfixia, colapso circulatorio, convulsiones, deterioro crítico o fallo progresivo de un órgano.
+ESTADO ESTABILIZADO: El paciente deja de empeorar por la condición tratada, pero no recupera automáticamente Salud, no pierde sus heridas críticas y todavía puede necesitar cirugía, medicamentos, transfusión o cuidados posteriores. Puede ser trasladado con precaución. Un fallo consume tiempo y puede consumir material; no causa daño adicional salvo que una complicación concreta haya sido declarada antes de la tirada.
+RECURSOS MÉDICOS: Aplicar una sola categoría por calidad principal del entorno: sin instrumental −20; material improvisado viable −10; botiquín básico sin modificador; equipo especializado +10; clínica o quirófano adecuado +20. Alexander puede compensar herramientas ausentes cuando exista una alternativa física, pero no crea sangre compatible, antídotos específicos, órganos, prótesis, anestesia, medicamentos o materiales indispensables.
+CARGAS MÉDICAS: 0/6 en el medikit personal. Primeros auxilios suelen consumir 0 o 1 carga; una estabilización grave consume 1; una cirugía consume entre 1 y 3 según complejidad. Sin cargas puede improvisar con los modificadores correspondientes si el procedimiento sigue siendo físicamente posible.
+CIRUGÍA HUMANA: Con Medicina 65 puede extraer proyectiles, cerrar vasos y perforaciones, drenar cavidades, retirar necrosis, amputar, tratar órganos, recolocar fracturas, instalar prótesis sencillas y retirar implantes accesibles. Visión de oscuridad puede elevar el umbral a 75 cuando su lectura interna resulte aplicable. No domina todavía cirugía Astartes, fisiología xenos compleja, arqueotecnología, neurocirugía extraordinaria, regeneración ni transformación biológica mayor.
+TIEMPOS QUIRÚRGICOS: Un procedimiento menor requiere aproximadamente 10–30 minutos; una cirugía ordinaria 1–3 horas; una cirugía compleja 4–12 horas; una operación extrema depende de la situación. Durante combate solo puede efectuar intervenciones de emergencia físicamente breves, como detener una hemorragia, abrir una vía respiratoria, retirar un objeto accesible o cerrar temporalmente una perforación.
+RESULTADOS: Un éxito normal logra el objetivo principal. Con MARGEN 20 o superior, el jugador puede elegir reducir tiempo, consumir una carga menos, evitar una secuela menor o mejorar la recuperación. Con MARGEN 40 o superior puede elegir dos beneficios o evitar una secuela importante cuando sea médicamente posible. Un fallo deja el procedimiento incompleto y consume tiempo; una complicación grave solo se aplica cuando fue declarada como riesgo antes de tirar.
+AÚN NO ESTÁ MUERTO: ID: SPECIAL.ALEXANDER.NOTDEADYET.R1 | REACTION_PROFILE_ID: REACTION.ALEXANDER.NOTDEADYET.R1 | TRIGGER: una criatura viva está a punto de morir y todavía existe posibilidad biológica real | WINDOW_END: antes de aplicar la muerte definitiva | CONTROL: JUGADOR | Activación: interrupción gratuita especial | Coste: 0 PA y no consume la reacción ordinaria | Frecuencia: una vez por SCENE_ID. El DM anuncia la oportunidad y Alexander decide si la utiliza. Si la activa, interrumpe provisionalmente la muerte hasta el final de su siguiente turno; debe alcanzar al paciente y completar una estabilización durante esa ventana.
+MUERTE INTERRUMPIDA: Durante la ventana el paciente no completa la muerte, pero conserva todas sus heridas, mutilaciones y condiciones. Con éxito queda Estabilizado y continúa necesitando tratamiento. Con fallo, la muerte prosigue al terminar la ventana. No funciona ante destrucción cerebral irreversible, desintegración, incineración total, separación prolongada de la cabeza, muerte espiritual, alma consumida o un cuerpo completamente incompatible con la vida.
+RECUPERACIÓN: Tras una intervención relevante deben registrarse duración estimada, cuidados necesarios, actividad permitida, medicación, secuelas y revisión requerida. Alexander puede mejorar la recuperación mediante tratamiento continuado, pero una persona recién estabilizada u operada no vuelve automáticamente a plena capacidad.
+LÍMITES RANGO I: No resucita, regenera miembros, crea recursos, elimina corrupción, expulsa posesiones, comprende automáticamente fisiología xenos ni evita toda secuela sin medios suficientes. Maestría Médica Umbral permanece bloqueada y no forma parte de estas capacidades actuales.
+PACTO OSCURO — RANGO I
+ID: SPECIAL.ALEXANDER.DARKPACT.R1 | PROFILE_STATUS: ACTUAL | PROFILE_SOURCE: CURRENT_CHARACTER_SHEET | MODE: MIXED | CURRENT_RANK: I | MAX_RANK: SIN LÍMITE FIJADO | NEXT_RANK: II | PH_COST: 2 | CHOSEN_OPTION: NINGUNA | EFFECT: definido en este perfil | LIMITS: términos y sellado definidos en este perfil | RISKS: reclamación, nulificación y exorcismo | STACK_RULE: RANKED_TO_LIMIT | DEPENDENT_FIELDS: pactos, etapas y Reserva Umbral | VISIBILITY: VISIBLE | Naturaleza: capacidad umbral propia de Alexander; no es un pacto previo con una entidad.
+PRINCIPIO: El poder convierte intercambios, peticiones, promesas y tratos aceptados por Alexander en acuerdos vinculantes ejecutados por el Umbral. El Umbral actúa como medio de registro, transferencia y reclamación; no como contraparte conocida.
+ACTIVACIÓN: TRIGGER = una persona formula una petición, oferta, promesa, condición o intercambio reconocible y Alexander lo acepta mediante palabras o conducta declarada por el jugador. RUTA = AUTOMÁTICA y aplicar STATE.DELTA.001; no requiere d100. El DM nunca decide que Alexander acepta.
+SELLADO EN COMBATE: ACTION_PROFILE_ID: ACTION.ALEXANDER.DARKPACT.SEAL.R1 | Tipo: LIBRE | Coste: 0 PA | Requisito: comunicación o mediador válido. Fuera de combate forma parte de la conversación y no consume una acción separada.
+CONOCIMIENTO: La contraparte no necesita saber que existe un Pacto Oscuro ni comprender sus consecuencias. Una aceptación o proposición mínima dentro de una conversación puede bastar. La ignorancia no invalida el vínculo.
+TÉRMINOS: Debe existir una petición, prestación, pago, promesa o condición identificable al sellarse. El pacto puede aprovechar ambigüedad, omisiones o una comprensión incompleta, pero no añade retroactivamente condiciones inexistentes.
+PACTO LIGERO O COMÚN: Basta aceptación verbal. Admite créditos, objetos corrientes, información, favores, servicios breves y promesas menores.
+PACTO MEDIO: Requiere apretón de manos, contacto acordado, gesto equivalente o un objeto mediador. Admite propiedades importantes, secretos graves, autoridad, protección, acceso y obligaciones prolongadas o peligrosas.
+PACTO MAYOR: Requiere sangre, firma, juramento formal o un objeto mediador reconocido durante el intercambio. Admite estadísticas, años de vida, sacrificios, identidades, herencias, títulos mayores, vidas y almas.
+OBJETO MEDIADOR: Un objeto aceptado durante el intercambio puede anclar cualquier categoría. Moneda, arma, contrato, reliquia, pertenencia, muestra de sangre u otro objeto reconocido cumple el requisito material del sellado.
+OBLIGACIÓN DESIGUAL: La contraparte queda sometida a lo aceptado. Alexander solo queda comprometido dentro de las condiciones que él haya establecido para sí mismo y no recibe castigo automático por incumplirlas. El Umbral puede manifestar tentaciones o señales externas, pero el DM no determina pensamientos, sentimientos ni decisiones de Alexander.
+MODIFICACIÓN: Un pacto sellado puede ampliarse, reducirse, aplazarse o sustituirse mediante otro intercambio casual de palabras. Registrar únicamente los términos vigentes; las cláusulas reemplazadas quedan anuladas.
+PERDÓN Y CANCELACIÓN: Alexander puede perdonar una deuda o cancelar el acuerdo unilateralmente. No requiere tirada. Detiene la persecución y elimina la obligación pendiente.
+REGISTRO MÍNIMO: Cada pacto recibe PACT_ID; CONTRAPARTE; TÉRMINOS_VIGENTES; PRESTACIÓN_DE_ALEXANDER; PAGO; CATEGORÍA; MEDIADOR; ESTADO; ETAPA_DE_RECLAMACIÓN; VISIBILIDAD y STATE_REVISION.
+ESTADOS: SELLADO | CUMPLIDO | MODIFICADO | INCUMPLIDO | SUPRIMIDO | RECLAMADO | PERDONADO | CANCELADO | SEVERADO. CUMPLIDO transfiere el pago; MODIFICADO conserva solo los términos actuales.
+INCUMPLIMIENTO: La condena avanza por oportunidades narrativas significativas de cumplir que expiran, son rechazadas o son traicionadas; nunca por cada turno ni por cada tirada. Una traición deliberada o un intento de destruir el vínculo puede acelerar una etapa si se declaró como consecuencia posible.
+ETAPA 1 — MARCA: Frío persistente, sombras deformadas y sensación de vigilancia. No impone penalización automática.
+ETAPA 2 — PERSECUCIÓN: La sombra se mueve incorrectamente, observa al deudor o reacciona antes que él. El sueño y el aislamiento se vuelven inseguros; cualquier penalización exige una situación concreta y un riesgo congelado.
+ETAPA 3 — ASEDIO: El frío invade lugares cerrados, las luces fallan y la sombra intenta separarse del cuerpo. El Umbral prepara una vía de reclamación.
+ETAPA 4 — RECLAMACIÓN: La sombra adquiere profundidad física, envuelve al deudor y lo arrastra corporalmente al Umbral. Cumplir, modificar, perdonar o cancelar antes de completarse la reclamación detiene el proceso.
+NULIFICACIÓN: Aplicar PSY.NULL.001 cuando una paria, campo nulo o tecnología anti-psíquica alcance el vínculo. Una supresión válida impide manifestaciones externas y reclamación física mientras permanezca estable, pero no cancela la deuda fijada al alma. ESTADO = SUPRIMIDO.
+EFECTOS BAJO NULIFICACIÓN: Persisten frío interior, sueños de persecución, sensación de vigilancia y deterioro interno. El vínculo de Alexander continúa amortiguado. La nulificación no cuenta como pago, cumplimiento, perdón ni desconexión.
+FLUCTUACIÓN NULA: Una caída real del campo, alejamiento de la paria, interrupción ritual o fallo técnico reactiva la etapa vigente. En ETAPA 4 puede producir reclamación inmediata o abrir una brecha usando el cuerpo y el alma del deudor como punto de entrada. No realizar comprobaciones constantes sin un activador causal.
+EXORCISMO: El pacto está inscrito sobre el alma y no es una posesión superficial. Un intento complejo activa PSY.RITUAL.001; una resistencia o disipación válida usa PSY.OPPOSE.001. Antes del dado deben congelarse posibilidad de supresión, desconexión, daño del alma, purga del alma y apertura de brecha.
+RESULTADOS DEL EXORCISMO: Fallo conserva el vínculo y puede acelerar la persecución; supresión parcial amortigua manifestaciones y puede lesionar el alma; desconexión rompe el vínculo con secuelas posibles; purga destructiva elimina el pacto porque también destruye el alma; fracaso catastrófico puede abrir una brecha y reclamar al afectado.
+ALARMA DE DESCONEXIÓN: Alexander percibe desde cualquier distancia todo intento serio de exorcizar, cortar o destruir uno de sus pactos. Percibe que el vínculo es atacado, debilitado o roto; el DM no lo obliga a reaccionar.
+DEUDOR RECLAMADO: Permanece físicamente en el Umbral, sometido a sus condiciones y recuperable mientras conserve una existencia identificable. No muere automáticamente; su estado se rige además por DIMENSIÓN UMBRAL Y PRESENCIA OBSERVADORA.
+EXCLUSIVIDAD: El vínculo impide que un deudor reclamado establezca pactos sobrenaturales equivalentes con otro ser. Puede ser liberado, recuperado, interrogado, transferido o extraído como recurso únicamente por decisión de Alexander.
+LOCALIZACIÓN: Dentro de oscuridad válida, Alexander percibe una orientación hacia cada deudor reclamado. La señal guía a través de la geometría del Umbral, pero no revela distancia exacta ni garantiza una ruta segura.
+CANCELACIÓN TRAS RECLAMACIÓN: Rompe la propiedad del vínculo, pero no expulsa automáticamente al cautivo del Umbral. Alexander puede abrir una recuperación, liberarlo personalmente o abandonarlo sin vínculo.
+PAGOS FÍSICOS Y SOCIALES: Créditos, objetos, propiedades, servicios, información, favores, lugares, títulos y derechos usan inventario, economía, reputación, dominios o registros normales. Pacto Oscuro no añade una conversión especial.
+RESERVA DE LA SOMBRA: Estadísticas, años de vida y almas cobrados se conservan en la sombra personal de Alexander. Formato: RESERVA_UMBRAL = STAT[ID:cantidad]; LIFE_YEARS[cantidad]; SOULS[SOUL_ID y rasgos]; CLAIMED_DEBTORS[CHARACTER_ID]. Nada se aplica ni consume automáticamente.
+TRANSFERENCIA ABSTRACTA: Alexander declara recurso, cantidad y receptor. Sin oposición ni interferencia, RUTA = AUTOMÁTICA y STATE.DELTA.001. Bajo oposición o nulificación usar la ruta universal correspondiente. En combate, transferir a otro receptor es ACCIÓN_COMPLETA de 2 PA; aplicarse a sí mismo es ACCIÓN_PARCIAL de 1 PA.
+ESTADÍSTICAS: Fuerza, Agilidad, Inteligencia, Voluntad, Percepción u otra estadística se almacena en puntos exactos. El pagador pierde la cantidad entregada; la Reserva conserva la misma cantidad; el receptor obtiene exactamente los puntos gastados. Se permite transferencia parcial. Una estadística no se convierte en otra sin un ritual específico.
+EFECTO DE ESTADÍSTICAS: La transferencia es permanente hasta una nueva transferencia. No gasta PM porque conserva puntos existentes y no ejecuta ADVANCE.IMPROVE.001. Recalcular campos dependientes. Si una estadística cae a 0, aplicar la incapacidad, colapso, estado vegetativo o muerte causalmente correspondiente.
+AÑOS DE VIDA: Cada unidad equivale a un año de longevidad restante. El pagador pierde los años entregados y el receptor obtiene la misma cantidad. Pueden almacenarse, dividirse y transferirse sin PM ni PH. Llegar a 0 años restantes causa la muerte. Añadir años no cura heridas, enfermedades, corrupción ni mutilaciones; un rejuvenecimiento visible exige ritual específico.
+ALMAS: Cada alma completa recibe SOUL_ID y conserva rasgos relevantes de su antiguo propietario, como capacidad psíquica, conocimiento, corrupción, fe, odio, juramentos o vínculos daemónicos. Permanece almacenada hasta ser utilizada, transferida o liberada.
+ESCALA ÁLMICA: 1 alma permite un efecto menor o limitado; 3 almas, un efecto considerable; 5 almas, un efecto mayor; 10 o más, un efecto extremo, permanente o capaz de alterar una zona de la realidad. Una cualidad excepcional solo modifica el requisito cuando el perfil concreto lo declare.
+USOS ÁLMICOS: Potenciar habilidades; desbloquear capacidades; realizar rituales de potenciación, transformación o esclavización; crear ataduras daemónicas; abrir brechas hacia el Umbral o la Disformidad; crear o alimentar armas, artefactos y construcciones sobrenaturales; sustituir sacrificios; fortalecer sombras, pactos o maldiciones.
+POTENCIACIÓN TEMPORAL: El efecto, alcance, duración, coste y riesgo se definen antes del consumo. Si falta perfil exacto, usar ADVANCE.DEFINE.001 y mostrar LISTO PARA DEFINIR; no gastar almas. Una vez convertido en perfil ACTUAL, Alexander declara el gasto y las almas se consumen definitivamente.
+ADQUISICIÓN PERMANENTE CON ALMAS: Una habilidad o mejora puede declarar COSTE_ÁLMICO_EN_LUGAR_DE_PH. Esta excepción específica exige rango siguiente válido, perfil exacto ACTUAL, elección del jugador y gasto íntegro de almas; no exige puertas narrativas ni gasta PH cuando el perfil usa expresamente esa alternativa. Sin esa cláusula se aplica la progresión universal normal.
+CONSERVACIÓN: Pacto Oscuro no crea estadísticas, años ni almas. Todo recurso debe haber sido entregado por un pacto válido, descontarse del propietario, registrarse en la Reserva y descontarse nuevamente cuando Alexander lo utiliza.
+AGENCIA: El DM registra sellados automáticos después de una aceptación declarada, aplica consecuencias y presenta definiciones pendientes. Nunca acepta, modifica, perdona, cancela, transfiere, libera, sacrifica o consume recursos por Alexander.
+EJEMPLO CONFIRMADO — MARA: «Cúrelo y no dejen que se lo lleven» formuló una prestación reconocible; Alexander aceptó y aquel pacto ligero se cumplió en créditos. Es un acuerdo anterior y distinto del pacto mayor vigente por la vida preservada de Sael, cuyo pago es el servicio personal de Mara durante una vida completa.
+RESERVA UMBRAL ACTUAL: STAT = vacía | LIFE_YEARS = 0 | SOULS = 6 almas completas: SOUL.DERVAN.KOL.001 — Dervan Kol; SOUL.BRANN.VESK.001 — Brann Vesk; SOUL_ID NO ASIGNADO — Pell E-12; SOUL_ID NO ASIGNADO — miembro amarillo capturado; SOUL_ID NO ASIGNADO — corredor clandestino; SOUL_ID NO ASIGNADO — hombre del abrigo. No inventar identificadores ausentes ni sumar otra vez estas adquisiciones.
+AGARRE UMBRAL — RANGO II
+ID: SPECIAL.ALEXANDER.UMBRALGRIP.R2 | PROFILE_STATUS: ACTUAL | MODE: ACTIVE | ACTION_PROFILE_ID: ACTION.ALEXANDER.UMBRALGRIP.R2 | Acción: PARCIAL | Coste: 1 PA | REPETIBLE: SÍ | Factor Psíquico: 1.
+LOCALIZACIÓN Y OBJETIVO: alcance 30 metros. Alexander puede designar materia, objetos o componentes no vivos cuando pueda determinar suficientemente su existencia y posición por al menos una vía válida: percepción pasiva que realmente detecte ese elemento, visión directa o conocimiento suficiente de dónde está. La línea de visión ordinaria y el acceso manual no son requisitos por sí mismos. Agarre Umbral no amplía lo que una percepción puede detectar: si una capacidad no revela el objeto, esa capacidad no cuenta como localización. Se conservan los límites vigentes de tamaño y carga: el objetivo debe poder manipularse razonablemente con una o dos manos salvo mejora posterior.
+ACCESO A CONTENIDOS Y RECIPIENTES: una caja, bolsa, bolsillo, funda, cargador, depósito, carcasa, compartimento o cubierta física ordinaria no impide seleccionar su contenido si Alexander puede sentirlo por una percepción válida, verlo o sabe suficientemente dónde está. Puede tomar munición desde un cargador, monedas desde un recipiente, cables desde una instalación, agua desde un contenedor y otros contenidos no vivos compatibles. La oscuridad del objeto no es un requisito adicional de selección cuando su posición ya está establecida por una de estas vías.
+EXTRACCIÓN Y ROBO: la extracción es automática cuando el objetivo no vivo está libre, dentro de alcance, localizado, sin oposición y sin una barrera especializada capaz de bloquear interacción umbral. Puede aparecer en una mano libre, espacio adyacente o Sombra infinita si Alexander declara ese destino. Un objeto portado, guardado o perteneciente a otra entidad puede ser tomado o robado; si está sujeto, asegurado, activamente usado o disputado, resolver la oposición correspondiente.
+MANIPULACIÓN PROLONGADA: Agarre Umbral no está limitado a una maniobra breve sobre materia no viva. Alexander puede sostener la interacción mientras permanezcan válidos alcance, localización y posibilidad física: levantar, mantener suspendido, arrastrar, empujar, desplazar, girar, abrir, cerrar, dejar caer, activar, reposicionar, accionar, usar como herramienta o emplear como arma un objeto válido. Las maniobras que impliquen incertidumbre, oposición, fijaciones o efectos adicionales usan la resolución universal aplicable; la duración prolongada por sí sola no vuelve vivo al objetivo ni invalida la capacidad.
+LÍMITE ORGÁNICO: Agarre Umbral todavía no permite agarrar, levantar, arrastrar, sujetar, transportar, inmovilizar o manipular directamente tejido vivo o el cuerpo orgánico de una entidad como si fuese un objeto. Esta prohibición es de manipulación directa sobre materia viva; no prohíbe atacar a un ser vivo mediante una manifestación ofensiva umbral ni afecta a componentes artificiales no vivos integrados en él.
+PRÓTESIS, IMPLANTES Y AUMENTOS: una prótesis, implante, cable, actuador, placa, arma integrada, mecanismo o componente artificial no vivo situado dentro o sobre una entidad viva es un objetivo válido si Alexander puede localizarlo. Puede intentar moverlo, accionarlo, bloquearlo, tirar de él, controlarlo, extraerlo o manipularlo según lo permita físicamente el componente. Cuando está integrado en una entidad activa, usado por ella o su alteración afecta su control corporal, la entidad dispone de RESISTENCIA y la acción no se resuelve como objeto pasivo ni concede extracción automática.
+MECHANICUS, SERVIDORES, MÁQUINAS Y EQUIVALENTES: los componentes mecánicos de un integrante del Adeptus Mechanicus, de un servidor, constructo, máquina, cíborg u otra entidad artificial o parcialmente artificial son objetivos válidos de Agarre Umbral. Una entidad funcional capaz de conservar control, fuerza, integridad o respuesta propia dispone de RESISTENCIA cuando Alexander intenta mover, arrancar, bloquear, desactivar o controlar sus componentes. La materia mecánica integrada no se convierte en tejido vivo por estar dentro de un organismo.
+OPOSICIÓN Y RESISTENCIA: si el objeto o componente está sujeto, usado, fijado, integrado, disputado o pertenece funcionalmente a una entidad capaz de resistir, usar la resolución universal correspondiente. Alexander recibe +20 solo en conflictos de extracción, movimiento o control mediante Agarre Umbral. La característica o defensa exacta usada por la resistencia procede del perfil de la entidad y de la mecánica universal aplicable; no se inventa una resistencia fija por esta habilidad.
+GOLPE UMBRAL: un ataque no requiere un objeto externo. La sombra puede materializar manos, puños, garras, cuchillas, filos, espinas u otras estructuras umbrales ofensivas que golpean al objetivo designado. Una manifestación umbral propia o un objeto ordinario menor inflige 3 de daño fijo si impacta. Alexander puede optar por usar un objeto del entorno o de su inventario, pero es opcional. Un arma con perfil propio usa ese perfil cuando corresponda; no se suman ambos daños.
+OBJETIVOS VIVOS EN ATAQUE: un ser vivo puede ser objetivo de Golpe Umbral aunque no pueda ser manipulado directamente. La restricción de materia viva nunca debe interpretarse como requisito de usar un objeto inanimado para atacar. El ataque mediante garras, manos, cuchillas u otras manifestaciones propias de sombra es válido por sí mismo.
+ECONOMÍA DE ACCIÓN, ATAQUES Y ARMAS EN COMBATE: Agarre Umbral puede utilizarse para atacar más de una vez durante el mismo turno; su acción de ataque es REPETIBLE mientras Alexander disponga de PA y cada ataque sea válido. Tomar, extraer, desenfundar, levantar, desplazar, orientar o reposicionar un arma mediante Agarre Umbral no consume por sí solo un PA separado. Cuando Alexander usa la capacidad para tomar o mover un arma, apuntarla y dispararla, el conjunto completo se considera una sola acción de ataque y consume 1 PA; no se cobra otro PA por la manipulación previa del arma. Agarre Umbral no establece un límite propio de disparos dentro de esa acción: Alexander puede efectuar un solo disparo o varios. Si el arma utilizada posee perfil, munición, modo de fuego, cadencia o límite de disparos propios, esos límites continúan aplicándose; si ni la habilidad ni el perfil aplicable establecen un límite, el DM no inventa uno. La manipulación de un arma disputada, integrada, asegurada o controlada por otra entidad puede requerir la oposición o resistencia correspondiente, pero no adquiere un coste de PA adicional únicamente por ser manipulada mediante Agarre Umbral.
+RALENTIZADO Y CONGELADO: cada impacto válido aplica una acumulación de −10 durante 3 turnos a movimiento, reacción o defensa de la zona. La tercera acumulación deja la zona CONGELADA con −30 hasta fin de combate o QUEBRADO.
+QUEBRADO: el cuarto impacto deliberado sobre la misma zona ya CONGELADA multiplica ×2 el daño directo ordinario del golpe, termina CONGELADO y reinicia el recuento. No duplica veneno, hemorragia ni efectos persistentes salvo regla expresa.
+BARRERAS Y LÍMITES: no manipula directamente tejido vivo ni usa la capacidad para introducir objetos dentro de un organismo vivo salvo mejora expresa. Las cubiertas y contenedores físicos ordinarios no bloquean por sí solos la extracción de un objetivo localizado. Campos nulos, sellos umbrales, defensas específicamente anti-psíquicas/anti-umbrales u otras barreras cuyo perfil declare que impiden esta interacción pueden bloquearla. Requiere que el destino de extracción posea espacio suficiente.
+SOMBRA INFINITA — RANGO I
+ID: SOULUSE.ALEXANDER.INFINITE_SHADOW.R1 | PROFILE_STATUS: ACTUAL | MODE: ACTIVE_DOMAIN | CONTROL: JUGADOR.
+ALMACENAMIENTO: dominio umbral personal de capacidad práctica ilimitada para objetos sueltos y compartimentos. Los objetos entran por contacto o por Agarre umbral. No almacena estructuras adheridas ni crea propiedad sobre lo guardado.
+INGRESO DE SERES: voluntarios, inconscientes o inmovilizados pueden entrar. Un ser consciente que resiste exige la resolución de dominación correspondiente. El ingreso no crea pacto, lealtad, obediencia ni consentimiento futuro.
+SUSPENSIÓN: los seres no envejecen ni necesitan aire, comida o agua. Heridas, enfermedad, veneno, fatiga y otros procesos quedan suspendidos, no curados. No existe recuperación automática.
+JURISDICCIÓN Y ACCESO: Alexander conoce contenido, posición relativa y estado general; puede aislar compartimentos, crear suelo y rutas, limitar accesos, orientar extracciones y mantener una abertura autorizada. Nadie escapa por sí mismo.
+EXTRACCIÓN: un objeto pequeño puede extraerse como desenfundar; un objeto grande o un ser requiere la acción apropiada. Alexander fija ubicación y orientación de salida dentro de una abertura válida.
+AUTODEPÓSITO: Alexander puede entrar mediante Paso sombrío por 1 PA o acción equivalente, desapareciendo del Materium. Puede ejecutar autocirugía controlada mediante liberación fisiológica selectiva de procesos.
+CONTROL DE PROCESOS: dentro de Sombra infinita Alexander puede operar manteniendo suspendida la fisiología general y reactivar selectivamente perfusión, circulación local, nervios, músculo, movilidad o una interfaz/prótesis. Mientras el proceso correspondiente siga suspendido no progresan hemorragia, hipoxia, infección, shock, necrosis ni muerte; esto no crea tejido, sangre, órganos, medicinas, conocimiento anatómico, instrumental ni éxito técnico, y las pruebas siguen aplicando cuando exista incertidumbre o riesgo.
+MUERTE SUSPENDIDA: la muerte no completa mientras el estado fatal permanezca suspendido. Al extraer un cuerpo incompatible con la vida, la progresión mortal se reactiva salvo reparación suficiente.
+TIEMPO: el Umbral no posee una medida interna ordinaria. Cerca de un ancla material puede conservar secuencia causal estable; las regiones profundas pueden divergir. No convertirlo en horas locales automáticas.
+INTERACCIONES: Agarre umbral puede extraer y almacenar en una misma resolución; Paso sombrío conserva ARRASTRE UMBRAL; Aún no está muerto puede crear la ventana para introducir vivo a un paciente antes de la muerte definitiva.
+LÍMITES: no captura almas por sí solo, no resucita, no cura, no obliga a entrar a un resistente sin resolución, no concede exploración material omnisciente y no permite al DM decidir usos, liberaciones, sacrificios o accesos por Alexander.
+DIMENSIÓN UMBRAL Y PRESENCIA OBSERVADORA
+NOMBRE PROVISIONAL: El Umbral Negro; Alexander puede referirse a él como la Penumbra Profunda o la Oscuridad Entre Lugares.
+NATURALEZA: Región liminal real vinculada con la Disformidad y conectada con las sombras del espacio material. Paso sombrío no elimina a Alexander y lo reconstruye en otro punto: lo hace atravesar físicamente esta dimensión durante una fracción de tiempo.
+GEOMETRÍA: Las distancias no son constantes. Sombras cercanas pueden estar separadas y lugares distantes pueden aproximarse. Las sombras profundas, antiguas o asociadas con muerte, aislamiento y miedo generan accesos más estables.
+HABITANTES: Existen ecos residuales, carroñeros umbrales, formas imitadoras y entidades profundas. Alexander todavía no puede clasificarlos ni comunicarse de forma segura con ellos.
+ENTIDAD MAYOR: Una presencia provisionalmente denominada El Observador Profundo detectó a Alexander durante su primera inmersión. Las criaturas menores huyeron o guardaron silencio ante su llegada. No atacó a Alexander y pudo haber mantenido abierta la ruta de salida.
+ESTADO DE CONOCIMIENTO: Alexander no conoce el nombre, naturaleza, intención ni alcance de la entidad. Ignora si lo considera una presa, una herramienta, una curiosidad o una posible puerta hacia la realidad.
+EFECTO ACTUAL: La presencia puede manifestarse mediante silencio anormal, sombras orientadas hacia un mismo punto, rutas que parecen acortarse, movimientos demasiado grandes para ser comprendidos o la retirada súbita de otras criaturas. Estas señales no imponen por sí solas un coste mecánico ni convierten cada uso de Paso sombrío en un encuentro.
+ESTADO — ATRAPADO EN EL UMBRAL: Una criatura arrastrada permanece físicamente dentro del Umbral, no comparte la salida de Alexander y no puede regresar al espacio material por movimiento convencional. Puede caminar, ocultarse, negociar, ser perseguida o quedar incapacitada según su estado.
+BIOLOGÍA RALENTIZADA: Hambre, sed, envejecimiento, enfermedad, toxinas, fatiga y demás procesos corporales avanzan con extrema lentitud. El frío es intenso, doloroso y debilitante, pero no mortal.
+MUERTE SUSPENDIDA: El Umbral permite sentir, pero no permite completar la muerte. Una criatura puede ser herida, mutilada, quedar inconsciente, entrar en coma o resultar físicamente inviable, pero permanece suspendida. No se regenera ni recupera automáticamente. Al regresar al espacio material, toda lesión mortal vuelve a progresar y puede exigir estabilización inmediata.
+HABITANTES Y SUFRIMIENTO: La presencia de una criatura atrapada puede atraer seres que se alimentan de miedo, dolor, hambre, recuerdos o desesperación. También pueden perseguirla, imitar voces, ofrecer rutas falsas, negociar o protegerla por motivos propios. Ningún encuentro ocurre automáticamente por el mero hecho de estar atrapado.
+APERTURA DE RECUPERACIÓN: Alexander puede abrir una ruta clara desde una sombra material válida. Dentro del Umbral aparece como luz, calor tenue y sonidos del exterior. La criatura atrapada puede intentar alcanzarla y atravesarla; Alexander puede cerrarla después del paso para impedir que otras presencias la sigan.
+BÚSQUEDA DIRIGIDA: Alexander puede entrar y permanecer temporalmente en el Umbral para buscar a una criatura concreta, seguir su rastro, comunicarse, guiarla o abrir una salida junto a ella. Esta excepción no concede exploración libre ni permanencia indefinida. La búsqueda solo requiere prueba cuando el rastro esté degradado, la geometría sea incierta, una entidad lo oculte o existan imitadores.
+RECUPERACIÓN POSIBLE: Es más sencillo encontrar a alguien arrastrado personalmente por Alexander, conocido por él, localizado poco tiempo atrás o vinculado mediante sangre, ropa u objeto personal. La criatura conserva su voluntad y puede negarse a salir. Una apertura no mata ni obliga automáticamente a atravesarla.
+ACLARACIÓN TEMPORAL VIGENTE: Las expresiones «fracción de tiempo», «Biología ralentizada», «poco tiempo atrás» y «tiempo subjetivo» conservadas en descripciones anteriores son lenguaje de referencia desde el Materium o de secuencia causal percibida. No establecen duración, flujo ni medida temporal dentro del Umbral. Las pruebas de un minuto y una hora registran tiempo y estabilidad observados en el Materium/ancla material.
+RAMA FUTURA — MAESTRÍA MÉDICA UMBRAL
+ESTADO: BLOQUEADA; NO ADQUIRIDA.
+ID DE RAMA: TALENT.ALEXANDER.UMBRA_MEDICINE
+PRINCIPIO: Alexander aprenderá a combinar Maestría médica, Visión de oscuridad y control umbral para emplear sombras como material quirúrgico sobrenatural. La rama amplía su medicina; no sustituye el diagnóstico, los conocimientos anatómicos ni la necesidad de que exista una posibilidad física de supervivencia.
+DESBLOQUEO PREVISTO: Requiere desarrollo narrativo de su relación con el Umbral, Maestría médica al menos en Rango II y control suficiente de Paso sombrío. El desbloqueo deberá registrarse como acontecimiento confirmado y no se obtiene automáticamente por alcanzar una cifra de experiencia.
+SUTURA UMBRAL: Filamentos de sombra aproximan y mantienen unidos los bordes de una herida, cierran desgarros y detienen hemorragias. En uso controlado, la sutura permanece sin concentración mientras el tejido se estabiliza o hasta que Alexander la retire.
+COMPRESIÓN UMBRAL: La sombra puede actuar como pinza, torniquete o soporte interno temporal para un vaso, órgano o cavidad lesionada.
+INSTRUMENTAL UMBRAL: Puede formar agujas, hilos, pinzas, separadores y soportes quirúrgicos básicos cuando carece de instrumental convencional. No reemplaza sangre, anestesia, medicamentos, órganos, prótesis ni materiales absolutamente indispensables.
+CIERRE DE EMERGENCIA: Permite estabilizar rápidamente una herida abierta o impedir que una lesión tratable empeore mientras el paciente es trasladado. El tratamiento definitivo sigue siendo necesario cuando la lesión lo exija.
+COSTE NORMAL: El uso controlado no causa automáticamente Fatiga, Trauma, Corrupción ni fenómenos psíquicos. Requiere la acción y prueba médica correspondiente. Solo aplica riesgo psíquico adicional cuando Alexander fuerza la técnica, trabaja bajo interferencia disforme intensa, intenta superar un límite biológico o una regla específica declara ese riesgo antes de la tirada.
+LÍMITES: No resucita muertos, regenera miembros, reemplaza órganos destruidos, crea sangre o medicamentos, elimina corrupción, expulsa posesiones ni vuelve viable un cuerpo incompatible con la vida.
+PROGRESIÓN POSIBLE: Rangos posteriores podrán permitir suturas más duraderas, tratamiento simultáneo de varias lesiones, manipulación interna más precisa, cierre a distancia corta y soporte temporal de órganos gravemente dañados.
+EQUIPO E INVENTARIO CONSOLIDADO
+INVENTORY_RECONCILIATION_ID: INV.ALEXANDER.UMBRAL.POST-T915.R1
+ESTADO DE AUDITORÍA: COMPLETADA. Syra verificó y separó todos los contenidos conocidos. Los estados de ubicación válidos son EQUIPADO_ALEXANDER, DESPLEGADO_RHO9, ALMACENADO_SOMBRA, CUSTODIA_BIOLÓGICA y RESERVA_UMBRAL.
+REGLA DE PROPIEDAD: todo objeto almacenado en Sombra infinita forma parte del inventario de Alexander. El equipo desplegado en Rho-9 sigue siendo propiedad/inventario de Alexander aunque no se encuentre físicamente dentro de Sombra infinita. Ningún paciente, colaborador o administrador adquiere propiedad por usarlo o custodiarlo.
+UNIDADES: DOSIS = una administración adulta; UNIDAD IV = una bolsa o volumen de infusión; KIT = paquete completo para un procedimiento; LOTE = conjunto sellado y etiquetado; CARGA = un uso mecánico del medikit. Las cantidades se sustituyen al consumir, transferir, destruir o recuperar material.
+ARMAS — EQUIPADO_ALEXANDER
+WPNINST.ALEXANDER.MKIV.001 | Autopistola Mk IV | PROFILE_ID WPN.ALEXANDER.AUTOPISTOL.MKIV.T773 | 3/18 | reserva compatible 22 | OPERATIVA.
+WPNINST.ALEXANDER.CAPTURE.001 | Carabina de captura | PROFILE_ID WPN.ALEXANDER.CAPTURE_CARBINE.T773 | 24/24 | sin reserva confirmada | OPERATIVA.
+WPNINST.ALEXANDER.DAGGER.001 | Daga | PROFILE_ID WPN.ALEXANDER.POISON_DAGGER.T773 | 1 aplicación TOXIC(1) | OPERATIVA.
+WPNINST.ALEXANDER.SERVICE.001 | Pistola sólida de servicio | PROFILE_ID WPN.ALEXANDER.SOLID_PISTOL_12.T773 | 8/12 | sin reserva confirmada | OPERATIVA.
+ARMAS — ALMACENADO_SOMBRA
+WPNINST.ALEXANDER.GUILD-PISTOL.001 | Pistola gremial | PROFILE_ID WPN.ALEXANDER.SOLID_PISTOL_12.T773 | 9/12 | OPERATIVA.
+WPNINST.ALEXANDER.GUILD-CARBINE.001 | Carabina gremial | PROFILE_ID WPN.ALEXANDER.GUILD_CARBINE_24.T773 | 16/24 | OPERATIVA.
+WPNINST.ALEXANDER.AUTOPISTOL.002 | Pistola automática capturada | PROFILE_ID WPN.ALEXANDER.AUTOPISTOL_12.T773 | 0/12 | cargador separado 11/12 | OPERATIVA, DESCARGADA.
+WPNINST.ALEXANDER.ENEMY-CARBINE.001 | Carabina enemiga | PROFILE_ID WPN.ALEXANDER.GENERIC_CARBINE_24.T773 | 23/24 | OPERATIVA.
+WPNINST.ALEXANDER.CARBINE.002 | Carabina sólida adicional | PROFILE_ID WPN.ALEXANDER.GENERIC_CARBINE_24.T773 | 24/24 | OPERATIVA.
+WPNINST.ALEXANDER.COMPACT.001 | Pistola compacta del hombre del abrigo | PROFILE_ID WPN.ALEXANDER.COMPACT_PISTOL_10.T773 | 9/10 | OPERATIVA.
+WPNINST.ALEXANDER.SHOTGUN.001 | Escopeta | PROFILE_ID WPN.ALEXANDER.SHOTGUN_6.T773 | 4/6 | OPERATIVA.
+WPNINST.ALEXANDER.BROKER-PISTOL.001 | Pistola automática compacta del corredor clandestino | PROFILE_ID WPN.ALEXANDER.BROKER_COMPACT_AUTOPISTOL.R1 | 6/10 | OPERATIVA.
+WPNINST.ALEXANDER.PELL-E12.001 | Pistola sólida de servicio E-12 recuperada de Pell | PROFILE_ID WPN.ALEXANDER.PELL_E12_SOLID_PISTOL.R1 | 5/12 | OPERATIVA.
+WPNINST.ALEXANDER.INDUSTRIAL-KNIFE.001 | Cuchillo industrial | PROFILE_ID WPN.KNIFE.COMBAT | OPERATIVO.
+WPNINST.ALEXANDER.CUTTING-TOOL.001 | Herramienta de corte improvisada | PROFILE_ID WPN.ALEXANDER.CUTTING_TOOL.T773 | OPERATIVA.
+WPNINST.ALEXANDER.UTILITY-KNIFE.001 | Cuchillo utilitario del nodo | PROFILE_ID WPN.ALEXANDER.UTILITY_KNIFE.R1 | OPERATIVO.
+LOOT.D04.DEPOT.PISTOLS | 4 pistolas recuperadas del depósito nocturno | ALMACENADO_SOMBRA | PERFIL NO RECONCILIADO; NO ACTIVE.
+LOOT.D04.DEPOT.LONGARMS | 5 armas largas recuperadas del depósito nocturno | ALMACENADO_SOMBRA | PERFIL NO RECONCILIADO; NO ACTIVE.
+LOOT.D04.CAPTIVE02.SMALL-PISTOL | 1 pistola pequeña recuperada del segundo cautivo nocturno | ALMACENADO_SOMBRA | PERFIL NO RECONCILIADO; NO ACTIVE.
+MUNICIÓN Y CARGADORES — INVENTARIO VERIFICADO
+AMMO.ALEXANDER.MKIV.RESERVE | 22 proyectiles sólidos compatibles con la Autopistola Mk IV | ALMACENADO_SOMBRA.
+MAG.ALEXANDER.AUTOPISTOL12.001 | cargador 11/12 para WPNINST.ALEXANDER.AUTOPISTOL.002 | ALMACENADO_SOMBRA.
+AMMO.ALEXANDER.UNKNOWN-SOLID.001 | 4 cartuchos sólidos sueltos | calibre/compatibilidad NO IDENTIFICADOS | contenedor sellado, no cargar por inferencia.
+MUNICIÓN SUELTA PREVIA FUERA DE CARGADORES: 0 confirmada antes de la incursión nocturna. El siguiente lote se registra por hechos confirmados de la incursión y permanece separado de clasificaciones provisionales no ACTIVE.
+AMMO.D04.DEPOT.SERVICE-PISTOL | 96 cartuchos sólidos de pistola confirmados compatibles con patrón de servicio de 12 | ALMACENADO_SOMBRA.
+AMMO.D04.DEPOT.CARBINE24 | 120 cartuchos sólidos de carabina confirmados compatibles con patrón genérico de 24 | ALMACENADO_SOMBRA.
+MAG.D04.DEPOT.INITIAL-LOT | 12 cargadores del lote inicial | ALMACENADO_SOMBRA | distribución exacta por arma/calibre NO RECONCILIADA; no asignar por inferencia.
+AMMO.D04.DEPOT.HEAVY-BOX | 1 caja de munición pesada | ALMACENADO_SOMBRA | contenido/perfil exacto NO RECONCILIADO; NO ACTIVE.
+AMMO.D04.DEPOT.SPECIAL-CYLINDER | 1 lote cilíndrico especial | ALMACENADO_SOMBRA | naturaleza/perfil exacto NO RECONCILIADO; NO ACTIVE.
+AMMO.D04.DEPOT.ADDITIONAL | munición adicional de pistola, arma larga y escopeta; cargadores adicionales llenos y vacíos; contenido completo de una caja reforzada | ALMACENADO_SOMBRA | cantidades y perfiles exactos pendientes de reconciliación ACTIVE. No convertir clasificaciones provisionales en canon.
+ARMADURA Y VESTIMENTA
+ARM.ALEXANDER.TRENCHCOAT.001 | Gabardina reforzada | PROFILE_ID ARM.ALEXANDER.TRENCHCOAT.R1 | EQUIPADO_ALEXANDER | perforada y desgarrada en torso; protección local reducida.
+PROTECCIÓN ADICIONAL ALMACENADA: 0 armaduras completas verificadas. Ropa de donantes y cautivos está embalada como material común, no como armadura.
+EQUIPO MEDICAE AVANZADO — DESPLEGADO_RHO9
+MED.DEVICE.DIAGNOSTOR.001 | Diagnostor medicae de espectro completo | 1 | Q-01 | OPERATIVO con energía; +15 a diagnóstico médico dirigido, incluido en el límite ambiental máximo y no acumulable consigo mismo.
+MED.DEVICE.SURGICAL-COGITATOR.001 | Cogitador quirúrgico con atlas anatómico y planificación | 1 | Q-01 | OPERATIVO; habilita planificación compleja y evita penalización por falta de referencias cuando la anatomía está en su biblioteca.
+MED.DEVICE.ANATOMICAL-SCANNER.001 | Escáner anatómico/vascular de carro | 1 | Q-01 | OPERATIVO a carga reducida; permite cartografía interna y seguimiento vascular sin abrir al paciente.
+MED.DEVICE.VITAL-MONITOR.RHO9 | monitores multiseñal | 2 | Q-01/C-01 | OPERATIVOS.
+MED.DEVICE.VENTILATOR.RHO9 | respirador asistido | 1 | Q-01/C-01 | OPERATIVO; depende de energía y filtros.
+MED.DEVICE.DEFIBRILLATOR.001 | desfibrilador/estimulador cardíaco | 1 | Q-01 | OPERATIVO; 12 ciclos antes de requerir recarga de celda.
+MED.DEVICE.INFUSION-PUMP.RHO9 | bombas de infusión regulada | 2 | Q-01/C-01 | OPERATIVAS.
+MED.DEVICE.SUCTION.RHO9 | aspirador quirúrgico | 1 | Q-01 | OPERATIVO a carga reducida.
+MED.DEVICE.CAUTERY.RHO9 | electrocauterio quirúrgico | 1 | Q-01 | OPERATIVO.
+MED.DEVICE.SURGICAL-LAMP.RHO9 | lámparas quirúrgicas articuladas | 2 | Q-01 | OPERATIVAS.
+MED.DEVICE.AUTOCLAVE.RHO9 | autoclave/esterilizador de cámara | 1 | E-01 | OPERATIVO de forma parcial; la red de agua y el circuito limpio/sucio todavía impiden certificar esterilización completa.
+MED.DEVICE.COLD-CABINET.RHO9 | armario farmacológico refrigerado | 1 | F-02 | OPERATIVO bajo vigilancia.
+EQUIPO MEDICAE AVANZADO — ALMACENADO_SOMBRA
+MED.DEVICE.BIO-AUSPEX.PORTABLE | bio-auspex/escáneres portátiles | 2 | OPERATIVOS; cada uno concede +10 a diagnóstico dirigido fuera de Q-01 si tiene energía; no supera el límite ambiental.
+MED.DEVICE.IMAGING.PORTABLE | módulo portátil de imagen anatómica profunda | 1 | OPERATIVO; requiere una celda compacta por 8 horas acumuladas.
+MED.DEVICE.HEMATIC-ANALYZER | analizador de sangre y compatibilidad | 1 | OPERATIVO; tipifica y compara, pero no garantiza compatibilidad clínica por sí solo.
+MED.DEVICE.CHEM-ANALYZER | analizador farmacológico/químico | 1 | OPERATIVO; permite identificar sustancias mediante prueba válida y muestra consumida cuando corresponda.
+MED.DEVICE.MICROSURGERY-SCOPE | óptica de microcirugía | 1 | OPERATIVA.
+MED.DEVICE.VITAL-MONITOR.PORTABLE | monitores vitales portátiles | 2 | OPERATIVOS.
+MED.DEVICE.VENTILATOR.PORTABLE | respirador portátil | 1 | OPERATIVO; 2 módulos de filtro de reserva.
+MED.DEVICE.INFUSION-PUMP.PORTABLE | bombas de infusión portátiles | 2 | OPERATIVAS.
+MED.DEVICE.SUCTION.PORTABLE | aspirador portátil | 1 | OPERATIVO.
+MED.DEVICE.CAUTERY.PORTABLE | electrocauterio portátil | 1 | OPERATIVO.
+MED.DEVICE.STERILIZER.FIELD | esterilizador de campo | 1 | OPERATIVO; 12 ciclos de consumible estéril.
+MED.KIT.SURGERY.ADVANCED | bandejas completas de cirugía avanzada | 3 | estériles y selladas.
+MED.KIT.SURGERY.GENERAL | kits completos de cirugía general | 2 | estériles y sellados.
+MED.KIT.TRAUMA | kits completos de trauma mayor | 2 | estériles y sellados.
+MED.KIT.MICROSURGERY | kits de microcirugía vascular/nerviosa | 2 | estériles y sellados.
+MED.KIT.ORTHO-PROSTHETIC | kit ortopédico y de preparación protésica | 1 | completo.
+MED.KIT.NEURAL-INTERFACE | kit de trabajo craneal/neural e interfaces | 1 | completo; uso en aumentados exige apoyo técnico cuando corresponda.
+MED.KIT.MINOR-PROCEDURE | kits de procedimientos menores | 4 | completos.
+FÁRMACOS IDENTIFICADOS — ALMACENADO_SOMBRA
+MED.DRUG.ANTIBIOTIC.BROAD | antibiótico de amplio espectro | 36 DOSIS.
+MED.DRUG.ANALGESIC | analgésico de potencia clínica | 48 DOSIS.
+MED.DRUG.SEDATIVE | sedante controlado | 30 DOSIS.
+MED.DRUG.ANESTHETIC.GENERAL | anestésico general | 18 DOSIS.
+MED.DRUG.ANESTHETIC.LOCAL | anestésico local | 24 DOSIS.
+MED.DRUG.COAGULANT | coagulante/hemostático inyectable | 30 DOSIS.
+MED.DRUG.ANTISHOCK | vasopresor y soporte antishock | 20 DOSIS.
+MED.DRUG.ANTIINFLAMMATORY | antiinflamatorio/antipirético | 24 DOSIS.
+MED.DRUG.ANTITOXIN.BROAD | antitoxina de amplio espectro | 10 DOSIS; no neutraliza automáticamente toxinas desconocidas.
+MED.DRUG.IMMUNOSUPPRESSANT | inmunosupresor/antirrechazo | 8 DOSIS.
+MED.DRUG.STIM.IDENTIFIED | estimulante medicae identificado | 12 DOSIS.
+MED.DRUG.ANTIRAD | tratamiento antirradiación | 6 DOSIS.
+MED.FLUID.ELECTROLYTE | soluciones de electrolitos/nutrición | 24 UNIDADES IV.
+MED.FLUID.SALINE-EXPANDER | solución salina o expansor de volumen | 32 UNIDADES IV.
+MED.FLUID.SYNTH-BLOOD | sustituto sanguíneo sintético | 12 UNIDADES IV; no sustituye tipificación cuando se mezcla con sangre humana.
+MED.TOPICAL.BURN-GEL | gel para quemaduras/tejido expuesto | 16 aplicaciones.
+MED.TOPICAL.ANTISEPTIC | solución antiséptica | 20 frascos.
+MED.TOPICAL.CLOTTING-FOAM | espuma hemostática | 14 aplicaciones.
+MED.DRUG.UNKNOWN.NODE | paquetes de droga/estimulante desconocido | 3 | CUARENTENA, NO ADMINISTRAR hasta análisis.
+CHEM.E12.AGENT | agente químico E-12 | 9 frascos | depósito tóxico separado; usar perfil de condición vigente.
+CONSUMIBLES CLÍNICOS — ALMACENADO_SOMBRA
+MED.CONSUMABLE.MEDIKIT-RELOAD | paquetes completos de recarga de medikit | 12 CARGAS. Recargar 1 carga exige una acción declarada fuera de combate y consume 1 paquete; el medikit personal sigue 0/6 hasta hacerlo.
+MED.CONSUMABLE.DRESSING.STERILE | apósitos estériles | 80.
+MED.CONSUMABLE.BANDAGE | rollos de venda | 48.
+MED.CONSUMABLE.HEMOSTATIC-GAUZE | gasas hemostáticas | 24.
+MED.CONSUMABLE.SUTURE | cartuchos/juegos de sutura | 40.
+MED.CONSUMABLE.STAPLER | grapadoras cutáneas reutilizables | 6; cargadores de grapas | 12.
+MED.CONSUMABLE.SEALANT | sellador tisular | 18 aplicaciones.
+MED.CONSUMABLE.IV-LINE | líneas de infusión | 30.
+MED.CONSUMABLE.THORACIC-DRAIN | kits de drenaje torácico | 8.
+MED.CONSUMABLE.CATHETER | catéteres de varios calibres | 16.
+MED.CONSUMABLE.SYRINGE | jeringas estériles | 100.
+MED.CONSUMABLE.NEEDLE | agujas estériles de varios calibres | 150.
+MED.CONSUMABLE.GLOVES | pares de guantes estériles | 100.
+MED.CONSUMABLE.MASK | mascarillas clínicas | 80.
+MED.CONSUMABLE.DRAPE | paños/campos estériles | 30.
+MED.CONSUMABLE.OXYGEN | cilindros compactos de oxígeno/mezcla respiratoria | 8.
+MED.CONSUMABLE.FILTER.CLINICAL | filtros clínicos/respiratorios sellados | 8.
+REGLA DE ENTORNO MEDICAE: mientras Q-01 siga parcialmente integrado, su equipo disponible permite como máximo +10 ambiental general a procedimientos cuando haya energía, limpieza y consumibles. El Diagnostor puede conceder +15 solo a diagnóstico dirigido. Tras completar agua clínica, esterilización, ventilación e integración, Q-01 podrá alcanzar +20 ambiental. Los bonos de dispositivos no se suman entre sí por encima del máximo aplicable.
+HERRAMIENTAS TÉCNICAS E INDUSTRIALES — ALMACENADO_SOMBRA
+TECH.TOOL.MEDICAE-PRECISION | cofres de herramientas medicae de precisión | 2 | completos.
+TECH.TOOL.INDUSTRIAL | cofres de herramientas industriales generales | 2 | completos.
+TECH.TOOL.POWER-CUTTER | cortador industrial portátil | 1 | OPERATIVO.
+TECH.TOOL.MICROWELDER | microsoldador/soldador de arco fino | 1 | OPERATIVO.
+TECH.TOOL.SOLDERING | cautines de electrónica | 2 | OPERATIVOS.
+TECH.TOOL.TESTER | medidores de continuidad, voltaje y señal | 2 | OPERATIVOS.
+TECH.TOOL.ALIGNMENT-JIG | plantilla de alineación protésica/servo | 1 | OPERATIVA.
+TECH.CABLE.FINE | carrete de conductor fino | 1.
+TECH.CABLE.STANDARD | carretes de cable industrial estándar | 2.
+TECH.CONNECTOR.INDUSTRIAL | conectores industriales pesados | 6.
+TECH.CONNECTOR.MEDICAE | conectores medicae/electrónicos surtidos | 12.
+TECH.FUSE | fusibles y ruptores surtidos | 20.
+TECH.BATTERY.COMPACT | baterías compactas del nodo | 2 | carga no medida.
+TECH.POWERCELL.STANDARD | celdas de energía estándar | 6 | 5 cargadas, 1 descargada.
+TECH.SERVO.ACTUATOR | servoactuadores universales | 4.
+TECH.SERVO.MICRO | microservos de precisión | 8.
+TECH.BEARING | rodamientos/casquillos surtidos | 12.
+TECH.SEAL-VALVE | sellos, juntas y válvulas pequeñas | 16.
+TECH.REGULATOR | reguladores de energía/señal | 4.
+TECH.INTERFACE.COUPLER | acopladores de interfaz protésica | 6.
+TECH.NEURAL-LEAD | conductores neurales sellados | 4 | uso especializado.
+TECH.PROSTHETIC.SOCKET | marcos de encaje protésico ajustables | 2.
+TECH.PROSTHETIC.ARMATURE | segmentos estructurales de extremidad | 3.
+TECH.RESPIRATOR.MODULE | módulos compresores/filtro para soporte respiratorio | 2.
+TECH.ALLOY-PLATE | placas de aleación médica/industrial | 8.
+TECH.POLYMER-SHEET | láminas de polímero sellable | 12.
+TECH.TUBING | tubería flexible clínica/industrial | 20 metros.
+TECH.FILTER.INDUSTRIAL | filtros industriales recuperados | 2 | sin adaptar.
+TECH.LAMP.PORTABLE | lámparas portátiles | 2 | OPERATIVAS.
+TECH.MIXED-CRATE | caja mediana de piezas, cableado y herramientas del nodo | 1 | ya desglosada en las cantidades anteriores; no contar dos veces.
+DOCUMENTOS, DATOS Y OBJETOS ESPECIALES
+DOC.MALREC.BOOK | libro personal de Malrec con declaración incompleta y una hoja arrancada | 1.
+DOC.QTN3.MAP | mapa parcial QTN-3/17-G | 1.
+DOC.COAT.CREDENTIAL | credencial con foto/placa/marcas administrativas | 1 | identidad/afiliación no resueltas.
+DOC.COAT.ROUTE-SHEETS | hojas de rutas/notas | 3 | sin análisis completo.
+DATA.COAT.CYLINDER | cilindro de datos | 1 | cerrado/no leído.
+KEY.COAT.SHORT | llave física corta | 1 | destino desconocido.
+TOKEN.MARKED | fichas metálicas marcadas | 2 | valor y función desconocidos.
+NOTE.ORVEN | «OESTE-9 / VÁLVULA ROJA / SEGUNDA CAMPANA / M. ORVEN — NO VOX» | 1.
+DEVICE.MALREC.PROTECTED | módulo protegido de Malrec | 1 | cerrado; usar registro técnico vigente.
+CONTAINER.RED-PULSE | caja metálica reforzada de pulso rojo | 1 | cerrada; función desconocida.
+CYLINDER.VANTOR-SEPTEM | cilindros Vantor-Septem bajo Alexander | 5 | sellados. El sexto permanece con Khepra según registro previo.
+SAMPLE.SET.EFG | muestras E/F/G | 3 | selladas y separadas.
+VISOR.MALREC.MULTISPECTRAL | visor multispectral de Malrec Voss | 1 | OPERATIVO.
+RESTRAINT.REINFORCED | esposas reforzadas | 1 par | OPERATIVAS.
+WRITING.INSTRUMENT | instrumento de escritura | 1.
+CUSTODIA HUMANA VIVA — CUSTODIA_BIOLÓGICA
+CENSO HUMANO EN SOMBRA INFINITA: 5 personas vivas confirmadas.
+NPC-M01-OPERATOR-001 | Operador M-01 | vivo, inconsciente, rehabilitación selectiva | compartimento individual.
+NPC-M01-SUBJECT-01 | Sujeto I | vivo, inconsciente | compartimento individual.
+NPC-M01-SUBJECT-02 | Sujeto II | viva, inconsciente | compartimento individual.
+NPC-M01-SUBJECT-03 | Sujeto III | vivo, crítico extremo | compartimento individual.
+NPC-JOREN-DEBTOR-02 | Segundo deudor E-12 | vivo, 0/9, inconsciente, brazo derecho amputado | compartimento clínico individual; prótesis no garantizada.
+EXCLUSIONES CONFIRMADAS: Jarek Venn / Primer deudor E-12, Demer Vhal/Sujeto IV, Hadrix Vale, Sael, Ilyra, Tertius, Quartus, Merek, Mara, Halven, Severan, Syra y Khepra están materializados en Rho-9. Joren Pell está vivo con paradero desconocido y no está almacenado.
+CONTENIDOS BIOLÓGICOS Y ANÓMALOS
+BIO-E12-WITNESS-01 | Testigo 1 | vivo confirmado | 1 | aislado.
+BIO-E12-WITNESS-02 | Testigo 2 | vivo confirmado | 1 | aislado del Testigo 1.
+BIO-KHEPRA-MASS-001 | masa orgánica retirada de Khepra | viva confirmada | 1 | aislada.
+BIO-M01-A | muestra mínima viable/desconocida M-01-A | 1 | sellada, no abierta; viabilidad exacta incierta.
+BIO-M01-SEALED-CONTAINER | recipiente biológico M-01 previo | 1 | sellado; naturaleza/viabilidad no identificadas.
+BIO-KHEPRA-SAMPLES | muestras A/C/D de Khepra | 3 | bajo custodia técnica de Khepra, no propiedad de Alexander; referenciadas aquí para evitar mezcla.
+BIO-M01-MICROSAMPLES | micro-muestras de Sujetos I, II, III y Demer/IV | 4 lotes | separadas por origen.
+CADÁVERES NO PROCESADOS — ALMACENADO_SOMBRA
+CORPSE.D04.NIGHT-CAPTIVES | 4 cadáveres humanos de cautivos nocturnos ejecutados personalmente por Halven Rusk | separados entre sí | no procesados como biobanco y sin identidad individual confirmada.
+BIOBANK HUMANO — INVENTARIO RECONCILIADO
+DONANTES PROCESADOS: 5 — corredor clandestino, Pell E-12, miembro amarillo capturado, hombre del abrigo y antiguo jefe del depósito/contrabandista. El cadáver denominado previamente «jefe contrabandista» corresponde al quinto donante y no es un sexto cuerpo. Joren Pell no es donante.
+BIOBANK.BLOOD.TRANSFUSION-CANDIDATE | unidades sanguíneas candidatas a transfusión | 10 | separadas por donante; requieren tipificación/compatibilidad antes de uso.
+BIOBANK.BLOOD.RESEARCH | unidades sanguíneas dañadas | 2 | investigación/entrenamiento; NO TRANSFUNDIR.
+BIOBANK.HEART | corazones candidatos | 3 | 1 viable, 2 condicionales; compatibilidad no asignada.
+BIOBANK.LUNG | pulmones/segmentos pulmonares candidatos | 5 | 2 viables, 2 condicionales, 1 solo investigación.
+BIOBANK.LIVER | hígados/segmentos hepáticos candidatos | 2 | 1 viable, 1 condicional por daño crónico.
+BIOBANK.KIDNEY | riñones candidatos | 6 | 4 viables/condicionales, 2 de baja prioridad.
+BIOBANK.PANCREAS | páncreas candidato | 1 | condicional.
+BIOBANK.CORNEA | pares de córneas | 2 | candidatos.
+BIOBANK.VASCULAR | lotes de vasos para injerto | 5.
+BIOBANK.SKIN | lotes de piel para injerto | 6.
+BIOBANK.BONE-CARTILAGE | lotes de hueso/cartílago | 6.
+BIOBANK.TENDON-FASCIA | lotes de tendón/fascia | 5.
+BIOBANK.MUSCLE | lotes de músculo utilizable | 4.
+BIOBANK.NEURAL-INTERFACE | lotes nerviosos/interfaz muscular | 3, incluyendo material del brazo amputado.
+BIOBANK.AMPUTATED-ARM | brazo derecho del Segundo deudor | 1 | no reimplantable; anatomía y planificación protésica.
+BIOBANK.RESIDUAL-REMAINS | restos residuales etiquetados para eliminación | 5 lotes, uno por donante.
+REGLA BIOBANCO: preservación umbral impide degradación posterior, pero no repara daño previo. Ningún órgano o sangre se implanta sin compatibilidad y acción médica; calidad «viable» no significa compatible con un receptor concreto.
+RESERVA UMBRAL — NO FÍSICA
+STAT almacenadas: ninguna | LIFE_YEARS: 0 | SOULS: 10 almas completas.
+SOUL.DERVAN.KOL.001 — Dervan Kol | SOUL.BRANN.VESK.001 — Brann Vesk | SOUL_ID NO ASIGNADO — Pell E-12 | SOUL_ID NO ASIGNADO — miembro amarillo capturado | SOUL_ID NO ASIGNADO — corredor clandestino | SOUL_ID NO ASIGNADO — hombre del abrigo | +4 SOUL_ID NO ASIGNADO — cuatro cautivos nocturnos ejecutados personalmente por Halven Rusk mediante el pacto de cosecha.
+RECURSOS ECONÓMICOS
+CREDITOS DISPONIBLES: 1196. PAGO CONTRACTUAL PENDIENTE: 300 créditos de Darrik Vane, todavía no cobrados y no incluidos en el disponible.
+CIERRE DE INVENTARIO: toda consulta [mostrar inventario], [ver armas], [ver medicina], [ver herramientas], [ver biobanco] o equivalente debe leer estas entradas sin exigir un comando textual exacto. El DM puede resumir por categoría, pero debe conservar cantidades, ubicación, condición y perfil cuando sean relevantes.
+PERFILES VIGENTES DE ARMAS
+AUTOPISTOLA MK IV — PROFILE_ID WPN.ALEXANDER.AUTOPISTOL.MKIV.T773 | Alcance 30 m | Daño 1d10+4 | Pen 0 | Único/Semiautomático/Automático | Cargador 18 | munición SP_PISTOL.
+CARABINA DE CAPTURA — PROFILE_ID WPN.ALEXANDER.CAPTURE_CARBINE.T773 | Alcance 60 m | Daño 1d10+1 | Pen 0 | Único/Semiautomático | Cargador 24 | NONLETHAL | SHOCK(2).
+DAGA VENENOSA — PROFILE_ID WPN.ALEXANDER.POISON_DAGGER.T773 | Cuerpo a cuerpo | Daño 1d10 | Pen 0 | TOXIC(1); dosis actual 1.
+PISTOLA SÓLIDA DE SERVICIO O GREMIAL — PROFILE_ID WPN.ALEXANDER.SOLID_PISTOL_12.T773 | Alcance 30 m | Daño 1d10+3 | Pen 0 | Único/Semiautomático | Cargador 12.
+CARABINA GREMIAL — PROFILE_ID WPN.ALEXANDER.GUILD_CARBINE_24.T773 | Alcance 60 m | Daño 1d10+3 | Pen 0 | Único/Semiautomático/Automático | Cargador 24.
+CARABINA SÓLIDA NO IDENTIFICADA — PROFILE_ID WPN.ALEXANDER.GENERIC_CARBINE_24.T773 | Alcance 60 m | Daño 1d10+3 | Pen 0 | Único/Semiautomático/Automático | Cargador 24 | perfil provisional ejecutable.
+AUTOPISTOLA CAPTURADA — PROFILE_ID WPN.ALEXANDER.AUTOPISTOL_12.T773 | Alcance 30 m | Daño 1d10+2 | Pen 0 | Único/Semiautomático/Automático | Cargador 12 | perfil provisional ejecutable.
+PISTOLA COMPACTA — PROFILE_ID WPN.ALEXANDER.COMPACT_PISTOL_10.T773 | Alcance 20 m | Daño 1d10+2 | Pen 0 | Único/Semiautomático | Cargador 10 | perfil provisional ejecutable.
+ESCOPETA — PROFILE_ID WPN.ALEXANDER.SHOTGUN_6.T773 | Alcance 30 m | Daño 1d10+4 | Pen 0 | Único | Depósito 6 | perfil provisional ejecutable.
+CUCHILLO INDUSTRIAL — PROFILE_ID WPN.KNIFE.COMBAT | usar el perfil universal vigente; la instancia permanece almacenada y no requiere duplicar sus valores aquí.
+HERRAMIENTA DE CORTE IMPROVISADA — PROFILE_ID WPN.ALEXANDER.CUTTING_TOOL.T773 | Cuerpo a cuerpo | Daño 1d5 | Pen 0 | PRIMITIVE | perfil provisional ejecutable.
+PISTOLA AUTOMÁTICA COMPACTA DEL CORREDOR — PROFILE_ID WPN.ALEXANDER.BROKER_COMPACT_AUTOPISTOL.R1 | Alcance 20 m | Daño 1d10+2 | Pen 0 | Único/Semiautomático 2 | Cargador 10 | Recarga COMPLETA | COMPACT | munición SP_PISTOL_COMPACT.
+PISTOLA SÓLIDA E-12 DE PELL — PROFILE_ID WPN.ALEXANDER.PELL_E12_SOLID_PISTOL.R1 | Alcance 30 m | Daño 1d10+3 | Pen 0 | Único/Semiautomático 2 | Cargador 12 | Recarga COMPLETA | munición SP_PISTOL_12.
+CUCHILLO UTILITARIO DEL NODO — PROFILE_ID WPN.ALEXANDER.UTILITY_KNIFE.R1 | Cuerpo a cuerpo | Daño 1d5+1 | Pen 0 | PRIMITIVE | herramienta cortante, no arrojadiza por defecto.
+REGLA DE ACTUALIZACIÓN: cargador, reserva, condición, portador y ubicación se sustituyen en ARMAS EQUIPADAS o ARMAS ALMACENADAS. Un nuevo perfil se incorpora aquí, junto al arma correspondiente; nunca como anexo al final.
+AUTORIDAD Y OBLIGACIONES
+RANGO: Ninguno
+TÍTULOS ACTIVOS: Ninguno
+PERMISOS: Ninguno
+JURISDICCIÓN: Ninguna
+JURAMENTOS: Ninguno confirmado
+DEUDAS DE ALEXANDER: no reconoce deuda formal con Mara o Sael; la vida preservada de Sael constituye la prestación ya entregada por Alexander en el pacto vitalicio de Mara, sin convertir a Sael en deudor, servidor ni parte del acuerdo.
+CONDENAS: Psíquico no sancionado identificado por Enforcers; ataque armado y evasión vinculados a su nombre
+OBLIGACIONES ACTIVAS: mantener cuidados y recuperación de pacientes; ejecutar los dos pactos activos del Primer deudor E-12; continuar rehabilitación de Hadrix y Operador M-01; aislar Demer, M-01-A, Testigos, muestras anómalas y biobanco; preservar confidencialidad; y no abrir, administrar, gastar o asignar recursos desconocidos sin resolución válida.
+PACTOS CERRADOS — E-12: deuda de escape de 2 almas pagada por corredor clandestino + hombre del abrigo. Acuerdo médico anterior de 2 almas pagado por Pell E-12 + miembro amarillo capturado. No volver a cobrarlos.
+PACTO ACTIVO — PRIMER DEUDOR / EJECUCIONES: tratamiento completo, recuperación y estancia clínica a cambio de 10 ejecuciones personales. Alexander proporciona o captura a los condenados; el Primer deudor los ejecuta; las almas corresponden a Alexander. Muertes previas no cuentan. PROGRESO: 0/10.
+PACTO ACTIVO — PRIMER DEUDOR / SERVICIO: 1 año estándar o ciclo de colmena de trabajo en Rho-9 a cambio de mantener vivo al Segundo deudor hasta que despierte y pueda negociar. Trabajo permitido: guardia, entrenamiento, transporte, mensajes, limpieza y tareas generales; incluye alojamiento y comida. Es independiente de las 10 ejecuciones y no garantiza prótesis ni recuperación total del Segundo deudor.
+SEGUNDO DEUDOR — SIN PACTO POSTERIOR: no prometió 10 ejecuciones, un año de trabajo, recuperación futura ni prótesis. Permanece inconsciente y deberá negociar por sí mismo si recupera capacidad para hacerlo.
+DISTINCIÓN: los identificadores NPC-JOREN-DEBTOR-01/02 se conservan solo por compatibilidad técnica. Los dos eran guardias de E-12 y no compañeros, subordinados ni deudores de Joren Pell. Ninguno entra al séquito por estos pactos.
+LIMITACIONES ACTUALES: Salud 12/12; Fatiga 0/7; medikit personal 0/6 hasta que Alexander declare una recarga; XP 1385, Nivel 5, PM 2 y PH 1 tras auditoría del cierre nocturno. Rho-9 continúa sin agua clínica certificada, esterilización integral, defensa material suficiente ni cuarentena certificada. Severan posee mandato formal de seguridad y fortificación con cap autónomo de 200 créditos/semana, pero ninguna compra u obra se ejecuta automáticamente. El arsenal nocturno está físicamente registrado; sus perfiles provisionales no son ACTIVE.
+HISTORIA PREVIA
+ORIGEN FAMILIAR: Desconocido; nacimiento no registrado
+FORMACIÓN: Supervivencia de bajos fondos; asistencia en clínica clandestina; aprendizaje práctico de anatomía, trauma y cirugía
+SERVICIO: Trabajos clandestinos de robo, infiltración, recuperación, asesinato y atención médica
+ACONTECIMIENTOS CENTRALES: Despertar de Paso sombrío durante una purga; contacto con el Umbral Negro; destrucción de una clínica anterior; campaña actual en Dust Falls; operación y evacuación de Sael Veyl; identificación por Enforcers como psíquico no sancionado
+FAMILIA
+FAMILIA VIVA: Desconocida
+FAMILIA MUERTA: No confirmada
+FAMILIA DESAPARECIDA: Posible, no confirmada
+FAMILIA DESCONOCIDA: Padres y cualquier otro vínculo de sangre
+FAMILIA REPUDIADA: Ninguna conocida
+OBLIGACIONES FAMILIARES: Ninguna conocida
+REGISTRO ÚNICO DE EXPERIENCIA
+XP.ALEXANDER.DF.OPERATION_SAEL | Turnos 5–12 | MAJOR | +50 XP | Operación clandestina completada: Sael quedó crítico pero estable.
+XP.ALEXANDER.DF.LIST_KAPPA_DISCOVERY | Turnos 13–28 | STANDARD | +25 XP | Descubrimiento de la lista, la cápsula y la alarma de Kappa-Nueve.
+XP.ALEXANDER.DF.ENFORCER_IRRUPTION_UMBRAL | Turnos 29–40 | MAJOR | +50 XP | Supervivencia a la irrupción Enforcer y arrastre del especialista al Umbral.
+XP.ALEXANDER.DF.KAPPA_DESTRUCTION | Turnos 41–67 | DECISIVE | +100 XP | Escape de 17-K y destrucción de la red Kappa durante la purga.
+XP.ALEXANDER.DF.CLINIC_RESCUE | Turnos 68–76 | MAJOR | +50 XP | Regreso a la clínica y liberación de Mara y Sael del traslado Enforcer.
+XP.ALEXANDER.DF.HUNTER_EVACUATION | Turnos 77–86 | MAJOR | +50 XP | Evacuación bajo caza armada y estabilización de las heridas de Alexander.
+XP.ALEXANDER.DF.LOWER_RESERVOIR | Turnos 87–92 | MAJOR | +50 XP | Cruce del depósito inferior y cierre de la compuerta con fatiga máxima.
+XP.ALEXANDER.DF.CAUSTIC_CISTERN | Turnos 93–112 | MAJOR | +50 XP | Supervivencia a la purga cáustica y a los organismos mutados.
+XP.ALEXANDER.DF.SERVITOR_SHELTER | Turnos 113–129 | STANDARD | +25 XP | Refugio asegurado, recursos revisados y grupo estabilizado.
+XP.ALEXANDER.DF.ESCAPE_QTN3 | Turnos 130–167 | MAJOR | +50 XP | Huida del refugio destruido, ruptura de la persecución y aseguramiento de QTN-3 como refugio provisional.
+XP.ALEXANDER.DF.MARA_SAEL_EXTRACTION | Turnos 168–169 | MAJOR | +50 XP | Localización y extracción de Mara y Sael desde el Umbral Negro hasta un refugio defendible.
+XP.ALEXANDER.DF.ILYRA_RESCUE | Turnos 182–188 | MAJOR | +50 XP | Rescate de Ilyra Venn, cirugía de emergencia, consumo severo de recursos y estabilización tras seis horas críticas.
+XP.ALEXANDER.DF.ENFORCER_SPECIALIST_WHITE_MEAT | Turnos 202–231 | MAJOR | +50 XP | Recuperación pactada del especialista Enforcer, obtención de la ruta a la clínica del Mercado de Carne Blanca y cierre de una unidad operativa ya incluida en el total antiguo.
+XP.ALEXANDER.DF.ACECHANTE_SOMBRIO | Turnos 202–321 | DECISIVE | +100 XP | Dominio del depósito de Mandíbula Blanca, ruptura de la célula de purga, sabotaje, destrucción y reputación del Acechante Sombrío.
+XP.ALEXANDER.DF.LYSA_RENN | Turnos 323–327 | MINOR | +10 XP | Tratamiento de perforación vascular contaminada, conservación de la pierna y estabilización de Lysa Renn.
+XP.ALEXANDER.DF.QTN3_DIAGNOSIS | Turnos 331–341 | STANDARD | +25 XP | Inspección integral de QTN-3, recuperación de herramientas y diagnóstico funcional de compuerta, agua y bombeo.
+XP.ALEXANDER.DF.HOLT_INSTALLATION | Turnos 343–347 | MAJOR | +50 XP | Arrastre, búsqueda dirigida, recuperación e instalación pactada de Severan Holt en QTN-3.
+XP.ALEXANDER.DF.WHITE_MEAT_CLINIC_PACT | Turnos 367–407 | MAJOR | +50 XP | Infiltración, combate y pacto de la clínica cerrados; ocho almas cobradas, cuatro agentes tratados y carga médica/técnica recuperada.
+XP.ALEXANDER.DF.TERTIUS_THORACIC_SURGERY | Turnos 410–414 | MAJOR | +50 XP | Cirugía torácica prolongada completada: reparación vascular, expansión pulmonar, drenaje fijado y vida crítica preservada.
+XP.ALEXANDER.DF.HELICAN_DISCOVERY | Turnos 202–321 | MAJOR | +50 XP | Descubrimiento de Helican, Custodia de Fenómenos Negros, RETORNO, N-Black/3 y Aedran Khelt.
+XP.ALEXANDER.D04.NIGHT_DEPOT_OPERATION | Día 04, noche; turno exacto no reconciliado | MAJOR | +50 XP | Unidad operativa cerrada: incursión nocturna, recuperación sustancial de arsenal, retorno a Rho-9 sin identificación del autor y cambio material persistente. Las ejecuciones individuales no reciben XP separada.
+TOTAL AUDITADO ACTUAL: 1385 XP. Nivel 5; progreso 385/500 hacia Nivel 6; PM 2; PH 1. Los 1335 XP anteriores permanecen cerrados bajo sus SOURCE_ID y saldos auditados; la operación nocturna añade una única concesión MAJOR de 50 XP. Ninguna baja, ejecución, tirada o acción interna de esa unidad puede concederse otra vez.
+UMBRALES CONFIRMADOS: 100 XP → Nivel 2; 300 XP → Nivel 3; 600 XP → Nivel 4; 1000 XP → Nivel 5. Siguiente umbral total: 1500 XP → Nivel 6.
+REFERENCIAS
+DOMINIOS: Medicae Station Rho-9 (DOMAIN-RHO9-001), bajo control efectivo/de facto. QTN-3/17-G no se registra como dominio activo porque no existe propiedad ni control estable suficiente.
+NAVES: Ninguna
+SÉQUITO PERSONAL: Mara Veyl (MEMBER.ALEXANDER.MARA-VEYL; ACTIVO_PACTADO), Ilyra Venn (MEMBER.ALEXANDER.ILYRA-VENN; ACTIVO_PACTADO) y Halven Rusk (MEMBER.ALEXANDER.HALVEN-RUSK; ACTIVO_ESCLAVIZADO). Khepra-9 permanece fuera del séquito con cooperación independiente; Tertius y Quartus permanecen PENDIENTES_DE_DEFINICIÓN; Sael conserva elección propia; Severan es Maestro de Seguridad de Rho-9 dentro de su obligación territorial externa.
+REPUTACIONES PRINCIPALES: Enforcers de D-17: hostilidad activa; Caldereros: hostilidad o deterioro severo; cazadores y bandas locales: rumor de recompensa activo
+PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION

@@ -1,0 +1,49 @@
+Séquito
+Miembros incorporados de forma estable al séquito del personaje jugador — campaña de Caelan Veyr-Hawkshroud
+Control del registro
+DOCUMENT_KEY: 
+RETINUE
+DOCUMENT_ID: 
+RETINUE.CAELAN.MAIN
+CAMPAIGN_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD
+CONTINUITY_ID: 
+CONTINUITY.CAELAN.PRIMARY
+PLAYER_CHARACTER_ID: 
+PC-CAELAN-001
+ALLOWED_SEMANTIC_OPERATIONS: 
+AGREGAR, REEMPLAZAR
+PERSISTED_PAUSE_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+CHECKPOINT_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+STATE_REVISION: 
+CAELAN.T928.R3
+SOURCE_REVISION_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD.RETINUE.TEMPLATE-20260811
+ÚLTIMA ACTUALIZACIÓN: 
+Séptimo día de reposo, tarde avanzada; T928
+MIGRATION_ID: 
+CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: 
+Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: 
+Este archivo pertenece únicamente a CAMPAIGN.CAELAN.VEYR-HAWKSHROUD. Rechazar datos de cualquier otra campaña.
+AGENCIA: 
+No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: 
+Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+Reglas de actualización
+AGREGAR: 
+Crear un perfil completo cuando una incorporación estable quede confirmada.
+REEMPLAZAR: 
+Sustituir el perfil completo de un miembro cuando cambie. No conservar un segundo perfil activo ni anexar un nuevo estado al final.
+ADMISIÓN: 
+Cooperación, rescate, tratamiento, convivencia o deuda todavía no definida no bastan por sí solos para incorporar a un PNJ.
+Estado actual
+MIEMBROS ACTIVOS: 
+0
+ESTADO: 
+SIN SÉQUITO FORMAL CONFIRMADO
+ACLARACIÓN: 
+Parentesco, personal doméstico de Krastellan, custodios, aliados o participantes de una misión no son séquito de Caelan sin incorporación estable confirmada.

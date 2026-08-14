@@ -1,0 +1,152 @@
+CATÁLOGO DE COMANDOS DEL JUGADOR — WH40K
+
+DOCUMENT_ROLE: NON_NORMATIVE_COMMAND_INTERFACE
+VERSION: 1.2.0
+STATUS: ACTIVE
+AUTHORITY_RULE: Este catálogo traduce lenguaje natural a consultas u órdenes operativas. No crea mecánicas, costes, estados, permisos ni canon; ante diferencia gobiernan las Instrucciones Directas, el Manual Operativo, el Protocolo Universal y la fuente propietaria de campaña correspondiente.
+PROTOCOL_FAST_LOOKUP: AI.RETRIEVAL.CONTRACT.001
+
+
+USO
+
+(texto): acción o movimiento del PERSONAJE_ACTIVO.
+[texto]: consulta o instrucción fuera de rol.
+Texto sin marcas: diálogo u orden pronunciada por el PERSONAJE_ACTIVO.
+
+Se aceptan frases naturales equivalentes. Las consultas no avanzan tiempo, no gastan recursos y no crean deltas salvo que el jugador ordene explícitamente una operación que cambie estado.
+
+
+PAUSA
+
+[pausa]
+Activa SESSION_PAUSE_COMMIT y pasa a PAUSA_SOLICITADA. Detiene la campaña y prepara únicamente cambios persistentes confirmados; no escribe todavía.
+
+[mostrar cambios de la pausa]
+Muestra las fuentes afectadas y el resumen público del lote preparado. No escribe ni cambia el estado de pausa.
+
+[confirmar pausa]
+Requiere PAUSA_PREPARADA. Autoriza el WRITE_BATCH_ID preparado; la pausa solo queda PAUSA_CONFIRMADA cuando todas las fuentes alcanzan un estado de éxito reconocido o ALREADY_COMMITTED con contenido idéntico.
+
+[cancelar pausa]
+Si ninguna escritura comenzó, descarta la preparación y pasa a PAUSA_CANCELADA. No simula rollback de escrituras parciales o ambiguas.
+
+[reanudar campaña]
+Continúa desde NEXT_OPEN_POINT sin decidir la acción del PERSONAJE_ACTIVO. Desde PAUSA_PREPARADA sin escrituras, cancela la preparación sin commit; desde PAUSA_BLOQUEADA o COMMIT_PARCIAL exige reconciliación previa.
+
+
+EXPERIENCIA Y PUNTOS
+
+[consultar nivel y experiencia]
+Muestra XP total, nivel, avance y XP faltante según el PROGRESSION_PROFILE_ID ACTUAL.
+
+[consultar puntos disponibles]
+Muestra PM, PH u otros recursos de avance declarados por el perfil vigente.
+
+[consultar mejoras disponibles]
+Muestra mejoras, costes y estado:
+- DISPONIBLE.
+- LISTO PARA DEFINIR.
+- FALTAN X PUNTOS.
+- BLOQUEADA POR REQUISITO.
+- LÍMITE ALCANZADO.
+
+
+GASTAR RECURSOS DE MEJORA ORDINARIA
+
+[quiero gastar 1 punto de mejora en Agilidad]
+
+Sustituye Agilidad por la estadística o competencia ordinaria deseada. El DM valida el coste, límite, rango, dependencias y perfil vigentes. Si el coste real difiere o falta un requisito, lo indica y no gasta nada sin confirmación expresa.
+
+
+GASTAR RECURSOS DE HITO Y DEFINIR HABILIDADES
+
+[quiero adquirir el siguiente rango de HABILIDAD_ESPECIAL]
+
+Úsalo cuando la mejora ya está definida. El DM debe validar simultáneamente: rango siguiente, PH o recurso suficiente, límites, dependencias, requisitos, incompatibilidades, activadores y cualquier gate del perfil ACTUAL.
+
+[definir mejora de HABILIDAD_ESPECIAL]
+
+Si el perfil permite definir una mejora y todos los gates previos se cumplen, el DM muestra exactamente:
+1. Opción creada por el DM.
+2. Opción creada por el DM.
+3. Opción creada por el DM.
+4. Opción personalizada del jugador.
+
+[acepto la opción 2 para HABILIDAD_ESPECIAL]
+
+Acepta la opción y autoriza una sola transacción atómica de gasto y actualización a ACTUAL, siempre que la validación final siga siendo válida. No requiere otro comando.
+
+[elijo la opción personalizada para HABILIDAD_ESPECIAL: descripción]
+
+Define una mejora propia. Si el efecto está completo y cumple el perfil, el DM la vuelve ACTUAL y gasta el recurso en la misma transacción. Si falta un dato mecánico indispensable, pregunta solo ese dato antes de gastar.
+
+El DM usa únicamente la ficha vigente, el PROGRESSION_PROFILE_ID ACTUAL y el último perfil ACTUAL de la sesión. No usa perfiles antiguos, respaldos, propuestas descartadas ni ejemplos de este catálogo como autoridad.
+
+
+CONSULTAS
+
+[consulta: ¿qué sabe mi personaje sobre este lugar?]
+
+[consultar estado completo]
+
+[consultar ficha resumida]
+
+[consultar salud y fatiga]
+
+[consultar inventario]
+
+[consultar armas y munición]
+
+[consultar habilidades]
+
+[consultar HABILIDAD_ESPECIAL]
+
+[consultar objetivos pendientes]
+
+[consultar resumen de campaña]
+
+[consultar a PNJ_OBJETIVO]
+
+[consultar reputación con FACCION_OBJETIVO]
+
+[consultar reglas de abordaje]
+
+
+PRUEBAS Y CORRECCIONES
+
+[explicar la prueba actual]
+Muestra estadística, dificultad, modificadores, riesgo y consecuencia pública conforme al contrato congelado.
+
+[mostrar cálculo de la última tirada]
+Muestra dado, umbral, margen o distancia, resultado e identificador público cuando corresponda; no vuelve a tirar.
+
+[revisar continuidad]
+Comprueba turno, tiempo, ubicación, revisión de estado y hechos recientes.
+
+[corrección: mi personaje todavía conserva su arma]
+Corrige solo el dato afectado y sus dependencias causales; no invalida toda la sesión por defecto.
+
+[no decidas acciones por mí]
+Detiene al DM antes de decidir pensamientos, palabras, consentimiento, intenciones o acciones voluntarias del PERSONAJE_ACTIVO.
+
+
+PRESENTACIÓN
+
+[narración breve]
+
+[narración extensa]
+
+[modo táctico]
+
+[modo técnico]
+
+[modo narrativo]
+
+REGLAS DE INTERFAZ
+
+- No es obligatorio memorizar ni escribir estos comandos: el DM acepta lenguaje natural equivalente.
+- Las consultas se resuelven sin avanzar turno, tiempo ni recursos.
+- La conducta y presentación se consultan en el Manual Operativo.
+- Toda fórmula, coste, progresión, tirada, idempotencia o efecto se resuelve en el Protocolo Universal vigente, comenzando por AI.RETRIEVAL.CONTRACT.001 cuando haga falta localizar la regla.
+- Todo valor actual se lee desde la fuente propietaria de campaña. Este catálogo no conserva ni sustituye estado.
+- Si una frase pudiera ser consulta o acción con coste, el DM aclara solo cuando la diferencia cambie riesgo, recurso o consecuencia.

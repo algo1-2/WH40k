@@ -1,0 +1,1498 @@
+Personajes
+PNJ persistentes externos al séquito — campaña de Caelan Veyr-Hawkshroud
+Control del registro
+DOCUMENT_KEY: 
+CHARACTERS
+DOCUMENT_ID: 
+CHARACTERS.CAELAN.MAIN
+CAMPAIGN_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD
+CONTINUITY_ID: 
+CONTINUITY.CAELAN.PRIMARY
+PLAYER_CHARACTER_ID: 
+PC-CAELAN-001
+ALLOWED_SEMANTIC_OPERATIONS: 
+AGREGAR, REEMPLAZAR
+PERSISTED_PAUSE_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+CHECKPOINT_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+STATE_REVISION: 
+CHARACTERS.CAELAN.T928.R3
+SOURCE_REVISION_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD.CHARACTERS.TEMPLATE-20260811
+ÚLTIMA ACTUALIZACIÓN: 
+Séptimo día de reposo, tarde avanzada; T928
+MIGRATION_ID: 
+CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: 
+Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: 
+Este archivo pertenece únicamente a CAMPAIGN.CAELAN.VEYR-HAWKSHROUD. Rechazar datos de cualquier otra campaña.
+AGENCIA: 
+No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: 
+Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+Reglas de actualización
+AGREGAR: 
+Crear un perfil cuando el PNJ adquiere continuidad suficiente para ser reutilizado.
+REEMPLAZAR: 
+Sustituir el perfil completo cuando cambia. No anexar un segundo estado al final.
+TRASLADO: 
+Cuando un PNJ entra al séquito, retirar su perfil activo de este archivo y dejar una referencia compacta a Séquito.
+Estado actual
+ACLARACIÓN: 
+Todos los perfiles siguientes permanecen externos al séquito formal de Caelan.
+ÍNDICE OPERATIVO
+REGISTRO 1 — Ser Garran Veyr-Hawkshroud
+ID: VEYR-GARRAN-001
+Nombre: Ser Garran Veyr-Hawkshroud
+Grupo: Casa Veyr y personal doméstico
+Estado: Activo
+REGISTRO 2 — Lady Maerwyn Caldris-Veyr
+ID: VEYR-MAERWYN-001
+Nombre: Lady Maerwyn Caldris-Veyr
+Grupo: Casa Veyr y personal doméstico
+Estado: Activo
+REGISTRO 3 — Dame Elira Veyr-Hawkshroud
+ID: VEYR-ELIRA-001
+Nombre: Dame Elira Veyr-Hawkshroud
+Grupo: Casa Veyr y personal doméstico
+Estado: Protegida
+REGISTRO 4 — Ser Odran Veyr-Hawkshroud
+ID: VEYR-ODRAN-001
+Nombre: Ser Odran Veyr-Hawkshroud
+Grupo: Casa Veyr y personal doméstico
+Estado: Activo
+REGISTRO 5 — Dame Ysabet Veyr-Hawkshroud
+ID: VEYR-YSABET-001
+Nombre: Dame Ysabet Veyr-Hawkshroud
+Grupo: Casa Veyr y personal doméstico
+Estado: Activo
+REGISTRO 6 — Varro Veyr-Hawkshroud
+ID: VEYR-VARRO-001
+Nombre: Varro Veyr-Hawkshroud
+Grupo: Casa Veyr y personal doméstico
+Estado: Protegido
+REGISTRO 7 — Lucien Veyr-Hawkshroud
+ID: VEYR-LUCIEN-001
+Nombre: Lucien Veyr-Hawkshroud
+Grupo: Casa Veyr y personal doméstico
+Estado: Condicional
+REGISTRO 8 — Dame Lysandra Veyr-Hawkshroud
+ID: VEYR-LYSANDRA-001
+Nombre: Dame Lysandra Veyr-Hawkshroud
+Grupo: Casa Veyr y personal doméstico
+Estado: No acusada
+REGISTRO 9 — Magister Severin Vale
+ID: VEYR-SEVERIN-001
+Nombre: Magister Severin Vale
+Grupo: Casa Veyr y personal doméstico
+Estado: Disponible por convocatoria
+REGISTRO 10 — Soren
+ID: VEYR-SOREN-001
+Nombre: Soren
+Grupo: Casa Veyr y personal doméstico
+Estado: Activo
+REGISTRO 11 — Maestro Corvin
+ID: VEYR-CORVINORG-001
+Nombre: Maestro Corvin
+Grupo: Casa Veyr y personal doméstico
+Estado: Activo local
+REGISTRO 12 — Capellán Drost
+ID: VEYR-DROST-001
+Nombre: Capellán Drost
+Grupo: Casa Veyr y personal doméstico
+Estado: Bajo revisión
+REGISTRO 13 — Rhost Klyr
+ID: VEYR-RHOST-001
+Nombre: Rhost Klyr
+Grupo: Casa Veyr y personal doméstico
+Estado: Buscado
+REGISTRO 14 — Dame Aveline Thyr-Kest
+ID: HAWK-AVELINE-001
+Nombre: Dame Aveline Thyr-Kest
+Grupo: Aliados, contactos y autoridades externas
+Estado: Evaluación recíproca
+REGISTRO 15 — Lady Ilyra Orsain
+ID: ORSAIN-ILYRA-001
+Nombre: Lady Ilyra Orsain
+Grupo: Aliados, contactos y autoridades externas
+Estado: Remota
+REGISTRO 16 — Odran Helve
+ID: ORSAIN-HELVE-001
+Nombre: Odran Helve
+Grupo: Aliados, contactos y autoridades externas
+Estado: Remoto
+REGISTRO 17 — Meredin Voss
+ID: HAWK-MEREDIN-001
+Nombre: Meredin Voss
+Grupo: Aliados, contactos y autoridades externas
+Estado: Activo por expediente
+REGISTRO 18 — Arven Holt
+ID: HAWK-ARVENH-001
+Nombre: Arven Holt
+Grupo: Aliados, contactos y autoridades externas
+Estado: Condicional
+REGISTRO 19 — Aurelia Vhorne
+ID: HAWK-VHORNE-001
+Nombre: Aurelia Vhorne
+Grupo: Aliados, contactos y autoridades externas
+Estado: Independiente
+REGISTRO 20 — Sabeth Corven
+ID: HAWK-SABETH-001
+Nombre: Sabeth Corven
+Grupo: Aliados, contactos y autoridades externas
+Estado: Activa por consulta
+REGISTRO 21 — Yselle Korda
+ID: CALC-YSELLE-001
+Nombre: Yselle Korda
+Grupo: Aliados, contactos y autoridades externas
+Estado: Contacto
+REGISTRO 22 — Talia Voss
+ID: CALC-TALIA-001
+Nombre: Talia Voss
+Grupo: Aliados, contactos y autoridades externas
+Estado: Contacto
+REGISTRO 23 — Hadran Kest
+ID: ORSAIN-HADRAN-001
+Nombre: Hadran Kest
+Grupo: Aliados, contactos y autoridades externas
+Estado: Contacto
+REGISTRO 24 — Ilyon Rauth
+ID: VEYR-RAUTH-001
+Nombre: Ilyon Rauth
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 11/11
+REGISTRO 25 — Salien Mordane
+ID: VEYR-MORDANE-001
+Nombre: Salien Mordane
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 13/13
+REGISTRO 26 — Pell Varc
+ID: VEYR-PELL-001
+Nombre: Pell Varc
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 0/12; inconsciente
+REGISTRO 27 — Kyran Voll
+ID: VEYR-VOLL-001
+Nombre: Kyran Voll
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 0/14; estable
+REGISTRO 28 — Lucen Marr
+ID: VEYR-LUCENMARR-001
+Nombre: Lucen Marr
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 7/12
+REGISTRO 29 — Teren Vos
+ID: VEYR-TERENVOS-001
+Nombre: Teren Vos
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 5/10
+REGISTRO 30 — Aven Krail
+ID: VEYR-KRAIL-001
+Nombre: Aven Krail
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 0/11; crítico
+REGISTRO 31 — Jorren Sile
+ID: VEYR-SILE-001
+Nombre: Jorren Sile
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 10/10
+REGISTRO 32 — Tavia Meron
+ID: VEYR-TAVIA-001
+Nombre: Tavia Meron
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 8/10
+REGISTRO 33 — Custodio Iven
+ID: VEYR-IVAN-001
+Nombre: Custodio Iven
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: 7/12; paralizado
+REGISTRO 34 — Deren Hoss
+ID: VEYR-HOSS-001
+Nombre: Deren Hoss
+Grupo: Red interna, detenidos, víctimas y testigos
+Estado: Vivo
+CASA VEYR Y PERSONAL DOMÉSTICO
+Ser Garran Veyr-Hawkshroud
+ENTITY_ID: VEYR-GARRAN-001
+NOMBRE COMPLETO: Ser Garran Veyr-Hawkshroud
+EDAD: 58 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Padre de Caelan; cabeza operativa de su línea; autoridad doméstica de la Rama Veyr.
+ESTADO REGISTRADO: Activo
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan. Accesible mediante audiencia, emergencia o convocatoria familiar; no aparece como padre disponible a voluntad.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: 1,86 m, hombros rectos, cabello oscuro encanecido y rostro anguloso. Su quietud pesa más que cualquier gesto teatral.
+VOZ: Baja, exacta y sin repetición. Formula órdenes como conclusiones inevitables; pregunta por testigos antes que por intenciones.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Padre de Caelan; cabeza operativa de su línea; autoridad doméstica de la Rama Veyr.. Dirige purga, declaraciones y apertura de pruebas; su autoridad no es imperial universal.
+PERSONALIDAD: Controlador, conservador y ferozmente funcional. Siente orgullo, pero lo convierte en obligación. Le preocupa menos que Caelan sea querido que pueda ser defendido ante la Casa.
+INTERESES E INICIATIVA: Presidirá declaraciones y decidirá cuándo abrir pruebas y cuándo solicitar autoridad exterior. Si Caelan acumula prestigio sin control, buscará encuadrarlo mediante juramento, cargo o matrimonio.
+AUTORIDAD Y RECURSOS: Puede cerrar sectores, convocar consejo, imponer custodia, ordenar auditorías y disciplinar a su línea. Responde ante la Rama y House Hawkshroud; no puede convertir una decisión doméstica en autoridad imperial universal.
+CONOCIMIENTO Y LÍMITES: Conoce el halcón coronado agrietado, la caja negra, la placa y CALC-IX. Ignora todavía al superior de Rauth y el alcance completo de la red.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Mando 58; Administración 60; Heráldica 65. No es un duelista de primera línea, pero entiende cómo gastar hombres, reputación y tiempo.
+SALUD Y CONDICIONES: Activo
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: Respeto reforzado por resultados y coordinación durante la purga. La confianza es real pero limitada: la autoridad concedida hasta el amanecer es una herramienta temporal, no emancipación.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Respeto reforzado por resultados y coordinación durante la purga. La confianza es real pero limitada: la autoridad concedida hasta el amanecer es una herramienta temporal, no emancipación.
+Continuidad
+ESTADO Y LÍMITE: Dirige purga, declaraciones y apertura de pruebas; su autoridad no es imperial universal.
+PROYECCIÓN COMPATIBLE: Úsalo para convertir victorias en deberes. Nunca lo reduzcas a padre cruel: debe poder proteger a Caelan de una autoridad mayor mientras endurece la jaula doméstica.
+Lady Maerwyn Caldris-Veyr
+ENTITY_ID: VEYR-MAERWYN-001
+NOMBRE COMPLETO: Lady Maerwyn Caldris-Veyr
+EDAD: 52 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Madre de Caelan; administradora de redes domésticas, pactos, armería e información social.
+ESTADO REGISTRADO: Activo
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan. Puede intervenir por carta, sello, sirvientes o reunión privada sin estar físicamente presente.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: 1,73 m, figura delgada, cabello negro atravesado por plata y guantes impecables. Parece advertir qué objeto cambió de lugar antes de mirar a los presentes.
+VOZ: Cordial, íntima y peligrosa. Presenta una amenaza como ayuda y una ayuda como deuda que todavía no ha decidido cobrar.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Madre de Caelan; administradora de redes domésticas, pactos, armería e información social.. Concilia sellos y rutas; protección auténtica y políticamente costosa.
+PERSONALIDAD: Protectora sin ser blanda. Considera que el afecto incapaz de sobrevivir a la política es una negligencia. No desperdicia personas útiles, pero puede exponerlas para descubrir quién intenta devorarlas.
+INTERESES E INICIATIVA: Conciliará sellos, fechas y rutas antes del amanecer. Puede enviar una verdad parcial a un tercero para proteger la posición de la familia sin advertir a Caelan.
+AUTORIDAD Y RECURSOS: Controla comunicaciones privadas, parte de la armería, criados, favores Caldris y un sello de alto valor. Puede acelerar o bloquear audiencias, equipo y contactos; no manda ejércitos.
+CONOCIMIENTO Y LÍMITES: Conoce la respuesta de Ghalmek, la cadena matrimonial Thyr-Kest, la red doméstica y las pruebas principales. No conoce el contenido de CALC-IX ni el proyecto Caballero Cazador.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Intriga 65; Engaño 62; Etiqueta 64. Su fuerza es lograr que varias personas crean haber elegido el resultado que ella preparó.
+SALUD Y CONDICIONES: Activo
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: Confía en la capacidad de Caelan y procura conservarlo. También quiere que su margen de acción beneficie a la línea. Mantiene Ghalmek y el expediente de Aveline sin decidir por él.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Confía en la capacidad de Caelan y procura conservarlo. También quiere que su margen de acción beneficie a la línea. Mantiene Ghalmek y el expediente de Aveline sin decidir por él.
+Continuidad
+ESTADO Y LÍMITE: Concilia sellos y rutas; protección auténtica y políticamente costosa.
+PROYECCIÓN COMPATIBLE: Úsala para alianzas, matrimonio, contrainteligencia y protección venenosa. Su cariño debe sentirse auténtico precisamente porque nunca está libre de cálculo.
+Dame Elira Veyr-Hawkshroud
+ENTITY_ID: VEYR-ELIRA-001
+NOMBRE COMPLETO: Dame Elira Veyr-Hawkshroud
+EDAD: 29 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Hermana mayor; mediadora dinástica y nodo de parentesco, capilla y descendencia.
+ESTADO REGISTRADO: Protegida
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan, bajo protección tras su secuestro. No está disponible como testigo hasta que su seguridad y condición lo permitan.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: 1,70 m, porte sereno, cabello oscuro trenzado y ropa de patrona de capilla menor. El corte reciente de su palma debe permanecer visible hasta sanar.
+VOZ: Calmada y condicional. Sonríe antes de negar y habla de familia como una estructura que debe sobrevivir, no como refugio sentimental.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Hermana mayor; mediadora dinástica y nodo de parentesco, capilla y descendencia.. Rescatada, estable y con corte en la palma; no subordinada por gratitud.
+PERSONALIDAD: Protectora, disciplinada y capaz de votar contra alguien que ama si sus hijos o su posición quedan expuestos. Haber sido víctima no elimina su juicio ni su orgullo.
+INTERESES E INICIATIVA: Dará testimonio cuando pueda hacerlo sin quedar convertida en objeto de la purga. Después intentará impedir que su secuestro sea utilizado para decidir su futuro sin ella.
+AUTORIDAD Y RECURSOS: Influencia sobre mediaciones, dotes, visitas, bautismos y círculos familiares. Su poder depende de matrimonio, descendencia y reputación, no de mando armado.
+CONOCIMIENTO Y LÍMITES: Sabe que fue usada como acceso y conoce fragmentos del secuestro. No debe recordar lo que no presenció ni identificar automáticamente al superior de Tavia.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Diplomacia 55; Administración 50; Fe 47. Puede sostener una audiencia tensa y detectar cuándo una concesión social es una captura.
+SALUD Y CONDICIONES: Protegida
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: Afecto cauteloso reforzado por el rescate. Agradece a Caelan sin deberle obediencia. Puede apoyarlo contra la red y oponerse a una decisión que amenace a su descendencia.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Afecto cauteloso reforzado por el rescate. Agradece a Caelan sin deberle obediencia. Puede apoyarlo contra la red y oponerse a una decisión que amenace a su descendencia.
+Continuidad
+ESTADO Y LÍMITE: Rescatada, estable y con corte en la palma; no subordinada por gratitud.
+PROYECCIÓN COMPATIBLE: Úsala como voz familiar con intereses propios, nunca como hermana agradecida que existe para validar a Caelan.
+Ser Odran Veyr-Hawkshroud
+ENTITY_ID: VEYR-ODRAN-001
+NOMBRE COMPLETO: Ser Odran Veyr-Hawkshroud
+EDAD: 27 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Hermano mayor; principal referencia marcial interna y rival sucesorio operativo.
+ESTADO REGISTRADO: Activo
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan. Controla accesos y comparte custodia institucional de Tavia; puede coincidir con Caelan por deber, no por disponibilidad servil.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: 1,90 m, musculatura pesada, nariz rota y cicatrices de entrenamiento. Su presencia invade el espacio antes de que hable.
+VOZ: Directa, áspera y física. Detesta el discurso sin riesgo visible, pero ha aprendido a escuchar cuando la precisión de Caelan produce resultados.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Hermano mayor; principal referencia marcial interna y rival sucesorio operativo.. Controla accesos y custodia de Tavia; cooperación recíproca sin subordinación.
+PERSONALIDAD: Orgulloso, competitivo y menos simple de lo que sus rivales creen. Teme que el prestigio exterior de Caelan vuelva irrelevante su legitimidad interior.
+INTERESES E INICIATIVA: Mantendrá las puertas, asistirá a declaraciones y medirá si la cooperación con Caelan puede convertirse en doctrina familiar. Volverá a desafiarlo cuando la crisis deje de exigir unidad.
+AUTORIDAD Y RECURSOS: Puede controlar puertas, entrenamiento, escoltas y protocolos de duelo dentro de la Rama. Su mando no se extiende a recursos Vargrif, Orsain o Mechanicus.
+CONOCIMIENTO Y LÍMITES: Conoce las pruebas principales, la falsificación contra él, la custodia de Tavia y el intento de separar a los hermanos. Ignora el Caballero Cazador.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: PV 44; CC 56; Duelo 60; Atletismo 52; Intimidación 55. Combatiente frontal y comandante de espacios cerrados.
+SALUD Y CONDICIONES: Activo
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: La rivalidad se transformó en respeto operativo y protección recíproca. Puede defenderlo frente a un extraño y exigirle cuentas en privado. No es subordinado.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: La rivalidad se transformó en respeto operativo y protección recíproca. Puede defenderlo frente a un extraño y exigirle cuentas en privado. No es subordinado.
+Continuidad
+ESTADO Y LÍMITE: Controla accesos y custodia de Tavia; cooperación recíproca sin subordinación.
+PROYECCIÓN COMPATIBLE: Úsalo como rival capaz de crecer. Su iniciativa debe producir duelos, defensa fraterna, desacuerdo táctico y ambición propia.
+Dame Ysabet Veyr-Hawkshroud
+ENTITY_ID: VEYR-YSABET-001
+NOMBRE COMPLETO: Dame Ysabet Veyr-Hawkshroud
+EDAD: 22 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Hermana menor; investigadora informal de rumores matrimoniales y pieza dinástica aún no comprometida.
+ESTADO REGISTRADO: Activo
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan. Se mueve por círculos domésticos, criadas y reuniones familiares; no debe aparecer en zonas cerradas sin motivo.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: 1,68 m, palidez de fortaleza, ojos atentos y joyería matrimonial deliberadamente mínima.
+VOZ: Cortés y memoriosa. Pausa antes de obedecer y conserva frases exactas para usarlas cuando cambie el equilibrio.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Hermana menor; investigadora informal de rumores matrimoniales y pieza dinástica aún no comprometida.. Busca opciones reales ante compromisos dinásticos; no consiente por obedecer.
+PERSONALIDAD: Observadora, disciplinada y resentida ante el destino que otros administran. Quiere opciones reales, no promesas románticas de libertad futura.
+INTERESES E INICIATIVA: Seguirá rastreando intermediarios y exigirá función, plazo y protección antes de aceptar cualquier salida. Puede aliarse con una rival si eso preserva su voluntad.
+AUTORIDAD Y RECURSOS: Puede elevar el coste social de un matrimonio, filtrar rumores y conectar redes femeninas. No puede vetar sola una unión impuesta.
+CONOCIMIENTO Y LÍMITES: Conoce la copia Caldris y el acuerdo de compartir nombres. Ignora los secretos técnicos de Caelan y la profundidad de la purga.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Etiqueta 56; Perspicacia 52; Engaño 48. Su arma principal es saber quién preguntó por quién antes de que exista propuesta formal.
+SALUD Y CONDICIONES: Activo
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: Comparte con Caelan una investigación privada sobre Caldris y una posibilidad Freeblade condicional. No ha prometido marcharse ni aceptado que él decida su futuro.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Comparte con Caelan una investigación privada sobre Caldris y una posibilidad Freeblade condicional. No ha prometido marcharse ni aceptado que él decida su futuro.
+Continuidad
+ESTADO Y LÍMITE: Busca opciones reales ante compromisos dinásticos; no consiente por obedecer.
+PROYECCIÓN COMPATIBLE: Úsala para matrimonio, rumores, alianza entre hermanas y decisiones donde obedecer no significa consentir.
+Varro Veyr-Hawkshroud
+ENTITY_ID: VEYR-VARRO-001
+NOMBRE COMPLETO: Varro Veyr-Hawkshroud
+EDAD: 15 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Hermano menor protegido; estudiante frágil y reserva dinástica de bajo poder formal.
+ESTADO REGISTRADO: Protegido
+ÚLTIMA UBICACIÓN: Cámara segura
+DISPONIBILIDAD: Krastellan, bajo protección médica. Puede participar en escenas íntimas, educativas o de investigación segura; no en despliegues militares.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: 1,64 m y creciendo; delgado, pálido y de manos cuidadas por estudio. Su fragilidad no debe representarse como agonía permanente.
+VOZ: Rápida cuando habla de héroes y más baja ante heridas reales. Hace preguntas demasiado limpias para un mundo que responde con costos.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Hermano menor protegido; estudiante frágil y reserva dinástica de bajo poder formal.. Promesa limitada de diagnóstico independiente y opciones reversibles; ningún implante autorizado.
+PERSONALIDAD: Idealista, curioso y menos ingenuo después del ataque de Voll. Necesita comprender la enfermedad y la violencia sin quedar reducido a paciente o rehén.
+INTERESES E INICIATIVA: Preguntará qué ocurrió realmente y buscará participar sin ser tratado como carga. Puede investigar su condición por vías que la familia preferiría controlar.
+AUTORIDAD Y RECURSOS: Su autoridad es mínima, pero su sangre y vulnerabilidad obligan a la familia a reaccionar. Puede movilizar protección, culpa y conflicto sucesorio.
+CONOCIMIENTO Y LÍMITES: Sabe que Voll intentó usarlo y que Caelan no entregará sus datos o cuerpo a un único adepto sin control. Ignora los expedientes más peligrosos.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: PV 25; Int 37; Per 40; Vol 43; Fe 45. No apto para servicio militar; puede investigar, recordar y colaborar en tareas seguras.
+SALUD Y CONDICIONES: Protegido
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: Confianza intelectual reforzada con Caelan. Ambos acordaron buscar diagnóstico independiente y opciones reversibles; no existe autorización de implante, consulta o gasto.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Confianza intelectual reforzada con Caelan. Ambos acordaron buscar diagnóstico independiente y opciones reversibles; no existe autorización de implante, consulta o gasto.
+Continuidad
+ESTADO Y LÍMITE: Promesa limitada de diagnóstico independiente y opciones reversibles; ningún implante autorizado.
+PROYECCIÓN COMPATIBLE: Úsalo para crecimiento, fe, ciencia y protección con consecuencias. No lo conviertas en rehén repetitivo.
+Lucien Veyr-Hawkshroud
+ENTITY_ID: VEYR-LUCIEN-001
+NOMBRE COMPLETO: Lucien Veyr-Hawkshroud
+EDAD: 19 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Primo pupilo y escudero administrativo sin sucesión directa.
+ESTADO REGISTRADO: Condicional
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan. Disponible para mensajes y tareas menores sólo si un superior lo asigna. No confundir con Lucen Marr.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: 1,78 m, delgado y con uniforme demasiado correcto. Imita posturas nobles antes de comprender cuánto cuestan.
+VOZ: Ensaya sarcasmo y observa la reacción. Su seguridad suele llegar medio segundo después de la frase.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Primo pupilo y escudero administrativo sin sucesión directa.. No confundir con Lucen Marr; requiere asignación superior.
+PERSONALIDAD: Aplicado, envidioso y hambriento de reconocimiento. Puede desarrollar lealtad si recibe función real o vender una ventaja si sólo recibe humillación.
+INTERESES E INICIATIVA: Buscará una tarea visible durante la crisis. Puede adelantar, retrasar o interpretar un mensaje para ganar crédito.
+AUTORIDAD Y RECURSOS: Acceso menor a mensajes, copias y pasillos administrativos. No manda personal ni representa la voluntad de Garran sin orden.
+CONOCIMIENTO Y LÍMITES: Conoce rutinas y fragmentos, no el expediente completo. Debe equivocarse cuando intenta reconstruir secretos con rumores.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Administración 48; Observación 43; Engaño 42. Útil como mensajero, testigo periférico o filtración involuntaria.
+SALUD Y CONDICIONES: Condicional
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: Admira a Caelan y compite con la imagen que proyecta. No existe traición confirmada ni acceso probado a la red de Rauth.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Admira a Caelan y compite con la imagen que proyecta. No existe traición confirmada ni acceso probado a la red de Rauth.
+Continuidad
+ESTADO Y LÍMITE: No confundir con Lucen Marr; requiere asignación superior.
+PROYECCIÓN COMPATIBLE: Úsalo como joven ambicioso con capacidad de elegir. La traición necesita una oferta concreta, miedo o humillación.
+Dame Lysandra Veyr-Hawkshroud
+ENTITY_ID: VEYR-LYSANDRA-001
+NOMBRE COMPLETO: Dame Lysandra Veyr-Hawkshroud
+EDAD: 31 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Prima de la línea Corvin; rival legal y posible pantalla documental de redes ajenas.
+ESTADO REGISTRADO: No acusada
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan, disponibilidad condicionada a protocolo y motivo político. No está acusada ni detenida.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Elegante, heráldicamente impecable y siempre preparada para ser observada. Nunca parece sorprendida sin decidir primero si conviene mostrarlo.
+VOZ: Cortés, exacta y hostil sin admitir hostilidad. Prefiere una pregunta capaz de incriminar a Caelan antes que una acusación.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Prima de la línea Corvin; rival legal y posible pantalla documental de redes ajenas.. No condenada ni detenida; puede ser rival, víctima, aliada amarga o pantalla.
+PERSONALIDAD: Orgullosa, legalista y consciente de que el prestigio de Caelan altera la geometría familiar. Puede odiar su ascenso y aun ayudarlo contra una amenaza que también pueda sacrificarla.
+INTERESES E INICIATIVA: Consolidará testigos y decidirá si ofrecer una alianza amarga. Puede usar matrimonio o precedencia para limitar a Caelan sin apoyar a la red.
+AUTORIDAD Y RECURSOS: Prestigio lateral, aliados Corvin, cartas y capacidad de convertir rumor en procedimiento. No controla el canil por defecto.
+CONOCIMIENTO Y LÍMITES: Conoce la presión de su línea y puede saber quién se benefició de usar su nombre. Su conocimiento de Rauth, Rhost o CALC-IX debe revelarse en escena.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Etiqueta 62; Intriga 60; Engaño 55; perfil de combate secundario. Es peligrosa en audiencia, no una asesina automática.
+SALUD Y CONDICIONES: No acusada
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada a Caelan; parentesco y lealtad institucional no equivalen a subordinación.
+CONFIANZA: Rivalidad alta y respeto forzado. La red intentó utilizar su nombre como pantalla; eso no la vuelve inocente de todo ni culpable de esa operación.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO APLICA — parentesco.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Rivalidad alta y respeto forzado. La red intentó utilizar su nombre como pantalla; eso no la vuelve inocente de todo ni culpable de esa operación.
+Continuidad
+ESTADO Y LÍMITE: No condenada ni detenida; puede ser rival, víctima, aliada amarga o pantalla.
+PROYECCIÓN COMPATIBLE: Úsala como rival con voluntad y posibilidad de alianza. Acusarla sin prueba debe fortalecerla.
+Magister Severin Vale
+ENTITY_ID: VEYR-SEVERIN-001
+NOMBRE COMPLETO: Magister Severin Vale
+EDAD: 60 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Tutor hereditario de armas, protocolo y cálculo de campaña.
+ESTADO REGISTRADO: Disponible por convocatoria
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan. Puede ser convocado por Garran o para evaluación formal; no forma parte del séquito.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Veterano seco, conservado por disciplina. Lleva herramientas de instrucción y evalúa respiración, postura y descuido antes de saludar.
+VOZ: Corrige como quien afila. Una aprobación suya suele consistir en dejar de repetir la misma instrucción.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Tutor hereditario de armas, protocolo y cálculo de campaña.. Respeto profesional; no pertenece al séquito.
+PERSONALIDAD: Exigente, orgulloso de su método y hostil al heroísmo sin técnica. Puede defender una ejecución impecable ante nobles que confunden rango con capacidad.
+INTERESES E INICIATIVA: Exigirá una evaluación después del alta y puede negar que una hazaña pruebe dominio técnico. Si la técnica fue limpia, la defenderá incluso contra Odran.
+AUTORIDAD Y RECURSOS: Puede detener prácticas inseguras, evaluar y testificar cuando su mandato de instrucción está activo. No ordena campañas.
+CONOCIMIENTO Y LÍMITES: Conoce hábitos físicos, errores y capacidades que observó. No conoce habilidades o proyectos que Caelan no le mostró.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: PV 38; CC 58; B 50; Instrucción 65; Duelo 62; Estrategia 55.
+SALUD Y CONDICIONES: Disponible por convocatoria
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Respeto profesional alto hacia Caelan, afecto poco verbal y tolerancia nula a usar heridas como demostración innecesaria.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Respeto profesional alto hacia Caelan, afecto poco verbal y tolerancia nula a usar heridas como demostración innecesaria.
+Continuidad
+ESTADO Y LÍMITE: Respeto profesional; no pertenece al séquito.
+PROYECCIÓN COMPATIBLE: Úsalo como mentor que exige crecimiento real y puede reconocer una mejora sin regalarla.
+Soren
+ENTITY_ID: VEYR-SOREN-001
+NOMBRE COMPLETO: Soren
+EDAD: 54 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Médico doméstico Veyr; autoridad clínica principal en la cámara segura.
+ESTADO REGISTRADO: Activo
+ÚLTIMA UBICACIÓN: Cámara segura
+DISPONIBILIDAD: Krastellan. Acceso inmediato por necesidad médica; puede negar esfuerzo, armas o audiencia mientras exista riesgo clínico.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Alto, rostro estrecho, cabello gris cortado al ras y manos con quemaduras antiguas de desinfectante. Su ropa siempre parece recién cambiada.
+VOZ: Clínica, seca y sin reverencia innecesaria. Usa cifras para impedir que nobles conviertan deseo en diagnóstico.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Médico doméstico Veyr; autoridad clínica principal en la cámara segura.. Autoridad clínica; puede negar esfuerzo, armas o audiencia.
+PERSONALIDAD: Responsable, severo y muy consciente de que su propia cadena fue comprometida por Hoss y Voll. Su orgullo profesional puede volverlo implacable con subordinados.
+INTERESES E INICIATIVA: Revisará pacientes, auditará credenciales y decidirá qué miembros de su cadena quedan suspendidos. Puede denunciar interferencia de Garran si compromete vidas.
+AUTORIDAD Y RECURSOS: Controla tratamiento, acceso médico, reposo, certificación y personal del ala. Garran puede reemplazarlo, pero no convertir una herida en alta por decreto.
+CONOCIMIENTO Y LÍMITES: Conoce lesión, tratamiento, accesos médicos y detenidos bajo su cadena. No conoce automáticamente secretos políticos de la purga.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Medicae 68; Diagnóstico 64; Vol 58. No es combatiente, aunque sabe inmovilizar y sedar a un paciente peligroso.
+SALUD Y CONDICIONES: Activo
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Respeto profesional hacia Caelan condicionado a que obedezca restricciones. No es sirviente personal ni testigo dócil.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Respeto profesional hacia Caelan condicionado a que obedezca restricciones. No es sirviente personal ni testigo dócil.
+Continuidad
+ESTADO Y LÍMITE: Autoridad clínica; puede negar esfuerzo, armas o audiencia.
+PROYECCIÓN COMPATIBLE: Úsalo como autoridad real y no como dispensador de PV. Su conflicto central es reparar medicina y confianza al mismo tiempo.
+Maestro Corvin
+ENTITY_ID: VEYR-CORVINORG-001
+NOMBRE COMPLETO: Maestro Corvin
+EDAD: 76 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Maestro técnico del gran órgano occidental y custodio de Victoria Imperatrix.
+ESTADO REGISTRADO: Activo local
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan, gran órgano. Acceso condicionado al instrumento, ensayo o audiencia cultural.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Anciano casi ciego, dos dedos augméticos, oído de bronce y espalda curvada que se endereza ante una nota incorrecta.
+VOZ: Áspera, directa y sin adorno. Habla de música como artillería que debe llegar a tiempo.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Maestro técnico del gran órgano occidental y custodio de Victoria Imperatrix.. Custodia Victoria Imperatrix y su estructura técnica.
+PERSONALIDAD: Perfeccionista, territorial y hostil a la mediocridad ritual. Respeta competencia demostrada más que apellido.
+INTERESES E INICIATIVA: Desarrollará la partitura y resistirá cualquier intento clerical de mutilarla por comodidad. Puede exigir a Caelan una segunda interpretación bajo condiciones más duras.
+AUTORIDAD Y RECURSOS: Gobierna acceso, mantenimiento y autenticidad técnica del órgano. No concede santidad, rango eclesiástico ni repertorio litúrgico.
+CONOCIMIENTO Y LÍMITES: Conoce la estructura original de Victoria Imperatrix y quién la oyó. No conoce la intención privada completa de Caelan.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Música ritual 72; Tecnología de órgano 68; Per 60. Físicamente frágil, culturalmente difícil de reemplazar.
+SALUD Y CONDICIONES: Activo local
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Aprobación técnica creciente hacia Caelan. No lo adora ni lo protege políticamente; preserva la obra porque considera que merece sobrevivir.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Aprobación técnica creciente hacia Caelan. No lo adora ni lo protege políticamente; preserva la obra porque considera que merece sobrevivir.
+Continuidad
+ESTADO Y LÍMITE: Custodia Victoria Imperatrix y su estructura técnica.
+PROYECCIÓN COMPATIBLE: Úsalo para convertir música en relación, legado y conflicto doctrinal concreto.
+Capellán Drost
+ENTITY_ID: VEYR-DROST-001
+NOMBRE COMPLETO: Capellán Drost
+EDAD: 49 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Capellán doméstico; autoridad doctrinal bajo revisión secular.
+ESTADO REGISTRADO: Bajo revisión
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan. Acceso restringido; confesión privada y llaves clericales permanecen limitadas tras T926.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Rostro largo, tonsura cicatrizada, vestiduras negras con bordado marfil y una mano que busca la maza cuando se cuestiona su jurisdicción.
+VOZ: Formal, litúrgica y defensiva. Convierte una duda en categoría doctrinal antes de responderla.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Capellán doméstico; autoridad doctrinal bajo revisión secular.. Confesión privada y llaves clericales restringidas.
+PERSONALIDAD: Ferviente, orgulloso y temeroso de que la autoridad religiosa se vuelva decorativa. Puede ser negligente, manipulado o cómplice; el expediente aún no ha fijado cuál.
+INTERESES E INICIATIVA: Preparará una defensa doctrinal y decidirá si protege a la capellanía denunciando a culpables o a sí mismo preservando silencio.
+AUTORIDAD Y RECURSOS: Puede juzgar ortodoxia doméstica, repertorio y rito cuando su mandato está vigente. No puede ocultar custodia, tortura o falsificación bajo secreto clerical ilimitado.
+CONOCIMIENTO Y LÍMITES: Conoce el uso de su sello y qué permisos emitió. Su conocimiento de Pell Varc y la red debe salir de declaración y prueba.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Fe 62; Doctrina 60; Pre 54; Interrogación ritual 52. Capaz de violencia ceremonial, no de vencer a un duelista noble.
+SALUD Y CONDICIONES: Bajo revisión
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Fricción con Caelan y respeto incómodo después de Victoria Imperatrix. Entregó sello, llave y maza; eso demuestra obediencia a la revisión, no inocencia.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Fricción con Caelan y respeto incómodo después de Victoria Imperatrix. Entregó sello, llave y maza; eso demuestra obediencia a la revisión, no inocencia.
+Continuidad
+ESTADO Y LÍMITE: Confesión privada y llaves clericales restringidas.
+PROYECCIÓN COMPATIBLE: Úsalo para fe institucional, culpa, jurisdicción y orgullo; no como sacerdote genéricamente siniestro.
+Rhost Klyr
+ENTITY_ID: VEYR-RHOST-001
+NOMBRE COMPLETO: Rhost Klyr
+EDAD: 43 años
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Servidor especializado del Canil Veyr; sospechoso asociado a cera azul y manipulación de registros.
+ESTADO REGISTRADO: Buscado
+ÚLTIMA UBICACIÓN: No confirmada
+DISPONIBILIDAD: Krastellan; ubicación y conocimiento de la purga no confirmados al corte. No asumir que sigue desprevenido después del cierre de la fortaleza.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Compacto, manos marcadas por correas, uñas siempre cortas y olor persistente a cuero, grasa animal y desinfectante.
+VOZ: Breve y obediente en superficie. Responde con procedimiento antes que memoria y jamás ofrece un nombre si puede ofrecer un formulario.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Servidor especializado del Canil Veyr; sospechoso asociado a cera azul y manipulación de registros.. No asumir que sigue desprevenido después del cierre de la fortaleza.
+PERSONALIDAD: Metódico, adaptable y entrenado para sobrevivir entre nobles que consideran invisible al personal del canil. Puede ser operador, cómplice o peón de una autoridad mayor.
+INTERESES E INICIATIVA: Si detecta riesgo, moverá una prueba, quemará un registro o preparará coartada antes de huir. Puede negociar con nombres menores para preservar la cadena principal.
+AUTORIDAD Y RECURSOS: Acceso a rutinas, llaves, genealogías animales, olores, cuidadores y archivos del canil. No controla toda la institución.
+CONOCIMIENTO Y LÍMITES: Sabe qué registros alteró y quién puede sacrificarlo. El DM debe fijar su grado de culpa antes del primer interrogatorio y no cambiarlo para proteger la trama.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: PV 34; Sigilo 50; Trato animal 58; Per 52; Engaño 46. Competente con cuchillo y pistola, peligroso sobre todo por preparación.
+SALUD Y CONDICIONES: Buscado
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: Caelan lo considera una amenaza; todavía no existe relación personal desarrollada ni confesión.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Caelan lo considera una amenaza; todavía no existe relación personal desarrollada ni confesión.
+Continuidad
+ESTADO Y LÍMITE: No asumir que sigue desprevenido después del cierre de la fortaleza.
+PROYECCIÓN COMPATIBLE: Úsalo como cazador doméstico inverso: conoce jaulas, olores y hábitos. Bastion ya no es su vía de despliegue; el conflicto persiste por archivos y responsabilidad.
+ALIADOS, CONTACTOS Y AUTORIDADES EXTERNAS
+Dame Aveline Thyr-Kest
+ENTITY_ID: HAWK-AVELINE-001
+NOMBRE COMPLETO: Dame Aveline Thyr-Kest
+EDAD: 26 años
+ESPECIE: Humano
+FACCIÓN: House Thyr-Kest
+FUNCIÓN: Segunda hija de una casa menor de rutas y transporte; candidata de evaluación recíproca, no prometida.
+ESTADO REGISTRADO: Evaluación recíproca
+ÚLTIMA UBICACIÓN: Remota
+DISPONIBILIDAD: Remota. Los expedientes fueron enviados; Caelan aplazó leer los de ella. No existe noviazgo, anuncio ni consentimiento matrimonial.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Alta, cabello cobrizo oscuro, rostro anguloso y manos con pequeñas cicatrices de mapas, sellos y mecanismos de ruta.
+VOZ: Directa, profesional y poco impresionable. Pregunta por omisiones antes de ofrecer cortesía.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Segunda hija de una casa menor de rutas y transporte; candidata de evaluación recíproca, no prometida.. No existe noviazgo, promesa, anuncio ni consentimiento matrimonial.
+PERSONALIDAD: Ambiciosa, competente y consciente de que una segunda hija debe fabricar su propio poder. No quiere ser absorbida como recompensa de un cazador famoso.
+INTERESES E INICIATIVA: Responderá cuando sus propios intereses lo permitan y puede solicitar una conversación sin mediadores. También puede rechazar el proceso si detecta manipulación.
+AUTORIDAD Y RECURSOS: Influencia sobre rutas, convoyes, contratos y redes Thyr-Kest. No posee autoridad sobre Ghalmek ni la Rama Veyr.
+CONOCIMIENTO Y LÍMITES: Conoce la versión censurada de campañas enviada por Maerwyn. No conoce secretos vivos ni Caballero Cazador.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Logística 61; Comercio 55; Etiqueta 56; Per 50. Capaz de viajar armada, no combatiente principal.
+SALUD Y CONDICIONES: Evaluación recíproca
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: No conoce personalmente a Caelan. Exige evaluación recíproca y expediente íntegro; la curiosidad no equivale a afecto.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO EXISTE — evaluación política recíproca sin promesa, anuncio ni consentimiento matrimonial.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: No conoce personalmente a Caelan. Exige evaluación recíproca y expediente íntegro; la curiosidad no equivale a afecto.
+Continuidad
+ESTADO Y LÍMITE: No existe noviazgo, promesa, anuncio ni consentimiento matrimonial.
+PROYECCIÓN COMPATIBLE: Úsala como personaje político completo, con posibilidad de alianza, rivalidad o romance sólo mediante interacción y consentimiento.
+Lady Ilyra Orsain
+ENTITY_ID: ORSAIN-ILYRA-001
+NOMBRE COMPLETO: Lady Ilyra Orsain
+EDAD: 30 años
+ESPECIE: Humano
+FACCIÓN: House Orsain
+FUNCIÓN: Autoridad soberana de Crownkeep restaurada; contacto político y militar independiente.
+ESTADO REGISTRADO: Remota
+ÚLTIMA UBICACIÓN: Vann Kereth
+DISPONIBILIDAD: Remota en Vann Kereth. Requiere carta, viaje, deuda o necesidad Orsain; no aparece como aliada disponible.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Alta, cabello oscuro recogido con anillos de juramento y cicatrices finas en cuello y manos. Viste autoridad de fortaleza, no lujo de salón.
+VOZ: Firme, contenida y capaz de formular una negativa sin cerrar la negociación.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Autoridad soberana de Crownkeep restaurada; contacto político y militar independiente.. Respeto y deuda testimonial; no subordinación ni romance.
+PERSONALIDAD: Pragmática, orgullosa y marcada por haber gobernado durante invasión. Valora competencia que respeta jurisdicción.
+INTERESES E INICIATIVA: Puede escribir, reclamar testimonio, pedir ayuda o negar una solicitud que amenace Orsain. También puede buscar conversación por respeto propio.
+AUTORIDAD Y RECURSOS: Gobierna Crownkeep y recursos Orsain dentro de su jurisdicción. La deuda permite audiencia y respuesta, no obediencia.
+CONOCIMIENTO Y LÍMITES: Conoce Vann Kereth, cartas, decisiones y costos observados. No conoce KRL-IX porque Caelan lo omitió.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Mando 62; CC 48; Vol 58; Etiqueta 55. Autoridad de guerra capaz de combatir, pero no campeona invulnerable.
+SALUD Y CONDICIONES: Remota
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Respeto operativo y deuda testimonial hacia Caelan. No existe subordinación, romance ni promesa personal.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Respeto operativo y deuda testimonial hacia Caelan. No existe subordinación, romance ni promesa personal.
+Continuidad
+ESTADO Y LÍMITE: Respeto y deuda testimonial; no subordinación ni romance.
+PROYECCIÓN COMPATIBLE: Úsala como igual política difícil. Cualquier amistad o romance debe nacer de escenas, iniciativa mutua y consentimiento.
+Odran Helve
+ENTITY_ID: ORSAIN-HELVE-001
+NOMBRE COMPLETO: Odran Helve
+EDAD: 55 años
+ESPECIE: Humano
+FACCIÓN: House Orsain
+FUNCIÓN: Comandante militar general de Crownkeep durante Vann Kereth.
+ESTADO REGISTRADO: Remoto
+ÚLTIMA UBICACIÓN: Vann Kereth
+DISPONIBILIDAD: Remoto. Reaparece mediante asuntos militares, testimonio o deuda Orsain.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Veterano de rostro ancho, mandíbula con placa metálica y abrigo de mando marcado por quemaduras Drukhari.
+VOZ: Breve, militar y hostil a exagerar resultados.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Comandante militar general de Crownkeep durante Vann Kereth.. Conserva autoridad propia.
+PERSONALIDAD: Leal a Orsain, disciplinado y desconfiado de nobles visitantes. Respeta a quienes entienden límites de mando.
+INTERESES E INICIATIVA: Responderá a una consulta militar con hechos y costos. Puede contradecir propaganda favorable si sobrestima la victoria.
+AUTORIDAD Y RECURSOS: Mando sobre fuerzas Orsain cuando su Casa lo autoriza. No puede entregar soberanía ni recursos sin Ilyra.
+CONOCIMIENTO Y LÍMITES: Validó secuencias de combate, comunicaciones y purga. No es testigo de cada acción de Caelan.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Mando 64; Estrategia 57; B 50; Vol 55.
+SALUD Y CONDICIONES: Remoto
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Reconoce la eficacia de Caelan y conserva cadena propia. No es seguidor ni rival personal.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Reconoce la eficacia de Caelan y conserva cadena propia. No es seguidor ni rival personal.
+Continuidad
+ESTADO Y LÍMITE: Conserva autoridad propia.
+PROYECCIÓN COMPATIBLE: Úsalo como testigo profesional y freno contra inflación heroica.
+Meredin Voss
+ENTITY_ID: HAWK-MEREDIN-001
+NOMBRE COMPLETO: Meredin Voss
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: House Hawkshroud
+FUNCIÓN: Heraldo-actuario
+ESTADO REGISTRADO: Activo por expediente
+ÚLTIMA UBICACIÓN: Remoto
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Heraldo-actuario. Custodio documental; no subordinado.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: Activo por expediente
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Custodio documental; no subordinado.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Arven Holt
+ENTITY_ID: HAWK-ARVENH-001
+NOMBRE COMPLETO: Arven Holt
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: House Hawkshroud
+FUNCIÓN: Mando de reserva
+ESTADO REGISTRADO: Condicional
+ÚLTIMA UBICACIÓN: Remoto
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Mando de reserva. Requiere orden o nueva guerra.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: Condicional
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Requiere orden o nueva guerra.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Aurelia Vhorne
+ENTITY_ID: HAWK-VHORNE-001
+NOMBRE COMPLETO: Aurelia Vhorne
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Nave Testigo de Bronce; autoridad naval independiente
+FUNCIÓN: Capitana del Testigo de Bronce
+ESTADO REGISTRADO: Independiente
+ÚLTIMA UBICACIÓN: Remota
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Capitana del Testigo de Bronce. No responde a órdenes de Caelan.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: Independiente
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: No responde a órdenes de Caelan.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Sabeth Corven
+ENTITY_ID: HAWK-SABETH-001
+NOMBRE COMPLETO: Sabeth Corven
+EDAD: 37 años
+ESPECIE: Humano
+FACCIÓN: House Hawkshroud; Medicae
+FUNCIÓN: Medicae Hawkshroud y autoridad clínica sobre el retiro de Bastion.
+ESTADO REGISTRADO: Activa por consulta
+ÚLTIMA UBICACIÓN: Krastellan
+DISPONIBILIDAD: Krastellan, cadena médica separada. Puede aparecer por consulta clínica; no acompaña a Caelan.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Mujer de rostro cuadrado, cabello rubio oscuro, guantes hasta el codo y un respirador siempre colgado al cuello.
+VOZ: Precisa, firme y protectora del paciente incluso frente a nobleza.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Medicae Hawkshroud y autoridad clínica sobre el retiro de Bastion.. Autoridad clínica sobre Bastion.
+PERSONALIDAD: Compasiva sin sentimentalismo. Distingue vida digna de utilidad militar y se niega a transformar una baja en máquina por conveniencia.
+INTERESES E INICIATIVA: Mantendrá el retiro y sólo reconsiderará una intervención con evidencia y bienestar verificable.
+AUTORIDAD Y RECURSOS: Puede vetar traslado, implante, recertificación y contacto clínico. No controla el Canil ni la política familiar.
+CONOCIMIENTO Y LÍMITES: Conoce amputación, recuperación y límites clínicos de Bastion. No posee secretos de la purga salvo accesos médicos pertinentes.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: Medicae 66; Cirugía 64; Biologis animal 55.
+SALUD Y CONDICIONES: Activa por consulta
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Respeto profesional prudente hacia Caelan. Su autoridad sobre Bastion no depende del deseo de Caelan.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Respeto profesional prudente hacia Caelan. Su autoridad sobre Bastion no depende del deseo de Caelan.
+Continuidad
+ESTADO Y LÍMITE: Autoridad clínica sobre Bastion.
+PROYECCIÓN COMPATIBLE: Úsala cuando Bastion sea visitado o su retiro tenga consecuencias; nunca para devolverlo al combate por nostalgia.
+Yselle Korda
+ENTITY_ID: CALC-YSELLE-001
+NOMBRE COMPLETO: Yselle Korda
+EDAD: 28 años
+ESPECIE: Humano
+FACCIÓN: Calcedon; cadena de custodia juramentaria
+FUNCIÓN: Escriba juramentaria de Calcedon y contacto de cadena de custodia.
+ESTADO REGISTRADO: Contacto
+ÚLTIMA UBICACIÓN: Remota
+DISPONIBILIDAD: Remota. Requiere comunicación, protección o comisión documental.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Rostro estrecho, dedos permanentemente teñidos de tinta y postura de acta. Cuando teme, corrige fechas.
+VOZ: Formal, minuciosa y más valiente ante un documento que ante un arma.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Escriba juramentaria de Calcedon y contacto de cadena de custodia.. Lealtad profesional al método, no adhesión personal.
+PERSONALIDAD: Quiere que la verdad sobreviva sin provocar una guerra antes de tiempo. Puede ocultar una copia para preservarla.
+INTERESES E INICIATIVA: Puede enviar una advertencia, reclamar protección o descubrir una discrepancia antigua conectada con CALC-IX.
+AUTORIDAD Y RECURSOS: Autoridad registral limitada a su comisión y copias. No manda tropas.
+CONOCIMIENTO Y LÍMITES: Conoce actas de Calcedon y rutas documentales. No conoce los eventos recientes de Krastellan salvo comunicación.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: PV 31; Investigación 55; Administración 60.
+SALUD Y CONDICIONES: Contacto
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Lealtad profesional hacia el método de Caelan, no adhesión personal incondicional.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Lealtad profesional hacia el método de Caelan, no adhesión personal incondicional.
+Continuidad
+ESTADO Y LÍMITE: Lealtad profesional al método, no adhesión personal.
+PROYECCIÓN COMPATIBLE: Úsala como contacto documental con iniciativa y miedo propios.
+Talia Voss
+ENTITY_ID: CALC-TALIA-001
+NOMBRE COMPLETO: Talia Voss
+EDAD: 34 años
+ESPECIE: Humano
+FACCIÓN: Calcedon; fuerza local y convoyes
+FUNCIÓN: Tiradora y supervisora de convoyes de Calcedon.
+ESTADO REGISTRADO: Contacto
+ÚLTIMA UBICACIÓN: Remota
+DISPONIBILIDAD: Remota. Puede regresar por convoy, cacería, deuda o contratación válida.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Ojos atentos, cabello recogido, equipo práctico y postura que nunca ofrece la espalda a una entrada.
+VOZ: Directa, seca y orientada a salidas. No adorna elogios.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Tiradora y supervisora de convoyes de Calcedon.. Respeto pragmático; no séquito ni romance.
+PERSONALIDAD: Valora competencia y autonomía táctica. Teme ser tratada como munición por un noble vanidoso.
+INTERESES E INICIATIVA: Puede aceptar una comisión con condiciones o buscar a Caelan si un convoy conecta con antiguas rutas.
+AUTORIDAD Y RECURSOS: Puede dirigir tiro y seguridad de convoy cuando una autoridad la asigna.
+CONOCIMIENTO Y LÍMITES: Conoce operaciones de Calcedon y la forma de mando de Caelan en ese arco. Ignora la purga actual.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: PV 37; B 58; Per 50; Sigilo 45.
+SALUD Y CONDICIONES: Contacto
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Respeto pragmático hacia Caelan. No es parte de su séquito ni existe romance establecido.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Respeto pragmático hacia Caelan. No es parte de su séquito ni existe romance establecido.
+Continuidad
+ESTADO Y LÍMITE: Respeto pragmático; no séquito ni romance.
+PROYECCIÓN COMPATIBLE: Úsala como profesional con límites, humor seco y capacidad de negarse.
+Hadran Kest
+ENTITY_ID: ORSAIN-HADRAN-001
+NOMBRE COMPLETO: Hadran Kest
+EDAD: 42 años
+ESPECIE: Humano
+FACCIÓN: House Orsain / comisión de Vann Kereth
+FUNCIÓN: Veterano de la comisión de Vann Kereth y declarante militar independiente.
+ESTADO REGISTRADO: Contacto
+ÚLTIMA UBICACIÓN: Remoto
+DISPONIBILIDAD: Remoto. Reaparece por testimonio, necesidad Orsain o nueva guerra.
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: Alto, barba negra salpicada de gris, armadura remendada y una cicatriz diagonal que no intenta ocultar.
+VOZ: Grave, concreta y respetuosa sólo después de observar conducta.
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Veterano de la comisión de Vann Kereth y declarante militar independiente.. Reaparece por testimonio o guerra.
+PERSONALIDAD: Leal a la misión más que a la gloria. Carga memoria de quienes obedecieron y murieron.
+INTERESES E INICIATIVA: Puede dar testimonio incómodo, aceptar una nueva misión o rechazar propaganda que borre a otros.
+AUTORIDAD Y RECURSOS: Autoridad militar sólo cuando es nombrado dentro de una comisión.
+CONOCIMIENTO Y LÍMITES: Conoce operaciones presenciadas y el debrief que corroboró. No conoce KRL-IX.
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: PV 44; CC 48; B 50; Mando 52; Supervivencia 48.
+SALUD Y CONDICIONES: Contacto
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: Respeta a Caelan por decisiones verificables; no confirma secretos que no vio ni lo sigue fuera de mandato.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: Respeta a Caelan por decisiones verificables; no confirma secretos que no vio ni lo sigue fuera de mandato.
+Continuidad
+ESTADO Y LÍMITE: Reaparece por testimonio o guerra.
+PROYECCIÓN COMPATIBLE: Úsalo como soldado veterano con memoria, no como escolta intercambiable.
+RED INTERNA, DETENIDOS, VÍCTIMAS Y TESTIGOS
+Ilyon Rauth
+ENTITY_ID: VEYR-RAUTH-001
+NOMBRE COMPLETO: Ilyon Rauth
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Red interna hostil de Krastellan
+FUNCIÓN: Operador de red
+ESTADO REGISTRADO: 11/11
+ÚLTIMA UBICACIÓN: Detenido
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Operador de red. Superior desconocido; operador confirmado.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 11/11
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Superior desconocido; operador confirmado.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Salien Mordane
+ENTITY_ID: VEYR-MORDANE-001
+NOMBRE COMPLETO: Salien Mordane
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Red interna hostil de Krastellan
+FUNCIÓN: Colaboradora de red
+ESTADO REGISTRADO: 13/13
+ÚLTIMA UBICACIÓN: Detenida
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Colaboradora de red. Desarmada; cooperación posible tras fractura interna.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 13/13
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Desarmada; cooperación posible tras fractura interna.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Pell Varc
+ENTITY_ID: VEYR-PELL-001
+NOMBRE COMPLETO: Pell Varc
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Red interna hostil de Krastellan
+FUNCIÓN: Confesor traidor
+ESTADO REGISTRADO: 0/12; inconsciente
+ÚLTIMA UBICACIÓN: Medicae
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Confesor traidor. Supervivencia final no cerrada.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 0/12; inconsciente
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Supervivencia final no cerrada.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Kyran Voll
+ENTITY_ID: VEYR-VOLL-001
+NOMBRE COMPLETO: Kyran Voll
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Red interna hostil de Krastellan
+FUNCIÓN: Fugitivo armado
+ESTADO REGISTRADO: 0/14; estable
+ÚLTIMA UBICACIÓN: Cirugía
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Fugitivo armado. Capturado vivo; ambas manos inutilizadas.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 0/14; estable
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Capturado vivo; ambas manos inutilizadas.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Lucen Marr
+ENTITY_ID: VEYR-LUCENMARR-001
+NOMBRE COMPLETO: Lucen Marr
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Red interna hostil de Krastellan
+FUNCIÓN: Escriba cooperador
+ESTADO REGISTRADO: 7/12
+ÚLTIMA UBICACIÓN: Detenido
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Escriba cooperador. Coopera bajo coerción; alcance de culpa pendiente.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 7/12
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Coopera bajo coerción; alcance de culpa pendiente.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Teren Vos
+ENTITY_ID: VEYR-TERENVOS-001
+NOMBRE COMPLETO: Teren Vos
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Copista y víctima
+ESTADO REGISTRADO: 5/10
+ÚLTIMA UBICACIÓN: Atención médica
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Copista y víctima. Liberado; sufrió borrado inducido.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 5/10
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Liberado; sufrió borrado inducido.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Aven Krail
+ENTITY_ID: VEYR-KRAIL-001
+NOMBRE COMPLETO: Aven Krail
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Red interna hostil de Krastellan
+FUNCIÓN: Operador armado
+ESTADO REGISTRADO: 0/11; crítico
+ÚLTIMA UBICACIÓN: Medicae
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Operador armado. Amputación probable; supervivencia no garantizada.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 0/11; crítico
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Amputación probable; supervivencia no garantizada.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Jorren Sile
+ENTITY_ID: VEYR-SILE-001
+NOMBRE COMPLETO: Jorren Sile
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Transportista
+ESTADO REGISTRADO: 10/10
+ÚLTIMA UBICACIÓN: Detenido
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Transportista. Se rindió; aportó rutas y nombre de Tavia.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 10/10
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Se rindió; aportó rutas y nombre de Tavia.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Tavia Meron
+ENTITY_ID: VEYR-TAVIA-001
+NOMBRE COMPLETO: Tavia Meron
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Genealogista colaboradora
+ESTADO REGISTRADO: 8/10
+ÚLTIMA UBICACIÓN: Custodia Caelan/Odran
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Genealogista colaboradora. Declaración prevista al amanecer; exigió ausencia de confesores.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 8/10
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Declaración prevista al amanecer; exigió ausencia de confesores.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Custodio Iven
+ENTITY_ID: VEYR-IVAN-001
+NOMBRE COMPLETO: Custodio Iven
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Rama Veyr-Hawkshroud / Krastellan
+FUNCIÓN: Custodio envenenado
+ESTADO REGISTRADO: 7/12; paralizado
+ÚLTIMA UBICACIÓN: Medicae
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Custodio envenenado. Vivo; incapaz de hablar o moverse al corte.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: 7/12; paralizado
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: No jurada; cooperación, deuda o respeto no equivalen a lealtad personal.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Vivo; incapaz de hablar o moverse al corte.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+Deren Hoss
+ENTITY_ID: VEYR-HOSS-001
+NOMBRE COMPLETO: Deren Hoss
+EDAD: NO REGISTRADO
+ESPECIE: Humano
+FACCIÓN: Red interna hostil de Krastellan
+FUNCIÓN: Falsificador de credenciales
+ESTADO REGISTRADO: Vivo
+ÚLTIMA UBICACIÓN: Detenido
+DISPONIBILIDAD: NO REGISTRADA
+Descripción física y presentación
+APARIENCIA Y PRESENCIA: NO REGISTRADO
+VOZ: NO REGISTRADO
+ROPA Y PRESENTACIÓN: NO REGISTRADO por separado; no inventar uniforme, armadura, joyas o heridas que el perfil no confirme.
+Identidad, historia y conducta
+HISTORIA CONOCIDA: Falsificador de credenciales. Intentó beber desinfectante; interrogatorio pendiente.
+PERSONALIDAD: NO REGISTRADO
+INTERESES E INICIATIVA: NO REGISTRADO
+AUTORIDAD Y RECURSOS: NO REGISTRADO
+CONOCIMIENTO Y LÍMITES: NO REGISTRADO
+Capacidades y estado
+ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADO
+SALUD Y CONDICIONES: Vivo
+INVENTARIO: NO REGISTRADO
+EQUIPO: NO REGISTRADO
+ARMAS: NO REGISTRADO
+ARMADURA: NO REGISTRADO
+Relación con Caelan
+LEALTAD: 0 — no jurada; hostilidad, coerción o interés propio según el registro.
+CONFIANZA: NO REGISTRADA; no inferirla desde proximidad, custodia, parentesco o rendición.
+AMISTAD: NO CONFIRMADA.
+ROMANCE: NO CONFIRMADO.
+ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE. No hay veneración confirmada de Caelan como santo, leyenda, monstruo sagrado o deidad.
+OPINIÓN SOBRE CAELAN: NO REGISTRADA. La conducta conocida no autoriza a inventar una opinión interior.
+Continuidad
+ESTADO Y LÍMITE: Intentó beber desinfectante; interrogatorio pendiente.
+PROYECCIÓN COMPATIBLE: NO REGISTRADO
+DISTINCIONES OBLIGATORIAS
+Odran Veyr-Hawkshroud y Odran Helve son personas distintas.
+Lucien Veyr-Hawkshroud y Lucen Marr son personas distintas.
+Una persona a 0 Salud puede estar estable, inconsciente, en cirugía o crítica; no declarar muerte o recuperación sin resolución.
+Lysandra no está acusada ni condenada al corte. Tavia está bajo custodia para declarar; no existe culpa final adjudicada.
+Parentesco, gratitud, custodia o cooperación no convierten a nadie en integrante del séquito.
+ENMIENDA INTERPRETATIVA ACTIVA — VARRO, SOREN Y REACCIONES DE PODER
+ESTADO: Aclaración de conducta; no modifica salud, ubicación, relaciones, estadísticas, disponibilidad ni hechos registrados.
+VARRO VEYR-HAWKSHROUD — IDEALISMO FEUDAL E IMPERIAL
+El idealismo de Varro no equivale a derechos humanos contemporáneos, igualdad civil ni autonomía universal de los dependientes. Su marco sigue siendo noble, feudal, imperial y religioso.
+Puede creer que un buen señor conserva aquello que gobierna, protege a sus dependientes y responde por las pérdidas de su patrimonio.
+Puede objetar una matanza por desperdicio, incompetencia, deshonra, pérdida de producción, debilitamiento de la Casa o fracaso de responsabilidad señorial.
+Puede mostrar compasión personal sin negar que los servidores pertenecen a una jerarquía que dispone de sus vidas.
+No debe hablar como si un plebeyo poseyera derecho universal a rechazar al noble, exigir justificación previa o apelar ante una ley neutral.
+SOREN — AUTORIDAD CLÍNICA DELEGADA
+La autoridad clínica de Soren controla diagnóstico, tratamiento, reposo, personal médico y certificación mientras la Casa sostenga su cargo. No constituye soberanía moral independiente ni poder igual al de la sangre propietaria.
+Soren puede advertir, negar su cooperación personal, ordenar a subordinados médicos, registrar interferencia y recurrir a Garran u otra autoridad.
+Puede ser reemplazado, obligado, castigado o ignorado por una autoridad con poder suficiente. La realidad médica no cambia por decreto, pero el paciente sí puede ser retirado del tratamiento por orden.
+“Comprometer vidas” significa comprometer pacientes, activos clínicos, reputación profesional, continuidad de la Casa o responsabilidad de su cargo; no activa defensa humanitaria universal.
+REACCIÓN GENERAL DE PNJ
+Un PNJ no se opone a Caelan por detectar crueldad. Se opone cuando su personalidad, doctrina, afecto, propiedad, función, orden, prestigio o interés concreto lo mueve y posee capacidad para actuar. El silencio, la obediencia y la no intervención son respuestas completas.

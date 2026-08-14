@@ -1,0 +1,343 @@
+Reputación de facciones
+Relación persistente, intereses, favores y consecuencias por facción o subfacción — campaña de Caelan Veyr-Hawkshroud
+Control del registro
+DOCUMENT_KEY: 
+REPUTATION
+DOCUMENT_ID: 
+REPUTATION.CAELAN.MAIN
+CAMPAIGN_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD
+CONTINUITY_ID: 
+CONTINUITY.CAELAN.PRIMARY
+PLAYER_CHARACTER_ID: 
+PC-CAELAN-001
+ALLOWED_SEMANTIC_OPERATIONS: 
+ACTUALIZAR, AGREGAR
+PERSISTED_PAUSE_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+CHECKPOINT_ID: 
+PAUSE.CAELAN.T928.KRASTELLAN-CORRIDORS
+STATE_REVISION: 
+REPUTATION.CAELAN.T928.R5
+SOURCE_REVISION_ID: 
+CAMPAIGN.CAELAN.VEYR-HAWKSHROUD.REPUTATION.TEMPLATE-20260811
+ÚLTIMA ACTUALIZACIÓN: 
+Séptimo día de reposo, tarde avanzada; T928
+MIGRATION_ID: 
+CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: 
+Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: 
+Este archivo pertenece únicamente a CAMPAIGN.CAELAN.VEYR-HAWKSHROUD. Rechazar datos de cualquier otra campaña.
+AGENCIA: 
+No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: 
+Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+Reglas de actualización
+AGREGAR: 
+Crear un perfil cuando una facción o subfacción adquiere una relación persistente propia con el personaje jugador.
+ACTUALIZAR: 
+Modificar reputación, intereses, favores, consecuencias y umbrales dentro del perfil vigente.
+ALCANCE: 
+No propagar automáticamente un valor local a la facción superior, sus subordinados, aliados o rivales.
+FAVORES: 
+Un favor no equivale automáticamente a reputación. Registrar por separado dirección, valor, origen, estado y condiciones de cobro.
+Escala
+−100 ENEMISTAD_ABSOLUTA; −99..−76 CAZA; −75..−51 ENEMIGO; −50..−26 HOSTIL; −25..−1 DESCONFIANZA; 0 NEUTRAL; +1..+25 RECEPTIVA; +26..+50 FAVORABLE; +51..+75 ALIADA; +76..+99 CONFIANZA_EXCEPCIONAL; +100 VÍNCULO_MÁXIMO.
+ACLARACIÓN: 
+DREAD, NOTORIETY y CREDIBILITY se conservan como contexto heredado; REPUTACIÓN ACTUAL es el valor principal de −100 a +100.
+ESTADO POR FACCIONES
+House Hawkshroud
+REPUTATION_ID: REP.CAELAN.FACTION.HAWKSHROUD
+FACTION_ID: FACTION.HAWKSHROUD
+REPUTACIÓN ACTUAL: 75 — ALIADA
+ETIQUETA HEREDADA: HONOURED
+DREAD: 35 — WARY
+NOTORIETY: 85
+CREDIBILITY: 90
+BASE VERIFICABLE: Juramentos, expedientes y resultados; utilidad acompañada de vigilancia.
+OPINIÓN PÚBLICA CONFIRMADA: Juramentos, expedientes y resultados; utilidad acompañada de vigilancia.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Honrado: credenciales y testimonio reciben peso elevado; toda recompensa material sigue exigiendo perfil, autoridad y coste.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Rama Veyr-Hawkshroud
+REPUTATION_ID: REP.CAELAN.FACTION.HAWKSHROUD.VEYR
+FACTION_ID: FACTION.HAWKSHROUD.VEYR
+REPUTACIÓN ACTUAL: 65 — ALIADA
+ETIQUETA HEREDADA: FAVOURED
+DREAD: 30 — WARY
+NOTORIETY: 85
+CREDIBILITY: 90
+BASE VERIFICABLE: Prestigio y control doméstico crecientes.
+OPINIÓN PÚBLICA CONFIRMADA: Prestigio y control doméstico crecientes.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Favorecido: actitud inicial positiva y acceso mejorado; no concede tropas, equipo, títulos ni favores sin perfil específico.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Consejo Veyr
+REPUTATION_ID: REP.CAELAN.FACTION.HAWKSHROUD.VEYR.COUNCIL
+FACTION_ID: FACTION.HAWKSHROUD.VEYR.COUNCIL
+REPUTACIÓN ACTUAL: 30 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 25 — WARY
+NOTORIETY: 70
+CREDIBILITY: 85
+BASE VERIFICABLE: Respeto condicionado por precedentes y condiciones escritas.
+OPINIÓN PÚBLICA CONFIRMADA: Respeto condicionado por precedentes y condiciones escritas.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Capellanía Veyr
+REPUTATION_ID: REP.CAELAN.FACTION.HAWKSHROUD.VEYR.CHAPLAINCY
+FACTION_ID: FACTION.HAWKSHROUD.VEYR.CHAPLAINCY
+REPUTACIÓN ACTUAL: 25 — RECEPTIVA
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 20 — DISMISSED
+NOTORIETY: 60
+CREDIBILITY: 75
+BASE VERIFICABLE: Ortodoxia defendible; vigilancia doctrinal intacta.
+OPINIÓN PÚBLICA CONFIRMADA: Ortodoxia defendible; vigilancia doctrinal intacta.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+House Orsain
+REPUTATION_ID: REP.CAELAN.FACTION.ORSAIN
+FACTION_ID: FACTION.ORSAIN
+REPUTACIÓN ACTUAL: 35 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 25 — WARY
+NOTORIETY: 70
+CREDIBILITY: 90
+BASE VERIFICABLE: Crownkeep, tres fortalezas, acta y retirada sin reclamar soberanía.
+OPINIÓN PÚBLICA CONFIRMADA: Crownkeep, tres fortalezas, acta y retirada sin reclamar soberanía.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Defensores de Crownkeep
+REPUTATION_ID: REP.CAELAN.FACTION.ORSAIN.CROWNKEEP
+FACTION_ID: FACTION.ORSAIN.CROWNKEEP
+REPUTACIÓN ACTUAL: 35 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 35 — WARY
+NOTORIETY: 60
+CREDIBILITY: 75
+BASE VERIFICABLE: Corredor médico, cautivos y continuidad defensiva.
+OPINIÓN PÚBLICA CONFIRMADA: Corredor médico, cautivos y continuidad defensiva.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Vargrif / Mordian Iron Guard
+REPUTATION_ID: REP.CAELAN.FACTION.VARGRIF.MORDIAN
+FACTION_ID: FACTION.VARGRIF.MORDIAN
+REPUTACIÓN ACTUAL: 75 — ALIADA
+ETIQUETA HEREDADA: HONOURED
+DREAD: 50 — FEARED
+NOTORIETY: 90
+CREDIBILITY: 95
+BASE VERIFICABLE: Testigos fuertes del cumplimiento y de la cacería posterior.
+OPINIÓN PÚBLICA CONFIRMADA: Testigos fuertes del cumplimiento y de la cacería posterior.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Honrado: credenciales y testimonio reciben peso elevado; toda recompensa material sigue exigiendo perfil, autoridad y coste. El temor es operativo y puede aumentar cautela, resentimiento o preparación defensiva.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Commissariat de Vargrif
+REPUTATION_ID: REP.CAELAN.FACTION.VARGRIF.COMMISSARIAT
+FACTION_ID: FACTION.VARGRIF.COMMISSARIAT
+REPUTACIÓN ACTUAL: 35 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 30 — WARY
+NOTORIETY: 65
+CREDIBILITY: 90
+BASE VERIFICABLE: Cumplimiento y cacería con marco legal defendible.
+OPINIÓN PÚBLICA CONFIRMADA: Cumplimiento y cacería con marco legal defendible.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Mechanicus de Vargrif
+REPUTATION_ID: REP.CAELAN.FACTION.VARGRIF.MECHANICUS
+FACTION_ID: FACTION.VARGRIF.MECHANICUS
+REPUTACIÓN ACTUAL: 30 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 25 — WARY
+NOTORIETY: 65
+CREDIBILITY: 90
+BASE VERIFICABLE: Pruebas técnicas y cadena de custodia preservadas.
+OPINIÓN PÚBLICA CONFIRMADA: Pruebas técnicas y cadena de custodia preservadas.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Guardia Imperial de Vhal-Mordane
+REPUTATION_ID: REP.CAELAN.FACTION.VHAL_MORDANE.GUARD
+FACTION_ID: FACTION.VHAL_MORDANE.GUARD
+REPUTACIÓN ACTUAL: 40 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 45 — WARY
+NOTORIETY: 75
+CREDIBILITY: 70
+BASE VERIFICABLE: Mito útil de frente; respeto y distancia ante privilegio noble.
+OPINIÓN PÚBLICA CONFIRMADA: Mito útil de frente; respeto y distancia ante privilegio noble.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Gobernación de Calcedon
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.GOVERNMENT
+FACTION_ID: FACTION.CALCEDON.GOVERNMENT
+REPUTACIÓN ACTUAL: 30 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 35 — WARY
+NOTORIETY: 55
+CREDIBILITY: 75
+BASE VERIFICABLE: Deuda política prudente y ruta restaurada.
+OPINIÓN PÚBLICA CONFIRMADA: Deuda política prudente y ruta restaurada.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Prefectura-Mariscal de Calcedon
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.PREFECTURE
+FACTION_ID: FACTION.CALCEDON.PREFECTURE
+REPUTACIÓN ACTUAL: 25 — RECEPTIVA
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 30 — WARY
+NOTORIETY: 50
+CREDIBILITY: 75
+BASE VERIFICABLE: Contacto militar limitado a jurisdicción y registros locales.
+OPINIÓN PÚBLICA CONFIRMADA: Contacto militar limitado a jurisdicción y registros locales.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Adeptus Mechanicus de Calcedon
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.MECHANICUS
+FACTION_ID: FACTION.CALCEDON.MECHANICUS
+REPUTACIÓN ACTUAL: 20 — RECEPTIVA
+ETIQUETA HEREDADA: TOLERATED
+DREAD: 20 — DISMISSED
+NOTORIETY: 55
+CREDIBILITY: 80
+BASE VERIFICABLE: Respeto frío por datos y prisioneros técnicos preservados.
+OPINIÓN PÚBLICA CONFIRMADA: Respeto frío por datos y prisioneros técnicos preservados.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Tolerado: trato reglamentario sin recompensa, deuda ni acceso privilegiado automático.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Forja auxiliar Pellax-9
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.PELLAX9
+FACTION_ID: FACTION.CALCEDON.PELLAX9
+REPUTACIÓN ACTUAL: 5 — RECEPTIVA
+ETIQUETA HEREDADA: TOLERATED
+DREAD: 15 — DISMISSED
+NOTORIETY: 30
+CREDIBILITY: 55
+BASE VERIFICABLE: Utilidad bajo revisión y sospecha técnica no resuelta.
+OPINIÓN PÚBLICA CONFIRMADA: Utilidad bajo revisión y sospecha técnica no resuelta.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Tolerado: trato reglamentario sin recompensa, deuda ni acceso privilegiado automático.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Eclesiarquía local de Calcedon
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.ECCLESIARCHY
+FACTION_ID: FACTION.CALCEDON.ECCLESIARCHY
+REPUTACIÓN ACTUAL: 30 — FAVORABLE
+ETIQUETA HEREDADA: RECOGNISED
+DREAD: 25 — WARY
+NOTORIETY: 50
+CREDIBILITY: 70
+BASE VERIFICABLE: Deuda ritual y memoria de purga limitada a la diócesis local.
+OPINIÓN PÚBLICA CONFIRMADA: Deuda ritual y memoria de purga limitada a la diócesis local.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Reconocido: audiencia y cooperación limitada son plausibles si jurisdicción, coste y evidencia lo permiten.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Mando de cruzada relacionado
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.CRUSADE_COMMAND
+FACTION_ID: FACTION.CALCEDON.CRUSADE_COMMAND
+REPUTACIÓN ACTUAL: 20 — RECEPTIVA
+ETIQUETA HEREDADA: TOLERATED
+DREAD: 25 — WARY
+NOTORIETY: 45
+CREDIBILITY: 60
+BASE VERIFICABLE: Utilidad logística; sin mando ni suministro automático.
+OPINIÓN PÚBLICA CONFIRMADA: Utilidad logística; sin mando ni suministro automático.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Tolerado: trato reglamentario sin recompensa, deuda ni acceso privilegiado automático.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Civiles supervivientes de Calcedon
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.SURVIVORS
+FACTION_ID: FACTION.CALCEDON.SURVIVORS
+REPUTACIÓN ACTUAL: 10 — RECEPTIVA
+ETIQUETA HEREDADA: TOLERATED
+DREAD: 40 — WARY
+NOTORIETY: 40
+CREDIBILITY: 45
+BASE VERIFICABLE: Temor y gratitud irregular; no representa a todo el planeta.
+OPINIÓN PÚBLICA CONFIRMADA: Temor y gratitud irregular; no representa a todo el planeta.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Tolerado: trato reglamentario sin recompensa, deuda ni acceso privilegiado automático.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+Red del Canil Corrupto
+REPUTATION_ID: REP.CAELAN.FACTION.KRASTELLAN.CORRUPT_KENNEL
+FACTION_ID: FACTION.KRASTELLAN.CORRUPT_KENNEL
+REPUTACIÓN ACTUAL: -60 — ENEMIGO
+ETIQUETA HEREDADA: CONDEMNED
+DREAD: 70 — FEARED
+NOTORIETY: 60
+CREDIBILITY: 75
+BASE VERIFICABLE: Enemigo operativo; busca quemar pruebas y sabotear credibilidad.
+OPINIÓN PÚBLICA CONFIRMADA: Enemigo operativo; busca quemar pruebas y sabotear credibilidad.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Condena operativa: cooperación ordinaria es inviable; sabotaje, denuncia o violencia son respuestas compatibles. El temor es operativo y puede aumentar cautela, resentimiento o preparación defensiva.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+DOM-CERAE / RUBRUM
+REPUTATION_ID: REP.CAELAN.FACTION.DOM_CERAE_RUBRUM
+FACTION_ID: FACTION.DOM_CERAE_RUBRUM
+REPUTACIÓN ACTUAL: -90 — CAZA
+ETIQUETA HEREDADA: HUNTED
+DREAD: 90 — TERRIFIED
+NOTORIETY: 80
+CREDIBILITY: 90
+BASE VERIFICABLE: Hostilidad absoluta y mandato activo de represalia.
+OPINIÓN PÚBLICA CONFIRMADA: Hostilidad absoluta y mandato activo de represalia.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Hostilidad extrema: captura, destrucción o represalia pueden ser objetivos activos si la facción posee alcance y autoridad. El temor extremo puede producir obediencia superficial, huida o conspiración; nunca lealtad automática.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+SOL-3 / Sable
+REPUTATION_ID: REP.CAELAN.FACTION.CALCEDON.SOL3_SABLE
+FACTION_ID: FACTION.CALCEDON.SOL3_SABLE
+REPUTACIÓN ACTUAL: -10 — DESCONFIANZA
+ETIQUETA HEREDADA: DISTRUSTED
+DREAD: 45 — WARY
+NOTORIETY: 35
+CREDIBILITY: 50
+BASE VERIFICABLE: Amenaza residual; no tratar como red destruida.
+OPINIÓN PÚBLICA CONFIRMADA: Amenaza residual; no tratar como red destruida.
+OPINIÓN INTERNA/SECRETA: NO REGISTRADA fuera de la base verificable; no inventar unanimidad ni conocimiento total.
+CONSECUENCIA ACTIVA: Desconfianza: controles reforzados, garantías, costes o escolta antes de conceder acceso.
+RECOMPENSA O DESVENTAJA ESPECÍFICA: Ninguna automática por puntuación. Consultar el libro de favores y aplicar REP.REWARD únicamente si existe perfil, autoridad, coste y umbral válidos.
+LIBRO DE FAVORES Y DEUDAS
+REGISTRO 1 — FAVOUR.VARGRIF.001
+ID: FAVOUR.VARGRIF.001
+Facción: Vargrif / Mordian Iron Guard
+Tipo: FAVOR
+Estado: ACTIVE — no consumido
+Alcance: Elegir hasta 10.000 tronos o 12 soldados durante 72 horas
+Coste/consumo: Una modalidad; se consume al materializarse
+Límite: Sujeto a disponibilidad, jurisdicción y logística.
+REGISTRO 2 — DEBT.ORSAIN.TESTIMONIAL.001
+ID: DEBT.ORSAIN.TESTIMONIAL.001
+Facción: House Orsain
+Tipo: DEUDA TESTIMONIAL
+Estado: ACTIVE
+Alcance: Memoria, testimonio, audiencia o respuesta razonable
+Coste/consumo: No es moneda y no exige obediencia
+Límite: No concede tropas, soberanía, propiedad ni intervención ilimitada.
+TRAZABILIDAD DE MIGRACIÓN
+Los cuatro ejes actuales se fijaron por migración conservadora en T926. No eran cifras históricas del sistema legado.
+La migración no fabrica un historial de deltas inexistente. Los próximos cambios sí requieren EVENT_ID, valor anterior, delta, valor nuevo, visibilidad, testigos y fuente.
+Un mismo hecho no se aplica dos veces ni se propaga sin PROPAGATION_EDGE válido.
+REGLAS DE CAMBIO
+STANDING favorable no elimina vigilancia, jurisdicción o costes; DREAD alto no equivale a obediencia.
+NOTORIETY mide alcance, no exactitud; CREDIBILITY mide evidencia institucional, no verdad metafísica.
+Un cambio requiere EVENT_ID, eje, valor anterior, delta, valor nuevo, visibilidad y fuente.
+La red enemiga no se registra como exterminada mientras sobrevivan operadores, superiores o capacidad no resuelta.
+ENMIENDA INTERPRETATIVA ACTIVA — FILTRO DE EVENTO REPUTACIONAL
+Esta enmienda no modifica puntuaciones, bandas, favores, historial ni facciones registradas.
+Una crueldad, ejecución, castigo o pérdida de vidas no crea automáticamente REP.EVENT.001. Antes debe existir conocimiento suficiente, visibilidad efectiva y una facción o subfacción con interés propio en el hecho.
+Intereses posibles: propiedad dañada, producción, diezmo, leva, jurisdicción, doctrina, prestigio, orden superior, rivalidad, patronazgo, temor estratégico o utilidad de las víctimas.
+La mera existencia de víctimas, testigos o sufrimiento no constituye por sí sola EVENT_PROFILE_ID reputacional.
+Un acto puede aumentar DREAD sin reducir STANDING; aumentar STANDING ante una facción y reducirlo ante otra; o no cambiar ningún eje.
+La muerte de personas sin patronazgo, utilidad o visibilidad relevante puede producir cero delta institucional aunque altere miedo local o relaciones personales concretas.
+No propagar indignación genérica. Cada propagación necesita un emisor, receptor, medio, credibilidad y motivo para que al receptor le importe.
