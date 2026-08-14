@@ -412,6 +412,11 @@ def inspect_anomalous(req: AnomalousRequest):
 def get_domain_status():
     return DomainManagementEngine.get_rho9_status()
 
+@app.get("/api/domain/blueprint", dependencies=[Depends(verify_api_key)])
+def get_domain_blueprint():
+    """Devuelve el plano arquitectónico interactivo y estado de mejoras de Rho-9"""
+    return DomainManagementEngine.get_rho9_blueprint()
+
 @app.post("/api/domain/assign", dependencies=[Depends(verify_api_key)])
 def assign_staff(req: AssignTaskRequest):
     return DomainManagementEngine.assign_staff_task(req.npc_name, req.task)

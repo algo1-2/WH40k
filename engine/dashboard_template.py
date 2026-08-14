@@ -1,6 +1,6 @@
 """
-WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE
-Responsive, dark-industrial grimdark dashboard for https://wh-40k.vercel.app/
+WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v2.0
+Includes Interactive Architectural Blueprint & Base Expansion / Upgrades Panel
 """
 
 def get_dashboard_html() -> str:
@@ -265,6 +265,7 @@ def get_dashboard_html() -> str:
     .stat-val.green { color: var(--green-auspex); }
     .stat-val.amber { color: var(--amber); }
     .stat-val.crimson { color: var(--crimson-light); }
+    .stat-val.cyan { color: var(--cyan-plasma); }
 
     .progress-bar-bg {
       width: 100%;
@@ -285,6 +286,7 @@ def get_dashboard_html() -> str:
     .fill-amber { background: var(--amber); }
     .fill-brass { background: var(--brass); }
     .fill-crimson { background: var(--crimson-light); }
+    .fill-cyan { background: var(--cyan-plasma); }
 
     .char-card {
       background: #131821;
@@ -314,6 +316,159 @@ def get_dashboard_html() -> str:
     .char-status {
       font-size: 0.8rem;
       color: var(--text-muted);
+    }
+
+    /* BLUEPRINT TACTICAL GRID */
+    .blueprint-metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .blueprint-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .blueprint-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .blueprint-grid { grid-template-columns: 1fr; }
+    }
+
+    .room-card {
+      background: #0d1117;
+      border: 1px solid #2d3748;
+      border-radius: 6px;
+      padding: 1rem;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+    }
+
+    .room-card:hover {
+      border-color: var(--brass);
+      background: #141a24;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(201, 154, 62, 0.2);
+    }
+
+    .room-card.active-selected {
+      border-color: var(--brass);
+      box-shadow: 0 0 12px var(--amber-glow);
+      background: #161e2b;
+    }
+
+    .room-card.fog-of-war {
+      border-style: dashed;
+      border-color: #3b4252;
+      background: repeating-linear-gradient(
+        45deg,
+        #0a0d12,
+        #0a0d12 10px,
+        #0e131a 10px,
+        #0e131a 20px
+      );
+    }
+
+    .room-code-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--brass-dim);
+      letter-spacing: 1px;
+    }
+
+    .room-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0.25rem 0;
+    }
+
+    .room-level-badge {
+      font-size: 0.7rem;
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      background: #1e2530;
+      color: var(--brass);
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .room-occupants-mini {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .room-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 0.35rem;
+    }
+
+    /* Modal / Drawer for Room Details */
+    .room-detail-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .room-detail-content {
+      background: #0f1319;
+      border: 2px solid var(--brass);
+      border-radius: 8px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 1.5rem;
+      box-shadow: 0 0 30px rgba(201, 154, 62, 0.3);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .modal-close-btn:hover { color: var(--crimson-light); }
+
+    .upgrade-box {
+      background: #141923;
+      border: 1px solid var(--brass-dim);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1rem;
     }
 
     .filter-bar {
@@ -527,7 +682,8 @@ def get_dashboard_html() -> str:
   </header>
 
   <nav class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('tab-status')">⚙️ ESTADO DE CAMPAÑA</button>
+    <button class="tab-btn active" onclick="switchTab('tab-blueprint')">🗺️ PLANO & MEJORAS RHO-9</button>
+    <button class="tab-btn" onclick="switchTab('tab-status')">⚙️ ESTADO DE CAMPAÑA</button>
     <button class="tab-btn" onclick="switchTab('tab-inventory')">📦 SOMBRA INFINITA & ARSENAL</button>
     <button class="tab-btn" onclick="switchTab('tab-roller')">🎲 SIMULADOR DE TIRADAS d100</button>
     <button class="tab-btn" onclick="switchTab('tab-docs')">📜 DOSSIERS Y CRÓNICAS</button>
@@ -535,7 +691,52 @@ def get_dashboard_html() -> str:
 
   <main class="container">
 
-    <section id="tab-status" class="tab-content active">
+    <!-- TAB 0: BLUEPRINT & BASE UPGRADES -->
+    <section id="tab-blueprint" class="tab-content active">
+      
+      <!-- Metrics overview bar -->
+      <div class="blueprint-metrics-bar">
+        <div class="panel" style="padding:1rem;">
+          <div class="stat-label">🛡️ Fortaleza Perimetral</div>
+          <div class="stat-val brass" style="font-size:1.2rem; margin-top:0.25rem;">75%</div>
+          <div class="progress-bar-bg"><div class="progress-fill fill-brass" style="width: 75%;"></div></div>
+        </div>
+        <div class="panel" style="padding:1rem;">
+          <div class="stat-label">🧼 Calidad Sanitaria</div>
+          <div class="stat-val amber" style="font-size:1.2rem; margin-top:0.25rem;">65%</div>
+          <div class="progress-bar-bg"><div class="progress-fill fill-amber" style="width: 65%;"></div></div>
+        </div>
+        <div class="panel" style="padding:1rem;">
+          <div class="stat-label">⚡ Red Eléctrica (Plasma)</div>
+          <div class="stat-val green" style="font-size:1.2rem; margin-top:0.25rem;">80%</div>
+          <div class="progress-bar-bg"><div class="progress-fill fill-green" style="width: 80%;"></div></div>
+        </div>
+        <div class="panel" style="padding:1rem;">
+          <div class="stat-label">🛏️ Ocupación Camas / Cuartos</div>
+          <div class="stat-val cyan" style="font-size:1.2rem; margin-top:0.25rem;">2 / 3 Camas · 3 / 4 Cuartos</div>
+          <div class="progress-bar-bg"><div class="progress-fill fill-cyan" style="width: 70%;"></div></div>
+        </div>
+      </div>
+
+      <!-- Tactical Grid Blueprint -->
+      <div class="panel" style="margin-bottom:1.5rem;">
+        <div class="panel-header">
+          <span class="panel-title">🗺️ AUSPEX ARQUITECTÓNICO // MEDICAE STATION RHO-9</span>
+          <span class="badge badge-brass">HAZ CLIC EN UNA SALA PARA VER DETALLES Y MEJORAS</span>
+        </div>
+        <div class="panel-body">
+          
+          <div class="blueprint-grid" id="blueprint-grid-container">
+            <!-- Rooms rendered dynamically via JS -->
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TAB 1: ESTADO DE CAMPAÑA -->
+    <section id="tab-status" class="tab-content">
       <div class="grid-dashboard">
         
         <div class="panel">
@@ -675,6 +876,7 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
+    <!-- TAB 2: SOMBRA INFINITA -->
     <section id="tab-inventory" class="tab-content">
       <div class="filter-bar">
         <input type="text" id="inv-search" class="search-input" placeholder="🔍 Filtrar armas, fármacos, consumibles, herramientas o muestras..." onkeyup="filterInventory()">
@@ -784,6 +986,7 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
+    <!-- TAB 3: SIMULADOR DE TIRADAS -->
     <section id="tab-roller" class="tab-content">
       <div class="panel" style="max-width: 800px; margin: 0 auto;">
         <div class="panel-header">
@@ -832,6 +1035,7 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
+    <!-- TAB 4: DOSSIERS Y CRÓNICAS -->
     <section id="tab-docs" class="tab-content">
       <div class="panel">
         <div class="panel-header">
@@ -854,12 +1058,57 @@ def get_dashboard_html() -> str:
 
   </main>
 
+  <!-- MODAL FOR ROOM DETAILS & UPGRADES -->
+  <div id="room-modal" class="room-detail-modal" onclick="closeRoomModal(event)">
+    <div class="room-detail-content" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="document.getElementById('room-modal').style.display='none'">&times;</button>
+      <div style="font-size:0.75rem; color:var(--brass-dim);" id="modal-room-code">SECTOR</div>
+      <h2 style="font-family:'Cinzel',serif; color:var(--brass); margin-bottom:0.75rem;" id="modal-room-name">Nombre de la Sala</h2>
+      
+      <div class="stat-row">
+        <span class="stat-label">🏷️ Nivel & Estado:</span>
+        <span class="stat-val brass" id="modal-room-level">Nivel 1</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">👥 Personal Presente:</span>
+        <span class="stat-val" id="modal-room-occupants">-</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">🔧 Equipamiento Instalado:</span>
+        <span class="stat-val" id="modal-room-equipment" style="font-size:0.78rem;">-</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">✨ Bono a la Campaña:</span>
+        <span class="stat-val green" id="modal-room-bonus" style="font-size:0.78rem;">-</span>
+      </div>
+
+      <!-- Upgrade Box -->
+      <div class="upgrade-box">
+        <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--amber); margin-bottom:0.5rem;" id="modal-upgrade-title">
+          🚀 Siguiente Mejora Disponible
+        </div>
+        <div style="font-size:0.8rem; color:var(--text-main); margin-bottom:0.5rem;" id="modal-upgrade-effect">
+          Efecto: -
+        </div>
+        <div class="stat-row" style="background:#0b0e14; padding:0.4rem 0.6rem; border-radius:4px;">
+          <span class="stat-label">💰 Coste Créditos:</span>
+          <span class="stat-val green" id="modal-upgrade-credits">0 ¤</span>
+        </div>
+        <div class="stat-row" style="background:#0b0e14; padding:0.4rem 0.6rem; border-radius:4px; margin-top:0.25rem;">
+          <span class="stat-label">🔩 Materiales / Requisitos:</span>
+          <span class="stat-val brass" id="modal-upgrade-mats" style="font-size:0.75rem;">-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     WH40K NARRATIVE ENGINE · API DE PRODUCCIÓN · <span class="footer-highlight">MEDICAE STATION RHO-9</span> · NECROMUNDA
   </footer>
 
   <script>
     const API_KEY = "wh40k_secret_key_12345";
+    let blueprintData = null;
 
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -874,6 +1123,87 @@ def get_dashboard_html() -> str:
       if (tabId === 'tab-docs') {
         const activeDocBtn = document.querySelector('.doc-btn.active') || document.querySelector('.doc-btn');
         if (activeDocBtn) activeDocBtn.click();
+      }
+    }
+
+    async function loadBlueprint() {
+      const container = document.getElementById('blueprint-grid-container');
+      try {
+        const resp = await fetch('/api/domain/blueprint', {
+          headers: { 'x-api-key': API_KEY }
+        });
+        if (resp.ok) {
+          blueprintData = await resp.json();
+          renderBlueprint(blueprintData.sectors);
+        } else {
+          container.innerHTML = '<div style="color:var(--crimson-light);">Error cargando plano de Rho-9.</div>';
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    function renderBlueprint(sectors) {
+      const container = document.getElementById('blueprint-grid-container');
+      container.innerHTML = '';
+
+      sectors.forEach((sec, idx) => {
+        const card = document.createElement('div');
+        const isFog = sec.type === 'fog';
+        const colSpan = (sec.id === 'GATE-01' || sec.id === 'COMM-01' || sec.id === 'SUB-01') ? 'span 6' : 'span 4';
+
+        card.className = `room-card ${isFog ? 'fog-of-war' : ''}`;
+        card.style.gridColumn = colSpan;
+        card.onclick = () => openRoomModal(sec);
+
+        let statusDotColor = 'var(--green-auspex)';
+        if (sec.status_color === 'amber') statusDotColor = 'var(--amber)';
+        if (sec.status_color === 'crimson') statusDotColor = 'var(--crimson-light)';
+        if (sec.status_color === 'cyan') statusDotColor = 'var(--cyan-plasma)';
+        if (sec.status_color === 'text-dim') statusDotColor = 'var(--text-dim)';
+
+        card.innerHTML = `
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span class="room-code-tag">${sec.code}</span>
+              <span style="font-size:0.7rem; color:var(--text-muted);"><span class="room-status-dot" style="background:${statusDotColor};"></span>${sec.status}</span>
+            </div>
+            <div class="room-name">${sec.name}</div>
+            <div class="room-level-badge">${sec.level_title}</div>
+          </div>
+          <div class="room-occupants-mini">👥 ${sec.occupants.join(', ')}</div>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function openRoomModal(sec) {
+      document.getElementById('modal-room-code').textContent = sec.code + ' // SECTOR DE ' + sec.type.toUpperCase();
+      document.getElementById('modal-room-name').textContent = sec.name;
+      document.getElementById('modal-room-level').textContent = `${sec.level_title} (Nivel ${sec.level})`;
+      document.getElementById('modal-room-occupants').textContent = sec.occupants.join(' · ');
+      document.getElementById('modal-room-equipment').textContent = sec.equipment ? sec.equipment.join(', ') : 'Ninguno';
+      document.getElementById('modal-room-bonus').textContent = sec.bonus || 'Sin bonificación especial';
+
+      if (sec.next_upgrade) {
+        document.getElementById('modal-upgrade-title').textContent = '🚀 ' + sec.next_upgrade.title;
+        document.getElementById('modal-upgrade-effect').textContent = 'Efecto: ' + sec.next_upgrade.effect;
+        document.getElementById('modal-upgrade-credits').textContent = sec.next_upgrade.cost_credits + ' Créditos';
+        document.getElementById('modal-upgrade-mats').textContent = sec.next_upgrade.cost_materials;
+      } else {
+        document.getElementById('modal-upgrade-title').textContent = '⭐ Nivel Máximo Alcanzado';
+        document.getElementById('modal-upgrade-effect').textContent = 'Esta sala está plenamente desarrollada.';
+        document.getElementById('modal-upgrade-credits').textContent = '0 ¤';
+        document.getElementById('modal-upgrade-mats').textContent = 'Ninguno';
+      }
+
+      document.getElementById('room-modal').style.display = 'flex';
+    }
+
+    function closeRoomModal(e) {
+      if (e.target.id === 'room-modal') {
+        document.getElementById('room-modal').style.display = 'none';
       }
     }
 
@@ -959,6 +1289,7 @@ def get_dashboard_html() -> str:
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      loadBlueprint();
       loadDocument('FICHA_DEL_PERSONAJE');
     });
   </script>
