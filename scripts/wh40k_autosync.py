@@ -1,18 +1,18 @@
-"""
-WH40K AUTOSYNC — Motor de Sincronización Automática Permanente
+﻿"""
+WH40K AUTOSYNC â€” Motor de SincronizaciÃ³n AutomÃ¡tica Permanente
 ==============================================================
-Ejecuta automáticamente vía Windows Task Scheduler.
+Ejecuta automÃ¡ticamente vÃ­a Windows Task Scheduler.
 
-Qué hace:
+QuÃ© hace:
   1. Lee los 6 archivos .docx maestros desde Desktop/WH40K (fuente de verdad)
   2. Los convierte a .txt puro UTF-8
   3. Los renombra sin espacios (BASES_Y_DOMINIOS.txt, etc.)
   4. Los copia al repositorio local (WH40K-API)
   5. Hace git add + commit + push a GitHub
-  6. Vercel detecta el push y redeploya automáticamente
-  7. Registra todo en un log de auditoría
+  6. Vercel detecta el push y redeploya automÃ¡ticamente
+  7. Registra todo en un log de auditorÃ­a
 
-NO requiere intervención del usuario.
+NO requiere intervenciÃ³n del usuario.
 """
 
 import os
@@ -25,9 +25,9 @@ import datetime
 import subprocess
 import xml.etree.ElementTree as ET
 
-# ─────────────────────────────────────────────────────────────
-# CONFIGURACIÓN — Ajustar solo si cambias rutas en tu PC
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# CONFIGURACIÃ“N â€” Ajustar solo si cambias rutas en tu PC
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 GIT_EXE = r"C:\Users\UsuarioCompuElite\AppData\Local\GitHubDesktop\app-3.6.4\resources\app\git\cmd\git.exe"
 REPO_PATH = r"C:\Users\UsuarioCompuElite\Documents\GitHub\WH40K-API"
@@ -49,12 +49,12 @@ DOCUMENT_MAP = {
 # Carpetas donde buscar los .docx (en orden de prioridad)
 SOURCE_DIRS = [
     DESKTOP_WH40K,  # 1. Escritorio (fuente principal)
-    SCRATCH_WATCHER,  # 2. Carpeta watcher (si el usuario deja un ZIP aquí)
+    SCRATCH_WATCHER,  # 2. Carpeta watcher (si el usuario deja un ZIP aquÃ­)
 ]
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # LOGGING
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 logging.basicConfig(
     level=logging.INFO,
@@ -66,9 +66,9 @@ logging.basicConfig(
 )
 log = logging.getLogger("wh40k_autosync")
 
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # UTILIDADES
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 def sha256_file(path: str) -> str:
     h = hashlib.sha256()
@@ -145,7 +145,7 @@ def get_github_token() -> str:
     return ""
 
 def find_docx_in_zip(watch_dir: str) -> dict:
-    """Busca archivos .docx dentro de ZIPs en el directorio de observación."""
+    """Busca archivos .docx dentro de ZIPs en el directorio de observaciÃ³n."""
     found = {}
     for f in os.listdir(watch_dir):
         if f.lower().endswith(".zip"):
@@ -159,18 +159,18 @@ def find_docx_in_zip(watch_dir: str) -> dict:
                             with open(tmp_path, "wb") as out:
                                 out.write(z.read(name))
                             found[basename] = tmp_path
-                            log.info(f"  ZIP: Extraído {basename} desde {f}")
+                            log.info(f"  ZIP: ExtraÃ­do {basename} desde {f}")
             except Exception as e:
                 log.warning(f"  No se pudo leer ZIP {f}: {e}")
     return found
 
-# ─────────────────────────────────────────────────────────────
-# SINCRONIZACIÓN PRINCIPAL
-# ─────────────────────────────────────────────────────────────
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# SINCRONIZACIÃ“N PRINCIPAL
+# â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 def sync():
     log.info("=" * 60)
-    log.info("WH40K AUTOSYNC — Iniciando sincronización")
+    log.info("WH40K AUTOSYNC â€” Iniciando sincronizaciÃ³n")
     log.info("=" * 60)
 
     hash_cache = load_hash_cache()
@@ -181,7 +181,7 @@ def sync():
     dest_dir = os.path.join(REPO_PATH, "data", "alexander")
     os.makedirs(dest_dir, exist_ok=True)
 
-    # ─── Buscar archivos fuente ───
+    # â”€â”€â”€ Buscar archivos fuente â”€â”€â”€
     sources = {}
 
     # Paso 1: Buscar en carpetas fuente directas
@@ -206,7 +206,7 @@ def sync():
         log.warning("No se encontraron archivos .docx fuente. Abortando.")
         return False
 
-    # ─── Convertir y copiar ───
+    # â”€â”€â”€ Convertir y copiar â”€â”€â”€
     for docx_name, src_path in sources.items():
         base_key = DOCUMENT_MAP[docx_name]
         txt_name = base_key + ".txt"
@@ -214,12 +214,12 @@ def sync():
         dest_docx = os.path.join(dest_dir, base_key + ".docx")
 
         try:
-            # Verificar si cambió (por hash)
+            # Verificar si cambiÃ³ (por hash)
             current_hash = sha256_file(src_path)
             cached_hash = hash_cache.get(docx_name, "")
 
             if current_hash == cached_hash and os.path.exists(dest_txt):
-                log.info(f"  SIN CAMBIOS: {docx_name} (hash idéntico, omitiendo)")
+                log.info(f"  SIN CAMBIOS: {docx_name} (hash idÃ©ntico, omitiendo)")
                 continue
 
             # Convertir
@@ -227,7 +227,7 @@ def sync():
             with open(dest_txt, "w", encoding="utf-8") as f:
                 f.write(text)
 
-            # Copiar .docx original también
+            # Copiar .docx original tambiÃ©n
             import shutil
             shutil.copy2(src_path, dest_docx)
 
@@ -238,7 +238,7 @@ def sync():
         except Exception as e:
             log.error(f"  ERROR convirtiendo {docx_name}: {e}")
 
-    # ─── Limpiar temporales de ZIP ───
+    # â”€â”€â”€ Limpiar temporales de ZIP â”€â”€â”€
     for tmp in tmp_files:
         try:
             os.remove(tmp)
@@ -250,7 +250,7 @@ def sync():
         save_hash_cache(hash_cache)
         return True
 
-    # ─── Git add + commit + push ───
+    # â”€â”€â”€ Git add + commit + push â”€â”€â”€
     log.info(f"\nCambios detectados: {len(changes)} archivos. Haciendo commit...")
 
     token = get_github_token()
@@ -270,7 +270,7 @@ def sync():
         return True
 
     if code != 0:
-        log.error(f"Git commit falló: {err}")
+        log.error(f"Git commit fallÃ³: {err}")
         return False
 
     log.info(f"Git commit OK: {commit_msg}")
@@ -279,14 +279,14 @@ def sync():
         f"https://algo1-2:{token}@github.com/algo1-2/WH40K-API.git",
         f"https://algo1-2:{token}@github.com/algo1-2/WH40k.git",
     ]:
-        code, out, err = run_git("push", remote_url, "main:main", "--force")
+        code, out, err = run_git("push", remote_url, "main:main", "--force-with-lease")
         if code == 0:
             log.info(f"  Push OK -> {remote_url.split('@')[1]}")
         else:
             log.warning(f"  Push WARN -> {err}")
 
     save_hash_cache(hash_cache)
-    log.info("AutoSync completado con éxito.\n")
+    log.info("AutoSync completado con Ã©xito.\n")
     return True
 
 
@@ -294,5 +294,6 @@ if __name__ == "__main__":
     try:
         sync()
     except Exception as e:
-        log.exception(f"Error crítico en AutoSync: {e}")
+        log.exception(f"Error crÃ­tico en AutoSync: {e}")
         sys.exit(1)
+
