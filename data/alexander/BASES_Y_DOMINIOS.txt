@@ -98,3 +98,27 @@ AISLAMIENTO Y CUARENTENA: Demer Vhal pidió aislamiento hasta conocer la transmi
 SEGURIDAD MATERIAL: las armas y munición conocidas no bastan para ampliar una guardia. Son necesarias defensa por capas, accesos bloqueables, recepción protegida, negociación sin exponer pacientes y una ruta interna de evacuación. No declarar compras, fortificaciones, taller operativo o apertura sin resolución y persistencia posteriores.
 PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
+
+================================================================================
+ACTUALIZACIÓN RHO-9 — DÍA 04 NOCHE
+================================================================================
+MAESTRO DE SEGURIDAD — SEVERAN HOLT:
+- Cargo formal aceptado: Maestro de Seguridad de Medicae Station Rho-9.
+- Autoridad: Seguridad, fortificación, accesos, cerraduras, guardias y orden.
+- Mandato: Mantener vivos a los de Alexander y mantener fuera a extraños.
+- Cap de gasto autónomo: Hasta 200 créditos/semana (no automático; reporta a Syra Kol).
+- Asistente operativo: Jarek Venn (Primer Deudor E-12).
+
+BLOQUE DE PERSONAL DESCUBIERTO:
+- Estructura: 4 habitaciones pequeñas + 1 sala común grande.
+- Mobiliario: 2 catres metálicos; 2 habitaciones mayormente vacías.
+- Estado: Sin energía activa; agua y saneamiento no verificados.
+- Puerta posterior: Escaleras descendentes hacia niveles aún desconocidos (cierra, no asegurada; no exploradas aún).
+
+SUMINISTROS DE ALIMENTOS Y AGUA (RHO-9):
+- 24 raciones comunes
+- 10 raciones militares
+- 9 raciones médicas
+- 5 raciones de alta nutrición
+- 16 botellas de agua de 1L
+(Descuentos ya computados: Mara 2 comunes + 2 aguas; Syra 1 común + 2 aguas).

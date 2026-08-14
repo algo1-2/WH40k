@@ -3,9 +3,9 @@
   "campaign_id": "CAMPAIGN.ALEXANDER.NECROMUNDA",
   "continuity_id": "CONTINUITY.ALEXANDER.PRIMARY",
   "player_character_id": "PC-ALEXANDER-001",
-  "state_revision": 16,
-  "persisted_pause_id": "PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION",
-  "checkpoint_id": "CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION",
+  "state_revision": 17,
+  "persisted_pause_id": "PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION-RECONCILIADA",
+  "checkpoint_id": "CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION.FULL-AUDIT",
   "turn": 918,
   "location": "Medicae Station Rho-9 (Base Principal y Clínica Clandestina, Caídas de Polvo / Dust Falls, Necromunda)",
   "time_band": "Día 04, Noche (Post-Incursión Nocturna en Rho-9)",
@@ -16,8 +16,8 @@
     "alias": "Operador Umbral / Médico",
     "especie": "Humano",
     "clase": "Médico Clandestino / Psíquico no Sancionado",
-    "nivel": 1,
-    "xp_total": 1250,
+    "nivel": 5,
+    "xp_total": 1335,
     "atributos": {
       "cuerpo_a_cuerpo": 45,
       "balistica": 55,
@@ -93,8 +93,8 @@
       {
         "item_id": "MED.KIT.PERSONAL.001",
         "nombre": "Medikit Personal",
-        "cargas": "0/6 (Requiere acción de recarga fuera de combate con paquetes de Sombra Infinita)",
-        "estado": "Vacío"
+        "cargas": "0/6 (12 recargas completas disponibles en Sombra Infinita)",
+        "estado": "Vacío (pendiente recarga fuera de combate)"
       },
       {
         "item_id": "MED.KIT.SURGICAL.CLANDESTINE",
@@ -174,96 +174,180 @@
       }
     },
     "inventario_sombra_infinita": {
-      "armamento_y_municion": {
-        "armas_almacenadas": [
+      "armamento_anterior": [
+        {
+          "item_id": "WPNINST.ALEXANDER.GUILD-PISTOL.001",
+          "nombre": "Pistola gremial",
+          "municion": "9/12",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.GUILD-CARBINE.001",
+          "nombre": "Carabina gremial",
+          "municion": "16/24",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.AUTOPISTOL.002",
+          "nombre": "Pistola automática capturada",
+          "municion": "0/12",
+          "cargador_separado": "11/12",
+          "estado": "Operativa, descargada"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.ENEMY-CARBINE.001",
+          "nombre": "Carabina enemiga",
+          "municion": "23/24",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.CARBINE.002",
+          "nombre": "Carabina sólida adicional",
+          "municion": "24/24",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.COMPACT.001",
+          "nombre": "Pistola compacta del hombre del abrigo",
+          "municion": "9/10",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.SHOTGUN.001",
+          "nombre": "Escopeta",
+          "municion": "4/6",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.BROKER-PISTOL.001",
+          "nombre": "Pistola automática compacta del corredor clandestino",
+          "municion": "6/10",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.PELL-E12.001",
+          "nombre": "Pistola sólida de servicio E-12 de Pell",
+          "municion": "5/12",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.INDUSTRIAL-KNIFE.001",
+          "nombre": "Cuchillo industrial",
+          "estado": "Operativo"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.CUTTING-TOOL.001",
+          "nombre": "Herramienta de corte improvisada",
+          "estado": "Operativa"
+        },
+        {
+          "item_id": "WPNINST.ALEXANDER.UTILITY-KNIFE.001",
+          "nombre": "Cuchillo utilitario",
+          "estado": "Operativo"
+        }
+      ],
+      "botin_incursion_nocturna_armas": {
+        "pistolas": [
           {
-            "item_id": "WPNINST.ALEXANDER.GUILD-PISTOL.001",
-            "nombre": "Pistola gremial",
-            "municion": "9/12",
-            "estado": "Operativa"
+            "id": "P-01",
+            "nombre": "Pistola compacta Hesh-9",
+            "perfil_provisional": "D4, Pen0, 20m, cap8, único",
+            "rasgos": "Compacta / Ocultable / Simple"
           },
           {
-            "item_id": "WPNINST.ALEXANDER.GUILD-CARBINE.001",
-            "nombre": "Carabina gremial",
-            "municion": "16/24",
-            "estado": "Operativa"
+            "id": "P-02",
+            "nombre": "Pistola sólida de servicio Mk II",
+            "perfil_provisional": "D5, Pen0, 30m, cap12, único",
+            "rasgos": "Fiable"
           },
           {
-            "item_id": "WPNINST.ALEXANDER.AUTOPISTOL.002",
-            "nombre": "Pistola automática capturada",
-            "municion": "0/12",
-            "cargador_separado": "11/12",
-            "estado": "Operativa, descargada"
+            "id": "P-03",
+            "nombre": "Pistola sólida de servicio Mk II",
+            "perfil_provisional": "D5, Pen0, 30m, cap12, único",
+            "rasgos": "Fiable"
           },
           {
-            "item_id": "WPNINST.ALEXANDER.ENEMY-CARBINE.001",
-            "nombre": "Carabina enemiga",
-            "municion": "23/24",
-            "estado": "Operativa"
+            "id": "P-04",
+            "nombre": "Autopistola Vex",
+            "perfil_provisional": "D4, Pen0, 25m, cap18, único/ráfaga3",
+            "rasgos": "Automática / Compacta"
           },
           {
-            "item_id": "WPNINST.ALEXANDER.CARBINE.002",
-            "nombre": "Carabina sólida adicional",
-            "municion": "24/24",
-            "estado": "Operativa"
+            "id": "P-05",
+            "nombre": "Pistola pesada Brakk",
+            "perfil_provisional": "D6, Pen1, 25m, cap8, único",
+            "rasgos": "Retroceso fuerte / Pesada"
           },
           {
-            "item_id": "WPNINST.ALEXANDER.COMPACT.001",
-            "nombre": "Pistola compacta del hombre del abrigo",
-            "municion": "9/10",
-            "estado": "Operativa"
-          },
-          {
-            "item_id": "WPNINST.ALEXANDER.SHOTGUN.001",
-            "nombre": "Escopeta",
-            "municion": "4/6",
-            "estado": "Operativa"
-          },
-          {
-            "item_id": "WPNINST.ALEXANDER.BROKER-PISTOL.001",
-            "nombre": "Pistola automática compacta del corredor clandestino",
-            "municion": "6/10",
-            "estado": "Operativa"
-          },
-          {
-            "item_id": "WPNINST.ALEXANDER.PELL-E12.001",
-            "nombre": "Pistola sólida de servicio E-12 de Pell",
-            "municion": "5/12",
-            "estado": "Operativa"
-          },
-          {
-            "item_id": "WPNINST.ALEXANDER.INDUSTRIAL-KNIFE.001",
-            "nombre": "Cuchillo industrial",
-            "estado": "Operativo"
-          },
-          {
-            "item_id": "WPNINST.ALEXANDER.CUTTING-TOOL.001",
-            "nombre": "Herramienta de corte improvisada",
-            "estado": "Operativa"
-          },
-          {
-            "item_id": "WPNINST.ALEXANDER.UTILITY-KNIFE.001",
-            "nombre": "Cuchillo utilitario",
-            "estado": "Operativo"
+            "id": "P-CAPTURED-2",
+            "nombre": "Pistola pequeña del segundo cautivo",
+            "estado": "Almacenada"
           }
         ],
-        "municion_reserva": [
+        "armas_largas": [
           {
-            "item_id": "AMMO.ALEXANDER.MKIV.RESERVE",
-            "descripcion": "22 proyectiles sólidos compatibles con Autopistola Mk IV"
+            "id": "L-01",
+            "nombre": "Carabina Kord-24",
+            "perfil_provisional": "D5, Pen0, 60m, cap24, único/ráfaga3",
+            "rasgos": "Carabina / Fiable"
           },
           {
-            "item_id": "AMMO.ALEXANDER.UNKNOWN-SOLID.001",
-            "descripcion": "4 cartuchos sólidos de calibre desconocido (en contenedor sellado)"
+            "id": "L-02",
+            "nombre": "Carabina Kord-24",
+            "perfil_provisional": "D5, Pen0, 60m, cap24, único/ráfaga3",
+            "rasgos": "Carabina / Fiable"
+          },
+          {
+            "id": "L-03",
+            "nombre": "Escopeta compacta",
+            "perfil_provisional": "D6, Pen0, 30m, cap6, único",
+            "rasgos": "Dispersión / Potente a corta distancia"
+          },
+          {
+            "id": "L-04",
+            "nombre": "Autogun de depósito patrón Reth",
+            "perfil_provisional": "D5, Pen0, 80m, cap30, único/ráfaga3",
+            "rasgos": "Automática"
+          },
+          {
+            "id": "L-05",
+            "nombre": "Rifle sólido de precisión manufactorum",
+            "perfil_provisional": "D6, Pen1, 120m, cap10, único",
+            "rasgos": "Precisa / Lenta"
           }
         ],
-        "transferencias_recientes": "Rifle Mechanicus raro + 2 cargadores transferido a custodia de Severan Holt para defensa de Rho-9."
+        "caja_reforzada_explosivos": {
+          "granadas_frag": 3,
+          "granadas_humo": 2,
+          "granadas_krak": 1
+        }
+      },
+      "municion_y_cargadores_totales": {
+        "cargadores_clasificados": {
+          "cargadores_kord24": "12 cargadores (6 llenos + 6 vacíos = 144 cartuchos cargados)",
+          "cargadores_pistola_servicio12": "5 cargadores (3 llenos + 2 vacíos = 36 cartuchos cargados)",
+          "cargadores_vex18": "4 cargadores (2 llenos + 2 vacíos = 36 cartuchos cargados)",
+          "cargadores_brakk8": "3 cargadores (2 llenos + 1 vacío = 16 cartuchos cargados)",
+          "cargadores_autogun30": "6 cargadores (4 llenos + 2 vacíos = 120 cartuchos cargados)",
+          "cargadores_rifle_precision10": "3 cargadores (2 llenos + 1 vacío = 20 cartuchos cargados)"
+        },
+        "municion_suelta_y_reserva": {
+          "pistola_servicio": "240 sueltos + 36 cargados",
+          "kord24_carabina": "312 sueltos + 144 cargados",
+          "vex_autopistola": "108 sueltos + 36 cargados",
+          "brakk_pesada": "40 sueltos + 16 cargados",
+          "autogun_patron_reth": "240 sueltos + 120 cargados",
+          "rifle_precision": "60 sueltos + 20 cargados",
+          "escopeta": "120 normales sueltos + 8 especiales incendiarios",
+          "reserva_mkiv_previa": "22 proyectiles compatibles",
+          "cartuchos_desconocidos_sellados": "4 cartuchos sólidos"
+        }
       },
       "equipo_medicae_avanzado": [
         {
           "nombre": "Bio-auspex portátiles",
           "cantidad": 2,
-          "estado": "Operativos (+10 a diagnóstico dirigido fuera de Q-01)"
+          "estado": "Operativos (+10 a diagnóstico fuera de Q-01)"
         },
         {
           "nombre": "Módulo portátil de imagen anatómica profunda",
@@ -491,8 +575,30 @@
           "nombre": "1 par de esposas reforzadas (Operativas)"
         }
       ],
-      "biobanco_material_biologico": {
+      "biobanco_y_cadaveres": {
         "donantes_procesados": 5,
+        "cadaveres_incursion_nocturna": [
+          {
+            "id": "CORPSE-NIGHT-01",
+            "descripcion": "Adulto sedado/intoxicado, herida lateral inflamada (ejecutado por Halven)",
+            "almacenado": "Cuerpo separado en Sombra Infinita"
+          },
+          {
+            "id": "CORPSE-NIGHT-02",
+            "descripcion": "Adulto sedado/intoxicado, pierna vendada, golpe umbral previo (ejecutado por Halven)",
+            "almacenado": "Cuerpo separado en Sombra Infinita"
+          },
+          {
+            "id": "CORPSE-NIGHT-03",
+            "descripcion": "Adulto sedado, herida muslo (ejecutado por Halven)",
+            "almacenado": "Cuerpo separado en Sombra Infinita"
+          },
+          {
+            "id": "CORPSE-NIGHT-04",
+            "descripcion": "Mujer adulta sedada, herida antebrazo y contusión costal (ejecutada por Halven)",
+            "almacenado": "Cuerpo separado en Sombra Infinita"
+          }
+        ],
         "sangre_transfusion_candidata": "10 unidades (separadas por donante, requieren tipificación)",
         "sangre_investigacion": "2 unidades (dañadas, no transfundir)",
         "corazones_candidatos": "3 (1 viable, 2 condicionales)",
@@ -545,7 +651,7 @@
             "estado": "Vivo, 0/9, inconsciente, amputación reconstructiva derecha"
           }
         ],
-        "nota_jarek_venn": "Jarek Venn (Primer deudor E-12) fue EXTRAÍDO de Sombra Infinita y actualmente está en Rho-9 asignado a Severan Holt."
+        "nota_jarek_venn": "Jarek Venn (Primer deudor E-12) fue EXTRAÍDO de Sombra Infinita y actualmente está en Rho-9 asignado operativamente a Severan Holt."
       }
     },
     "recursos_economicos": {
@@ -557,35 +663,42 @@
           "estado": "Pendiente de cobro (no incluido en saldo disponible)"
         }
       ]
-    }
+    },
+    "xp_progreso": "335/500",
+    "puntos_marciales": 2,
+    "puntos_habilidad": 1
   },
   "pacts_and_debts": [
     {
-      "pact_id": "PACT.JAREK.CLINIC.SOULHUNT.001",
-      "deudor": "Jarek Venn (Jefe de Destacamento Enforcer / Primer Deudor E-12)",
-      "almas_cobradas": 8,
-      "ejecuciones_completadas": 0,
-      "ejecuciones_requeridas": 10,
-      "servicio_anual": "1 año de trabajo en Rho-9 asignado a Severan",
-      "estado": "MONITOREO_ACTIVO",
-      "evaluacion_pasiva_dm": true
+      "pact_id": "PACT.HALVEN.HARVEST.001",
+      "deudor": "Halven Rusk (Auxiliar Médico / Ejecutor Designado)",
+      "estado": "ACTIVO_ESCLAVIZADO",
+      "clausula_cosecha": "Toda muerte causada personalmente por la mano de Halven transfiere el alma de la víctima a Alexander.",
+      "ejecuciones_resueltas": "4 cautivos de la incursión ejecutados personalmente por Halven (+4 almas transferidas)",
+      "almas_totales_transferidas": 4,
+      "estado_actual": "Auxiliar médico y diagnosticador en Rho-9"
     },
     {
       "pact_id": "PACT.SEVERAN.SERVICE.001",
-      "deudor": "Severan Holt (Especialista Enforcer Desertor)",
-      "estado": "MONITOREO_ACTIVO",
-      "ciclo_1": "CUMPLIDO (Por extracción y refugio)",
-      "ciclo_2": "PENDIENTE",
-      "condicion_de_cumplimiento": "Severan debe comenzar su segundo ciclo de servicio ahora que Tertius ha despertado.",
-      "sensor_de_alexander": "El Hilo Álmico reconoce el despertar de Tertius. El segundo ciclo está listo para ser ejecutado a voluntad de Alexander.",
+      "deudor": "Severan Holt (Maestro de Seguridad de Rho-9)",
+      "estado": "ACTIVO_ACEPTADO",
+      "cargo_formal": "MAESTRO DE SEGURIDAD DE RHO-9",
+      "autoridad": "Seguridad, fortificación, accesos, cerraduras, guardias y orden.",
+      "mandato": "Mantener vivos a los de Alexander y mantener fuera a extraños.",
+      "cap_gasto_autonomo": "Hasta 200 créditos/semana (no automático; reporta a Syra Kol)",
+      "ciclo_1": "CUMPLIDO (Extracción y refugio)",
+      "ciclo_2": "PENDIENTE (A voluntad de Alexander tras despertar de Tertius)",
       "evaluacion_pasiva_dm": true
     },
     {
-      "pact_id": "PACT.HALVEN.HARVEST.001",
-      "deudor": "Halven Rusk (Médico Asistente)",
-      "estado": "ACTIVO",
-      "clausula": "Toda muerte causada personalmente por su mano transfiere el alma de la víctima a Alexander.",
-      "almas_transferidas": 4
+      "pact_id": "PACT.JAREK.CLINIC.SOULHUNT.001",
+      "deudor": "Jarek Venn (Primer Deudor E-12 / Ex-Enforcer)",
+      "estado": "ACTIVO_EN_RHO9",
+      "ejecuciones_completadas": 0,
+      "ejecuciones_requeridas": 10,
+      "servicio_anual": "1 año de trabajo en Rho-9 asignado operativamente a Severan",
+      "condicion_fisica": "Vivo, débil 0/9, torso reparado, ambos brazos presentes",
+      "evaluacion_pasiva_dm": true
     }
   ],
   "retinue": {
@@ -679,24 +792,80 @@
   "domains": [
     {
       "document_key": "DOMAINS",
-      "document_id": "DOMAINS.ALEXANDER.MAIN",
+      "document_id": "DOMAIN-RHO9-001",
       "domain_id": "DOMAIN-RHO9-001",
       "nombre": "Medicae Station Rho-9",
-      "rol_base": "Base Principal y Clínica Clandestina de Control Efectivo",
+      "rol_base": "Hogar Permanente y Clínica Clandestina de Control Efectivo",
       "ubicacion": "Rho-9 (Caídas de Polvo / Dust Falls)",
       "estado_operativo": "Operativo (Cerrada al público; Seguridad formal bajo Severan Holt)",
-      "personal_asignado": [
+      "maestro_seguridad": {
+        "titular": "Severan Holt",
+        "autoridad": "Seguridad, fortificación, accesos, cerraduras, guardias y orden",
+        "cap_gasto": "Hasta 200 créditos/semana (reporta a Syra Kol)",
+        "asistente_asignado": "Jarek Venn"
+      },
+      "bloque_de_personal_descubierto": {
+        "estructura": "4 habitaciones pequeñas + 1 sala común grande",
+        "mobiliario": "2 catres metálicos; 2 habitaciones mayormente vacías",
+        "servicios": "Sin energía activa; agua y saneamiento no verificados",
+        "salida_posterior": "Puerta posterior a escaleras descendentes hacia niveles desconocidos (cierra, no asegurada)"
+      },
+      "suministros_alimentos_agua": {
+        "raciones_comunes": 24,
+        "raciones_militares": 10,
+        "raciones_medicas": 9,
+        "raciones_alta_nutricion": 5,
+        "botellas_agua_1L": 16,
+        "descuento_previo_registrado": "Mara (2 comunes + 2 aguas), Syra (1 común + 2 aguas)"
+      },
+      "personal_presente": [
         {
           "nombre": "Severan Holt",
-          "tarea": "Maestro de Seguridad"
+          "rol": "Maestro de Seguridad"
         },
         {
           "nombre": "Syra Kol",
-          "tarea": "Registros e Inventario en ADM-01"
+          "rol": "Registros e Inventario en ADM-01 (16 años)"
         },
         {
           "nombre": "Halven Rusk",
-          "tarea": "Supervisión Clínica y Diagnóstico"
+          "rol": "Supervisión Clínica y Diagnóstico / Cosechador"
+        },
+        {
+          "nombre": "Jarek Venn",
+          "rol": "Primer Deudor / Guardia asignado a Severan"
+        },
+        {
+          "nombre": "Khepra-9",
+          "rol": "Tecnosacerdote Auxiliar (Cooperación permanente / Taller en Rho-9)"
+        },
+        {
+          "nombre": "Hadrix Vale",
+          "rol": "Consciente y en recuperación"
+        },
+        {
+          "nombre": "Demer Vhal",
+          "rol": "Consciente, aislada, integración anómala funcional"
+        },
+        {
+          "nombre": "Tertius Holt",
+          "rol": "Consciente y estable (8/11)"
+        },
+        {
+          "nombre": "Quartus Holt",
+          "rol": "Crítico estable, inconsciente/intubado (4/11)"
+        },
+        {
+          "nombre": "Sael Veyl",
+          "rol": "Estable con drenaje (10/10)"
+        },
+        {
+          "nombre": "Mara Veyl",
+          "rol": "Recuperación y trabajo ligero (10/10)"
+        },
+        {
+          "nombre": "Ilyra Venn",
+          "rol": "Estable (9/10)"
         }
       ]
     },

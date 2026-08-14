@@ -487,3 +487,17 @@ LOCAL_TIME_BAND_ID: TIME.NECROMUNDA.LOCAL.DAY04.EARLY-AFTERNOON
 PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
 REGLA DE REANUDACIÓN: anunciar «Día 04, tarde temprana» y usar el inventario consolidado de la Ficha. No declarar auditoría pendiente, farmacia desconocida, censo umbral sin cerrar ni perfiles de armas incompletos cuando el registro ya los define.
+
+================================================================================
+CRÓNICA: INCURSIÓN NOCTURNA EN DUST FALLS — DÍA 04 NOCHE
+================================================================================
+Alexander emprendió una incursión nocturna en solitario por los sectores de Dust Falls utilizando la penumbra y sus capacidades umbrales (Paso Sombrío, Visión de Oscuridad, Agarre Umbral y Sombra Infinita).
+
+1. Captura de 4 sujetos vulnerables:
+Alexander localizó y capturó a cuatro individuos sedados o heridos en los callejones del submundo, absorbiéndolos vivos en Sombra Infinita sin oposición. Posteriormente, en Rho-9, fueron extraídos individualmente y ejecutados por Halven Rusk en cumplimiento del pacto de cosecha, transfiriendo 4 almas completas a la Reserva Umbral de Alexander (totalizando 10 almas). Los 4 cuerpos permanecen almacenados por separado en Sombra Infinita.
+
+2. Infiltración del Depósito Armado:
+Alexander localizó un depósito privado fuertemente custodiado por cuatro humanos armados. Infiltró el recinto mediante Paso Sombrío y sustrajo un arsenal masivo: 9 armas de fuego (5 largas y 4 cortas), una caja reforzada con 6 granadas (frag, humo, krak) y más de 1.000 cartuchos de munición y cargadores clasificados. Como maniobra de distracción para su escape, liberó una rata gigante de subcolmena. Los ocupantes se percataron de la desaparición y cerraron el perímetro, pero no lograron identificar a Alexander ni asociar la sustracción con Medicae Station Rho-9.
+
+3. Consolidación en Rho-9:
+De regreso a la base, Severan Holt asumió formalmente el cargo de Maestro de Seguridad con un tope de gasto de 200 créditos/semana bajo supervisión contable de Syra Kol. Jarek Venn fue asignado a su mando directo. Se descubrió el bloque de personal de 4 habitaciones con acceso a niveles inferiores sin explorar.

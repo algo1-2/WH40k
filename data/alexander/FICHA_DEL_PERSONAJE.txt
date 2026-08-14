@@ -541,3 +541,49 @@ NAVES: Ninguna
 SÉQUITO PERSONAL: Mara Veyl (MEMBER.ALEXANDER.MARA-VEYL; ACTIVO_PACTADO), Ilyra Venn (MEMBER.ALEXANDER.ILYRA-VENN; ACTIVO_PACTADO) y Halven Rusk (MEMBER.ALEXANDER.HALVEN-RUSK; ACTIVO_ESCLAVIZADO). Khepra-9 permanece POTENCIAL; Tertius y Quartus permanecen PENDIENTES_DE_DEFINICIÓN; Sael conserva elección propia; Severan cumple una obligación territorial externa y el especialista Enforcer sigue como contraparte externa.
 REPUTACIONES PRINCIPALES: Enforcers de D-17: hostilidad activa; Caldereros: hostilidad o deterioro severo; cazadores y bandas locales: rumor de recompensa activo
 PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
+
+================================================================================
+AUDITORÍA INCORPORADA — DÍA 04 NOCHE — INCURSIÓN NOCTURNA Y COSECHA
+================================================================================
+ESTADO ACTUALIZADO:
+- Nivel: 5 | XP Total: 1335 (Progreso: 335/500) | PM: 2 | PH: 1
+- Salud: 12/12 | Fatiga: 0/7 | Puntos de Destino: 3 | Corrupción: 0
+- Reserva Umbral: 10 Almas completas (6 previas + 4 cosechadas por Halven)
+- Créditos disponibles: 1.196 (+ 300 pendientes de Darrik Vane)
+- Medikit Personal: 0/6 (12 recargas completas en Sombra Infinita)
+
+PACTO DE COSECHA — HALVEN RUSK:
+- Halven Rusk: ACTIVO_ESCLAVIZADO, auxiliar médico y ejecutor designado.
+- Pacto de cosecha: Toda muerte causada personalmente por su mano transfiere el alma a Alexander.
+- 4 ejecuciones cumplidas en Rho-9 (+4 almas agregadas a Reserva Umbral).
+
+BOTÍN DE ARMERÍA (DEPÓSITO PRIVADO — SOMBRA INFINITA):
+- Pistolas:
+  * P-01: Pistola compacta Hesh-9 (D4, Pen 0, 20m, cap 8, único; Compacta/Ocultable)
+  * P-02: Pistola sólida de servicio Mk II (D5, Pen 0, 30m, cap 12, único; Fiable)
+  * P-03: Pistola sólida de servicio Mk II (D5, Pen 0, 30m, cap 12, único; Fiable)
+  * P-04: Autopistola Vex (D4, Pen 0, 25m, cap 18, único/ráfaga 3; Automática/Compacta)
+  * P-05: Pistola pesada Brakk (D6, Pen 1, 25m, cap 8, único; Retroceso fuerte/Pesada)
+  * Pistola pequeña del segundo cautivo
+- Armas Largas:
+  * L-01: Carabina Kord-24 (D5, Pen 0, 60m, cap 24, único/ráfaga 3; Carabina/Fiable)
+  * L-02: Carabina Kord-24 (D5, Pen 0, 60m, cap 24, único/ráfaga 3; Carabina/Fiable)
+  * L-03: Escopeta compacta (D6, Pen 0, 30m, cap 6, único; Dispersión/Potente)
+  * L-04: Autogun de depósito patrón Reth (D5, Pen 0, 80m, cap 30, único/ráfaga 3; Automática)
+  * L-05: Rifle sólido de precisión manufactorum (D6, Pen 1, 120m, cap 10, único; Precisa/Lenta)
+- Explosivos (Caja Reforzada):
+  * 3 granadas frag, 2 humo, 1 krak.
+- Munición y Cargadores:
+  * Kord-24: 12 cargadores (6 llenos + 6 vacíos = 144) + 312 sueltos
+  * Pistola Servicio: 5 cargadores (3 llenos + 2 vacíos = 36) + 240 sueltos
+  * Vex: 4 cargadores (2 llenos + 2 vacíos = 36) + 108 sueltos
+  * Brakk: 3 cargadores (2 llenos + 1 vacío = 16) + 40 sueltos
+  * Autogun: 6 cargadores (4 llenos + 2 vacíos = 120) + 240 sueltos
+  * Rifle Precisión: 3 cargadores (2 llenos + 1 vacío = 20) + 60 sueltos
+  * Escopeta: 120 cartuchos normales + 8 especiales incendiarios
+
+CADÁVERES EN SOMBRA INFINITA (4 CAUTIVOS EJECUTADOS):
+1) Adulto sedado/intoxicado, herida lateral inflamada (ejecutado por Halven)
+2) Adulto sedado/intoxicado, pierna vendada, golpe umbral previo (ejecutado por Halven)
+3) Adulto sedado, herida muslo (ejecutado por Halven)
+4) Mujer adulta sedada, herida antebrazo y contusión costal (ejecutada por Halven)
