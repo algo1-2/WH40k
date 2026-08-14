@@ -1,0 +1,16 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment and IDE
+.env
+.venv
+env/
+venv/
+.vscode/
+.idea/
+
+# Temporary dumps & logs
+*_raw_dump.txt
+*.log
