@@ -1,42 +1,27 @@
 Historia del personaje
 Crónica narrativa acumulativa entre pausas confirmadas — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: 
-HISTORY
-DOCUMENT_ID: 
-HISTORY.ALEXANDER.MAIN
-CAMPAIGN_ID: 
-CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: 
-CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: 
-PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: 
-AGREGAR
-PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
-CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
-STATE_REVISION: 8
-SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.HISTORY.D04-NIGHT-RHO9-POST-INCURSION-20260813.R1
-ÚLTIMA ACTUALIZACIÓN: Día 04, noche; integrada como pausa confirmada la operación nocturna posterior a la reconciliación de inventario, sin inferir hora exacta ni número de turno.
-MIGRATION_ID: 
-CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: 
-Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: 
-Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: 
-No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: 
-Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+DOCUMENT_KEY: HISTORY
+DOCUMENT_ID: HISTORY.ALEXANDER.MAIN
+CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: AGREGAR
+PERSISTED_PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
+STATE_REVISION: 7
+SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.HISTORY.TIME-INVENTORY-RECONCILIATION-20260811.R1
+ÚLTIMA ACTUALIZACIÓN: Reconciliación canónica de horario local e inventario completo de Sombra infinita: Día 04, tarde temprana; auditoría física consolidada sin avance de escena.
+MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-OPERACIÓN: 
-AGREGAR una entrada narrativa completa después de cada pausa confirmada. No ACTUALIZAR ni REEMPLAZAR capítulos ya cerrados; una corrección se agrega como corrección explícita.
-CONTENIDO: 
-Registrar acontecimientos, escenas, combates, conversaciones, relaciones, lugares estables, pactos, descubrimientos, consecuencias y asuntos abiertos con causalidad y detalle dramático.
-EXCLUSIÓN MECÁNICA: 
-Las entradas nuevas no almacenan Salud, Fatiga, XP, PM, PH, munición, estadísticas ni inventario vigente. Las cifras solo se mantienen cuando son narrativas o contractuales.
-MIGRACIÓN: 
-La crónica anterior se preserva como evidencia histórica sin reescribir en masa sus formulaciones antiguas. Esta regla gobierna toda entrada creada desde esta revisión.
+OPERACIÓN: AGREGAR una entrada narrativa completa después de cada pausa confirmada. No ACTUALIZAR ni REEMPLAZAR capítulos ya cerrados; una corrección se agrega como corrección explícita.
+CONTENIDO: Registrar acontecimientos, escenas, combates, conversaciones, relaciones, lugares estables, pactos, descubrimientos, consecuencias y asuntos abiertos con causalidad y detalle dramático.
+EXCLUSIÓN MECÁNICA: Las entradas nuevas no almacenan Salud, Fatiga, XP, PM, PH, munición, estadísticas ni inventario vigente. Las cifras solo se mantienen cuando son narrativas o contractuales.
+MIGRACIÓN: La crónica anterior se preserva como evidencia histórica sin reescribir en masa sus formulaciones antiguas. Esta regla gobierna toda entrada creada desde esta revisión.
 Crónica vigente
 ORIGEN Y PRÓLOGO
 PERIODO: Aproximadamente 23 años antes del inicio hasta el presente previo a campaña
@@ -439,12 +424,9 @@ La Matriz recibía material procedente de las cápsulas y poseía una línea sep
 La ruta de salida de lotes contiene pequeñas masas biológicas vivas instaladas deliberadamente dentro de cajas técnicas. Ocupantes actuales las llaman «testigos». En el puesto de transferencia exterior, Alexander escuchó a tres hombres armados: conocen a Hadrix, la Matriz, los lotes y un protocolo para sellar la bajada y avisar a alguien llamado Sarda si los testigos se activan. Afirmaron que no existe lote autorizado desde hace meses.
 PUNTO DE CORTE T915: Alexander permanece oculto y no detectado dentro del puesto de transferencia E-12. Dos hombres armados están dentro; un tercero llamado Pell está fuera de la puerta lateral tras revisar el Testigo 2. Alexander bloqueó desde fuera ambas puertas con cajas mediante Sombra infinita y retiró intacto el Testigo 1, que quedó suspendido y aislado. El Testigo 2 está activo y «muy caliente». Los ocupantes ya dedujeron una intrusión deliberada; el canal para contactar con Sarda no respondió. No ha comenzado combate.
 Control de continuidad
-ÚLTIMO HECHO CONFIRMADO: 
-Alexander permanece oculto dentro del puesto de transferencia E-12; el Testigo 1 fue retirado, el Testigo 2 está activo y el combate todavía no ha comenzado.
-PUNTO ABIERTO EXACTO: 
-T915 pausado; dos hombres armados dentro, Pell fuera de la puerta lateral, ambas salidas obstaculizadas y Alexander aún no detectado.
-SIGUIENTE ENTRADA: 
-Comienza después de PAUSA-TURNO-915-2026-08-09-TRANSFERENCIA-E12.
+ÚLTIMO HECHO CONFIRMADO: Alexander permanece oculto dentro del puesto de transferencia E-12; el Testigo 1 fue retirado, el Testigo 2 está activo y el combate todavía no ha comenzado.
+PUNTO ABIERTO EXACTO: T915 pausado; dos hombres armados dentro, Pell fuera de la puerta lateral, ambas salidas obstaculizadas y Alexander aún no detectado.
+SIGUIENTE ENTRADA: Comienza después de PAUSA-TURNO-915-2026-08-09-TRANSFERENCIA-E12.
 ANEXO DE CONTINUIDAD — ESCENA VIGENTE DE RHO-9
 SOURCE_EVENT_ID: CHATGPT-SHARE-6A7A6D61-431C-83E9-AD5C-EF4AEAFA611B
 ALCANCE TEMPORAL: escena posterior al checkpoint numerado T915. La fuente visible no muestra el número de turno, el día ni la hora; este anexo no reconstruye ni numera el tramo intermedio.
@@ -505,23 +487,3 @@ LOCAL_TIME_BAND_ID: TIME.NECROMUNDA.LOCAL.DAY04.EARLY-AFTERNOON
 PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
 REGLA DE REANUDACIÓN: anunciar «Día 04, tarde temprana» y usar el inventario consolidado de la Ficha. No declarar auditoría pendiente, farmacia desconocida, censo umbral sin cerrar ni perfiles de armas incompletos cuando el registro ya los define.
-CIERRE CONFIRMADO — DÍA 04, NOCHE — RHO-9 Y OPERACIÓN NOCTURNA
-ALCANCE TEMPORAL: el tramo ocurre después de la reconciliación de Día 04, tarde temprana y concluye en Medicae Station Rho-9 durante la noche. La hora exacta y el número de turno no están reconciliados y no deben inferirse.
-RHO-9 COMO HOGAR Y CLÍNICA: Alexander declaró Medicae Station Rho-9 como hogar permanente y clínica. La instalación permanece cerrada al público. La autoridad estratégica del dominio continúa en Alexander.
-MANDATO DE SEVERAN: Severan Holt aceptó el cargo formal de Maestro de Seguridad de Rho-9. Su mandato cubre seguridad, fortificación, accesos, cerraduras, guardias y orden, con la instrucción de mantener vivos a los de Alexander y mantener fuera a extraños. Puede comprometer hasta 200 créditos por semana dentro de ese mandato, pero el límite no ejecuta gasto automático; cada gasto debe reportarse a Syra Kol. Khepra-9 conserva independencia y no queda subordinada a Severan.
-BLOQUE DE PERSONAL: se confirmó un sector con cuatro habitaciones pequeñas y una sala común grande, dos catres metálicos y dos habitaciones mayormente vacías. El sector no tiene energía confirmada; agua y saneamiento no fueron verificados. Una puerta posterior cierra pero no está asegurada y conduce a escaleras que descienden a niveles todavía desconocidos. Severan y Jarek solo confirmaron que las escaleras continúan; no exploraron más.
-SUMINISTROS DE RHO-9: el corte vigente registra 24 raciones comunes, 10 militares, 9 médicas, 5 de alta nutrición y 16 botellas de agua de un litro. Las entregas previas a Mara y Syra ya están descontadas de esas cantidades.
-INCURSIÓN NOCTURNA: Alexander salió de Rho-9 y capturó cuatro humanos vulnerables que entraron vivos en Sombra infinita. Más tarde localizó un depósito privado ocupado por cuatro humanos armados, se infiltró y extrajo armas y munición mediante sus capacidades. Los ocupantes advirtieron la desaparición del inventario, cerraron y registraron el local, pero no identificaron a Alexander ni vincularon el robo con Rho-9.
-DISTRACCIÓN Y RETORNO: durante la retirada Alexander liberó una rata gigante de subcolmena como distracción. Su destino posterior es desconocido y no existe censo válido que permita inferir cuántas ratas permanecen cautivas. Alexander escapó y regresó a Rho-9.
-BOTÍN CONFIRMADO: el retorno incorporó físicamente cuatro pistolas del depósito, cinco armas largas, una pistola pequeña tomada del segundo cautivo, 96 cartuchos sólidos compatibles con pistola de servicio de 12, 120 cartuchos compatibles con carabina genérica de 24, doce cargadores del lote inicial, una caja de munición pesada, un lote cilíndrico especial, munición y cargadores adicionales y el contenido de una caja reforzada. La clasificación detallada de patrones, cargadores, munición especial y granadas permanece provisional y no se vuelve canónica por esta entrada. El material industrial visto en el depósito no fue confirmado como robado.
-EJECUCIONES EN RHO-9: los cuatro cautivos fueron extraídos uno por uno y ejecutados personalmente por Halven Rusk bajo la orden reiterada de Alexander. Los cuatro murieron y sus cadáveres quedaron separados en Sombra infinita. Estas muertes no avanzan el pacto de diez ejecuciones del Primer deudor E-12, porque el ejecutor fue Halven.
-PACTO DE COSECHA DE HALVEN: queda corregida y confirmada una cláusula adicional de la servidumbre de Halven: toda muerte causada personalmente por su mano transfiere el alma de la víctima a Alexander. Las cuatro ejecuciones activaron esa cláusula y elevaron la Reserva Umbral de seis a diez almas completas.
-CONTINUIDAD DE PERSONAS: Jarek Venn queda identificado como el Primer deudor E-12. Está fuera de Sombra infinita, vivo y débil, con el torso reparado y ambos brazos presentes; conserva sus pactos de diez ejecuciones, todavía en 0/10, y un año de trabajo en Rho-9. Está asignado operativamente a Severan, sin convertirse por ello en miembro del séquito. El Segundo deudor permanece inconsciente en Sombra infinita con el brazo derecho amputado y sin pacto propio de ejecuciones, servicio anual o prótesis garantizada.
-PACIENTES Y COLABORADORES: Tertius está consciente y estable, pero no puede caminar con seguridad; su deuda concreta sigue pendiente y un empleo futuro no está comprometido. Quartus continúa crítico estable, inconsciente, intubado y mantenido sedado; sus términos de deuda esperan a que pueda participar. Sael permanece estable con drenaje y conserva autonomía. Syra Kol tiene 16 años confirmados y continúa en registros e inventario sin pacto. Khepra-9 mantiene cooperación permanente en principio, fuera del séquito y con custodia técnica y derecho de uso sobre piezas mecánicas. Hadrix está consciente y recuperándose, todavía no listo para trabajar. Demer permanece consciente y aislado; su integración anómala es funcional y algunas funciones dependen de ella.
-CENSO UMBRAL AL CIERRE: permanecen vivos y suspendidos el Operador M-01, los Sujetos M-01 I, II y III y el Segundo deudor E-12. Jarek Venn ya está materializado en Rho-9. Se agregan cuatro cadáveres de los cautivos nocturnos y la Reserva Umbral queda en diez almas completas.
-CONSECUENCIA EXTERNA ABIERTA: el depósito conoce que sufrió una sustracción anómala, pero no identificó al responsable ni conectó el hecho con Rho-9. No existe cambio numérico o categórico de reputación confirmado. Las consecuencias futuras y el destino de la rata permanecen abiertos y solo pueden avanzar por propagación causal posterior.
-PENDIENTES: reconciliar perfiles provisionales del arsenal, cartuchos especiales y granadas con la autoridad mecánica ACTIVE; decidir distribución del arsenal; explorar los subniveles; completar seguridad material, agua segura, esterilización, ventilación, frío, drenaje y cuarentena; mantener Rho-9 cerrada al público; resolver la formalización final de Khepra y su taller, las deudas de Tertius y Quartus, la recuperación y negociación del Segundo deudor, y cobrar los 300 créditos pendientes de Darrik Vane.
-PUNTO DE REANUDACIÓN: Medicae Station Rho-9, Día 04, noche. Alexander está estable; no hay combate ni emergencia inmediata confirmada. Reanudar desde este estado sin inventar hora, turno, reputación nueva, distribución del arsenal, perfiles provisionales como ACTIVE ni consecuencias externas todavía no ocurridas.
-PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
-CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
-REGLA DE REANUDACIÓN: usar esta entrada junto con la Ficha, Séquito, Dominios y Personajes actualizados. Las capacidades particulares continúan gobernadas por la Ficha personal vigente; este cierre no redefine ninguna habilidad por inferencia.

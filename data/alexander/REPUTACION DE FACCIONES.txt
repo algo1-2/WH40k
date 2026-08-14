@@ -1,46 +1,30 @@
 Reputación de facciones
 Relación persistente, intereses, favores y consecuencias por facción o subfacción — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: 
-REPUTATION
-DOCUMENT_ID: 
-REPUTATION.ALEXANDER.MAIN
-CAMPAIGN_ID: 
-CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: 
-CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: 
-PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: 
-ACTUALIZAR, AGREGAR
+DOCUMENT_KEY: REPUTATION
+DOCUMENT_ID: REPUTATION.ALEXANDER.MAIN
+CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: ACTUALIZAR, AGREGAR
 PERSISTED_PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
 STATE_REVISION: 5
 SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.REPUTACION.POST-T915-UMBRAL-WORKBLOCK-20260811.R1
 ÚLTIMA ACTUALIZACIÓN: Bloque de trabajo umbral posterior a T915 integrado desde el informe reconciliado del 2026-08-11; transcurrieron aproximadamente 10 horas externas sin turno, día u hora exactos fijados.
-MIGRATION_ID: 
-CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: 
-Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: 
-Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: 
-No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: 
-Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-AGREGAR: 
-Crear un perfil cuando una facción o subfacción adquiere una relación persistente propia con el personaje jugador.
-ACTUALIZAR: 
-Modificar reputación, intereses, favores, consecuencias y umbrales dentro del perfil vigente.
-ALCANCE: 
-No propagar automáticamente un valor local a la facción superior, sus subordinados, aliados o rivales.
-FAVORES: 
-Un favor no equivale automáticamente a reputación. Registrar por separado dirección, valor, origen, estado y condiciones de cobro.
+AGREGAR: Crear un perfil cuando una facción o subfacción adquiere una relación persistente propia con el personaje jugador.
+ACTUALIZAR: Modificar reputación, intereses, favores, consecuencias y umbrales dentro del perfil vigente.
+ALCANCE: No propagar automáticamente un valor local a la facción superior, sus subordinados, aliados o rivales.
+FAVORES: Un favor no equivale automáticamente a reputación. Registrar por separado dirección, valor, origen, estado y condiciones de cobro.
 Escala
 −100 ENEMISTAD_ABSOLUTA; −99..−76 CAZA; −75..−51 ENEMIGO; −50..−26 HOSTIL; −25..−1 DESCONFIANZA; 0 NEUTRAL; +1..+25 RECEPTIVA; +26..+50 FAVORABLE; +51..+75 ALIADA; +76..+99 CONFIANZA_EXCEPCIONAL; +100 VÍNCULO_MÁXIMO.
-FACCIONES REGISTRADAS: 
-6
+FACCIONES REGISTRADAS: 6
 ÍNDICE DE FACCIONES
 FAC-ENFORCER-D17 | Enforcers de la Casa Helmawr — Nodo D-17 | Local | -85 — CAZA | HOSTILIDAD ACTIVA | ACTIVO
 FAC-CALDEREROS-D17 | Caldereros de Dust Falls | Banda local | -70 — ENEMIGO | HOSTILIDAD O DETERIORO SEVERO | ACTIVO, MANDO INCIERTO
