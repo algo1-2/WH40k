@@ -1525,54 +1525,110 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
-    <!-- TAB 5: ESTADO & SÉQUITO -->
+    <!-- TAB 5: ESTADO & ENTIDADES / SÉQUITO -->
     <section id="tab-status" class="tab-content">
-      <div class="grid-dashboard">
-        <div class="panel">
-          <div class="panel-header">
-            <span class="panel-title">🛡️ ALEXANDER // OPERADOR UMBRAL</span>
-            <span class="badge badge-brass">NIVEL 5</span>
+      <div class="grid-dashboard" style="grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+        
+        <!-- COL 1: ALEXANDER & SÉQUITO PACTADO -->
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">🛡️ ALEXANDER // OPERADOR UMBRAL</span>
+              <span class="badge badge-brass">FICHA DE PERSONAJE</span>
+            </div>
+            <div class="panel-body">
+              <div class="stat-row"><span class="stat-label">❤️ Salud Vital:</span><span class="stat-val green" id="pc-hp">12 / 12 PV</span></div>
+              <div class="progress-bar-bg"><div class="progress-fill fill-green" style="width: 100%;"></div></div>
+              <div class="stat-row" style="margin-top: 0.75rem;"><span class="stat-label">⚡ Fatiga:</span><span class="stat-val" id="pc-fatigue">0 / 7</span></div>
+              <div class="progress-bar-bg"><div class="progress-fill fill-amber" style="width: 0%;"></div></div>
+              <div class="stat-row" style="margin-top: 0.75rem;"><span class="stat-label">🔮 Reserva Umbral:</span><span class="stat-val brass" id="pc-souls">10 / 10 Almas</span></div>
+              <div class="stat-row"><span class="stat-label">🌟 Puntos de Destino:</span><span class="stat-val brass">3</span></div>
+              <div class="stat-row"><span class="stat-label">💰 Saldo Disponible:</span><span class="stat-val green" id="pc-credits">1.046 Créditos (+300 pendientes)</span></div>
+              <div class="stat-row"><span class="stat-label">📍 Base Principal:</span><span class="stat-val cyan">Medicae Station Rho-9 // Dust Falls</span></div>
+            </div>
           </div>
-          <div class="panel-body">
-            <div class="stat-row"><span class="stat-label">❤️ Salud Vital:</span><span class="stat-val green" id="pc-hp">12 / 12</span></div>
-            <div class="progress-bar-bg"><div class="progress-fill fill-green" style="width: 100%;"></div></div>
-            <div class="stat-row" style="margin-top: 0.75rem;"><span class="stat-label">⚡ Fatiga:</span><span class="stat-val" id="pc-fatigue">0 / 7</span></div>
-            <div class="progress-bar-bg"><div class="progress-fill fill-amber" style="width: 0%;"></div></div>
-            <div class="stat-row" style="margin-top: 0.75rem;"><span class="stat-label">🔮 Reserva Umbral:</span><span class="stat-val brass" id="pc-souls">10 Almas</span></div>
-            <div class="stat-row"><span class="stat-label">🌟 Puntos de Destino:</span><span class="stat-val brass">3</span></div>
-            <div class="stat-row"><span class="stat-label">💰 Saldo Disponible:</span><span class="stat-val green" id="pc-credits">1.046 Créditos (+300 pendientes)</span></div>
-            <div class="stat-row"><span class="stat-label">📈 Experiencia Total:</span><span class="stat-val">1.335 XP (335 / 500)</span></div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">👥 SÉQUITO INCORPORADO PACTADO (`SEQUITO.txt`)</span>
+              <span class="badge badge-green">3 MIEMBROS OFICIALES</span>
+            </div>
+            <div class="panel-body" style="display:flex; flex-direction:column; gap:0.65rem;">
+              <div class="char-card">
+                <div class="char-card-header"><span>Mara Veyl</span><span class="badge badge-green">PACTADA VITALICIA</span></div>
+                <div class="char-role">Mantenimiento de Precisión & Logística · Hermana de Sael Veyl</div>
+                <div class="char-status">10/10 PV · Rho-9 C-03 · Pacto por la vida preservada de su hermano</div>
+              </div>
+              <div class="char-card">
+                <div class="char-card-header"><span>Ilyra Venn</span><span class="badge badge-green">SÉQUITO ACTIVO</span></div>
+                <div class="char-role">Apoyo Táctico y Exploración de Subniveles</div>
+                <div class="char-status">10/10 PV · Puesto perimetral · Pacto de servicio formal</div>
+              </div>
+              <div class="char-card">
+                <div class="char-card-header"><span>Halven Rusk</span><span class="badge badge-green">SÉQUITO ACTIVO</span></div>
+                <div class="char-role">Auxiliar de Cuidados de Pacientes & Triaje</div>
+                <div class="char-status">10/10 PV · Rho-9 C-03 · Soporte clínico y movilización</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="panel">
-          <div class="panel-header">
-            <span class="panel-title">👥 EQUIPAMIENTO TÁCTICO DEL SÉQUITO</span>
-            <span class="badge badge-brass">ARMAMENTO ASIGNADO</span>
+        <!-- COL 2: PERSONAL RHO-9 & PACIENTES CLÍNICOS -->
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">🏥 PERSONAL Y SEGURIDAD RHO-9 (`PERSONAJES.txt`)</span>
+              <span class="badge badge-brass">NO SÉQUITO // ESTATUTO INDEPENDIENTE</span>
+            </div>
+            <div class="panel-body" style="display:flex; flex-direction:column; gap:0.65rem;">
+              <div class="char-card">
+                <div class="char-card-header"><span>Severan Holt</span><span class="badge badge-brass">PACTO TERRITORIAL 2 AÑOS</span></div>
+                <div class="char-role">Maestro de Seguridad & Contención · Armadura de Campaña (3/2/2) · CC40/Bal48</div>
+                <div class="char-status">11/11 PV · Rondas de seguridad · Hermano de Tertius, Quartus y Kerrin Holt</div>
+              </div>
+              <div class="char-card">
+                <div class="char-card-header"><span>Khepra-9</span><span class="badge badge-cyan">COOPERACIÓN TÉCNICA</span></div>
+                <div class="char-role">Leximecánica (Adeptus Mechanicus) · 49.982% máquina · Taller previsto</div>
+                <div class="char-status">10/10 PV · Evalúa componentes biomecánicos de Demer Vhal</div>
+              </div>
+              <div class="char-card">
+                <div class="char-card-header"><span>Syra Kol</span><span class="badge badge-brass">LOGÍSTICA NO PACTADA</span></div>
+                <div class="char-role">Auxiliar de Registros, Inventario y Sombra Infinita · ADM-01</div>
+                <div class="char-status">VIVA · Gestiona existencias y clasificó el archivo clínico de Rho-9</div>
+              </div>
+            </div>
           </div>
-          <div class="panel-body">
-            <div class="char-card">
-              <div class="char-card-header"><span>Severan Holt (Capitán)</span><span class="badge badge-brass">L-01 // Carabina Kord-24</span></div>
-              <div class="char-role">Seguridad & Mando · Armadura: Chaleco Antibalas (3 pts)</div>
-              <div class="char-status">D5 | Pen 0 | Alcance 60m | Fiable / Ráfaga 3</div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">🛏️ PACIENTES Y AISLAMIENTO RHO-9</span>
+              <span class="badge badge-amber">CUIDADOS ACTIVOS</span>
             </div>
-            <div class="char-card">
-              <div class="char-card-header"><span>Jarek Venn (Deudor)</span><span class="badge badge-brass">L-03 // Escopeta Compacta</span></div>
-              <div class="char-role">Centinela de Compuerta · Armadura: Cuero Endurecido (1 pt)</div>
-              <div class="char-status">D6 | Pen 0 | Alcance 30m | Dispersión / Potente</div>
-            </div>
-            <div class="char-card">
-              <div class="char-card-header"><span>Syra Kol (Logística)</span><span class="badge badge-brass">P-01 // Pistola Compacta Hesh-9</span></div>
-              <div class="char-role">Recepción & Farmacia · Armadura: Ropa Reforzada (1 pt)</div>
-              <div class="char-status">D4 | Pen 0 | Alcance 20m | Ocultable</div>
-            </div>
-            <div class="char-card">
-              <div class="char-card-header"><span>Khepra-9 (Tecnosacerdote)</span><span class="badge badge-brass">P-04 // Autopistola Vex</span></div>
-              <div class="char-role">Taller & Plasma · Armadura: Túnicas Blindadas (2 pts)</div>
-              <div class="char-status">D4 | Pen 0 | Alcance 25m | Ráfaga 3 / Automática</div>
+            <div class="panel-body" style="display:flex; flex-direction:column; gap:0.65rem;">
+              <div class="char-card">
+                <div class="char-card-header"><span>Tertius Holt</span><span class="badge badge-green">RECUPERACIÓN (C-01)</span></div>
+                <div class="char-role">Paciente Deudor · Herida torácica suturada · Pulso: 94 BPM</div>
+                <div class="char-status">Conserva autonomía para negociar contraprestación tras el alta médica</div>
+              </div>
+              <div class="char-card">
+                <div class="char-card-header"><span>Quartus Holt</span><span class="badge badge-crimson">CRÍTICO INTUBADO (C-03)</span></div>
+                <div class="char-role">Paciente Deudor en Soporte Vital · 4/11 PV · Trauma vascular/pélvico masivo</div>
+                <div class="char-status">Inconsciente. Términos de pacto congelados hasta recuperar consciencia</div>
+              </div>
+              <div class="char-card">
+                <div class="char-card-header"><span>Demer Vhal (Sujeto M-01 IV)</span><span class="badge badge-cyan">AISLAMIENTO PRIVADO</span></div>
+                <div class="char-role">Paciente Aumentado · Interfaz Neurovascular Anómala ('63%')</div>
+                <div class="char-status">Bajo protección voluntaria. Recuerda nombres clave: Sarda y Orven</div>
+              </div>
+              <div class="char-card">
+                <div class="char-card-header"><span>Sael Veyl</span><span class="badge badge-green">PACIENTE LIBRE (C-03)</span></div>
+                <div class="char-role">Ex-contable Caldereros · Drenaje torácico · 10/10 PV</div>
+                <div class="char-status">Completamente libre de pacto (pagado por su hermana Mara Veyl)</div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 

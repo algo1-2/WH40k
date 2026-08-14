@@ -48,6 +48,7 @@ from subengines.naval_combat_engine import NavalCombatEngine
 from subengines.enemy_reinforcement_engine import EnemyReinforcementEngine
 from subengines.combat_progression_engine import CombatProgressionEngine
 from subengines.character_dossier_engine import CharacterDossierEngine
+from subengines.entity_registry_engine import EntityRegistryEngine
 from dashboard_template import get_dashboard_html
 
 app = FastAPI(
@@ -404,6 +405,48 @@ def get_character_weapons():
 def get_character_inventory():
     """Devuelve el inventario estructurado categorizado en tiempo real (Equipo Activo, Botín Incursión, Municiones, Equipo Médico Avanzado, Fármacos y Consumibles)"""
     return CharacterDossierEngine.get_full_inventory()
+
+@app.get("/api/entities", dependencies=[Depends(verify_api_key)])
+def list_entities(category: Optional[str] = None, search: Optional[str] = None):
+    """Devuelve el registro estructurado de PNJ, Séquito, Pacientes y Contactos con filtros por categoría o búsqueda"""
+    return {
+        "total": len(EntityRegistryEngine.get_all_entities(category, search)),
+        "entities": EntityRegistryEngine.get_all_entities(category, search)
+    }
+
+@app.get("/api/entities/{identifier}", dependencies=[Depends(verify_api_key)])
+def get_entity_detail(identifier: str):
+    """Devuelve el expediente completo, estado clínico, competencias, lealtad y límites de conocimiento de una entidad específica"""
+    ent = EntityRegistryEngine.get_entity_by_id_or_name(identifier)
+    if not ent:
+        raise HTTPException(status_code=404, detail=f"Entidad '{identifier}' no encontrada en el registro canónico.")
+    return ent
+
+@app.get("/api/retinue", dependencies=[Depends(verify_api_key)])
+def get_retinue_dossier():
+    """Devuelve la ficha oficial del Séquito incorporado (Mara Veyl, Ilyra Venn, Halven Rusk) gobernado por SEQUITO.txt"""
+    return EntityRegistryEngine.get_retinue()
+
+@app.get("/api/patients", dependencies=[Depends(verify_api_key)])
+def get_patients_status():
+    """Devuelve el estado clínico y telemetría de todos los pacientes activos en Medicae Station Rho-9 (Tertius, Quartus, Demer Vhal, Sael Veyl)"""
+    return {
+        "total_patients": len(EntityRegistryEngine.get_patients_telemetry()),
+        "patients": EntityRegistryEngine.get_patients_telemetry()
+    }
+
+@app.get("/api/rho9/inhabitants", dependencies=[Depends(verify_api_key)])
+def get_rho9_inhabitants_endpoint():
+    """Devuelve el desglose clasificado de todos los habitantes y personal presente en Medicae Station Rho-9 (Seguridad, Técnico, Admin, Pacientes)"""
+    return EntityRegistryEngine.get_rho9_inhabitants()
+
+@app.get("/api/family/{family_name}", dependencies=[Depends(verify_api_key)])
+def get_family_members(family_name: str):
+    """Devuelve los miembros conocidos de una familia o linaje (ej. Holt: Severan, Tertius, Quartus, Kerrin; Veyl: Mara, Sael)"""
+    return {
+        "family": family_name,
+        "members": EntityRegistryEngine.get_family_tree(family_name)
+    }
 
 @app.get("/api/documents", dependencies=[Depends(verify_api_key)])
 def list_available_documents():
