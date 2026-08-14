@@ -1,25 +1,19 @@
 import sys
 import os
 
-# Robust path discovery
 base_dir = os.path.dirname(os.path.abspath(__file__))
-root_dir = os.path.dirname(base_dir) if os.path.basename(base_dir) in ['engine', 'api'] else base_dir
+sub_dir = os.path.join(base_dir, "subengines")
 
-for p in [
-    base_dir,
-    os.path.join(base_dir, "subengines"),
-    root_dir,
-    os.path.join(root_dir, "engine"),
-    os.path.join(root_dir, "engine", "subengines"),
-    os.path.join(root_dir, "api"),
-    os.path.join(root_dir, "api", "engine"),
-    os.path.join(root_dir, "api", "engine", "subengines")
-]:
-    if os.path.exists(p) and p not in sys.path:
-        sys.path.insert(0, p)
+if base_dir not in sys.path:
+    sys.path.insert(0, base_dir)
+if sub_dir not in sys.path:
+    sys.path.insert(0, sub_dir)
+# Asegurar que el directorio actual y subengines estén en sys.path para Vercel
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "subengines"))
 
 from fastapi import FastAPI, Header, HTTPException, Depends
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 
@@ -54,21 +48,36 @@ from subengines.naval_combat_engine import NavalCombatEngine
 from subengines.enemy_reinforcement_engine import EnemyReinforcementEngine
 from subengines.combat_progression_engine import CombatProgressionEngine
 
-state_mgr = StateManager()
+app = FastAPI(
+    title="WH40K Narrative Mechanics Engine API - Clean Architecture v16.0",
+    description="API REST determinista con Estructura Limpia (subengines/, manuales_originales/, scripts_y_herramientas/) y Dashboard Web",
+    version="16.0.0",
+    servers=[
+        {
+            "url": "https://wh-40k.vercel.app",
+            "description": "Servidor de Producción Vercel"
+        }
+    ]
+)
 
 API_KEY_SECRET = os.getenv("API_KEY_SECRET", "wh40k_secret_key_12345")
+state_mgr = StateManager()
 
 def verify_api_key(x_api_key: Optional[str] = Header(None)):
     if x_api_key != API_KEY_SECRET:
         raise HTTPException(status_code=401, detail="X-API-Key inválida o no proporcionada.")
     return x_api_key
 
-app = FastAPI(
-    title="WH40K Narrative Mechanics Engine API - Clean Architecture v16.0",
-    description="API REST determinista con Estructura Limpia y Documentos Dinámicos",
-    version="16.0.0",
-    servers=[{"url": "https://wh-40k.vercel.app", "description": "Servidor de Producción Vercel"}]
-)
+# Modelos de solicitud
+class ProgressionUpdateRequest(BaseModel):
+    current_percentage: int
+    delta: int
+    cause: str
+
+class ReinforcementSpawnRequest(BaseModel):
+    enemy_type: str
+    requested_count: int
+    current_reinforcement_pool: int
 
 class NavalSalvoRequest(BaseModel):
     attacker_ship: str
@@ -149,94 +158,70 @@ class LoreSearchRequest(BaseModel):
 class ExploreRequest(BaseModel):
     sublevel_index: int = 1
 
-class LootGenRequest(BaseModel):
-    zone_threat_level: int = 3
-    scavenger_luck: int = 45
+class LootRequest(BaseModel):
+    table_key: str = "RHO9_SUBNIVELES"
 
-class BuyItemRequest(BaseModel):
+class BuyRequest(BaseModel):
     item_key: str
-    item_cost: int
-    actor_credits: int
+    current_credits: int = 450
 
 class AddCreditsRequest(BaseModel):
     amount: int
-    actor_credits: int
-
-class UnjamWeaponRequest(BaseModel):
-    weapon_name: str
-    ballistics_skill: int = 45
-
-class CorruptionAddRequest(BaseModel):
-    amount: int
+    source: str
 
 class MiracleRequest(BaseModel):
-    miracle_name: str
-    faith_available: int = 10
+    miracle_key: str
 
-class RegisterFavorRequest(BaseModel):
-    giver: str
-    receiver: str
-    terms: str
-    level: str = "MODERADO"
+class CorruptionAddRequest(BaseModel):
+    added_points: int
+    cause: str
 
-class ClaimFavorRequest(BaseModel):
+class FavorRegisterRequest(BaseModel):
+    faction_name: str
+    favor_value: str
+    origin: str
+
+class FavorClaimRequest(BaseModel):
     favor_id: str
+    faction_name: str
+
+class UnjamRequest(BaseModel):
+    weapon_name: str
 
 class DeltaRequest(BaseModel):
-    hp_change: Optional[int] = 0
-    fatigue_change: Optional[int] = 0
-    fate_change: Optional[int] = 0
-    soul_change: Optional[int] = 0
-    corruption_change: Optional[int] = 0
-    ammo_used: Optional[int] = 0
-    notes: Optional[str] = "Delta manual"
+    campaign_id: Optional[str] = "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    expected_revision: Any = 11
+    deltas: List[Dict[str, Any]]
 
-class ProgressionRequest(BaseModel):
-    damage_dealt: int = 0
-    tactical_advantage: int = 0
-    enemy_count: int = 5
-
-class SpawnReinforcementRequest(BaseModel):
-    wave_number: int = 1
-    escalation_factor: int = 1
-
+# DASHBOARD WEB VISUAL
 @app.get("/", response_class=HTMLResponse)
 @app.get("/dashboard", response_class=HTMLResponse)
 def get_dashboard():
-    dashboard_path = None
-    for candidate in [
-        os.path.join(base_dir, "dashboard.html"),
-        os.path.join(root_dir, "api", "dashboard.html"),
-        os.path.join(base_dir, "api", "dashboard.html"),
-        os.path.join(root_dir, "dashboard.html"),
-        "api/dashboard.html",
-        "dashboard.html"
-    ]:
-        if os.path.exists(candidate):
-            dashboard_path = candidate
-            break
-            
-    if dashboard_path and os.path.exists(dashboard_path):
+    # El archivo dashboard.html ahora está en ../api/dashboard.html
+    dashboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "api", "dashboard.html")
+    if os.path.exists(dashboard_path):
         with open(dashboard_path, "r", encoding="utf-8") as f:
             return f.read()
-    return "<h1>WH40K Dashboard Operativo</h1>"
+    return "<h1>WH40K API ONLINE - Dashboard HTML not found</h1>"
 
 @app.post("/api/action", dependencies=[Depends(verify_api_key)])
-def resolve_action(req: ActionRequest):
-    cid = req.campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+def resolve_action(req: ActionRequest, x_campaign_id: Optional[str] = Header(None)):
+    cid = req.campaign_id or x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
     state = state_mgr.load_state(cid)
-    actor_name = req.actor or "Alexander"
-    actor_sheet = state.setdefault("character_sheet", {})
+    actor_sheet = state.get("character_sheet", {})
+    actor_name = req.actor or actor_sheet.get("nombre", "Alexander")
+    
+    parsed = CommandParser.parse_input(req.user_input)
 
-    parsed = CommandParser.parse_command(req.user_input)
-    if parsed.get("is_command"):
+    if parsed["is_ooc"]:
         checkpoint = state_mgr.generate_checkpoint(cid)
         return {
-            "type": "COMMAND_PARSED",
-            "action_code": parsed.get("action_code"),
-            "checkpoint": checkpoint.get("checkpoint_text"),
+            "type": "SYSTEM_RESPONSE",
+            "campaign_id": cid,
+            "action_code": parsed["action_code"],
+            "checkpoint": checkpoint["checkpoint_text"],
             "state_revision": state.get("state_revision"),
-            "message": f"Comando procesado: {parsed.get('command_body')}"
+            "message": f"Comando procesado: {parsed['command_body']}"
         }
 
     combat_info = {}
@@ -253,7 +238,6 @@ def resolve_action(req: ActionRequest):
         if "PSY" in req.ability_used:
             warp_info = WarpEngine.check_warp_phenomena(power_forced=req.force_psy_power)
 
-    # 1. Clasificar y congelar apuestas
     classified = MechanicsEngine.classify_route(
         question=req.user_input,
         method="Acción declarada",
@@ -271,69 +255,79 @@ def resolve_action(req: ActionRequest):
         risks=[{"nivel_base": 1, "techo": req.riesgo_techo, "activador": "CUALQUIER_FALLO"}]
     )
 
-    # 2. Tirada d100 determinista
     roll_result = MechanicsEngine.resolve_d100(
         contract_id=stakes["contract_id"],
         actor=actor_name,
-        valor_base=req.atributo_base or 47,
-        modificadores=req.modificadores or []
+        valor_base=req.atributo_base,
+        modificadores=req.modificadores
     )
 
-    # 3. Ataque y desgaste de equipo si aplica
     attack_info = {}
-    if req.weapon_key:
-        weapon_dossier = WeaponTraitsEngine.get_weapon_dossier(req.weapon_key)
-        attack_info = WeaponTraitsEngine.resolve_attack_with_traits(req.weapon_key, roll_result.get("es_exito", True), 3)
+    if req.weapon_used or req.weapon_key:
+        w_key = req.weapon_key or ("PISTOLA_BOLTER" if "Bólter" in str(req.weapon_used) else "ESPADA_ENERGIA")
+        curr_ammo = 12 if "BOLTER" in w_key else 10
+        attack_info = WeaponTraitsEngine.process_weapon_attack(w_key, curr_ammo, req.weapon_status or "LIMPIA", roll_result)
 
-    # 4. Estado y checkpoint
-    state["state_revision"] = state.get("state_revision", 12) + 1
-    checkpoint = state_mgr.generate_checkpoint(cid)
-    state_mgr.save_state(state, cid)
+    try:
+        curr_rev = state.get("state_revision", 11)
+        curr_turn = state.get("turn", 916)
+        
+        deltas = [{
+            "field": "turn",
+            "operation": "INCREMENT",
+            "value": 1
+        }]
 
-    response_payload = {
-        "success": roll_result.get("es_exito", True),
-        "d100_roll": roll_result.get("d100_val", 50),
-        "target_value": roll_result.get("umbral_final", 50),
-        "degrees": roll_result.get("grados_num", 0),
-        "public_roll_text": roll_result.get("public_roll_text", ""),
-        "new_state_revision": state.get("state_revision"),
-        "current_health": f"{actor_sheet.get('salud_actual', 12)}/{actor_sheet.get('salud_maxima', 12)}",
-        "narrative_hint": "Éxito claro" if roll_result.get("es_exito") else "Complicación o fallo con consecuencias",
+        success, status_msg, updated_state = state_mgr.apply_deltas(curr_rev, deltas, cid)
+        rev_num = updated_state.get("state_revision")
+        health_actual = updated_state.get("character_sheet", {}).get("salud_actual", 12)
+        health_max = updated_state.get("character_sheet", {}).get("salud_maxima", 12)
+        health_str = f"{health_actual}/{health_max}"
+    except Exception as e:
+        success = False
+        rev_num = 11
+        health_str = "12/12"
+
+    return {
+        "type": "RESOLVED_ACTION",
+        "campaign_id": cid,
+        "classification": classified,
+        "stakes": stakes,
+        "roll_result": roll_result,
+        "public_roll_text": roll_result["public_roll_text"],
         "combat_info": combat_info,
         "ability_info": ability_info,
         "warp_info": warp_info,
         "attack_info": attack_info,
-        "checkpoint": checkpoint.get("checkpoint_text", "")
+        "state_applied": success,
+        "new_state_revision": rev_num,
+        "current_health": health_str
     }
 
-    if req.weapon_key:
-        response_payload["weapon_dossier"] = WeaponTraitsEngine.get_weapon_dossier(req.weapon_key)
-
-    return response_payload
-
+# ENDPOINTS DE LA API (v16.0 CLEAN ARCHITECTURE)
 @app.post("/api/combat/progression", dependencies=[Depends(verify_api_key)])
-def combat_progression(req: ProgressionRequest):
-    return CombatProgressionEngine.evaluate_progression(req.damage_dealt, req.tactical_advantage, req.enemy_count)
+def update_progression(req: ProgressionUpdateRequest):
+    return CombatProgressionEngine.update_combat_progression(req.current_percentage, req.delta, req.cause)
 
 @app.post("/api/enemy/spawn_reinforcements", dependencies=[Depends(verify_api_key)])
-def spawn_reinforcements(req: SpawnReinforcementRequest):
-    return EnemyReinforcementEngine.calculate_reinforcements(req.wave_number, req.escalation_factor)
+def spawn_reinforcements(req: ReinforcementSpawnRequest):
+    return EnemyReinforcementEngine.spawn_reinforcements(req.enemy_type, req.requested_count, req.current_reinforcement_pool)
 
 @app.post("/api/naval/salvo", dependencies=[Depends(verify_api_key)])
-def naval_salvo(req: NavalSalvoRequest):
-    return NavalCombatEngine.fire_salvo(req.attacker_ship, req.defender_ship, req.defender_void_shields, req.defender_hull)
+def resolve_naval_salvo(req: NavalSalvoRequest):
+    return NavalCombatEngine.resolve_naval_salvo(req.attacker_ship, req.defender_ship, req.defender_void_shields, req.defender_hull)
 
 @app.post("/api/naval/boarding", dependencies=[Depends(verify_api_key)])
-def naval_boarding(req: BoardingActionRequest):
-    return NavalCombatEngine.execute_boarding(req.target_ship_point)
+def initiate_boarding(req: BoardingActionRequest):
+    return NavalCombatEngine.initiate_boarding_action(req.target_ship_point)
 
 @app.post("/api/duel/resolve", dependencies=[Depends(verify_api_key)])
 def resolve_duel(req: DuelRequest):
-    return DuelEngine.resolve_duel_round(req.attacker_name, req.defender_name, req.defender_stance)
+    return DuelEngine.resolve_duel_round(req.attacker_name, req.defender_name, req.defender_stance, {"resultado_base": "FALLO", "distancia": 25})
 
 @app.post("/api/oath/swear", dependencies=[Depends(verify_api_key)])
 def swear_oath(req: OathRequest):
-    return OathLedgerEngine.register_oath(req.actor_name, req.oath_title, req.objective)
+    return OathLedgerEngine.swear_oath(req.actor_name, req.oath_title, req.objective)
 
 @app.post("/api/oath/fulfill", dependencies=[Depends(verify_api_key)])
 def fulfill_oath(req: FulfillOathRequest):
@@ -347,26 +341,17 @@ def get_state(x_campaign_id: Optional[str] = Header(None)):
 @app.get("/api/documents/{filename}", dependencies=[Depends(verify_api_key)])
 def get_document(filename: str, x_campaign_id: Optional[str] = Header(None)):
     cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
-    subfolder = "caelan" if "CAELAN" in cid.upper() else "alexander"
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if "CAELAN" in cid.upper():
+        doc_path = os.path.join(project_root, "data", "caelan", filename)
+    else:
+        doc_path = os.path.join(project_root, "data", "alexander", filename)
     
-    doc_path = None
-    for candidate in [
-        os.path.join(root_dir, "data", subfolder, filename),
-        os.path.join(base_dir, "data", subfolder, filename),
-        os.path.join(root_dir, "api", "data", subfolder, filename),
-        os.path.join(base_dir, "api", "data", subfolder, filename),
-        os.path.join("data", subfolder, filename),
-        filename
-    ]:
-        if os.path.exists(candidate):
-            doc_path = candidate
-            break
-            
-    if doc_path and os.path.exists(doc_path):
+    if os.path.exists(doc_path):
         with open(doc_path, "r", encoding="utf-8") as f:
             content = f.read()
         return {"filename": filename, "content": content}
-    raise HTTPException(status_code=404, detail=f"Document {filename} not found")
+    raise HTTPException(status_code=404, detail="Document not found")
 
 @app.post("/api/state/checkpoint", dependencies=[Depends(verify_api_key)])
 def get_checkpoint(req: CampaignSwitchRequest):
@@ -377,8 +362,8 @@ def tame_beast(req: TamingRequest):
     return BeastTamingEngine.attempt_taming(req.creature_name, req.actor_taming_skill, req.creature_ferocity)
 
 @app.post("/api/anomalous/inspect", dependencies=[Depends(verify_api_key)])
-def inspect_anomalous_subject(req: AnomalousRequest):
-    return AnomalousResearchEngine.evaluate_subject_stability(req.subject_id, req.stability_level)
+def inspect_anomalous(req: AnomalousRequest):
+    return AnomalousResearchEngine.inspect_containment_subject(req.subject_id, req.stability_level)
 
 @app.get("/api/domain/status", dependencies=[Depends(verify_api_key)])
 def get_domain_status():
@@ -390,24 +375,18 @@ def assign_staff(req: AssignTaskRequest):
 
 @app.post("/api/domain/revenue", dependencies=[Depends(verify_api_key)])
 def collect_revenue():
-    return DomainManagementEngine.calculate_passive_revenue()
+    return DomainManagementEngine.collect_weekly_revenue(450)
 
 @app.post("/api/world/info", dependencies=[Depends(verify_api_key)])
 def get_world_info(req: LocationQueryRequest):
-    return WorldContextEngine.get_location_context(req.location_key)
+    return WorldContextEngine.get_location_info(req.location_key)
 
 @app.post("/api/tactical/evaluate", dependencies=[Depends(verify_api_key)])
-def evaluate_tactics(req: TacticalEvalRequest):
-    return TacticalMapEngine.calculate_combat_modifiers(
-        attacker_zone=req.attacker_zone,
-        target_zone=req.target_zone,
-        target_cover=req.target_cover,
-        attacker_elevated=req.attacker_elevated,
-        target_flanked=req.target_flanked
-    )
+def evaluate_tactical(req: TacticalEvalRequest):
+    return TacticalMapEngine.evaluate_tactical_shot(req.attacker_zone, req.target_zone, req.target_cover, req.attacker_elevated, req.target_flanked)
 
 @app.post("/api/alchemy/synthesize", dependencies=[Depends(verify_api_key)])
-def synthesize_compound(req: AlchemySynthesizeRequest):
+def synthesize_alchemy(req: AlchemySynthesizeRequest):
     return AlchemyEngine.synthesize_compound(req.compound_key, req.medic_skill, req.available_credits)
 
 @app.get("/api/weapon/dossier/{weapon_key}", dependencies=[Depends(verify_api_key)])
@@ -416,57 +395,67 @@ def get_weapon_dossier_endpoint(weapon_key: str):
 
 @app.post("/api/lore/query", dependencies=[Depends(verify_api_key)])
 def query_subfaction_lore(req: LoreQueryRequest):
-    return LoreEncyclopediaEngine.get_subfaction_data(req.subfaction_key)
+    return LoreEncyclopediaEngine.query_subfaction(req.subfaction_key)
 
 @app.post("/api/lore/search", dependencies=[Depends(verify_api_key)])
-def search_lore(req: LoreSearchRequest):
-    return LoreEncyclopediaEngine.search_encyclopedia(req.keyword)
+def search_subfaction_lore(req: LoreSearchRequest):
+    return LoreEncyclopediaEngine.search_lore(req.keyword)
 
 @app.post("/api/exploration/explore", dependencies=[Depends(verify_api_key)])
 def explore_sublevel(req: ExploreRequest):
-    return MapExplorationEngine.explore_sublevel(req.sublevel_index)
+    return MapExplorationEngine.explore_sector(req.sublevel_index)
 
 @app.post("/api/loot/generate", dependencies=[Depends(verify_api_key)])
-def generate_loot(req: LootGenRequest):
-    return LootEngine.generate_scavenge_loot(req.zone_threat_level, req.scavenger_luck)
+def generate_loot(req: LootRequest):
+    return LootEngine.generate_loot(req.table_key)
 
 @app.post("/api/economy/buy", dependencies=[Depends(verify_api_key)])
-def buy_item(req: BuyItemRequest):
-    return EconomyEngine.process_purchase(req.item_key, req.item_cost, req.actor_credits)
+def buy_item(req: BuyRequest):
+    return EconomyEngine.buy_item(req.item_key, req.current_credits)
 
 @app.post("/api/economy/credits/add", dependencies=[Depends(verify_api_key)])
 def add_credits(req: AddCreditsRequest):
-    return EconomyEngine.add_credits(req.amount, req.actor_credits)
+    return EconomyEngine.add_credits(450, req.amount, req.source)
 
 @app.post("/api/weapon/unjam", dependencies=[Depends(verify_api_key)])
-def unjam_weapon(req: UnjamWeaponRequest):
-    return WeaponTraitsEngine.attempt_unjam(req.weapon_name, req.ballistics_skill)
+def unjam_weapon(req: UnjamRequest):
+    return WeaponTraitsEngine.unjam_weapon(req.weapon_name)
 
 @app.post("/api/corruption/add", dependencies=[Depends(verify_api_key)])
 def add_corruption(req: CorruptionAddRequest):
-    return CorruptionEngine.add_corruption_points(req.amount)
+    state = state_mgr.load_state()
+    curr_corr = state.get("character_sheet", {}).get("corrupcion", 0)
+    result = CorruptionEngine.add_corruption(curr_corr, req.added_points, req.cause)
+    state_mgr.apply_deltas(state.get("state_revision", 11), [{
+        "field": "character_sheet/corrupcion",
+        "operation": "SET",
+        "value": result["new_points"]
+    }])
+    return result
 
 @app.post("/api/miracles/invoke", dependencies=[Depends(verify_api_key)])
 def invoke_miracle(req: MiracleRequest):
-    return MiraclesEngine.trigger_faith_miracle(req.miracle_name, req.faith_available)
+    state = state_mgr.load_state()
+    curr_fe = state.get("character_sheet", {}).get("fe", 10)
+    return MiraclesEngine.invoke_miracle(req.miracle_key, curr_fe)
 
 @app.post("/api/favors/register", dependencies=[Depends(verify_api_key)])
-def register_favor(req: RegisterFavorRequest):
-    return FavorsLedgerEngine.register_favor(req.giver, req.receiver, req.terms, req.level)
+def register_favor(req: FavorRegisterRequest):
+    return FavorsLedgerEngine.register_favor(req.faction_name, req.favor_value, req.origin)
 
 @app.post("/api/favors/claim", dependencies=[Depends(verify_api_key)])
-def claim_favor(req: ClaimFavorRequest):
-    return FavorsLedgerEngine.claim_favor(req.favor_id)
+def claim_favor(req: FavorClaimRequest):
+    return FavorsLedgerEngine.claim_favor(req.favor_id, req.faction_name)
 
 @app.post("/api/state/delta", dependencies=[Depends(verify_api_key)])
-def apply_manual_delta(req: DeltaRequest, x_campaign_id: Optional[str] = Header(None)):
-    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
-    state = state_mgr.load_state(cid)
-    sheet = state.setdefault("character_sheet", {})
-    sheet["salud_actual"] = max(0, min(sheet.get("salud_maxima", 12), sheet.get("salud_actual", 12) + (req.hp_change or 0)))
-    sheet["fatiga_actual"] = max(0, min(sheet.get("fatiga_maxima", 7), sheet.get("fatiga_actual", 0) + (req.fatigue_change or 0)))
-    sheet["puntos_destino"] = max(0, sheet.get("puntos_destino", 3) + (req.fate_change or 0))
-    sheet["reserva_almas"] = max(0, sheet.get("reserva_almas", 10) + (req.soul_change or 0))
-    sheet["corrupcion"] = max(0, sheet.get("corrupcion", 0) + (req.corruption_change or 0))
-    state_mgr.save_state(state, cid)
-    return {"status": "SUCCESS", "message": "Delta aplicado manualmente.", "new_state": state}
+def apply_custom_delta(req: DeltaRequest):
+    cid = req.campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    success, msg, new_state = state_mgr.apply_deltas(req.expected_revision, req.deltas, cid)
+    if not success:
+        raise HTTPException(status_code=409, detail=msg)
+    return {
+        "status": "APLICADA",
+        "campaign_id": cid,
+        "new_revision": new_state.get("state_revision"),
+        "checkpoint": state_mgr.generate_checkpoint(cid)["checkpoint_text"]
+    }

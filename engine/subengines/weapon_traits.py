@@ -185,9 +185,3 @@ class WeaponTraitsEngine:
             "cost_pa": 1,
             "message": f"Se ha tirado del cerrojo de {weapon_name} y extraído el casquillo atascado. Arma limpia y lista para disparar."
         }
-
-
-    @staticmethod
-    def resolve_attack_with_traits(weapon_key: str, is_success: bool, target_resilience: int = 3) -> Dict[str, Any]:
-        roll_mock = {"resultado_base": "ÉXITO" if is_success else "FALLO"}
-        return WeaponTraitsEngine.process_weapon_attack(weapon_key, 12, "LIMPIA", roll_mock, target_resilience)

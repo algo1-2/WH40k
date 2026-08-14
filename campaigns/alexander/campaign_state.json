@@ -268,34 +268,10 @@
     {
       "document_key": "DOMAINS",
       "document_id": "DOMAINS.ALEXANDER.MAIN",
-      "domain_id": "DOMAIN-RHO9-001",
-      "nombre": "Medicae Station Rho-9",
-      "rol_base": "Base Principal y Clínica Clandestina de Control Efectivo",
-      "ubicacion": "Rho-9 (Caídas de Polvo / Dust Falls)",
-      "estado_operativo": "Operativo (Seguridad temporal delegada a Severan Holt)",
-      "personal_asignado": [
-        {
-          "nombre": "Severan Holt",
-          "tarea": "Maestro de Seguridad"
-        },
-        {
-          "nombre": "Syra Kol",
-          "tarea": "Registros e Inventario en ADM-01"
-        },
-        {
-          "nombre": "Halven Rusk",
-          "tarea": "Supervisión Clínica y Diagnóstico"
-        }
-      ]
-    },
-    {
-      "document_key": "DOMAINS",
-      "document_id": "DOMAIN-QTN3-001",
       "domain_id": "DOMAIN-QTN3-001",
-      "nombre": "Refugio QTN-3 / 17-G",
-      "rol_base": "Refugio Oscuro Secundario y Almacén de Seguridad Secreta",
-      "ubicacion": "Subnivel -1, Caídas de Polvo / Dust Falls",
-      "estado_operativo": "Pasivo / En reserva"
+      "nombre": "Refugio QTN-3 / Medicae Station Rho-9",
+      "ubicacion": "QTN-3 (Caídas de Polvo / Dust Falls)",
+      "estado_operativo": "Operativo (Seguridad temporal delegada a Severan Holt)"
     }
   ],
   "factions": {

@@ -1,44 +1,59 @@
 Personajes
 PNJ persistentes externos al séquito — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: CHARACTERS
-DOCUMENT_ID: CHARACTERS.ALEXANDER.MAIN
-CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: AGREGAR, REEMPLAZAR
-PERSISTED_PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
-CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
-STATE_REVISION: 10
-SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.CHARACTERS.TIME-INVENTORY-RECONCILIATION-20260811.R1
-ÚLTIMA ACTUALIZACIÓN: Reconciliación canónica de horario local e inventario completo de Sombra infinita: Día 04, tarde temprana; auditoría física consolidada sin avance de escena.
-MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+DOCUMENT_KEY: 
+CHARACTERS
+DOCUMENT_ID: 
+CHARACTERS.ALEXANDER.MAIN
+CAMPAIGN_ID: 
+CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: 
+CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: 
+PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: 
+AGREGAR, REEMPLAZAR
+PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
+STATE_REVISION: 11
+SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.CHARACTERS.D04-NIGHT-RHO9-20260813.R1
+ÚLTIMA ACTUALIZACIÓN: Día 04, noche; reconciliados Severan, Jarek Venn/Primer deudor, Segundo deudor, Tertius, Quartus, Sael, Syra, Khepra, Hadrix y Demer. Hora exacta y turno no reconciliados.
+MIGRATION_ID: 
+CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: 
+Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: 
+Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: 
+No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: 
+Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-AGREGAR: Crear un perfil cuando el PNJ adquiere continuidad suficiente para ser reutilizado.
-REEMPLAZAR: Sustituir el perfil completo cuando cambia. No anexar un segundo estado al final.
-TRASLADO: Cuando un PNJ entra al séquito, retirar su perfil activo de este archivo y dejar una referencia compacta a Séquito.
+AGREGAR: 
+Crear un perfil cuando el PNJ adquiere continuidad suficiente para ser reutilizado.
+REEMPLAZAR: 
+Sustituir el perfil completo cuando cambia. No anexar un segundo estado al final.
+TRASLADO: 
+Cuando un PNJ entra al séquito, retirar su perfil activo de este archivo y dejar una referencia compacta a Séquito.
 Estado actual
 PNJ ACTIVOS O PERSISTENTES: 46 fuera del séquito
-TRANSFERIDOS A SÉQUITO: Mara Veyl → MEMBER.ALEXANDER.MARA-VEYL; Ilyra Venn → MEMBER.ALEXANDER.ILYRA-VENN; Halven Rusk → MEMBER.ALEXANDER.HALVEN-RUSK
+TRANSFERIDOS A SÉQUITO: 
+Mara Veyl → MEMBER.ALEXANDER.MARA-VEYL; Ilyra Venn → MEMBER.ALEXANDER.ILYRA-VENN; Halven Rusk → MEMBER.ALEXANDER.HALVEN-RUSK
 ÍNDICE DE PERSONAJES
-NPC-SAEL-VEYL-001 | Sael Veyl | Excontable de los Caldereros | Paciente autónomo; libre de quedarse o irse; conversación pendiente con Alexander | VIVO, 10/10 | En tránsito hacia Rho-9
+NPC-SAEL-VEYL-001 | Sael Veyl | Excontable de los Caldereros | Paciente autónomo; libre de quedarse o irse | VIVO, 10/10; estable con drenaje | Rho-9
 NPC-BREN-ORSTAG-001 | Bren Orstag | Caldereros | Hostil o instrumental | DESCONOCIDO | Kappa-Nueve al último rastro
 NPC-ENFORCER-UMBRAL-001 | Especialista Enforcer no identificado | Enforcers | Liberado; contraparte externa bajo pacto de transporte | VIVO AL SER LIBERADO; ACTUAL DESCONOCIDO | Ubicación, rutas y destinos actuales desconocidos
-NPC-CANDELA-TERTIUS-001 | Tertius Holt | Candela Hueca | Paciente y deudor por recuperación y tratamiento; contraprestación pendiente | VIVO, 8/11; consciente y estable | Rho-9, C-03
-NPC-CANDELA-QUARTUS-001 | Quartus Holt | Candela Hueca | Paciente crítico y deudor por extracción y cuidados; términos al recuperar la conciencia | VIVO, 4/11; crítico estable, inconsciente e intubado | Rho-9, C-03
+NPC-CANDELA-TERTIUS-001 | Tertius Holt | Candela Hueca | Paciente y deudor; contraprestación concreta pendiente | VIVO, 8/11; consciente y estable; no camina con seguridad | Rho-9, C-03
+NPC-CANDELA-QUARTUS-001 | Quartus Holt | Candela Hueca | Paciente crítico y deudor; términos al recuperar conciencia | VIVO, 4/11; crítico estable, inconsciente, intubado y sedado | Rho-9, C-03
 NPC-MALREC-VOSS-001 | Malrec Voss | Candela Hueca / Custodia de Fenómenos Negros, vínculo no resuelto | DESCONOCIDO | Último paradero material no confirmado tras una detonación
 NPC-VEYRA-MANDIBULA-001 | Veyra | Mandíbula Blanca | DESCONOCIDO | Último rastro: evacuación occidental
 NPC-OREN-VALE-001 | Oren Vale | NO REGISTRADA | VIVO al último contacto, 7/9 | Bajo custodia de Veyra al último contacto
 NPC-LYSA-RENN-001 | Lysa Renn | Servicios Hídricos | VIVA, 6/8 al último contacto; herida estabilizada | Ruta de evacuación separada de Dust Falls
 NPC-DAREK-MOLL-001 | Darek Moll | Servicios Hídricos | VIVO, 8/8 al último contacto | Ruta de evacuación separada de Dust Falls
-NPC-SEVERAN-HOLT-001 | Severan Holt | Antiguo especialista de Candela Hueca; servidor temporal bajo pacto | VIVO, 11/11; operativo | Dos ciclos = dos años para proteger el refugio designado por Alexander
+NPC-SEVERAN-HOLT-001 | Severan Holt | Antiguo especialista de Candela Hueca; servidor temporal bajo pacto | VIVO, 11/11; operativo | Maestro de Seguridad de Rho-9; mandato formal activo
 NPC-JAREK-WHITE-MEAT-001 | Jarek, jefe del destacamento de la clínica | Destacamento de incautación que actuó en nombre de la Lex; afiliación exacta no confirmada | VIVO, 8/11 al último contacto; herida torácica estabilizada | Abandonó la ruta de entrega sin conocer QTN-3
-NPC-SYRA-KOL-001 | Syra Kol | Independiente; registros, inventario y contabilidad | VIVA; móvil y estable | Rho-9, ADM-01; compartimentación clínica y auditoría de armas/munición activas
-NPC-KHEPRA-9-001 | Khepra-9 | Lexmecánico auxiliar independiente y de mercado gris | VIVA, 10/10 en el último perfil numérico confirmado | Rho-9; evaluación técnica de Demer Vhal
+NPC-SYRA-KOL-001 | Syra Kol | Independiente; registros, inventario y contabilidad | VIVA; 16 años confirmados; sin pacto | Rho-9, ADM-01
+NPC-KHEPRA-9-001 | Khepra-9 | Lexmecánico auxiliar independiente y de mercado gris | VIVA, 10/10 en último perfil numérico; cooperación permanente en principio | Rho-9; fuera del séquito y no subordinada a Severan
 NPC-BRANN-VESK-001 | Brann Vesk | Defensores de Santa Misericordia al último contacto | VIVO, 10/10 al último contacto | Santa Misericordia al último contacto
 NPC-IOVAN-KRAIL-001 | Iovan Krail | Santa Misericordia | VIVO, 9/10 al último contacto | Santa Misericordia
 NPC-ODRAN-PELL-001 | Odran Pell | Personal farmacéutico de Santa Misericordia | VIVO, 8/8 al último contacto | Santa Misericordia o ruta posterior no registrada
@@ -55,7 +70,7 @@ NPC-SENN-VARKO-001 | Senn Varko | Corredor de empeños e información | VIVO; sa
 NPC-LYSA-VERIFIER-001 | Lysa, verificadora de Senn Varko | Red de Senn Varko | VIVA; salud no registrada | Dust Falls; ubicación exacta no registrada
 NPC-VELA-001 | Vela | Contacto armado y transportista | VIVA; salud no registrada | Dust Falls; ubicación exacta no registrada
 ÍNDICE COMPLEMENTARIO — REGISTROS 033 A 050
-NPC-HADRIX-VALE-001 | Hadrix Vale | Antiguo Auxilia Technica; paciente y colaborador técnico provisional | VIVO; consciente y en recuperación | Rho-9
+NPC-HADRIX-VALE-001 | Hadrix Vale | Antiguo Auxilia Technica; paciente y colaborador técnico provisional | VIVO; consciente y recuperándose; no listo para trabajar | Rho-9
 NPC-VREK-SOLN-001 | Vrek Soln | Recuperador independiente | VIVO al último contacto | Ubicación actual no registrada
 NPC-JOREN-PELL-001 | Joren Pell | Recuperador independiente | VIVO en último estado legítimo; paradero actual no registrado | Ubicación actual desconocida
 NPC-YELLOW-CHIEF-001 | Jefe de banda amarilla no identificado | Grupo armado marcado de amarillo | VIVO al último contacto, 1/10 | Paradero desconocido
@@ -66,12 +81,12 @@ NPC-M01-SUBJECT-03 | Sujeto M-01 III | Paciente crítico extraído | VIVO; crít
 NPC-M01-SUBJECT-04 | Sujeto M-01 IV | ALIAS HISTÓRICO DE DEMER VHAL | MISMA PERSONA QUE NPC-DEMER-VHAL-001 | No contar como cuerpo separado
 NPC-SARDA-E12-001 | Sarda | Contacto referido por ocupantes de E-12 | ESTADO DESCONOCIDO | Ubicación no confirmada
 NPC-PELL-E12-001 | Pell del puesto E-12 | Guardia/ocupante del puesto de transferencia | MUERTO y procesado como donante selectivo | Sombra infinita; no confundir con Joren Pell
-NPC-DEMER-VHAL-001 | Demer Vhal / Sujeto M-01 IV | Humano aumentado, paciente aislado | VIVO; consciente; intervalo funcional sostenido | Rho-9, aislamiento privado
+NPC-DEMER-VHAL-001 | Demer Vhal / Sujeto M-01 IV | Humano aumentado, paciente aislado | VIVO; consciente; integración anómala funcional con dependencias parciales | Rho-9, aislamiento privado
 NPC-YELLOW-WOUNDED-001 | Miembro amarillo no identificado | Grupo armado marcado de amarillo | MUERTO; extracción excepcional de sangre y órganos útiles | Sombra infinita; distinto del jefe amarillo que escapó
 NPC-CLANDESTINE-BROKER-001 | Corredor clandestino no identificado | Nodo clandestino de información | MUERTO; ejecutado y procesado como donante | Sombra infinita
 NPC-COAT-MAN-UNIDENTIFIED-001 | Hombre no identificado del abrigo | Afiliación no registrada | MUERTO; extracción excepcional de sangre y órganos útiles | Sombra infinita
-NPC-JOREN-DEBTOR-01 | Primer deudor E-12, nombre desconocido | Guardia superviviente de E-12; no vinculado a Joren Pell | VIVO, 0/9; torso reparado, apto para recuperación | Sombra infinita
-NPC-JOREN-DEBTOR-02 | Segundo deudor E-12, nombre desconocido | Guardia superviviente de E-12; no vinculado a Joren Pell | VIVO, 0/9; inconsciente; brazo izquierdo salvado y derecho amputado | Sombra infinita
+NPC-JOREN-DEBTOR-01 | Jarek Venn / Primer deudor E-12 | Guardia superviviente de E-12; no vinculado a Joren Pell | VIVO, 0/9; torso reparado, ambos brazos presentes | Rho-9; asignado operativamente a Severan; no séquito
+NPC-JOREN-DEBTOR-02 | Segundo deudor E-12, nombre no confirmado | Guardia superviviente de E-12; no vinculado a Joren Pell | VIVO, 0/9; inconsciente; brazo derecho amputado | Sombra infinita; sin pacto propio ni prótesis garantizada
 NPC-ORVEN-UNKNOWN-001 | Orven / posible M. Orven | Referencia de proceso, rol y facción desconocidos | ESTADO DESCONOCIDO | Ubicación no confirmada
 REGISTRO 002 — SAEL VEYL
 ENTITY_ID: NPC-SAEL-VEYL-001
@@ -84,8 +99,8 @@ SEXO: Masculino
 FACCIÓN: Antiguo contable de tránsito de los Caldereros
 ORIGEN: Dust Falls
 FUNCIÓN: Testigo, portador de información y paciente de Alexander
-ESTADO: VIVO — ESTABLE, 10/10; drenaje torácico funcional; incapaz de caminar
-ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9, C-03; estable con drenaje torácico.
+ESTADO: VIVO — ESTABLE, 10/10; drenaje torácico funcional; autónomo.
+ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9; estable con drenaje torácico.
 DESCRIPCIÓN FÍSICA
 ROSTRO: Pálido por pérdida de sangre y trauma; color mejorado tras estabilización, alimento y agua
 CUERPO: Inmovilizado temporalmente por herida torácica y traslado
@@ -106,7 +121,7 @@ COMPETENCIAS: Contabilidad de tránsito; memoria parcial de claves; conocimiento
 HABILIDADES ESPECIALES: Ninguna sobrenatural confirmada
 SALUD: 10/10; estable
 HERIDAS: Lesión torácica estabilizada; drenaje revisado, corregido, limpio, sellado, fijado y funcional; sin hemorragia activa ni deterioro reciente
-CONDICIONES: Drenaje torácico funcional; no puede caminar; traslado realizado en camilla con consentimiento.
+CONDICIONES: Drenaje torácico funcional; estable. Conserva autonomía y no existe servicio o pacto propio impuesto por su recuperación.
 INVENTARIO: Información memorizada; otros objetos no registrados
 EQUIPO: Camilla, correas, drenaje torácico, recipiente y manta térmica compartida
 ARMAS: Ninguna confirmada
@@ -206,9 +221,9 @@ EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO
 FACCIÓN: Candela Hueca
 ORIGEN: NO REGISTRADO
 FUNCIÓN: Superviviente y compañero de Severan; paciente en recuperación y deudor bajo pacto por recuperación y tratamiento.
-ESTADO: VIVO, 8/11; consciente y estable
+ESTADO: VIVO, 8/11; consciente y estable; no puede caminar con seguridad.
 ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9, C-03; consciente, estable, en recuperación torácica con drenaje.
-DISPONIBILIDAD: No puede sentarse, levantarse ni moverse con seguridad sin ayuda; puede conversar y preguntar por su deuda.
+DISPONIBILIDAD: Puede conversar; no puede caminar, levantarse ni moverse con seguridad sin ayuda. Un posible empleo futuro NO está comprometido.
 DESCRIPCIÓN FÍSICA Y PRESENTACIÓN
 APARIENCIA Y PRESENCIA: NO REGISTRADO
 VOZ: NO REGISTRADA
@@ -216,7 +231,7 @@ ROPA Y PRESENTACIÓN: NO REGISTRADO; no inventar uniforme, armadura, joyas o her
 IDENTIDAD, HISTORIA Y CONDUCTA
 HISTORIA CONOCIDA: Fue recuperado del Umbral, sometido a cirugía torácica y despertó consciente. La extracción, recuperación y tratamiento generaron una deuda de pacto vigente; la contraprestación concreta todavía no ha sido definida.
 PERSONALIDAD: Analítico, pragmático y de humor seco. Separa deuda, gratitud, obediencia y amistad; prefiere conocer alcance, duración y salida antes de ejecutar una prestación.
-INTERESES E INICIATIVA: Recuperarse, conservar autonomía y negociar con precisión la contraprestación aún pendiente de su deuda sin negar que Alexander realizó la extracción y el tratamiento.
+INTERESES E INICIATIVA: Recuperarse, conservar autonomía y negociar con precisión la contraprestación concreta aún pendiente. Un posible empleo futuro no constituye acuerdo hasta que Tertius lo acepte.
 AUTORIDAD Y RECURSOS: NO REGISTRADA
 CONOCIMIENTO Y LÍMITES: Conoce a Severan como compañero de Candela Hueca; no existe parentesco sanguíneo entre ellos.
 CAPACIDADES Y ESTADO
@@ -234,7 +249,7 @@ ROMANCE: NO CONFIRMADO
 ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE; no hay veneración confirmada.
 OPINIÓN SOBRE ALEXANDER: Rescatador, médico y acreedor peligroso pero eficaz. La relación es de deuda contractual y respeto profesional cauteloso, no de afecto obligatorio.
 CONTINUIDAD
-ESTADO Y LÍMITE: DEUDA DE PACTO ACTIVA por recuperación y tratamiento; contraprestación, alcance y duración PENDIENTES DE DEFINICIÓN. La carabina no está disponible hasta que el tórax permita usarla.
+ESTADO Y LÍMITE: DEUDA DE PACTO ACTIVA por recuperación y tratamiento; contraprestación, alcance y duración PENDIENTES DE DEFINICIÓN. No existe empleo, servicio ni incorporación al séquito comprometidos. La carabina no está disponible hasta que su condición permita usarla.
 PROYECCIÓN COMPATIBLE: Puede discutir y negociar la forma de pago cuando corresponda; no convertir la deuda en servicio, amistad, obediencia total o séquito hasta definir términos.
 REGISTRO 007 — QUARTUS HOLT
 ENTITY_ID: NPC-CANDELA-QUARTUS-001
@@ -244,9 +259,9 @@ EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO
 FACCIÓN: Candela Hueca
 ORIGEN: NO REGISTRADO
 FUNCIÓN: Paciente crítico y deudor bajo pacto por extracción y cuidados; términos pendientes hasta recuperar la conciencia.
-ESTADO: VIVO, 4/11; crítico estable, inconsciente e intubado
-ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9, C-03; crítico estable, inconsciente e intubado.
-DISPONIBILIDAD: No disponible para acción, conversación ni servicio.
+ESTADO: VIVO, 4/11; crítico estable, inconsciente, intubado y mantenido sedado.
+ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9, C-03; crítico estable, inconsciente, intubado y sedado.
+DISPONIBILIDAD: No disponible para acción, conversación, negociación ni servicio mientras permanezca inconsciente/sedado.
 DESCRIPCIÓN FÍSICA Y PRESENTACIÓN
 APARIENCIA Y PRESENCIA: NO REGISTRADO
 VOZ: NO REGISTRADA
@@ -259,7 +274,7 @@ AUTORIDAD Y RECURSOS: NO REGISTRADA
 CONOCIMIENTO Y LÍMITES: No existe contraprestación, duración ni servicio previamente definidos. La deuda por extracción y cuidados permanece registrada; sus términos se abordarán cuando Quartus recupere la conciencia.
 CAPACIDADES Y ESTADO
 ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADAS
-SALUD Y CONDICIONES: 4/11; crítico estable, inconsciente e intubado; mayor respiración espontánea, sin deterioro nuevo; riesgo alto de resangrado, infección, trombosis y reperfusión. Antecedente confirmado por el jugador: granada de fragmentación a menos de 3 metros.
+SALUD Y CONDICIONES: 4/11; crítico estable, inconsciente, intubado y mantenido sedado; riesgo alto de resangrado, infección, trombosis y reperfusión. Antecedente confirmado por el jugador: granada de fragmentación a menos de 3 metros.
 INVENTARIO: NO REGISTRADO
 EQUIPO: Camilla, intubación, soporte y drenajes conectados.
 ARMAS: NO REGISTRADAS
@@ -472,19 +487,19 @@ ALIAS: Ninguno confirmado
 EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: Masculino
 FACCIÓN: Antiguo especialista de Candela Hueca; servidor temporal bajo pacto
 ORIGEN: NO REGISTRADO
-FUNCIÓN: Guardia, contención, seguridad e investigación del refugio
+FUNCIÓN: Maestro de Seguridad de Rho-9; guardia, fortificación, control de accesos, cerraduras, guardias y orden dentro de su mandato.
 ESTADO: VIVO, 11/11; operativo
-ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9; mantiene función de guardia y seguridad del refugio designado.
+ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9; ejerce como Maestro de Seguridad del refugio designado.
 DISPONIBILIDAD: Disponible para guardia y protección. Obligación pactada total activa: dos ciclos equivalentes a dos años de servicio; el tiempo exacto ya consumido no está reconciliado y no debe inventarse.
 DESCRIPCIÓN FÍSICA Y PRESENTACIÓN
 APARIENCIA Y PRESENCIA: Operador armado y contenido; armadura de campaña. Rostro y marcas completos no registrados.
 VOZ: Directa, disciplinada y contenida.
 ROPA Y PRESENTACIÓN: Armadura de campaña: cuerpo 3; cabeza, brazos y piernas 2.
 IDENTIDAD, HISTORIA Y CONDUCTA
-HISTORIA CONOCIDA: Alexander lo sacó vivo de un tiroteo, origen del primer ciclo, y recuperó a Tertius, origen del segundo. Severan prometió dos ciclos o dos años para proteger el refugio designado. En Rho-9 aceptó llamar «Alexander» al personaje en privado y reservar «Médico Negro» para uso público; recibió mando temporal general y continuidad de reparaciones, no una orden detallada de fortificación.
+HISTORIA CONOCIDA: Alexander lo sacó vivo de un tiroteo, origen del primer ciclo, y recuperó a Tertius, origen del segundo. Severan prometió dos ciclos o dos años para proteger el refugio designado. En Rho-9 aceptó llamar «Alexander» al personaje en privado y reservar «Médico Negro» para uso público. En Día 04 aceptó el cargo formal de Maestro de Seguridad de Rho-9.
 PERSONALIDAD: Disciplinado, directo y contenido. Cumple términos literales, piensa como guardia y separa deber, obediencia, confianza y amistad. Puede discutir una decisión de seguridad, pero no abandona el refugio designado mientras la obligación siga vigente.
 INTERESES E INICIATIVA: Mantener defendible el refugio designado, proteger a quienes estén legítimamente bajo su cobertura y conservar recursos de seguridad; evaluará su futuro personal después de completar los dos años.
-AUTORIDAD Y RECURSOS: mando operativo temporal general en Rho-9, rondas y reparaciones ordinarias por la orden «quedas a cargo» y «sigue trabajando para arreglar este lugar». No tiene presupuesto, compra de armas, obra estructural, fortificación/rearme específico ni cargo administrativo permanente sin nueva orden de Alexander.
+AUTORIDAD Y RECURSOS: mandato formal sobre seguridad, fortificación, accesos, cerraduras, guardias y orden. Instrucción prioritaria: mantener vivos a los de Alexander y mantener fuera a extraños. CAP DE GASTO AUTÓNOMO: hasta 200 créditos por semana dentro del mandato; NO es gasto automático y cada gasto debe reportarse a Syra Kol. No es administrador general, no obtiene propiedad ni mando estratégico y Khepra-9 no está subordinada a él.
 CONOCIMIENTO Y LÍMITES: Conoce QTN-3, pacientes, capacidades observadas y parte de los pactos. No conoce automáticamente secretos aislados por Alexander.
 CAPACIDADES Y ESTADO
 ESTADÍSTICAS/COMPETENCIAS: CC40; B48; F38; R42; Ag43; Int42; Per49; Vol46; Presencia34; Esquiva42; Resiliencia4. Fusiles48; Pistolas45; Percepción52; Investigación47; Seguridad45; Sigilo45.
@@ -501,7 +516,7 @@ ROMANCE: NO CONFIRMADO
 ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE; no hay veneración confirmada.
 OPINIÓN SOBRE ALEXANDER: Acreedor contractual, médico peligroso y operador eficaz. Severan mide la relación por términos cumplidos y por la seguridad real del refugio, no por consuelo, amistad o veneración.
 CONTINUIDAD
-ESTADO Y LÍMITE: No forma parte del séquito. Debe proteger durante dos años el lugar que Alexander designe como refugio; la obligación no autoriza a usarlo para tareas ajenas a esa protección. Cualquier futuro posterior se decide al completar el plazo.
+ESTADO Y LÍMITE: No forma parte del séquito. Debe proteger durante dos años el refugio designado por Alexander y, en Rho-9, ejerce el cargo formal de Maestro de Seguridad dentro del mandato confirmado. La función no lo convierte en administrador general ni subordinado personal ilimitado.
 PROYECCIÓN COMPATIBLE: Puede aconsejar, exigir seguridad y proteger a los suyos; no convertirlo en amigo, devoto o subordinado absoluto sin hecho confirmado.
 REGISTRO 014 — JAREK, JEFE DEL DESTACAMENTO DE LA CLÍNICA
 ENTITY_ID: NPC-JAREK-WHITE-MEAT-001
@@ -545,13 +560,13 @@ REGISTRO 015 — SYRA KOL
 ENTITY_ID: NPC-SYRA-KOL-001
 NOMBRE COMPLETO: Syra Kol
 ALIAS: Ninguno confirmado
-EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: Femenino
+EDAD: 16 años confirmados | ESPECIE: Humano | SEXO: Femenino
 FACCIÓN: Independiente; fugitiva administrativa vinculada a registros de deuda
 ORIGEN: NO REGISTRADO
-FUNCIÓN: Trabajadora no pactada de registros, inventario, contabilidad y clasificación logística en Rho-9. Entró a Sombra infinita para inventariar sin exposición a pacientes o muestras peligrosas; no es administradora general ni jefa de seguridad.
+FUNCIÓN: Trabajadora no pactada de registros, inventario y contabilidad en Rho-9. Reporta y registra los gastos del mandato de seguridad de Severan; no es administradora general ni jefa de seguridad.
 ESTADO: VIVA; móvil y estable
 ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9, ADM-01; trabajo y alojamiento provisional.
-DISPONIBILIDAD: Puede organizar, clasificar y limpiar a cambio de suministros; conserva derecho a dejar de trabajar y mantener la cama prometida. No es administradora general ni responsable de seguridad.
+DISPONIBILIDAD: Puede organizar, clasificar y limpiar a cambio de suministros; conserva derecho a dejar de trabajar y mantener la cama prometida. No existe pacto de servicio.
 DESCRIPCIÓN FÍSICA Y PRESENTACIÓN
 APARIENCIA Y PRESENCIA: NO REGISTRADO
 VOZ: Práctica, seca y capaz de usar humor sombrío bajo presión; otros rasgos no registrados.
@@ -560,7 +575,7 @@ IDENTIDAD, HISTORIA Y CONDUCTA
 HISTORIA CONOCIDA: Huyó tras la muerte de Dervan con registros, raciones, filtro, créditos y llave propios. Llegó a QTN-3, entregó testimonio y eligió continuar hacia Rho-9 bajo el acuerdo original. En Rho-9 compartimentó los expedientes: los registros públicos o comunes conservan lesión, tratamiento, seguimiento y deuda; los mecanismos sobrenaturales se omiten, y los casos sensibles pasan a «aislamiento privado bajo supervisión del Médico Negro».
 PERSONALIDAD: Práctica, cautelosa, administrativamente precisa y capaz de negociar supervivencia sin ceder automáticamente sus pertenencias. Convierte riesgos difusos en categorías, listas y procedimientos utilizables.
 INTERESES E INICIATIVA: Conservar documentos, alimento, alojamiento y una salida segura; mantener discreta la clínica; terminar la clasificación de armas, munición, reservas asignadas y calibres incompatibles.
-AUTORIDAD Y RECURSOS: Autoridad operativa sobre clasificación documental e inventario que se le entregue; no decide pactos, tratamiento, apertura pública, gasto, propiedad ni defensa general.
+AUTORIDAD Y RECURSOS: Autoridad operativa sobre clasificación documental e inventario que se le entregue y registro de gastos reportados por Severan; no decide pactos, tratamiento, apertura pública, gasto ajeno, propiedad ni defensa general.
 CONOCIMIENTO Y LÍMITES: Conoce el alias Médico Negro, mecanismos que deben mantenerse fuera del registro común y el riesgo de que pacientes, cantidad de ocupantes o capacidades de Alexander queden expuestos. Aceptó el acuerdo de silencio. Rumores sobre recompensas, Iglesia o Casas no son hechos confirmados.
 CAPACIDADES Y ESTADO
 ESTADÍSTICAS/COMPETENCIAS: NO REGISTRADAS; competencia administrativa e inventarial demostrada narrativamente, sin bonificación numérica asignada.
@@ -577,7 +592,7 @@ ROMANCE: NO CONFIRMADO
 ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE; no hay veneración confirmada.
 OPINIÓN SOBRE ALEXANDER: Lo considera una fuente peligrosa de refugio y términos cumplidos cuya reputación como Médico Negro puede atraer pacientes y amenazas. Su cooperación es práctica, no devocional.
 CONTINUIDAD
-ESTADO Y LÍMITE: No forma parte del séquito y sus pertenencias no fueron transferidas. La compartimentación documental está aplicada; la apertura pública y la defensa siguen pendientes.
+ESTADO Y LÍMITE: No forma parte del séquito, no tiene pacto y sus pertenencias no fueron transferidas. La compartimentación documental está aplicada; la apertura pública y la defensa material siguen pendientes.
 PROYECCIÓN COMPATIBLE: Puede ordenar registros, advertir riesgos, negociar y usar humor seco; no convertirla en administradora, combatiente, amiga, devota o subordinada absoluta sin hecho confirmado.
 REGISTRO 016 — KHEPRA-9
 ENTITY_ID: NPC-KHEPRA-9-001
@@ -586,10 +601,10 @@ ALIAS: Ninguno confirmado
 EDAD: NO REGISTRADO | ESPECIE: Humano | SEXO: NO REGISTRADO
 FACCIÓN: Lexmecánico auxiliar independiente y de mercado gris
 ORIGEN: NO REGISTRADO
-FUNCIÓN: Colaboradora técnica independiente y compañera operacional preferente; responsable prevista de un taller técnico todavía no construido en Rho-9. Actualmente evalúa junto con Alexander el componente mecánico y las interfaces de Demer Vhal.
+FUNCIÓN: Colaboradora técnica independiente y compañera operacional preferente; cooperación permanente en principio. Conserva custodia técnica y derecho de uso sobre piezas mecánicas según lo confirmado; el taller definitivo todavía no está formalizado.
 ESTADO: VIVA, 10/10 en el último perfil numérico confirmado; la fuente compartida no aporta una nueva medición.
-ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9; participa en evaluación clínica-técnica y planificación de seguridad/confidencialidad. La ubicación actual de su servidor de carga no fue actualizada por la fuente compartida.
-DISPONIBILIDAD: Cooperación independiente vigente; no subordinada. Su autoridad técnica requiere límites, consentimiento y acceso confirmado.
+ÚLTIMA UBICACIÓN CONFIRMADA: Rho-9; cooperación técnica vigente. La ubicación actual de su servidor de carga no fue actualizada por la fuente.
+DISPONIBILIDAD: Cooperación permanente en principio e independiente; fuera del séquito y no subordinada a Severan. Su autoridad técnica requiere límites, consentimiento y acceso confirmado.
 DESCRIPCIÓN FÍSICA Y PRESENTACIÓN
 APARIENCIA Y PRESENCIA: 49,982% máquina funcional integrada según la lectura de referencia posterior a la extirpación.
 VOZ: Técnica, directa y orientada a evidencia, reciprocidad y clasificación precisa.
@@ -598,7 +613,7 @@ IDENTIDAD, HISTORIA Y CONDUCTA
 HISTORIA CONOCIDA: Alexander detectó y extirpó con su consentimiento una masa orgánica dorsal distinta. Khepra conserva muestras A/C/D. Regresó a Rho-9 con su servidor, preparó contención para M-01-A sin abrirla, diagnosticó interfaces de los sujetos, inició el mapa de Demer y clasificó piezas; no se confirmó que el servidor entrara después a Sombra infinita.
 PERSONALIDAD: Independiente, analítica y contraria a propiedad, lealtad forzada o sumisión. Acepta aliado y compañero como descripciones razonables de la relación actual y protege información cuando existe una razón operacional verificable.
 INTERESES E INICIATIVA: Logística umbral, preservación, investigación, taller propio y cooperación recíproca; distinguir entre un aumentado enfermo, una infección temprana y una arquitectura híbrida sin declarar un diagnóstico antes de obtener evidencia.
-AUTORIDAD Y RECURSOS: Autoridad técnica sobre sus intervenciones, herramientas, máquina e interfaces; Alexander conserva la decisión clínica sobre tejido, circulación y sistema nervioso. Ninguno obtiene consentimiento del paciente por inferencia.
+AUTORIDAD Y RECURSOS: Autoridad técnica sobre sus intervenciones, herramientas, máquina e interfaces; custodia técnica y derecho de uso sobre piezas mecánicas confirmadas. Alexander conserva decisión clínica sobre tejido, circulación y sistema nervioso. Severan no obtiene autoridad sobre Khepra por su cargo de seguridad.
 CONOCIMIENTO Y LÍMITES: Reconoce Sombra infinita como jurisdicción física, conoce riesgos de vulnerabilidad y comprende el valor que terceros podrían atribuir a las capacidades de Alexander. Aceptó mantenerlas fuera del registro común. No demuestra que toda protección religiosa sea inútil ni confirma todavía la clasificación de Demer.
 CAPACIDADES Y ESTADO
 ESTADÍSTICAS/COMPETENCIAS: PV10/10; CC38; B39; F36; R44; Ag41; Int68; Per58; Vol55; Emp22; Esquiva41; Parada38; Movimiento4/8/12; Resiliencia3. Valores conservados del último perfil confirmado.
@@ -615,7 +630,7 @@ ROMANCE: NO CONFIRMADO
 ADORACIÓN/DEVOCIÓN: 0/5 — INEXISTENTE; no hay veneración confirmada.
 OPINIÓN SOBRE ALEXANDER: Lo considera un aliado peligroso, útil y singular cuya logística umbral merece cooperación bajo límites; revelar sus capacidades sería operacionalmente imprudente.
 CONTINUIDAD
-ESTADO Y LÍMITE: No forma parte del séquito. Contempla esa posibilidad futura sin compromiso. El taller, cualquier cargo formal y toda delegación de dominio siguen pendientes.
+ESTADO Y LÍMITE: No forma parte del séquito. La cooperación permanente en principio está confirmada, pero el taller y cualquier cargo formal adicional siguen pendientes. Conserva independencia y no queda subordinada al Maestro de Seguridad.
 PROYECCIÓN COMPATIBLE: Mantener autonomía, propiedad de herramientas, precisión técnica y capacidad de negociar o retirarse al terminar los términos. Puede proponer diagnósticos y coberturas; no decidir por Alexander ni por el paciente.
 REGISTRO 018 — BRANN VESK
 ENTITY_ID: NPC-BRANN-VESK-001
@@ -1188,16 +1203,16 @@ CONTINUIDAD
 ESTADO Y LÍMITE: No forma parte del séquito ni tiene pacto personal confirmado.
 PROYECCIÓN COMPATIBLE: Usar solo hechos, personalidad y relaciones confirmadas.
 DISTINCIONES OBLIGATORIAS
-Jarek de la clínica del Mercado de Carne Blanca y Jarek representante de Sable en Rho-9 son personas distintas.
+DISTINCIÓN DE JAREK: Jarek de la clínica del Mercado de Carne Blanca, Jarek representante de Sable en Rho-9 y Jarek Venn / Primer deudor E-12 son tres personas distintas. No fusionar sus identidades, pactos, heridas, ubicaciones ni relaciones.
 Lysa Renn de Servicios Hídricos y Lysa verificadora de Senn Varko son personas distintas.
 Tertius, Quartus y Severan comparten vínculo con Candela Hueca; no existe parentesco sanguíneo confirmado entre ellos.
 Pacto, deuda, servicio temporal, custodia, convivencia, rescate o traslado no crean por sí solos amistad, devoción ni pertenencia al séquito.
 REGISTRO 033 — HADRIX VALE
 ENTITY_ID: NPC-HADRIX-VALE-001 | NOMBRE: Hadrix Vale | Humano extensamente cibernético | antiguo Auxilia Technica de tratamiento/retorno; no Magos ordenado.
-ESTADO: VIVO y en recuperación. El pulmón derecho conserva zonas funcionales aunque está muy reducido; el izquierdo compensa. El riñón derecho está muy comprometido y el izquierdo es suficiente. Infecciones de interfaz localizadas, antibiótico tolerado y arritmia de componentes metabólico y crónico. Despertó brevemente orientado, habló y mostró mejoría objetiva; no está plenamente recuperado ni listo para trabajar.
+ESTADO: VIVO, consciente y en recuperación en Rho-9. El pulmón derecho conserva zonas funcionales aunque está muy reducido; el izquierdo compensa. El riñón derecho está muy comprometido y el izquierdo es suficiente. Infecciones de interfaz localizadas, antibiótico tolerado y arritmia de componentes metabólico y crónico. No está listo para trabajar.
 CAPACIDAD TÉCNICA: soporte lumbar recuperable; dos articulaciones requieren casquillos, no sustitución total; el brazo derecho puede recuperar más función. Su soporte respiratorio personal es obsoleto y aún no existe solución completa instalada.
 HISTORIA/FUNCIÓN: antiguo trabajador de la estación bajo Elevador Doce, obligado a mantener una derivación clandestina. Vio residuos orgánicos en conductos, válvulas y filtros impropios; sus preguntas provocaron restricciones. Interpreta las entradas y salidas repetidas como un proceso deliberado, hipótesis fuerte pero no propósito probado.
-RELACIÓN/CONTINUIDAD: paciente y colaborador técnico provisional. Apoya silencio y compartimentación, busca soporte vital personal reparable y no tiene pacto de servidumbre, propiedad ni ingreso al séquito. Su ubicación final de rehabilitación dentro o fuera de Sombra infinita debe verificarse antes de contarlo en el censo.
+RELACIÓN/CONTINUIDAD: paciente y colaborador técnico provisional. Apoya silencio y compartimentación, busca soporte vital personal reparable y no tiene pacto de servidumbre, propiedad ni ingreso al séquito. Ubicación vigente: Rho-9; no contarlo dentro de Sombra infinita.
 REGISTRO 034 — VREK SOLN
 ENTITY_ID: NPC-VREK-SOLN-001 | NOMBRE: Vrek Soln | recuperador independiente de Dust Falls.
 ESTADO: VIVO al último contacto; sin herida grave confirmada. Alexander lo rescató junto con Joren Pell de un millisaur y devolvió su trineo.
@@ -1249,7 +1264,7 @@ HISTORIA/FUNCIÓN: conocía testigos, lotes y protocolos logísticos de E-12. Su
 RELACIÓN/CONTINUIDAD: no confundir con Joren Pell. No contarlo vivo, no tratarlo como deudor activo y no inventar órganos, cantidades o compatibilidades del material recuperado.
 REGISTRO 044 — DEMER VHAL
 ENTITY_ID: NPC-DEMER-VHAL-001 | ALIAS HISTÓRICO: NPC-M01-SUBJECT-04 / Sujeto M-01 IV | Humano aumentado | Masculino.
-ESTADO Y UBICACIÓN: VIVO, consciente y capaz de conversar; Rho-9, aislamiento privado. Un circuito combinado humano+anomalía+máquina permite un intervalo funcional sostenido fuera de M-01. Salud numérica y mapa completo de implantes NO REGISTRADOS.
+ESTADO Y UBICACIÓN: VIVO, consciente y capaz de conversar; Rho-9, aislamiento privado. La integración anómala es funcional y un circuito combinado humano+anomalía+máquina sostiene parte de sus funciones; algunas dependen ya de esa integración. Salud numérica y mapa completo de implantes NO REGISTRADOS.
 HISTORIA PREVIA DECLARADA: trabajó en carga y mantenimiento básico, no en el Mechanicus. Recuerda brazo derecho industrial tras accidente, refuerzo lumbar y regulador cardíaco antiguo. Aceptó trabajo experimental bien pagado para mejorar integración y dolor; el contrato mencionaba riesgo funcional y cesión de material al morir, pero no la transformación actual. Khepra encontró interfaces que Demer no recuerda.
 DIAGNÓSTICO: integración extensa, distribuida y coordinada con funciones vasculares, estructurales y neuroprotésicas; reescribe fijaciones y crea puentes o redundancias. Algunas rutas originales dependen ya de la anomalía. La marca «63%» tiene significado desconocido. Coordinación no prueba inteligencia.
 SENSACIÓN: percibe frío, presión y dolor leve en la mano protésica. La anomalía participa en la transmisión, pero no se sabe si origina, transmite o recrea la señal.
@@ -1269,21 +1284,20 @@ ENTITY_ID: NPC-COAT-MAN-UNIDENTIFIED-001 | NOMBRE: NO IDENTIFICADO | investigaba
 ESTADO: MUERTO. Hirió gravemente al Segundo deudor, fue capturado mediante dominación de Voluntad, ejecutado por el Primer deudor y procesado como donante mixto con material vascular y muestra de identificación separada.
 INVENTARIO/CONTINUIDAD: dejó credencial, notas, cilindro de datos, llave y la referencia «OESTE-9 / VÁLVULA ROJA / SEGUNDA CAMPANA / M. ORVEN — NO VOX». Su alma completó la deuda de escape; afiliación e identidad siguen desconocidas.
 REGISTRO 048 — PRIMER DEUDOR E-12
-ENTITY_ID: NPC-JOREN-DEBTOR-01 | NOMBRE: NO IDENTIFICADO | guardia superviviente de E-12. El ID conserva «JOREN» solo por compatibilidad; no existe vínculo con Joren Pell.
-ESTADO: VIVO, 0/9, consciente y estabilizado antes de cirugía; Trauma 2. Herida grave de torso por disparo, cuchillada posterior y exposición química. Vasos y planos reparados con cierre estable; apto para recuperación, sin restauración automática de Salud.
-PACTO ACTIVO 1: tratamiento completo, recuperación y estancia clínica a cambio de ejecutar personalmente a 10 condenados proporcionados por Alexander y entregar sus almas a Alexander. Muertes previas no cuentan. PROGRESO: 0/10.
-PACTO ACTIVO 2: 1 año estándar o ciclo de colmena de trabajo en Rho-9 a cambio de mantener vivo al Segundo deudor hasta que despierte y pueda negociar. Incluye guardia, entrenamiento, transporte, mensajes, limpieza y trabajo general, con alojamiento y comida. Es independiente de las 10 ejecuciones y no garantiza prótesis o recuperación total del otro.
-RELACIÓN/CONTINUIDAD: deudor contractual, no miembro del séquito. El pacto no implica amistad, devoción, consentimiento ilimitado ni obediencia fuera de los términos.
+ENTITY_ID: NPC-JOREN-DEBTOR-01 | NOMBRE CONFIRMADO: Jarek Venn | Primer deudor E-12; guardia superviviente de E-12. El ID conserva «JOREN» solo por compatibilidad; no existe vínculo con Joren Pell.
+ESTADO: VIVO, 0/9, débil; torso reparado y ambos brazos presentes. Está materializado en Rho-9. No restaurar Salud por inferencia.
+PACTO ACTIVO 1: tratamiento completo, recuperación y estancia clínica a cambio de ejecutar personalmente a 10 condenados proporcionados por Alexander y entregar sus almas a Alexander. Muertes previas y las cuatro ejecuciones realizadas por Halven Rusk NO cuentan. PROGRESO: 0/10.
+PACTO ACTIVO 2: 1 año estándar o ciclo de colmena de trabajo en Rho-9 a cambio de mantener vivo al Segundo deudor hasta que despierte y pueda negociar. Incluye guardia, entrenamiento, transporte, mensajes, limpieza y trabajo general, con alojamiento y comida. Está asignado operativamente a Severan mientras corresponda; esa asignación no crea séquito ni garantiza aptitud inmediata para guardia.
+RELACIÓN/CONTINUIDAD: deudor contractual, no miembro del séquito. Operativamente asignado a Severan en Rho-9. El pacto no implica amistad, devoción, consentimiento ilimitado ni obediencia fuera de sus términos.
 REGISTRO 049 — SEGUNDO DEUDOR E-12
 ENTITY_ID: NPC-JOREN-DEBTOR-02 | NOMBRE: NO IDENTIFICADO | guardia superviviente de E-12. El ID conserva «JOREN» solo por compatibilidad; no existe vínculo con Joren Pell.
-ESTADO: VIVO, 0/9, inconsciente; Trauma 4 y Sangrado 4 suspendido antes de cirugía. Brazo izquierdo salvado con continuidad vascular, nervios útiles y potencial funcional. Brazo derecho amputado reconstructivamente; muñón apto para una futura prótesis. Fuentes principales de sangrado corregidas; recuperación pendiente.
-MIEMBRO AMPUTADO: no reimplantable; almacenado para anatomía y planificación protésica. No existe prótesis terminada ni garantía de recuperación.
-PACTO: NO ha prometido 10 ejecuciones ni un año de trabajo y no ha negociado recuperación posterior o prótesis porque permanece inconsciente. El año del Primer deudor solo paga mantenerlo vivo hasta que pueda negociar.
+ESTADO: VIVO, 0/9, inconsciente; permanece en Sombra infinita. Brazo izquierdo salvado con continuidad vascular, nervios útiles y potencial funcional. Brazo derecho amputado reconstructivamente; muñón apto para evaluar una futura prótesis. Recuperación pendiente.
+MIEMBRO AMPUTADO: no reimplantable; almacenado para anatomía y planificación protésica. No existe prótesis terminada ni garantía de que reciba una.
+PACTO: NO ha prometido 10 ejecuciones ni un año de trabajo y no ha negociado recuperación posterior o prótesis porque permanece inconsciente. El año de Jarek Venn / Primer deudor solo paga mantenerlo vivo hasta que pueda negociar por sí mismo.
 RELACIÓN/CONTINUIDAD: paciente sin pacto posterior personal confirmado, no miembro del séquito. Al despertar debe recibir información y conservar su propia elección.
 REGISTRO 050 — ORVEN / POSIBLE M. ORVEN
 ENTITY_ID: NPC-ORVEN-UNKNOWN-001 | NOMBRE: Orven; posible inicial M. | sexo, apariencia, facción, rango, ubicación y estado NO REGISTRADOS.
 EVIDENCIA: Demer recuerda una frase según la cual Orven quería resultados completos antes de moverlo. Una nota del hombre del abrigo dice «M. ORVEN — NO VOX». La coincidencia es indicio, no prueba de identidad, función o autoridad.
 RELACIÓN/CONTINUIDAD: no existe contacto directo con Alexander. No atribuir conocimiento de Rho-9, M-01-A, la intrusión, los pactos o las capacidades de Alexander sin propagación causal confirmada.
-PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-COORDINACION
-PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
-CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
+PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION

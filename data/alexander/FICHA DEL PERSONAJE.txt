@@ -1,39 +1,54 @@
 Ficha del personaje
 Autoridad del estado actual y de las capacidades particulares del personaje jugador — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: SHEET
-DOCUMENT_ID: FICHA.ALEXANDER.MAIN
-CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: ACTUALIZAR, AGREGAR
-PERSISTED_PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
-CHECKPOINT_ID: CHECKPOINT.ALEXANDER.POST-T915.RHO9.UMBRAL-WORKBLOCK
-STATE_REVISION: 10
-SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.SHEET.TIME-INVENTORY-RECONCILIATION-20260811.R1
-ÚLTIMA ACTUALIZACIÓN: Reconciliación canónica de horario local e inventario completo de Sombra infinita: Día 04, tarde temprana; auditoría física consolidada sin avance de escena.
-MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+DOCUMENT_KEY: 
+SHEET
+DOCUMENT_ID: 
+FICHA.ALEXANDER.MAIN
+CAMPAIGN_ID: 
+CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: 
+CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: 
+PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: 
+ACTUALIZAR, AGREGAR
+PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
+STATE_REVISION: 11
+SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.SHEET.D04-NIGHT-RHO9-POST-INCURSION-20260813.R1
+ÚLTIMA ACTUALIZACIÓN: Día 04, noche; cierre documental equivalente a pausa confirmado por orden expresa. Integrados Rho-9, incursión nocturna, botín físico, ejecuciones de Halven, censo umbral y auditoría de XP. Hora exacta y número de turno no reconciliados.
+MIGRATION_ID: 
+CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: 
+Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: 
+Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: 
+No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: 
+Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-ACTUALIZAR: Sustituir únicamente los valores que cambiaron en estado, estadísticas, progresión, armas, munición, inventario, recursos, obligaciones o referencias.
-AGREGAR: Crear una capacidad, objeto, pacto, título o módulo nuevo solo cuando su adquisición o activación esté confirmada.
-BLOQUE PROTEGIDO: Identidad, prólogo, historia previa, aspecto físico basal y personalidad definida por el jugador no cambian durante una pausa ordinaria.
-AUTORIDAD MECÁNICA: Esta Ficha gobierna las capacidades particulares del personaje. El Protocolo Universal gobierna las reglas generales.
+ACTUALIZAR: 
+Sustituir únicamente los valores que cambiaron en estado, estadísticas, progresión, armas, munición, inventario, recursos, obligaciones o referencias.
+AGREGAR: 
+Crear una capacidad, objeto, pacto, título o módulo nuevo solo cuando su adquisición o activación esté confirmada.
+BLOQUE PROTEGIDO: 
+Identidad, prólogo, historia previa, aspecto físico basal y personalidad definida por el jugador no cambian durante una pausa ordinaria.
+AUTORIDAD MECÁNICA: 
+Esta Ficha gobierna las capacidades particulares del personaje. El Protocolo Universal gobierna las reglas generales.
 Contenido vigente
 ESTADO ACTUAL
 SALUD ACTUAL: 12
 SALUD MÁXIMA: 12
 HERIDAS: tres perdigones costales retirados y fragmentos clínicamente dañinos extraídos; posibles residuos microscópicos inertes encapsulados sin efecto activo; flanco derecho reconstruido; surco balístico e incisiones intercostales limpios y suturados; sin hemorragia activa, infección ni daño pleural o pulmonar confirmado.
-CONDICIONES: Estable; Salud 12/12 y Fatiga 1/7 son los últimos valores mecánicos confirmados. La fuente posterior de Rho-9 no registra daño, curación, gasto, descanso ni avance temporal nuevos; conservarlos sin inferir cambios.
-FATIGA: 1/7
+CONDICIONES: Estable; Salud 12/12 y Fatiga 0/7 son los últimos valores mecánicos confirmados. No existe combate ni emergencia inmediata confirmada en el punto de pausa.
+FATIGA: 0/7
 TRAUMA: 0
 CORRUPCIÓN: 0
-EFECTOS PSÍQUICOS: Visión de oscuridad Rango I permanente e involuntariamente activa; Paso sombrío Rango II; Factor Psíquico 1; Agarre umbral Rango II; Sombra infinita Rango I; Reserva Umbral actual de 6 almas completas.
+EFECTOS PSÍQUICOS: Visión de oscuridad Rango I permanente e involuntariamente activa; Paso sombrío Rango II; Factor Psíquico 1; Agarre umbral Rango II; Sombra infinita Rango I; Reserva Umbral actual de 10 almas completas.
 EFECTOS RELIGIOSOS: Ninguno confirmado
-EFECTOS PENDIENTES: mantener Rho-9 cerrada al público; Alexander debe decidir la orden específica y los recursos de seguridad, fortificación y rearme para Severan; continuar recuperación de Hadrix, Operador M-01 y ambos deudores; mantener aislados Demer, M-01-A, Testigo 1, Testigo 2, material anómalo y biobanco; no abrir la rama inferior de E-12, M-01-A, el cilindro de datos ni los paquetes químicos desconocidos por inferencia. El inventario físico ya está reconciliado y no es una tarea pendiente.
+EFECTOS PENDIENTES: mantener Rho-9 cerrada al público; completar seguridad material, agua segura, esterilización, ventilación, frío, drenaje y cuarentena; explorar subniveles; reconciliar perfiles y municiones provisionales del arsenal nocturno con la autoridad ACTIVE; decidir distribución del arsenal; continuar recuperación de pacientes y deudores; mantener aislados Demer, M-01-A, Testigos y material anómalo; resolver formalización final de Khepra/taller, deudas pendientes y consecuencias externas del depósito. No inferir hora, turno, destino de la rata ni propagación reputacional.
 UBICACIÓN ACTUAL: Medicae Station Rho-9, al cierre del bloque de trabajo umbral posterior a T915. La sala exacta no está registrada. Presentes confirmados en la coordinación: Alexander, Khepra-9, Hadrix Vale, Syra Kol y Demer Vhal; Severan opera en Rho-9 como guardia con mando temporal general. La clínica no está abierta formalmente y no hay combate activo.
 TURNO_DE_REANUDACIÓN: POST-T915; Día 04, tarde temprana, ciclo local diurno. T915 comenzó durante la madrugada y el bloque consumió aproximadamente 10 horas externas/materiales. La franja equivale a 12:00–16:00 local, pero la hora exacta y el número de turno posterior siguen no registrados; no inferir T916 ni T960.
 LOCAL_TIME_BAND_ID: TIME.NECROMUNDA.LOCAL.DAY04.EARLY-AFTERNOON | DAY: 04 | PHASE: EARLY_AFTERNOON | LIGHT_CYCLE: LOCAL_DIURNAL | EXACT_CLOCK: UNKNOWN
@@ -300,11 +315,20 @@ WPNINST.ALEXANDER.PELL-E12.001 | Pistola sólida de servicio E-12 recuperada de 
 WPNINST.ALEXANDER.INDUSTRIAL-KNIFE.001 | Cuchillo industrial | PROFILE_ID WPN.KNIFE.COMBAT | OPERATIVO.
 WPNINST.ALEXANDER.CUTTING-TOOL.001 | Herramienta de corte improvisada | PROFILE_ID WPN.ALEXANDER.CUTTING_TOOL.T773 | OPERATIVA.
 WPNINST.ALEXANDER.UTILITY-KNIFE.001 | Cuchillo utilitario del nodo | PROFILE_ID WPN.ALEXANDER.UTILITY_KNIFE.R1 | OPERATIVO.
+LOOT.D04.DEPOT.PISTOLS | 4 pistolas recuperadas del depósito nocturno | ALMACENADO_SOMBRA | PERFIL NO RECONCILIADO; NO ACTIVE.
+LOOT.D04.DEPOT.LONGARMS | 5 armas largas recuperadas del depósito nocturno | ALMACENADO_SOMBRA | PERFIL NO RECONCILIADO; NO ACTIVE.
+LOOT.D04.CAPTIVE02.SMALL-PISTOL | 1 pistola pequeña recuperada del segundo cautivo nocturno | ALMACENADO_SOMBRA | PERFIL NO RECONCILIADO; NO ACTIVE.
 MUNICIÓN Y CARGADORES — INVENTARIO VERIFICADO
 AMMO.ALEXANDER.MKIV.RESERVE | 22 proyectiles sólidos compatibles con la Autopistola Mk IV | ALMACENADO_SOMBRA.
 MAG.ALEXANDER.AUTOPISTOL12.001 | cargador 11/12 para WPNINST.ALEXANDER.AUTOPISTOL.002 | ALMACENADO_SOMBRA.
 AMMO.ALEXANDER.UNKNOWN-SOLID.001 | 4 cartuchos sólidos sueltos | calibre/compatibilidad NO IDENTIFICADOS | contenedor sellado, no cargar por inferencia.
-MUNICIÓN SUELTA PARA CARABINAS, ESCOPETA Y PISTOLAS RESTANTES: 0 confirmada fuera de cargadores. Esta carencia limita el rearme de una guardia.
+MUNICIÓN SUELTA PREVIA FUERA DE CARGADORES: 0 confirmada antes de la incursión nocturna. El siguiente lote se registra por hechos confirmados de la incursión y permanece separado de clasificaciones provisionales no ACTIVE.
+AMMO.D04.DEPOT.SERVICE-PISTOL | 96 cartuchos sólidos de pistola confirmados compatibles con patrón de servicio de 12 | ALMACENADO_SOMBRA.
+AMMO.D04.DEPOT.CARBINE24 | 120 cartuchos sólidos de carabina confirmados compatibles con patrón genérico de 24 | ALMACENADO_SOMBRA.
+MAG.D04.DEPOT.INITIAL-LOT | 12 cargadores del lote inicial | ALMACENADO_SOMBRA | distribución exacta por arma/calibre NO RECONCILIADA; no asignar por inferencia.
+AMMO.D04.DEPOT.HEAVY-BOX | 1 caja de munición pesada | ALMACENADO_SOMBRA | contenido/perfil exacto NO RECONCILIADO; NO ACTIVE.
+AMMO.D04.DEPOT.SPECIAL-CYLINDER | 1 lote cilíndrico especial | ALMACENADO_SOMBRA | naturaleza/perfil exacto NO RECONCILIADO; NO ACTIVE.
+AMMO.D04.DEPOT.ADDITIONAL | munición adicional de pistola, arma larga y escopeta; cargadores adicionales llenos y vacíos; contenido completo de una caja reforzada | ALMACENADO_SOMBRA | cantidades y perfiles exactos pendientes de reconciliación ACTIVE. No convertir clasificaciones provisionales en canon.
 ARMADURA Y VESTIMENTA
 ARM.ALEXANDER.TRENCHCOAT.001 | Gabardina reforzada | PROFILE_ID ARM.ALEXANDER.TRENCHCOAT.R1 | EQUIPADO_ALEXANDER | perforada y desgarrada en torso; protección local reducida.
 PROTECCIÓN ADICIONAL ALMACENADA: 0 armaduras completas verificadas. Ropa de donantes y cautivos está embalada como material común, no como armadura.
@@ -428,14 +452,13 @@ VISOR.MALREC.MULTISPECTRAL | visor multispectral de Malrec Voss | 1 | OPERATIVO.
 RESTRAINT.REINFORCED | esposas reforzadas | 1 par | OPERATIVAS.
 WRITING.INSTRUMENT | instrumento de escritura | 1.
 CUSTODIA HUMANA VIVA — CUSTODIA_BIOLÓGICA
-CENSO HUMANO EN SOMBRA INFINITA: 6 personas vivas confirmadas.
+CENSO HUMANO EN SOMBRA INFINITA: 5 personas vivas confirmadas.
 NPC-M01-OPERATOR-001 | Operador M-01 | vivo, inconsciente, rehabilitación selectiva | compartimento individual.
 NPC-M01-SUBJECT-01 | Sujeto I | vivo, inconsciente | compartimento individual.
 NPC-M01-SUBJECT-02 | Sujeto II | viva, inconsciente | compartimento individual.
 NPC-M01-SUBJECT-03 | Sujeto III | vivo, crítico extremo | compartimento individual.
-NPC-JOREN-DEBTOR-01 | Primer deudor E-12 | vivo, 0/9, torso reparado | compartimento clínico individual.
-NPC-JOREN-DEBTOR-02 | Segundo deudor E-12 | vivo, 0/9, inconsciente, amputación reconstructiva derecha | compartimento clínico individual.
-EXCLUSIONES CONFIRMADAS: Demer Vhal/Sujeto IV, Hadrix Vale, Sael, Ilyra, Tertius, Quartus, Merek, Mara, Halven, Severan, Syra y Khepra están materializados en Rho-9. Joren Pell está vivo con paradero desconocido y no está almacenado.
+NPC-JOREN-DEBTOR-02 | Segundo deudor E-12 | vivo, 0/9, inconsciente, brazo derecho amputado | compartimento clínico individual; prótesis no garantizada.
+EXCLUSIONES CONFIRMADAS: Jarek Venn / Primer deudor E-12, Demer Vhal/Sujeto IV, Hadrix Vale, Sael, Ilyra, Tertius, Quartus, Merek, Mara, Halven, Severan, Syra y Khepra están materializados en Rho-9. Joren Pell está vivo con paradero desconocido y no está almacenado.
 CONTENIDOS BIOLÓGICOS Y ANÓMALOS
 BIO-E12-WITNESS-01 | Testigo 1 | vivo confirmado | 1 | aislado.
 BIO-E12-WITNESS-02 | Testigo 2 | vivo confirmado | 1 | aislado del Testigo 1.
@@ -444,6 +467,8 @@ BIO-M01-A | muestra mínima viable/desconocida M-01-A | 1 | sellada, no abierta;
 BIO-M01-SEALED-CONTAINER | recipiente biológico M-01 previo | 1 | sellado; naturaleza/viabilidad no identificadas.
 BIO-KHEPRA-SAMPLES | muestras A/C/D de Khepra | 3 | bajo custodia técnica de Khepra, no propiedad de Alexander; referenciadas aquí para evitar mezcla.
 BIO-M01-MICROSAMPLES | micro-muestras de Sujetos I, II, III y Demer/IV | 4 lotes | separadas por origen.
+CADÁVERES NO PROCESADOS — ALMACENADO_SOMBRA
+CORPSE.D04.NIGHT-CAPTIVES | 4 cadáveres humanos de cautivos nocturnos ejecutados personalmente por Halven Rusk | separados entre sí | no procesados como biobanco y sin identidad individual confirmada.
 BIOBANK HUMANO — INVENTARIO RECONCILIADO
 DONANTES PROCESADOS: 5 — corredor clandestino, Pell E-12, miembro amarillo capturado, hombre del abrigo y antiguo jefe del depósito/contrabandista. El cadáver denominado previamente «jefe contrabandista» corresponde al quinto donante y no es un sexto cuerpo. Joren Pell no es donante.
 BIOBANK.BLOOD.TRANSFUSION-CANDIDATE | unidades sanguíneas candidatas a transfusión | 10 | separadas por donante; requieren tipificación/compatibilidad antes de uso.
@@ -464,8 +489,8 @@ BIOBANK.AMPUTATED-ARM | brazo derecho del Segundo deudor | 1 | no reimplantable;
 BIOBANK.RESIDUAL-REMAINS | restos residuales etiquetados para eliminación | 5 lotes, uno por donante.
 REGLA BIOBANCO: preservación umbral impide degradación posterior, pero no repara daño previo. Ningún órgano o sangre se implanta sin compatibilidad y acción médica; calidad «viable» no significa compatible con un receptor concreto.
 RESERVA UMBRAL — NO FÍSICA
-STAT almacenadas: ninguna | LIFE_YEARS: 0 | SOULS: 6 almas completas.
-SOUL.DERVAN.KOL.001 — Dervan Kol | SOUL.BRANN.VESK.001 — Brann Vesk | SOUL_ID NO ASIGNADO — Pell E-12 | SOUL_ID NO ASIGNADO — miembro amarillo capturado | SOUL_ID NO ASIGNADO — corredor clandestino | SOUL_ID NO ASIGNADO — hombre del abrigo.
+STAT almacenadas: ninguna | LIFE_YEARS: 0 | SOULS: 10 almas completas.
+SOUL.DERVAN.KOL.001 — Dervan Kol | SOUL.BRANN.VESK.001 — Brann Vesk | SOUL_ID NO ASIGNADO — Pell E-12 | SOUL_ID NO ASIGNADO — miembro amarillo capturado | SOUL_ID NO ASIGNADO — corredor clandestino | SOUL_ID NO ASIGNADO — hombre del abrigo | +4 SOUL_ID NO ASIGNADO — cuatro cautivos nocturnos ejecutados personalmente por Halven Rusk mediante el pacto de cosecha.
 RECURSOS ECONÓMICOS
 CREDITOS DISPONIBLES: 1196. PAGO CONTRACTUAL PENDIENTE: 300 créditos de Darrik Vane, todavía no cobrados y no incluidos en el disponible.
 CIERRE DE INVENTARIO: toda consulta [mostrar inventario], [ver armas], [ver medicina], [ver herramientas], [ver biobanco] o equivalente debe leer estas entradas sin exigir un comando textual exacto. El DM puede resumir por categoría, pero debe conservar cantidades, ubicación, condición y perfil cuando sean relevantes.
@@ -499,7 +524,7 @@ PACTO ACTIVO — PRIMER DEUDOR / EJECUCIONES: tratamiento completo, recuperació
 PACTO ACTIVO — PRIMER DEUDOR / SERVICIO: 1 año estándar o ciclo de colmena de trabajo en Rho-9 a cambio de mantener vivo al Segundo deudor hasta que despierte y pueda negociar. Trabajo permitido: guardia, entrenamiento, transporte, mensajes, limpieza y tareas generales; incluye alojamiento y comida. Es independiente de las 10 ejecuciones y no garantiza prótesis ni recuperación total del Segundo deudor.
 SEGUNDO DEUDOR — SIN PACTO POSTERIOR: no prometió 10 ejecuciones, un año de trabajo, recuperación futura ni prótesis. Permanece inconsciente y deberá negociar por sí mismo si recupera capacidad para hacerlo.
 DISTINCIÓN: los identificadores NPC-JOREN-DEBTOR-01/02 se conservan solo por compatibilidad técnica. Los dos eran guardias de E-12 y no compañeros, subordinados ni deudores de Joren Pell. Ninguno entra al séquito por estos pactos.
-LIMITACIONES ACTUALES: Salud 12/12; Fatiga 1/7; medikit personal 0/6 hasta que Alexander declare una recarga; sin XP/PM/PH nuevo. El inventario y la farmacia están reconciliados, pero Rho-9 continúa sin agua clínica certificada, esterilización integral, defensa suficiente ni munición de reserva para ampliar la guardia. Severan tiene mando temporal general, no autorización específica de fortificación/rearme.
+LIMITACIONES ACTUALES: Salud 12/12; Fatiga 0/7; medikit personal 0/6 hasta que Alexander declare una recarga; XP 1385, Nivel 5, PM 2 y PH 1 tras auditoría del cierre nocturno. Rho-9 continúa sin agua clínica certificada, esterilización integral, defensa material suficiente ni cuarentena certificada. Severan posee mandato formal de seguridad y fortificación con cap autónomo de 200 créditos/semana, pero ninguna compra u obra se ejecuta automáticamente. El arsenal nocturno está físicamente registrado; sus perfiles provisionales no son ACTIVE.
 HISTORIA PREVIA
 ORIGEN FAMILIAR: Desconocido; nacimiento no registrado
 FORMACIÓN: Supervivencia de bajos fondos; asistencia en clínica clandestina; aprendizaje práctico de anatomía, trauma y cirugía
@@ -533,11 +558,13 @@ XP.ALEXANDER.DF.HOLT_INSTALLATION | Turnos 343–347 | MAJOR | +50 XP | Arrastre
 XP.ALEXANDER.DF.WHITE_MEAT_CLINIC_PACT | Turnos 367–407 | MAJOR | +50 XP | Infiltración, combate y pacto de la clínica cerrados; ocho almas cobradas, cuatro agentes tratados y carga médica/técnica recuperada.
 XP.ALEXANDER.DF.TERTIUS_THORACIC_SURGERY | Turnos 410–414 | MAJOR | +50 XP | Cirugía torácica prolongada completada: reparación vascular, expansión pulmonar, drenaje fijado y vida crítica preservada.
 XP.ALEXANDER.DF.HELICAN_DISCOVERY | Turnos 202–321 | MAJOR | +50 XP | Descubrimiento de Helican, Custodia de Fenómenos Negros, RETORNO, N-Black/3 y Aedran Khelt.
-TOTAL AUDITADO ACTUAL: 1335 XP. Nivel 5; progreso 335/500 hacia Nivel 6; PM 2; PH 1. Los 985 XP iniciales conservan 20 SOURCE_ID. Otros 225 XP están descritos por cierres confirmados y 125 XP pertenecen a saldos cerrados cuyo desglose nominal no está registrado en esta Ficha; ninguna de esas cantidades puede concederse otra vez.
+XP.ALEXANDER.D04.NIGHT_DEPOT_OPERATION | Día 04, noche; turno exacto no reconciliado | MAJOR | +50 XP | Unidad operativa cerrada: incursión nocturna, recuperación sustancial de arsenal, retorno a Rho-9 sin identificación del autor y cambio material persistente. Las ejecuciones individuales no reciben XP separada.
+TOTAL AUDITADO ACTUAL: 1385 XP. Nivel 5; progreso 385/500 hacia Nivel 6; PM 2; PH 1. Los 1335 XP anteriores permanecen cerrados bajo sus SOURCE_ID y saldos auditados; la operación nocturna añade una única concesión MAJOR de 50 XP. Ninguna baja, ejecución, tirada o acción interna de esa unidad puede concederse otra vez.
 UMBRALES CONFIRMADOS: 100 XP → Nivel 2; 300 XP → Nivel 3; 600 XP → Nivel 4; 1000 XP → Nivel 5. Siguiente umbral total: 1500 XP → Nivel 6.
 REFERENCIAS
 DOMINIOS: Medicae Station Rho-9 (DOMAIN-RHO9-001), bajo control efectivo/de facto. QTN-3/17-G no se registra como dominio activo porque no existe propiedad ni control estable suficiente.
 NAVES: Ninguna
-SÉQUITO PERSONAL: Mara Veyl (MEMBER.ALEXANDER.MARA-VEYL; ACTIVO_PACTADO), Ilyra Venn (MEMBER.ALEXANDER.ILYRA-VENN; ACTIVO_PACTADO) y Halven Rusk (MEMBER.ALEXANDER.HALVEN-RUSK; ACTIVO_ESCLAVIZADO). Khepra-9 permanece POTENCIAL; Tertius y Quartus permanecen PENDIENTES_DE_DEFINICIÓN; Sael conserva elección propia; Severan cumple una obligación territorial externa y el especialista Enforcer sigue como contraparte externa.
+SÉQUITO PERSONAL: Mara Veyl (MEMBER.ALEXANDER.MARA-VEYL; ACTIVO_PACTADO), Ilyra Venn (MEMBER.ALEXANDER.ILYRA-VENN; ACTIVO_PACTADO) y Halven Rusk (MEMBER.ALEXANDER.HALVEN-RUSK; ACTIVO_ESCLAVIZADO). Khepra-9 permanece fuera del séquito con cooperación independiente; Tertius y Quartus permanecen PENDIENTES_DE_DEFINICIÓN; Sael conserva elección propia; Severan es Maestro de Seguridad de Rho-9 dentro de su obligación territorial externa.
 REPUTACIONES PRINCIPALES: Enforcers de D-17: hostilidad activa; Caldereros: hostilidad o deterioro severo; cazadores y bandas locales: rumor de recompensa activo
-PAUSE_ID: PAUSA-POST-T915-2026-08-11-RHO9-BLOQUE-UMBRAL
+PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
+CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
