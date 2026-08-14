@@ -480,11 +480,6 @@ class DomainManagementEngine:
         data = cls._load_domain_data()
         chrono = data.get("chrono", DEFAULT_CHRONO)
         positions = data.get("positions", DEFAULT_POSITIONS)
-        patients = data.get("patients", DEFAULT_PATIENTS)
-        pacts = data.get("pacts", DEFAULT_PACTS)
-        
-        q_hp = patients.get("Quartus Holt", {}).get("hp", 4)
-        t_hp = patients.get("Tertius Holt", {}).get("hp", 8)
 
         pos_lines = "\n".join([f"  • {k}: Sector {v}" for k, v in positions.items()])
 
@@ -492,15 +487,8 @@ class DomainManagementEngine:
             f"═══════════════════════════════════════════════════════════════════\n"
             f"📡 [ESTADO DE CAMPAÑA // MEDICAE STATION RHO-9 // DUST FALLS]\n"
             f"⏱️ CRONÓMETRO: Día {chrono.get('day', 4):02d} · {chrono.get('phase', 'VIGILIA NOCTURNA')} ({chrono.get('hour', 23):02d}:{chrono.get('minute', 54):02d}) · Turno {chrono.get('turn', 918)}\n"
-            f"👤 ALEXANDER: ❤️ Salud: 12/12 | ⚡ Fatiga: 0/7 | 🔮 Almas: 10/10 | 🌟 Destino: 3 | 💰 Créditos: {credits_available} ¤\n"
-            f"📍 SECTOR ACTUAL: {positions.get('Alexander', 'C-01')} (Medicae Station Rho-9)\n"
-            f"🩺 ESTADO DE PACIENTES:\n"
-            f"  • Quartus Holt: {q_hp}/11 PV [C-03 · Coma Crítico / Soporte Tisular Nvl 2]\n"
-            f"  • Tertius Holt: {t_hp}/11 PV [C-01 · Drenaje Torácico / Consciente]\n"
-            f"📜 PACTOS ACTIVOS:\n"
-            f"  • Severan Holt: Ciclo 1 Cumplido -> Ciclo 2 en Ejecución (Hilo Álmico: TENSO)\n"
-            f"  • Halven Rusk: Cosecha Activa (4 Almas entregadas)\n"
-            f"  • Jarek Venn: Deuda 0/10 Ejecuciones (Torso Reparado)\n"
+            f"👤 ALEXANDER: ❤️ Salud: 12/12 PV | ⚡ Fatiga: 0/7 | 🔮 Almas: 10/10 | 🌟 Destino: 3 | 💰 Créditos: {credits_available} ¤\n"
+            f"📍 UBICACIÓN: {positions.get('Alexander', 'C-01')} (Medicae Station Rho-9 // Dust Falls)\n"
             f"🛡️ BASE RHO-9: Fortaleza 75% | Calidad Sanitaria 70% | Red Eléctrica 80%\n"
             f"👥 DESPLIEGUE DEL SÉQUITO:\n{pos_lines}\n"
             f"═══════════════════════════════════════════════════════════════════"
@@ -514,28 +502,25 @@ class DomainManagementEngine:
         """
         data = cls._load_domain_data()
         chrono = data.get("chrono", DEFAULT_CHRONO)
-        patients = data.get("patients", DEFAULT_PATIENTS)
-        q_hp = patients.get("Quartus Holt", {}).get("hp", 4)
-        t_hp = patients.get("Tertius Holt", {}).get("hp", 8)
+        positions = data.get("positions", DEFAULT_POSITIONS)
+        current_loc = positions.get("Alexander", "C-01 (Habitación de Recuperación)")
 
         return (
             f"═══════════════════════════════════════════════════════════════════\n"
             f"📋 [ESTÁNDAR MANDATORIO DE HUD Y TELEMETRÍA // CHATGPT]\n"
-            f"A partir de este momento, en CADA respuesta de rol debes incluir obligatoriamente al inicio o final el siguiente BLOQUE DE TELEMETRÍA ESTANDARIZADO con los valores actualizados:\n\n"
+            f"A partir de este momento, en CADA respuesta de rol debes incluir obligatoriamente al inicio o final el siguiente BLOQUE DE TELEMETRÍA ESTANDARIZADO con los valores numéricos actualizados:\n\n"
             f"═══════════════════════════════════════════════════════════════════\n"
             f"📡 [ESTADO DE CAMPAÑA // MEDICAE STATION RHO-9]\n"
             f"⏱️ CRONÓMETRO: Día {chrono.get('day', 4):02d} · {chrono.get('phase', 'VIGILIA NOCTURNA')} ({chrono.get('hour', 23):02d}:{chrono.get('minute', 54):02d}) · Turno: {chrono.get('turn', 918)} (+X min transcurridos)\n"
-            f"👤 ALEXANDER: ❤️ Salud: 12/12 | ⚡ Fatiga: 0/7 | 🔮 Almas: 10/10 | 🌟 Destino: 3 | 💰 Créditos: {credits_available} ¤\n"
-            f"📍 UBICACIÓN: C-01 (Habitación de Recuperación de Tertius Holt)\n"
-            f"🩺 PACIENTES: Quartus Holt ({q_hp}/11 PV · C-03) | Tertius Holt ({t_hp}/11 PV · C-01)\n"
-            f"📜 PACTOS: Severan (Ciclo 2 Activo) | Halven (Cosecha 4/4) | Jarek (Deuda 0/10)\n"
-            f"🛡️ RHO-9: Defensa 75% | Sanidad 70% | Plasma 80%\n"
+            f"👤 ALEXANDER: ❤️ Salud: 12/12 PV | ⚡ Fatiga: 0/7 | 🔮 Almas: 10/10 | 🌟 Destino: 3 | 💰 Créditos: {credits_available} ¤\n"
+            f"📍 UBICACIÓN: {current_loc} // Dust Falls\n"
+            f"🛡️ BASE RHO-9: Fortaleza 75% | Calidad Sanitaria 70% | Red Eléctrica 80%\n"
             f"═══════════════════════════════════════════════════════════════════\n\n"
             f"REGLAS DE ACTUALIZACIÓN DEL HUD:\n"
             f"1. Si pasa tiempo, suma los minutos (+5m, +15m, +45m, +1h, etc.) y actualiza la hora y el número de turno.\n"
-            f"2. Si Alexander o un paciente recibe daño o cura, actualiza sus puntos de Salud (PV).\n"
+            f"2. Si Alexander recibe daño o cura, actualiza sus puntos de Salud (PV) y Fatiga.\n"
             f"3. Si se gastan créditos o almas, descuéntalos del saldo.\n"
-            f"4. Si alguien cambia de habitación, actualiza la ubicación.\n"
+            f"4. Si Alexander cambia de habitación o zona, actualiza la ubicación.\n"
             f"═══════════════════════════════════════════════════════════════════"
         )
 
