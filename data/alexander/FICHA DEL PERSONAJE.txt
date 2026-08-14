@@ -1,42 +1,27 @@
 Ficha del personaje
 Autoridad del estado actual y de las capacidades particulares del personaje jugador — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: 
-SHEET
-DOCUMENT_ID: 
-FICHA.ALEXANDER.MAIN
-CAMPAIGN_ID: 
-CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: 
-CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: 
-PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: 
-ACTUALIZAR, AGREGAR
+DOCUMENT_KEY: SHEET
+DOCUMENT_ID: FICHA.ALEXANDER.MAIN
+CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: ACTUALIZAR, AGREGAR
 PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
 STATE_REVISION: 11
 SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.SHEET.D04-NIGHT-RHO9-POST-INCURSION-20260813.R1
 ÚLTIMA ACTUALIZACIÓN: Día 04, noche; cierre documental equivalente a pausa confirmado por orden expresa. Integrados Rho-9, incursión nocturna, botín físico, ejecuciones de Halven, censo umbral y auditoría de XP. Hora exacta y número de turno no reconciliados.
-MIGRATION_ID: 
-CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: 
-Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: 
-Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: 
-No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: 
-Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-ACTUALIZAR: 
-Sustituir únicamente los valores que cambiaron en estado, estadísticas, progresión, armas, munición, inventario, recursos, obligaciones o referencias.
-AGREGAR: 
-Crear una capacidad, objeto, pacto, título o módulo nuevo solo cuando su adquisición o activación esté confirmada.
-BLOQUE PROTEGIDO: 
-Identidad, prólogo, historia previa, aspecto físico basal y personalidad definida por el jugador no cambian durante una pausa ordinaria.
-AUTORIDAD MECÁNICA: 
-Esta Ficha gobierna las capacidades particulares del personaje. El Protocolo Universal gobierna las reglas generales.
+ACTUALIZAR: Sustituir únicamente los valores que cambiaron en estado, estadísticas, progresión, armas, munición, inventario, recursos, obligaciones o referencias.
+AGREGAR: Crear una capacidad, objeto, pacto, título o módulo nuevo solo cuando su adquisición o activación esté confirmada.
+BLOQUE PROTEGIDO: Identidad, prólogo, historia previa, aspecto físico basal y personalidad definida por el jugador no cambian durante una pausa ordinaria.
+AUTORIDAD MECÁNICA: Esta Ficha gobierna las capacidades particulares del personaje. El Protocolo Universal gobierna las reglas generales.
 Contenido vigente
 ESTADO ACTUAL
 SALUD ACTUAL: 12

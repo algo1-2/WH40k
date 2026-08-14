@@ -1,51 +1,32 @@
 Séquito
 Miembros incorporados de forma estable al séquito del personaje jugador — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: 
-RETINUE
-DOCUMENT_ID: 
-RETINUE.ALEXANDER.MAIN
-CAMPAIGN_ID: 
-CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: 
-CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: 
-PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: 
-AGREGAR, REEMPLAZAR
+DOCUMENT_KEY: RETINUE
+DOCUMENT_ID: RETINUE.ALEXANDER.MAIN
+CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: AGREGAR, REEMPLAZAR
 PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
 STATE_REVISION: 8
 SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.SEQUITO.D04-NIGHT-HALVEN-HARVEST-20260813.R1
 ÚLTIMA ACTUALIZACIÓN: Día 04, noche; incorporada cláusula confirmada de cosecha de Halven Rusk y aplicación de cuatro ejecuciones personales. Hora exacta y turno no reconciliados.
-MIGRATION_ID: 
-CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: 
-Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: 
-Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: 
-No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: 
-Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-AGREGAR: 
-Crear un perfil completo cuando una incorporación estable quede confirmada.
-REEMPLAZAR: 
-Sustituir el perfil completo de un miembro cuando cambie. No conservar un segundo perfil activo ni anexar un nuevo estado al final.
-ADMISIÓN: 
-Cooperación, rescate, tratamiento, convivencia o deuda todavía no definida no bastan por sí solos para incorporar a un PNJ.
+AGREGAR: Crear un perfil completo cuando una incorporación estable quede confirmada.
+REEMPLAZAR: Sustituir el perfil completo de un miembro cuando cambie. No conservar un segundo perfil activo ni anexar un nuevo estado al final.
+ADMISIÓN: Cooperación, rescate, tratamiento, convivencia o deuda todavía no definida no bastan por sí solos para incorporar a un PNJ.
 Estado actual
-MIEMBROS ACTIVOS: 
-3
-ÍNDICE: 
-MEMBER.ALEXANDER.MARA-VEYL; MEMBER.ALEXANDER.ILYRA-VENN; MEMBER.ALEXANDER.HALVEN-RUSK
-POTENCIAL: 
-Khepra-9; interesada en cooperación y taller, sin incorporación aceptada.
-PENDIENTES DE DEFINICIÓN: 
-Tertius Holt y Quartus Holt; sus deudas no establecen membresía hasta definir términos y aceptación aplicable.
-EXCLUSIONES: 
-Sael decide por sí mismo quedarse o irse. Severan mantiene dos años de protección del refugio como obligación territorial externa. El especialista Enforcer es una contraparte externa de transporte e información.
+MIEMBROS ACTIVOS: 3
+ÍNDICE: MEMBER.ALEXANDER.MARA-VEYL; MEMBER.ALEXANDER.ILYRA-VENN; MEMBER.ALEXANDER.HALVEN-RUSK
+POTENCIAL: Khepra-9; interesada en cooperación y taller, sin incorporación aceptada.
+PENDIENTES DE DEFINICIÓN: Tertius Holt y Quartus Holt; sus deudas no establecen membresía hasta definir términos y aceptación aplicable.
+EXCLUSIONES: Sael decide por sí mismo quedarse o irse. Severan mantiene dos años de protección del refugio como obligación territorial externa. El especialista Enforcer es una contraparte externa de transporte e información.
 MIEMBRO 001 — MARA VEYL
 ENTITY_ID: NPC-MARA-VEYL-001
 MEMBER_ID: MEMBER.ALEXANDER.MARA-VEYL

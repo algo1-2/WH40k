@@ -1,44 +1,29 @@
 Personajes
 PNJ persistentes externos al séquito — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: 
-CHARACTERS
-DOCUMENT_ID: 
-CHARACTERS.ALEXANDER.MAIN
-CAMPAIGN_ID: 
-CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: 
-CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: 
-PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: 
-AGREGAR, REEMPLAZAR
+DOCUMENT_KEY: CHARACTERS
+DOCUMENT_ID: CHARACTERS.ALEXANDER.MAIN
+CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: AGREGAR, REEMPLAZAR
 PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
 STATE_REVISION: 11
 SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.CHARACTERS.D04-NIGHT-RHO9-20260813.R1
 ÚLTIMA ACTUALIZACIÓN: Día 04, noche; reconciliados Severan, Jarek Venn/Primer deudor, Segundo deudor, Tertius, Quartus, Sael, Syra, Khepra, Hadrix y Demer. Hora exacta y turno no reconciliados.
-MIGRATION_ID: 
-CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: 
-Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: 
-Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: 
-No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: 
-Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-AGREGAR: 
-Crear un perfil cuando el PNJ adquiere continuidad suficiente para ser reutilizado.
-REEMPLAZAR: 
-Sustituir el perfil completo cuando cambia. No anexar un segundo estado al final.
-TRASLADO: 
-Cuando un PNJ entra al séquito, retirar su perfil activo de este archivo y dejar una referencia compacta a Séquito.
+AGREGAR: Crear un perfil cuando el PNJ adquiere continuidad suficiente para ser reutilizado.
+REEMPLAZAR: Sustituir el perfil completo cuando cambia. No anexar un segundo estado al final.
+TRASLADO: Cuando un PNJ entra al séquito, retirar su perfil activo de este archivo y dejar una referencia compacta a Séquito.
 Estado actual
 PNJ ACTIVOS O PERSISTENTES: 46 fuera del séquito
-TRANSFERIDOS A SÉQUITO: 
-Mara Veyl → MEMBER.ALEXANDER.MARA-VEYL; Ilyra Venn → MEMBER.ALEXANDER.ILYRA-VENN; Halven Rusk → MEMBER.ALEXANDER.HALVEN-RUSK
+TRANSFERIDOS A SÉQUITO: Mara Veyl → MEMBER.ALEXANDER.MARA-VEYL; Ilyra Venn → MEMBER.ALEXANDER.ILYRA-VENN; Halven Rusk → MEMBER.ALEXANDER.HALVEN-RUSK
 ÍNDICE DE PERSONAJES
 NPC-SAEL-VEYL-001 | Sael Veyl | Excontable de los Caldereros | Paciente autónomo; libre de quedarse o irse | VIVO, 10/10; estable con drenaje | Rho-9
 NPC-BREN-ORSTAG-001 | Bren Orstag | Caldereros | Hostil o instrumental | DESCONOCIDO | Kappa-Nueve al último rastro

@@ -1,42 +1,27 @@
 Historia del personaje
 Crónica narrativa acumulativa entre pausas confirmadas — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: 
-HISTORY
-DOCUMENT_ID: 
-HISTORY.ALEXANDER.MAIN
-CAMPAIGN_ID: 
-CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: 
-CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: 
-PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: 
-AGREGAR
+DOCUMENT_KEY: HISTORY
+DOCUMENT_ID: HISTORY.ALEXANDER.MAIN
+CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: AGREGAR
 PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
 STATE_REVISION: 8
 SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.HISTORY.D04-NIGHT-RHO9-POST-INCURSION-20260813.R1
 ÚLTIMA ACTUALIZACIÓN: Día 04, noche; integrada como pausa confirmada la operación nocturna posterior a la reconciliación de inventario, sin inferir hora exacta ni número de turno.
-MIGRATION_ID: 
-CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: 
-Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: 
-Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: 
-No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: 
-Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-OPERACIÓN: 
-AGREGAR una entrada narrativa completa después de cada pausa confirmada. No ACTUALIZAR ni REEMPLAZAR capítulos ya cerrados; una corrección se agrega como corrección explícita.
-CONTENIDO: 
-Registrar acontecimientos, escenas, combates, conversaciones, relaciones, lugares estables, pactos, descubrimientos, consecuencias y asuntos abiertos con causalidad y detalle dramático.
-EXCLUSIÓN MECÁNICA: 
-Las entradas nuevas no almacenan Salud, Fatiga, XP, PM, PH, munición, estadísticas ni inventario vigente. Las cifras solo se mantienen cuando son narrativas o contractuales.
-MIGRACIÓN: 
-La crónica anterior se preserva como evidencia histórica sin reescribir en masa sus formulaciones antiguas. Esta regla gobierna toda entrada creada desde esta revisión.
+OPERACIÓN: AGREGAR una entrada narrativa completa después de cada pausa confirmada. No ACTUALIZAR ni REEMPLAZAR capítulos ya cerrados; una corrección se agrega como corrección explícita.
+CONTENIDO: Registrar acontecimientos, escenas, combates, conversaciones, relaciones, lugares estables, pactos, descubrimientos, consecuencias y asuntos abiertos con causalidad y detalle dramático.
+EXCLUSIÓN MECÁNICA: Las entradas nuevas no almacenan Salud, Fatiga, XP, PM, PH, munición, estadísticas ni inventario vigente. Las cifras solo se mantienen cuando son narrativas o contractuales.
+MIGRACIÓN: La crónica anterior se preserva como evidencia histórica sin reescribir en masa sus formulaciones antiguas. Esta regla gobierna toda entrada creada desde esta revisión.
 Crónica vigente
 ORIGEN Y PRÓLOGO
 PERIODO: Aproximadamente 23 años antes del inicio hasta el presente previo a campaña
@@ -439,12 +424,9 @@ La Matriz recibía material procedente de las cápsulas y poseía una línea sep
 La ruta de salida de lotes contiene pequeñas masas biológicas vivas instaladas deliberadamente dentro de cajas técnicas. Ocupantes actuales las llaman «testigos». En el puesto de transferencia exterior, Alexander escuchó a tres hombres armados: conocen a Hadrix, la Matriz, los lotes y un protocolo para sellar la bajada y avisar a alguien llamado Sarda si los testigos se activan. Afirmaron que no existe lote autorizado desde hace meses.
 PUNTO DE CORTE T915: Alexander permanece oculto y no detectado dentro del puesto de transferencia E-12. Dos hombres armados están dentro; un tercero llamado Pell está fuera de la puerta lateral tras revisar el Testigo 2. Alexander bloqueó desde fuera ambas puertas con cajas mediante Sombra infinita y retiró intacto el Testigo 1, que quedó suspendido y aislado. El Testigo 2 está activo y «muy caliente». Los ocupantes ya dedujeron una intrusión deliberada; el canal para contactar con Sarda no respondió. No ha comenzado combate.
 Control de continuidad
-ÚLTIMO HECHO CONFIRMADO: 
-Alexander permanece oculto dentro del puesto de transferencia E-12; el Testigo 1 fue retirado, el Testigo 2 está activo y el combate todavía no ha comenzado.
-PUNTO ABIERTO EXACTO: 
-T915 pausado; dos hombres armados dentro, Pell fuera de la puerta lateral, ambas salidas obstaculizadas y Alexander aún no detectado.
-SIGUIENTE ENTRADA: 
-Comienza después de PAUSA-TURNO-915-2026-08-09-TRANSFERENCIA-E12.
+ÚLTIMO HECHO CONFIRMADO: Alexander permanece oculto dentro del puesto de transferencia E-12; el Testigo 1 fue retirado, el Testigo 2 está activo y el combate todavía no ha comenzado.
+PUNTO ABIERTO EXACTO: T915 pausado; dos hombres armados dentro, Pell fuera de la puerta lateral, ambas salidas obstaculizadas y Alexander aún no detectado.
+SIGUIENTE ENTRADA: Comienza después de PAUSA-TURNO-915-2026-08-09-TRANSFERENCIA-E12.
 ANEXO DE CONTINUIDAD — ESCENA VIGENTE DE RHO-9
 SOURCE_EVENT_ID: CHATGPT-SHARE-6A7A6D61-431C-83E9-AD5C-EF4AEAFA611B
 ALCANCE TEMPORAL: escena posterior al checkpoint numerado T915. La fuente visible no muestra el número de turno, el día ni la hora; este anexo no reconstruye ni numera el tramo intermedio.

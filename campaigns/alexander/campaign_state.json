@@ -3,7 +3,7 @@
   "campaign_id": "CAMPAIGN.ALEXANDER.NECROMUNDA",
   "continuity_id": "CONTINUITY.ALEXANDER.PRIMARY",
   "player_character_id": "PC-ALEXANDER-001",
-  "state_revision": 12,
+  "state_revision": 15,
   "persisted_pause_id": "PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION",
   "checkpoint_id": "CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION",
   "turn": 918,
@@ -146,20 +146,30 @@
   "pacts_and_debts": [
     {
       "pact_id": "PACT.JAREK.CLINIC.SOULHUNT.001",
-      "deudor": "Jarek Venn (Jefe de Destacamento Enforcer)",
+      "deudor": "Jarek Venn (Jefe de Destacamento Enforcer / Primer Deudor E-12)",
       "almas_cobradas": 8,
-      "estado": "CUMPLIDO_Y_SELLADO",
-      "evaluacion_pasiva_dm": false
+      "ejecuciones_completadas": 0,
+      "ejecuciones_requeridas": 10,
+      "servicio_anual": "1 año de trabajo en Rho-9 asignado a Severan",
+      "estado": "MONITOREO_ACTIVO",
+      "evaluacion_pasiva_dm": true
     },
     {
       "pact_id": "PACT.SEVERAN.SERVICE.001",
       "deudor": "Severan Holt (Especialista Enforcer Desertor)",
       "estado": "MONITOREO_ACTIVO",
-      "ciclo_1": "CUMPLIDO (Por extracción y refugio en QTN-3)",
+      "ciclo_1": "CUMPLIDO (Por extracción y refugio)",
       "ciclo_2": "PENDIENTE",
       "condicion_de_cumplimiento": "Severan debe comenzar su segundo ciclo de servicio ahora que Tertius ha despertado.",
       "sensor_de_alexander": "El Hilo Álmico reconoce el despertar de Tertius. El segundo ciclo está listo para ser ejecutado a voluntad de Alexander.",
       "evaluacion_pasiva_dm": true
+    },
+    {
+      "pact_id": "PACT.HALVEN.HARVEST.001",
+      "deudor": "Halven Rusk (Médico Asistente)",
+      "estado": "ACTIVO",
+      "clausula": "Toda muerte causada personalmente por su mano transfiere el alma de la víctima a Alexander.",
+      "almas_transferidas": 4
     }
   ],
   "retinue": {
@@ -190,77 +200,63 @@
     "present_in_coordination": [
       {
         "nombre": "Alexander",
-        "rol": "Operador Umbral / Médico"
+        "rol": "Operador Umbral / Médico",
+        "estado": "VIVO, 12/12; ileso"
       },
       {
         "nombre": "Severan Holt",
-        "rol": "Especialista Enforcer Desertor",
-        "estado": "VIVO, consciente y en recuperación en Rho-9"
+        "rol": "Maestro de Seguridad",
+        "estado": "VIVO, consciente y en recuperación en Rho-9 (Maestro de Seguridad)"
       },
       {
-        "nombre": "Tertius",
-        "rol": "Especialista Enforcer",
-        "estado": "VIVO, 8/11; consciente y estable; no camina con seguridad"
+        "nombre": "Tertius Holt",
+        "rol": "Especialista Enforcer / Deudor",
+        "estado": "VIVO, 8/11; consciente y estable; con drenaje torácico funcional; puede conversar y preguntar por su deuda"
+      },
+      {
+        "nombre": "Quartus Holt",
+        "rol": "Paciente Crítico Enforcer / Deudor",
+        "estado": "VIVO, 4/11; crítico estable, inconsciente e intubado en C-03 (herida de granada <3m)"
       },
       {
         "nombre": "Sael Veyl",
-        "rol": "Paciente (Hermano de Mara)",
-        "estado": "VIVO, inconsciente y suspendido"
-      },
-      {
-        "nombre": "Khepra-9",
-        "rol": "Lexmecánico auxiliar independiente",
-        "estado": "VIVA, 10/10"
-      },
-      {
-        "nombre": "Brann Vesk",
-        "rol": "Antiguo contraparte de pacto cerrado",
-        "estado": "VIVO, 10/10"
-      },
-      {
-        "nombre": "Iovan Krail",
-        "rol": "Paciente salvado por Brann",
-        "estado": "VIVO, 9/10"
-      },
-      {
-        "nombre": "Odran Pell",
-        "rol": "Técnico farmacéutico",
-        "estado": "VIVO, 8/8"
-      },
-      {
-        "nombre": "Marda Senn",
-        "rol": "Superviviente",
-        "estado": "VIVA, 9/9"
-      },
-      {
-        "nombre": "Darrik Vane",
-        "rol": "Traficante / Empleador",
-        "estado": "VIVO"
+        "rol": "Especialista Sigilo",
+        "estado": "VIVO, 10/10; estable con drenaje; conserva autonomía"
       },
       {
         "nombre": "Kerrin Holt",
-        "rol": "Lugarteniente de Darrik",
-        "estado": "VIVO; CRÍTICO ESTABLE POSOPERATORIO"
+        "rol": "Cirujana Principal",
+        "estado": "VIVO; crítico estable posoperatorio"
       },
       {
-        "nombre": "Sable",
-        "rol": "Antigua controladora de Rho-9",
-        "estado": "VIVA"
+        "nombre": "Halven Rusk",
+        "rol": "Médico Asistente / Cosechador de Almas",
+        "estado": "VIVO, estable; supervisa clínica y diagnóstico; pacto de cosecha activo"
       },
       {
         "nombre": "Jarek Venn",
-        "rol": "Representante ordinario",
-        "estado": "VIVO"
+        "rol": "Primer deudor E-12 / Guardia",
+        "estado": "VIVO, débil pero fuera de Sombra infinita; torso reparado; asignado operativamente a Severan (0/10 ejecuciones)"
       },
       {
-        "nombre": "Merek",
-        "rol": "Paciente en Rho-9",
-        "estado": "VIVO; estable"
+        "nombre": "Mara Veyl",
+        "rol": "Operadora Química",
+        "estado": "VIVA, 10/10; móvil en abstinencia química activa"
       },
       {
-        "nombre": "Senn Varko",
-        "rol": "Corredor de empeños e información",
-        "estado": "VIVO"
+        "nombre": "Ilyra Venn",
+        "rol": "Superviviente",
+        "estado": "VIVA, 9/10; estable, sin capacidad de marcha prolongada"
+      },
+      {
+        "nombre": "Syra Kol",
+        "rol": "Auxiliar Logística (16 años)",
+        "estado": "VIVA, ilesa; en ADM-01 a cargo de registros e inventario"
+      },
+      {
+        "nombre": "Khepra-9",
+        "rol": "Tecnosacerdote Auxiliar",
+        "estado": "VIVA, operativa; instalando taller mecánico en Rho-9"
       }
     ]
   },
@@ -268,10 +264,34 @@
     {
       "document_key": "DOMAINS",
       "document_id": "DOMAINS.ALEXANDER.MAIN",
+      "domain_id": "DOMAIN-RHO9-001",
+      "nombre": "Medicae Station Rho-9",
+      "rol_base": "Base Principal y Clínica Clandestina de Control Efectivo",
+      "ubicacion": "Rho-9 (Caídas de Polvo / Dust Falls)",
+      "estado_operativo": "Operativo (Cerrada al público; Seguridad formal bajo Severan Holt)",
+      "personal_asignado": [
+        {
+          "nombre": "Severan Holt",
+          "tarea": "Maestro de Seguridad"
+        },
+        {
+          "nombre": "Syra Kol",
+          "tarea": "Registros e Inventario en ADM-01"
+        },
+        {
+          "nombre": "Halven Rusk",
+          "tarea": "Supervisión Clínica y Diagnóstico"
+        }
+      ]
+    },
+    {
+      "document_key": "DOMAINS",
+      "document_id": "DOMAIN-QTN3-001",
       "domain_id": "DOMAIN-QTN3-001",
-      "nombre": "Refugio QTN-3 / Medicae Station Rho-9",
-      "ubicacion": "QTN-3 (Caídas de Polvo / Dust Falls)",
-      "estado_operativo": "Operativo (Seguridad temporal delegada a Severan Holt)"
+      "nombre": "Refugio QTN-3 / 17-G",
+      "rol_base": "Refugio Oscuro Secundario y Almacén de Seguridad Secreta",
+      "ubicacion": "Subnivel -1, Caídas de Polvo / Dust Falls",
+      "estado_operativo": "Pasivo / Depósito en reserva"
     }
   ],
   "factions": {

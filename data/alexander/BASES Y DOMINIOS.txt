@@ -1,55 +1,34 @@
 Bases y dominios
 Propiedades persistentes bajo propiedad o control estable del personaje jugador — campaña de Alexander
 Control del registro
-DOCUMENT_KEY: 
-DOMAINS
-DOCUMENT_ID: 
-DOMAINS.ALEXANDER.MAIN
-CAMPAIGN_ID: 
-CAMPAIGN.ALEXANDER.NECROMUNDA
-CONTINUITY_ID: 
-CONTINUITY.ALEXANDER.PRIMARY
-PLAYER_CHARACTER_ID: 
-PC-ALEXANDER-001
-ALLOWED_SEMANTIC_OPERATIONS: 
-ACTUALIZAR, AGREGAR, REEMPLAZAR
+DOCUMENT_KEY: DOMAINS
+DOCUMENT_ID: DOMAINS.ALEXANDER.MAIN
+CAMPAIGN_ID: CAMPAIGN.ALEXANDER.NECROMUNDA
+CONTINUITY_ID: CONTINUITY.ALEXANDER.PRIMARY
+PLAYER_CHARACTER_ID: PC-ALEXANDER-001
+ALLOWED_SEMANTIC_OPERATIONS: ACTUALIZAR, AGREGAR, REEMPLAZAR
 PERSISTED_PAUSE_ID: PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION
 CHECKPOINT_ID: CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION
 STATE_REVISION: 9
 SOURCE_REVISION_ID: CAMPAIGN.ALEXANDER.NECROMUNDA.DOMAINS.D04-NIGHT-RHO9-GOVERNANCE-20260813.R1
 ÚLTIMA ACTUALIZACIÓN: Día 04, noche; Rho-9 confirmada como hogar permanente y clínica, mandato formal de seguridad delegado a Severan, bloque de personal y suministros reconciliados. Turno y hora exactos no reconciliados.
-MIGRATION_ID: 
-CAMPAIGN-TEMPLATES-2026-08-11
-SOURCE_AUTHORITY: 
-Google Drive; bytes descargados en modo de solo lectura antes de la migración local
-AISLAMIENTO: 
-Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
-AGENCIA: 
-No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
-TRANSACCIÓN: 
-Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
+MIGRATION_ID: CAMPAIGN-TEMPLATES-2026-08-11
+SOURCE_AUTHORITY: Google Drive; bytes descargados en modo de solo lectura antes de la migración local
+AISLAMIENTO: Este archivo pertenece únicamente a CAMPAIGN.ALEXANDER.NECROMUNDA. Rechazar datos de cualquier otra campaña.
+AGENCIA: No atribuir al personaje jugador pensamientos, emociones, palabras, consentimiento, intención o decisiones no declaradas.
+TRANSACCIÓN: Modificar solo durante un cierre confirmado; no crear estados duplicados al final del documento.
 Reglas de actualización
-AGREGAR: 
-Crear una entrada únicamente al confirmarse propiedad o control estable y persistente.
-ACTUALIZAR: 
-Modificar los campos afectados de una propiedad existente.
-REEMPLAZAR: 
-Sustituir el bloque completo cuando cambia su estructura principal, su titularidad o su condición esencial.
-DELEGACIÓN: 
-El personaje jugador conserva propiedad y mando estratégico. Un administrador asignado gestiona la rutina dentro de su mandato; el bono solo aplica a su competencia asignada.
-ALCANCE: 
-Este archivo registra lo que posee el personaje jugador. Los algoritmos generales de producción, mantenimiento, sobrecarga y mejora pertenecen al Protocolo Universal.
+AGREGAR: Crear una entrada únicamente al confirmarse propiedad o control estable y persistente.
+ACTUALIZAR: Modificar los campos afectados de una propiedad existente.
+REEMPLAZAR: Sustituir el bloque completo cuando cambia su estructura principal, su titularidad o su condición esencial.
+DELEGACIÓN: El personaje jugador conserva propiedad y mando estratégico. Un administrador asignado gestiona la rutina dentro de su mandato; el bono solo aplica a su competencia asignada.
+ALCANCE: Este archivo registra lo que posee el personaje jugador. Los algoritmos generales de producción, mantenimiento, sobrecarga y mejora pertenecen al Protocolo Universal.
 Estado actual
-DOMINIOS ACTIVOS: 
-1
-ÍNDICE: 
-DOMAIN-RHO9-001 — Medicae Station Rho-9 — control efectivo/de facto de Alexander
-EXCLUSIÓN: 
-QTN-3/17-G no se registra como base o dominio activo: no existe propiedad ni control estable suficiente después de la evacuación.
-ADMINISTRADOR GENERAL: 
-NO ASIGNADO
-BONO GENERAL DE ADMINISTRACIÓN: 
-+0; no existe competencia delegada activa
+DOMINIOS ACTIVOS: 1
+ÍNDICE: DOMAIN-RHO9-001 — Medicae Station Rho-9 — control efectivo/de facto de Alexander
+EXCLUSIÓN: QTN-3/17-G no se registra como base o dominio activo: no existe propiedad ni control estable suficiente después de la evacuación.
+ADMINISTRADOR GENERAL: NO ASIGNADO
+BONO GENERAL DE ADMINISTRACIÓN: +0; no existe competencia delegada activa
 DOMINIO 001 — MEDICAE STATION RHO-9
 DOMAIN_ID: DOMAIN-RHO9-001
 TIPO Y CONTROL: antigua estación medicae oficialmente muerta, ahora hogar permanente, clínica clandestina y base de Alexander. Sable cedió por pacto su reclamación sobre el lugar, infraestructura antigua y material preexistente sin dueño. Alexander posee control efectivo/de facto y conserva propiedad y mando estratégico; no se confirma título legal imperial.
