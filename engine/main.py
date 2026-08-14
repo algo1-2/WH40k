@@ -372,6 +372,24 @@ def get_document(filename: str, x_campaign_id: Optional[str] = Header(None)):
                     
     raise HTTPException(status_code=404, detail=f"Document '{filename}' not found in {os.path.basename(target_dir)}")
 
+@app.get("/api/inventory", dependencies=[Depends(verify_api_key)])
+def get_inventory(x_campaign_id: Optional[str] = Header(None)):
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    current_state = state_mgr.load_state(cid)
+    sheet = current_state.get("character_sheet", {})
+    return {
+        "campaign_id": cid,
+        "character_name": sheet.get("nombre", "Alexander"),
+        "location": current_state.get("location"),
+        "inventario_activo": sheet.get("inventario_activo", []),
+        "inventario_sombra_infinita": sheet.get("inventario_sombra_infinita", {}),
+        "recursos_economicos": sheet.get("recursos_economicos", {}),
+        "reserva_almas": sheet.get("reserva_almas", 10),
+        "puntos_destino": sheet.get("puntos_destino", 3),
+        "salud": f"{sheet.get('salud_actual', 12)}/{sheet.get('salud_maxima', 12)}",
+        "fatiga": f"{sheet.get('fatiga_actual', 0)}/{sheet.get('fatiga_maxima', 7)}"
+    }
+
 @app.post("/api/state/checkpoint", dependencies=[Depends(verify_api_key)])
 def get_checkpoint(req: CampaignSwitchRequest):
     return state_mgr.generate_checkpoint(req.campaign_id)

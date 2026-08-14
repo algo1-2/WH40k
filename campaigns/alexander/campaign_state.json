@@ -3,7 +3,7 @@
   "campaign_id": "CAMPAIGN.ALEXANDER.NECROMUNDA",
   "continuity_id": "CONTINUITY.ALEXANDER.PRIMARY",
   "player_character_id": "PC-ALEXANDER-001",
-  "state_revision": 15,
+  "state_revision": 16,
   "persisted_pause_id": "PAUSA-DIA04-NOCHE-2026-08-13-RHO9-POST-INCURSION",
   "checkpoint_id": "CHECKPOINT.ALEXANDER.D04.NOCHE.RHO9.POST-INCURSION",
   "turn": 918,
@@ -58,23 +58,54 @@
     ],
     "inventario_activo": [
       {
+        "item_id": "WPNINST.ALEXANDER.AUTOPISTOL.MALREC",
         "nombre": "Autopistola de Malrec Voss",
         "perfil": "1d10+4, Pen 0",
-        "estado": "LIMPIA"
+        "estado": "LIMPIA",
+        "ubicacion": "Funda lateral"
       },
       {
+        "item_id": "WPNINST.ALEXANDER.CAPTURE.001",
         "nombre": "Carabina de Captura",
-        "perfil": "24/24 proyectiles",
+        "perfil": "24/24 proyectiles, No Letal, Shock(2)",
         "estado": "LIMPIA",
         "ubicacion": "Espalda"
       },
       {
+        "item_id": "WPNINST.ALEXANDER.DAGGER.001",
+        "nombre": "Daga Venenosa",
+        "perfil": "1d10, Pen 0, Toxic(1)",
+        "dosis_restante": 1,
+        "estado": "Operativa"
+      },
+      {
+        "item_id": "WPNINST.ALEXANDER.SERVICE.001",
+        "nombre": "Pistola Sólida de Servicio",
+        "perfil": "8/12 proyectiles, 1d10+3, Pen 0",
+        "estado": "Operativa"
+      },
+      {
+        "item_id": "ARM.ALEXANDER.TRENCHCOAT.001",
+        "nombre": "Gabardina Reforzada",
+        "estado": "Perforada y desgarrada en torso (protección local reducida)",
+        "equipado": true
+      },
+      {
+        "item_id": "MED.KIT.PERSONAL.001",
+        "nombre": "Medikit Personal",
+        "cargas": "0/6 (Requiere acción de recarga fuera de combate con paquetes de Sombra Infinita)",
+        "estado": "Vacío"
+      },
+      {
+        "item_id": "MED.KIT.SURGICAL.CLANDESTINE",
         "nombre": "Kit Quirúrgico Clandestino",
         "estado": "Operativo"
       },
       {
+        "item_id": "MED.INJECTOR.STIMMS",
         "nombre": "Inyector de Stimms Alquímicos",
-        "dosis": 3
+        "dosis_restantes": 3,
+        "estado": "Operativo"
       }
     ],
     "bloque_fijo_umbral_negro": {
@@ -141,6 +172,391 @@
         "pacto_oscuro": "Pactos con ambigüedad legal/trampas, asimetría de obligación (Alexander soberano, deudor firma con alma), arrastre a distancia, castigos de estadísticas y Matriz Maestra de Sacrificio de Almas (1 a 50+ Almas).",
         "maestria_medica": "+15% a Medicina fuera de combate (80% efectivo), cirugías invasivas en anatomía humana común, triage en combate y +2 turnos a la ventana de rescate vital."
       }
+    },
+    "inventario_sombra_infinita": {
+      "armamento_y_municion": {
+        "armas_almacenadas": [
+          {
+            "item_id": "WPNINST.ALEXANDER.GUILD-PISTOL.001",
+            "nombre": "Pistola gremial",
+            "municion": "9/12",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.GUILD-CARBINE.001",
+            "nombre": "Carabina gremial",
+            "municion": "16/24",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.AUTOPISTOL.002",
+            "nombre": "Pistola automática capturada",
+            "municion": "0/12",
+            "cargador_separado": "11/12",
+            "estado": "Operativa, descargada"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.ENEMY-CARBINE.001",
+            "nombre": "Carabina enemiga",
+            "municion": "23/24",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.CARBINE.002",
+            "nombre": "Carabina sólida adicional",
+            "municion": "24/24",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.COMPACT.001",
+            "nombre": "Pistola compacta del hombre del abrigo",
+            "municion": "9/10",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.SHOTGUN.001",
+            "nombre": "Escopeta",
+            "municion": "4/6",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.BROKER-PISTOL.001",
+            "nombre": "Pistola automática compacta del corredor clandestino",
+            "municion": "6/10",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.PELL-E12.001",
+            "nombre": "Pistola sólida de servicio E-12 de Pell",
+            "municion": "5/12",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.INDUSTRIAL-KNIFE.001",
+            "nombre": "Cuchillo industrial",
+            "estado": "Operativo"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.CUTTING-TOOL.001",
+            "nombre": "Herramienta de corte improvisada",
+            "estado": "Operativa"
+          },
+          {
+            "item_id": "WPNINST.ALEXANDER.UTILITY-KNIFE.001",
+            "nombre": "Cuchillo utilitario",
+            "estado": "Operativo"
+          }
+        ],
+        "municion_reserva": [
+          {
+            "item_id": "AMMO.ALEXANDER.MKIV.RESERVE",
+            "descripcion": "22 proyectiles sólidos compatibles con Autopistola Mk IV"
+          },
+          {
+            "item_id": "AMMO.ALEXANDER.UNKNOWN-SOLID.001",
+            "descripcion": "4 cartuchos sólidos de calibre desconocido (en contenedor sellado)"
+          }
+        ],
+        "transferencias_recientes": "Rifle Mechanicus raro + 2 cargadores transferido a custodia de Severan Holt para defensa de Rho-9."
+      },
+      "equipo_medicae_avanzado": [
+        {
+          "nombre": "Bio-auspex portátiles",
+          "cantidad": 2,
+          "estado": "Operativos (+10 a diagnóstico dirigido fuera de Q-01)"
+        },
+        {
+          "nombre": "Módulo portátil de imagen anatómica profunda",
+          "cantidad": 1,
+          "estado": "Operativo"
+        },
+        {
+          "nombre": "Analizador hemático y compatibilidad",
+          "cantidad": 1,
+          "estado": "Operativo"
+        },
+        {
+          "nombre": "Analizador farmacolótico/químico",
+          "cantidad": 1,
+          "estado": "Operativo"
+        },
+        {
+          "nombre": "Óptica de microcirugía",
+          "cantidad": 1,
+          "estado": "Operativa"
+        },
+        {
+          "nombre": "Monitores vitales portátiles",
+          "cantidad": 2,
+          "estado": "Operativos"
+        },
+        {
+          "nombre": "Respirador portátil",
+          "cantidad": 1,
+          "estado": "Operativo (2 filtros de reserva)"
+        },
+        {
+          "nombre": "Bombas de infusión portátiles",
+          "cantidad": 2,
+          "estado": "Operativas"
+        },
+        {
+          "nombre": "Aspirador portátil",
+          "cantidad": 1,
+          "estado": "Operativo"
+        },
+        {
+          "nombre": "Electrocauterio portátil",
+          "cantidad": 1,
+          "estado": "Operativo"
+        },
+        {
+          "nombre": "Esterilizador de campo",
+          "cantidad": 1,
+          "estado": "Operativo (12 ciclos consumibles)"
+        },
+        {
+          "nombre": "Bandejas de cirugía avanzada",
+          "cantidad": 3,
+          "estado": "Estériles y selladas"
+        },
+        {
+          "nombre": "Kits de cirugía general",
+          "cantidad": 2,
+          "estado": "Estériles y sellados"
+        },
+        {
+          "nombre": "Kits de trauma mayor",
+          "cantidad": 2,
+          "estado": "Estériles y sellados"
+        },
+        {
+          "nombre": "Kits de microcirugía vascular/nerviosa",
+          "cantidad": 2,
+          "estado": "Estériles y sellados"
+        },
+        {
+          "nombre": "Kit ortopédico y preparatorio protésico",
+          "cantidad": 1,
+          "estado": "Completo"
+        },
+        {
+          "nombre": "Kit de trabajo craneal/neural e interfaces",
+          "cantidad": 1,
+          "estado": "Completo"
+        },
+        {
+          "nombre": "Kits de procedimientos menores",
+          "cantidad": 4,
+          "estado": "Completos"
+        },
+        {
+          "nombre": "Paquetes de recarga completa de medikit",
+          "cantidad": 12,
+          "estado": "12 cargas disponibles"
+        }
+      ],
+      "farmacos_y_fluidos": {
+        "farmacos": {
+          "antibioticos_amplio_espectro": "36 dosis",
+          "analgesicos_clinicos": "48 dosis",
+          "sedantes_controlados": "30 dosis",
+          "anestesicos_generales": "18 dosis",
+          "anestesicos_locales": "24 dosis",
+          "coagulantes_hemostaticos_inyectables": "30 dosis",
+          "antishock_vasopresor": "20 dosis",
+          "antiinflamatorios_antipireticos": "24 dosis",
+          "antitoxinas_amplio_espectro": "10 dosis",
+          "inmunosupresores_antirrechazo": "8 dosis",
+          "estimulantes_medicae_identificados": "12 dosis",
+          "tratamientos_antirradiacion": "6 dosis"
+        },
+        "fluidos_iv": {
+          "soluciones_electrolitos_nutricion": "24 unidades IV",
+          "solucion_salina_expansor": "32 unidades IV",
+          "sustituto_sanguineo_sintetico": "12 unidades IV"
+        },
+        "topicos_y_hemostaticos": {
+          "gel_quemaduras_tejido_expuesto": "16 aplicaciones",
+          "solucion_antiseptica": "20 frascos",
+          "espuma_hemostatica": "14 aplicaciones"
+        },
+        "cuarentena_y_quimicos": {
+          "paquetes_droga_desconocida_nodo": "3 paquetes (En cuarentena, no administrar)",
+          "agente_quimico_e12": "9 frascos (Depósito tóxico separado)"
+        }
+      },
+      "consumibles_clinicos": {
+        "apositos_esteriles": 80,
+        "rollos_venda": 48,
+        "gasas_hemostaticas": 24,
+        "juegos_sutura": 40,
+        "grapadoras_cutaneas": "6 unidades + 12 cargadores",
+        "selladores_tisulares": "18 aplicaciones",
+        "lineas_infusion_iv": 30,
+        "kits_drenaje_toracico": 8,
+        "cateteres_varios_calibres": 16,
+        "jeringas_esteriles": 100,
+        "agujas_esteriles": 150,
+        "pares_guantes_esteriles": 100,
+        "mascarillas_clinicas": 80,
+        "panos_campos_esteriles": 30,
+        "cilindros_oxigeno_respiratorio": 8,
+        "filtros_clinicos_respiratorios": 8
+      },
+      "herramientas_y_materiales_tecnicos": {
+        "cofres_herramientas_medicae_precision": 2,
+        "cofres_herramientas_industriales": 2,
+        "cortador_industrial_portatil": 1,
+        "microsoldador_arco_fino": 1,
+        "cautines_electronica": 2,
+        "medidores_probadores_voltaje": 2,
+        "plantilla_alineacion_protesica": 1,
+        "cableado": "1 carrete fino + 2 carretes estándar",
+        "conectores": "12 medicae/electrónicos + 6 industriales pesados",
+        "fusibles_ruptores": 20,
+        "baterias_compactas": 2,
+        "celdas_energia_estandar": "6 (5 cargadas, 1 descargada)",
+        "servoactuadores_universales": 4,
+        "microservos_precision": 8,
+        "rodamientos_casquillos": 12,
+        "sellos_juntas_valvulas": 16,
+        "reguladores_energia": 4,
+        "acopladores_interfaz_protesica": 6,
+        "conductores_neurales_sellados": 4,
+        "marcos_encaje_protesico": 2,
+        "segmentos_estructurales_extremidad": 3,
+        "modulos_compresores_soporte_respiratorio": 2,
+        "placas_aleacion_medica_industrial": 8,
+        "laminas_polimero_sellable": 12,
+        "tuberia_flexible_clinica": "20 metros",
+        "filtros_industriales": 2,
+        "lamparas_portatiles": 2
+      },
+      "documentos_y_objetos_especiales": [
+        {
+          "id": "DOC.MALREC.BOOK",
+          "nombre": "Libro personal de Malrec Voss (con declaración incompleta y hoja arrancada)"
+        },
+        {
+          "id": "DOC.QTN3.MAP",
+          "nombre": "Mapa parcial QTN-3 / 17-G"
+        },
+        {
+          "id": "DOC.COAT.CREDENTIAL",
+          "nombre": "Credencial del hombre del abrigo (con foto/placa/marcas administrativas)"
+        },
+        {
+          "id": "DOC.COAT.ROUTE-SHEETS",
+          "nombre": "3 hojas de rutas y notas"
+        },
+        {
+          "id": "DATA.COAT.CYLINDER",
+          "nombre": "Cilindro de datos cerrado"
+        },
+        {
+          "id": "KEY.COAT.SHORT",
+          "nombre": "Llave física corta"
+        },
+        {
+          "id": "TOKEN.MARKED",
+          "nombre": "2 fichas metálicas marcadas"
+        },
+        {
+          "id": "NOTE.ORVEN",
+          "nombre": "Nota: 'OESTE-9 / VÁLVULA ROJA / SEGUNDA CAMPANA / M. ORVEN — NO VOX'"
+        },
+        {
+          "id": "DEVICE.MALREC.PROTECTED",
+          "nombre": "Módulo protegido de Malrec"
+        },
+        {
+          "id": "CONTAINER.RED-PULSE",
+          "nombre": "Caja metálica reforzada de pulso rojo"
+        },
+        {
+          "id": "CYLINDER.VANTOR-SEPTEM",
+          "nombre": "5 cilindros Vantor-Septem bajo Alexander"
+        },
+        {
+          "id": "SAMPLE.SET.EFG",
+          "nombre": "Muestras E / F / G selladas y separadas"
+        },
+        {
+          "id": "VISOR.MALREC.MULTISPECTRAL",
+          "nombre": "Visor multispectral de Malrec Voss (Operativo)"
+        },
+        {
+          "id": "RESTRAINT.REINFORCED",
+          "nombre": "1 par de esposas reforzadas (Operativas)"
+        }
+      ],
+      "biobanco_material_biologico": {
+        "donantes_procesados": 5,
+        "sangre_transfusion_candidata": "10 unidades (separadas por donante, requieren tipificación)",
+        "sangre_investigacion": "2 unidades (dañadas, no transfundir)",
+        "corazones_candidatos": "3 (1 viable, 2 condicionales)",
+        "pulmones_segmentos": "5 (2 viables, 2 condicionales, 1 investigación)",
+        "higados_segmentos": "2 (1 viable, 1 condicional)",
+        "rinones_candidatos": "6 (4 viables/condicionales, 2 baja prioridad)",
+        "pancreas_candidato": "1 (condicional)",
+        "pares_corneas": "2 pares candidatos",
+        "lotes_vasos_injerto": 5,
+        "lotes_piel_injerto": 6,
+        "lotes_hueso_cartilago": 6,
+        "lotes_tendon_fascia": 5,
+        "lotes_musculo_utilizable": 4,
+        "lotes_neural_interfaz": 3,
+        "brazo_amputado": "Brazo derecho del Segundo Deudor (para anatomía y prótesis)",
+        "contenidos_biologicos_anomalos": [
+          "Testigo 1 (vivo confirmado, aislado)",
+          "Testigo 2 (vivo confirmado, aislado)",
+          "Masa orgánica retirada de Khepra (viva, aislada)",
+          "Muestra biológica M-01-A (sellada)",
+          "Recipiente biológico M-01 sellado"
+        ]
+      },
+      "custodia_humana_viva_sombra": {
+        "total_en_suspension": 5,
+        "sujetos": [
+          {
+            "id": "NPC-M01-OPERATOR-001",
+            "nombre": "Operador M-01",
+            "estado": "Vivo, inconsciente, compartimento individual"
+          },
+          {
+            "id": "NPC-M01-SUBJECT-01",
+            "nombre": "Sujeto I",
+            "estado": "Vivo, inconsciente, compartimento individual"
+          },
+          {
+            "id": "NPC-M01-SUBJECT-02",
+            "nombre": "Sujeto II",
+            "estado": "Viva, inconsciente, compartimento individual"
+          },
+          {
+            "id": "NPC-M01-SUBJECT-03",
+            "nombre": "Sujeto III",
+            "estado": "Vivo, crítico extremo, compartimento individual"
+          },
+          {
+            "id": "NPC-JOREN-DEBTOR-02",
+            "nombre": "Segundo deudor E-12",
+            "estado": "Vivo, 0/9, inconsciente, amputación reconstructiva derecha"
+          }
+        ],
+        "nota_jarek_venn": "Jarek Venn (Primer deudor E-12) fue EXTRAÍDO de Sombra Infinita y actualmente está en Rho-9 asignado a Severan Holt."
+      }
+    },
+    "recursos_economicos": {
+      "creditos_disponibles": 1196,
+      "pagos_contractuales_pendientes": [
+        {
+          "origen": "Darrik Vane",
+          "monto": 300,
+          "estado": "Pendiente de cobro (no incluido en saldo disponible)"
+        }
+      ]
     }
   },
   "pacts_and_debts": [
