@@ -121,7 +121,7 @@ class ActionRequest(BaseModel):
     base_fallo: Optional[str] = "Insuficiencia o peligro activado"
     riesgo_techo: Optional[int] = 3
     weapon_used: Optional[str] = None
-    weapon_key: Optional[str] = "PISTOLA_BOLTER"
+    weapon_key: Optional[str] = None
     weapon_status: Optional[str] = "LIMPIA"
     ability_used: Optional[str] = None
     combat_action: Optional[str] = None
@@ -314,8 +314,8 @@ def resolve_action(req: ActionRequest, x_campaign_id: Optional[str] = Header(Non
 
     attack_info = {}
     if req.weapon_used or req.weapon_key:
-        w_key = req.weapon_key or ("PISTOLA_BOLTER" if "Bólter" in str(req.weapon_used) else "ESPADA_ENERGIA")
-        curr_ammo = 12 if "BOLTER" in w_key else 10
+        w_key = req.weapon_key or ("PISTOLA_BOLTER" if "Bólter" in str(req.weapon_used) else str(req.weapon_used))
+        curr_ammo = 12 if "BOLTER" in w_key.upper() else 10
         attack_info = WeaponTraitsEngine.process_weapon_attack(w_key, curr_ammo, req.weapon_status or "LIMPIA", roll_result)
 
     try:
