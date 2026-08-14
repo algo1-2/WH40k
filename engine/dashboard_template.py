@@ -2507,14 +2507,10 @@ def get_dashboard_html() -> str:
         const respEv = await fetch('/api/chat/live_events', { headers: { 'x-api-key': API_KEY } });
         if (respEv.ok) {
           const dEv = await respEv.json();
-          const pts = dEv.patients || {};
-          if (pts['Quartus Holt']) {
-            const hQ = document.getElementById('hud-quartus-hp');
-            if (hQ) hQ.textContent = `Quartus: ${pts['Quartus Holt'].hp}/11 PV [C-03]`;
-          }
-          if (pts['Tertius Holt']) {
-            const hT = document.getElementById('hud-tertius-hp');
-            if (hT) hT.textContent = `Tertius: ${pts['Tertius Holt'].hp}/11 PV [C-01]`;
+          const pos = dEv.positions || {};
+          const hLoc = document.getElementById('hud-alex-location');
+          if (hLoc && pos['Alexander']) {
+            hLoc.textContent = `${pos['Alexander']} // Medicae Station Rho-9`;
           }
         }
       } catch (e) { console.error(e); }
