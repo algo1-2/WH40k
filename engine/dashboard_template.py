@@ -1,6 +1,11 @@
 """
-WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v3.0
-Full Base Management: Live Upgrades, Sublevel-1 Auspex Exploration, Staff Matrix & Chronicle Feed.
+WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v4.0
+Includes:
+- Tactical Blueprint & Sublevel Explorer
+- Live Surgery Lab & Alchemy Synthesizer
+- Factions Matrix & Favors Ledger
+- Clandestine Patient & Night Incidents Generator
+- Campaign State, Inventory & Deterministic Dice Roller
 """
 
 def get_dashboard_html() -> str:
@@ -295,7 +300,7 @@ def get_dashboard_html() -> str:
     .fill-crimson { background: var(--crimson-light); }
     .fill-cyan { background: var(--cyan-plasma); }
 
-    /* BLUEPRINT TACTICAL GRID */
+    /* BLUEPRINT & FLOORS */
     .floor-controls {
       display: flex;
       gap: 0.75rem;
@@ -510,11 +515,7 @@ def get_dashboard_html() -> str:
       margin-top: 0.75rem;
     }
 
-    .btn-explore-action:hover {
-      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
-    }
-
-    /* Staff Assignment Table */
+    /* Staff & Feed */
     .staff-table {
       width: 100%;
       border-collapse: collapse;
@@ -545,7 +546,6 @@ def get_dashboard_html() -> str:
       width: 100%;
     }
 
-    /* Telemetry Feed Terminal */
     .terminal-feed {
       background: #080b0f;
       border: 1px solid var(--border-panel);
@@ -571,6 +571,108 @@ def get_dashboard_html() -> str:
     .feed-tag.MEDICAL { color: var(--crimson-light); }
     .feed-tag.COSECHA { color: var(--brass); }
 
+    /* FORMS & BUTTONS */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .form-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brass);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-control {
+      background: #10141b;
+      border: 1px solid var(--border-panel);
+      color: var(--text-main);
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.6rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--brass);
+    }
+
+    .btn-action-primary {
+      background: linear-gradient(135deg, #a87d2b, #c99a3e);
+      color: #080a0d;
+      border: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 900;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(201, 154, 62, 0.3);
+      width: 100%;
+    }
+
+    .btn-action-primary:hover {
+      background: linear-gradient(135deg, #c99a3e, #f59e0b);
+      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .btn-synth {
+      background: #131924;
+      border: 1px solid var(--brass-dim);
+      color: var(--brass);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-synth:hover {
+      background: var(--brass);
+      color: #080a0d;
+    }
+
+    .char-card {
+      background: #131821;
+      border: 1px solid #1f2733;
+      border-radius: 4px;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .char-card:last-child { margin-bottom: 0; }
+
+    .char-card-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brass);
+      margin-bottom: 0.25rem;
+    }
+
+    .char-role {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-bottom: 0.35rem;
+    }
+
+    .char-status {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
     .filter-bar {
       display: flex;
       gap: 0.75rem;
@@ -588,12 +690,6 @@ def get_dashboard_html() -> str:
       padding: 0.6rem 0.9rem;
       border-radius: 4px;
       font-size: 0.85rem;
-    }
-
-    .search-input:focus {
-      outline: none;
-      border-color: var(--brass);
-      box-shadow: 0 0 8px var(--amber-glow);
     }
 
     .inv-category-grid {
@@ -628,89 +724,6 @@ def get_dashboard_html() -> str:
     .inv-item-detail {
       font-size: 0.75rem;
       color: var(--text-muted);
-    }
-
-    .dice-form {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: 640px) {
-      .dice-form { grid-template-columns: 1fr; }
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--brass);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .form-control {
-      background: #10141b;
-      border: 1px solid var(--border-panel);
-      color: var(--text-main);
-      font-family: 'JetBrains Mono', monospace;
-      padding: 0.6rem 0.8rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-    }
-
-    .form-control:focus {
-      outline: none;
-      border-color: var(--brass);
-    }
-
-    .btn-roll {
-      background: linear-gradient(135deg, #a87d2b, #c99a3e);
-      color: #080a0d;
-      border: none;
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      font-weight: 900;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      cursor: pointer;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 15px rgba(201, 154, 62, 0.3);
-      grid-column: 1 / -1;
-    }
-
-    .btn-roll:hover {
-      background: linear-gradient(135deg, #c99a3e, #f59e0b);
-      box-shadow: 0 4px 20px rgba(245, 158, 11, 0.5);
-      transform: translateY(-1px);
-    }
-
-    .roll-result-box {
-      background: #0a0d12;
-      border: 1px dashed var(--border-panel);
-      border-radius: 4px;
-      padding: 1.25rem;
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      display: none;
-    }
-
-    .roll-success {
-      border-color: var(--green-auspex);
-      background: rgba(16, 185, 129, 0.05);
-    }
-
-    .roll-failure {
-      border-color: var(--crimson-light);
-      background: rgba(239, 68, 68, 0.05);
     }
 
     .doc-selector {
@@ -782,19 +795,19 @@ def get_dashboard_html() -> str:
   </header>
 
   <nav class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab('tab-blueprint')">🗺️ PLANO & MEJORAS RHO-9</button>
+    <button class="tab-btn active" onclick="switchTab('tab-blueprint')">🗺️ PLANO & MEJORAS</button>
+    <button class="tab-btn" onclick="switchTab('tab-medicae')">🩸 CIRUGÍA & ALQUIMIA</button>
+    <button class="tab-btn" onclick="switchTab('tab-factions')">⚖️ FACCIONES & EVENTOS</button>
     <button class="tab-btn" onclick="switchTab('tab-status')">⚙️ ESTADO DE CAMPAÑA</button>
-    <button class="tab-btn" onclick="switchTab('tab-inventory')">📦 SOMBRA INFINITA & ARSENAL</button>
-    <button class="tab-btn" onclick="switchTab('tab-roller')">🎲 SIMULADOR DE TIRADAS d100</button>
-    <button class="tab-btn" onclick="switchTab('tab-docs')">📜 DOSSIERS Y CRÓNICAS</button>
+    <button class="tab-btn" onclick="switchTab('tab-inventory')">📦 SOMBRA INFINITA</button>
+    <button class="tab-btn" onclick="switchTab('tab-roller')">🎲 SIMULADOR d100</button>
+    <button class="tab-btn" onclick="switchTab('tab-docs')">📜 DOSSIERS</button>
   </nav>
 
   <main class="container">
 
     <!-- TAB 0: BLUEPRINT & BASE UPGRADES -->
     <section id="tab-blueprint" class="tab-content active">
-      
-      <!-- Metrics overview bar -->
       <div class="blueprint-metrics-bar">
         <div class="panel" style="padding:1rem;">
           <div class="stat-label">🛡️ Fortaleza Perimetral</div>
@@ -818,7 +831,6 @@ def get_dashboard_html() -> str:
         </div>
       </div>
 
-      <!-- Floor Switcher & Blueprint Grid -->
       <div class="panel" style="margin-bottom:1.5rem;">
         <div class="panel-header">
           <div class="panel-title">
@@ -831,16 +843,11 @@ def get_dashboard_html() -> str:
           </div>
         </div>
         <div class="panel-body">
-          <div class="blueprint-grid" id="blueprint-grid-container">
-            <!-- Rooms rendered dynamically via JS -->
-          </div>
+          <div class="blueprint-grid" id="blueprint-grid-container"></div>
         </div>
       </div>
 
-      <!-- Staff Matrix & Live Telemetry Grid -->
       <div class="grid-dashboard">
-        
-        <!-- Staff Assignment Matrix -->
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">👥 ASIGNACIÓN TÁCTICA DE SÉQUITO</span>
@@ -848,92 +855,194 @@ def get_dashboard_html() -> str:
           <div class="panel-body">
             <table class="staff-table">
               <thead>
-                <tr>
-                  <th>Operador / PNJ</th>
-                  <th>Puesto Asignado</th>
-                </tr>
+                <tr><th>Operador / PNJ</th><th>Puesto Asignado</th></tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><strong>Severan Holt</strong></td>
-                  <td><select class="staff-select" onchange="assignStaff('Severan Holt', this.value)"><option>Mando de Guardia & Seguridad</option><option>Rondas Nocturnas</option><option>Escolta de Exploración</option></select></td>
-                </tr>
-                <tr>
-                  <td><strong>Khepra-9</strong></td>
-                  <td><select class="staff-select" onchange="assignStaff('Khepra-9', this.value)"><option>Taller Mecatrónico T-01</option><option>Mantenimiento de Plasma</option><option>Fabricación Protésica</option></select></td>
-                </tr>
-                <tr>
-                  <td><strong>Syra Kol (16a)</strong></td>
-                  <td><select class="staff-select" onchange="assignStaff('Syra Kol', this.value)"><option>Contabilidad & Farmacia ADM-01</option><option>Intercepción Vox</option><option>Triaje de Consumibles</option></select></td>
-                </tr>
-                <tr>
-                  <td><strong>Jarek Venn</strong></td>
-                  <td><select class="staff-select" onchange="assignStaff('Jarek Venn', this.value)"><option>Centinela en Compuerta GATE-01</option><option>Trabajos de Carga Pesada</option><option>Escolta de Guardia</option></select></td>
-                </tr>
-                <tr>
-                  <td><strong>Halven Rusk</strong></td>
-                  <td><select class="staff-select" onchange="assignStaff('Halven Rusk', this.value)"><option>Auxiliar de Quirófano Q-01</option><option>Cosecha y Triaje Vigilado</option><option>Limpieza de Residuos</option></select></td>
-                </tr>
+                <tr><td><strong>Severan Holt</strong></td><td><select class="staff-select" onchange="assignStaff('Severan Holt', this.value)"><option>Mando de Guardia & Seguridad</option><option>Rondas Nocturnas</option><option>Escolta de Exploración</option></select></td></tr>
+                <tr><td><strong>Khepra-9</strong></td><td><select class="staff-select" onchange="assignStaff('Khepra-9', this.value)"><option>Taller Mecatrónico T-01</option><option>Mantenimiento de Plasma</option><option>Fabricación Protésica</option></select></td></tr>
+                <tr><td><strong>Syra Kol (16a)</strong></td><td><select class="staff-select" onchange="assignStaff('Syra Kol', this.value)"><option>Contabilidad & Farmacia ADM-01</option><option>Intercepción Vox</option><option>Triaje de Consumibles</option></select></td></tr>
+                <tr><td><strong>Jarek Venn</strong></td><td><select class="staff-select" onchange="assignStaff('Jarek Venn', this.value)"><option>Centinela en Compuerta GATE-01</option><option>Trabajos de Carga Pesada</option><option>Escolta de Guardia</option></select></td></tr>
+                <tr><td><strong>Halven Rusk</strong></td><td><select class="staff-select" onchange="assignStaff('Halven Rusk', this.value)"><option>Auxiliar de Quirófano Q-01</option><option>Cosecha y Triaje Vigilado</option><option>Limpieza de Residuos</option></select></td></tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- Telemetry Chronicle Feed -->
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">📟 CRÓNICA & TELEMETRÍA DE RHO-9</span>
             <span class="badge badge-brass">LOG EN VIVO</span>
           </div>
           <div class="panel-body">
-            <div class="terminal-feed" id="telemetry-feed-container">
-              <!-- Logs injected here -->
+            <div class="terminal-feed" id="telemetry-feed-container"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 1: SURGERY LAB & ALCHEMY -->
+    <section id="tab-medicae" class="tab-content">
+      <div class="grid-dashboard">
+        
+        <!-- Operating Table -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">🩸 MESA QUIRÚRGICA & TRAUMA (Q-01)</span>
+            <span class="badge badge-brass">DIAGNOSTOR ACTIVO</span>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="form-label">Seleccionar Paciente</label>
+              <select id="surg-patient" class="form-control">
+                <option value="Quartus Holt">Quartus Holt (4/11 · Coma Intubado · C-03)</option>
+                <option value="Tertius Holt">Tertius Holt (8/11 · Drenaje Torácico · C-01)</option>
+                <option value="Paciente C-02">Paciente de Emergencia (Cama C-02)</option>
+                <option value="Jarek Venn">Jarek Venn (0/9 · Torso Reconstruido)</option>
+                <option value="Demer Vhal">Demer Vhal (Integración Biológica IV)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Procedimiento Clínico</label>
+              <select id="surg-procedure" class="form-control">
+                <option value="TORACICA">Cirugía Torácica Mayor / Drenaje (+3 PV)</option>
+                <option value="SUTURA_MAYOR">Desbridamiento & Sutura Profunda (+2 PV)</option>
+                <option value="INJERTO_TISULAR">Injerto Tisular Biológico (+4 PV)</option>
+                <option value="INFUSION_SHOCK">Transfusión & Estabilización de Shock (+3 PV)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Instrumental & Soporte</label>
+              <div style="display:flex; flex-direction:column; gap:0.4rem; font-size:0.8rem; color:var(--text-muted);">
+                <label><input type="checkbox" id="surg-diag" checked> Diagnostor Multispectral de Rho-9 (+15% a tirada)</label>
+                <label><input type="checkbox" id="surg-blood"> Unidad de Sangre de Biobanco (+10% y evita shock)</label>
+              </div>
+            </div>
+
+            <button class="btn-action-primary" onclick="executeSurgery()">⚡ INICIAR INTERVENCIÓN QUIRÚRGICA</button>
+            <div id="surgery-result-box" style="margin-top:1rem; display:none;"></div>
+          </div>
+        </div>
+
+        <!-- Alchemy Synthesizer -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">⚗️ SINTETIZADOR ALQUÍMICO & FÁRMACOS</span>
+            <span class="badge badge-green">RECETAS ACTIVAS</span>
+          </div>
+          <div class="panel-body">
+            
+            <div class="char-card">
+              <div class="char-card-header">
+                <span>Stimm de Combate Hiper-Adrenal</span>
+                <span class="stat-val green">30 ¤</span>
+              </div>
+              <div class="char-role">Farmacología Táctica · Req. Medicina 50</div>
+              <div class="char-status">+10 Reflejos y Fuerza x 3 turnos. Anula fatiga.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('STIMM_COMBATE')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header">
+                <span>Concentrado Neurotóxico E-12 [Toxic(1)]</span>
+                <span class="stat-val green">40 ¤</span>
+              </div>
+              <div class="char-role">Toxinas de Asalto · Req. Medicina 60</div>
+              <div class="char-status">Impregna 1 arma blanca con veneno continuo 1d5 PV/turno.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('VENENO_TOXIC1')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header">
+                <span>Antídoto Químico Amplio Espectro</span>
+                <span class="stat-val green">35 ¤</span>
+              </div>
+              <div class="char-role">Farmacología Médica · Req. Medicina 55</div>
+              <div class="char-status">Neutraliza quimio-toxinas Escher y venenos orgánicos.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('ANTIDOTO_UNIVERSAL')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div class="char-card">
+              <div class="char-card-header">
+                <span>Bálsamo Hemostático Cauterizante</span>
+                <span class="stat-val green">25 ¤</span>
+              </div>
+              <div class="char-role">Traumatología de Campo · Req. Medicina 45</div>
+              <div class="char-status">Detiene hemorragias al instante (+3 PV y sella vasos).</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('BALSAMO_CAUTERIZANTE')">🧪 SINTETIZAR DOSIS</button>
+            </div>
+
+            <div id="alchemy-result-box" style="margin-top:1rem; display:none;"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 2: FACTIONS, FAVORS & INCIDENTS -->
+    <section id="tab-factions" class="tab-content">
+      <div class="grid-dashboard">
+        
+        <!-- Factions Matrix -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">⚖️ MATRIZ DE FACCIONES & FAVORES</span>
+            <span class="badge badge-brass">DUST FALLS</span>
+          </div>
+          <div class="panel-body" id="factions-container">
+            <!-- Injected dynamically via JS -->
+          </div>
+        </div>
+
+        <!-- Night Patient Generator -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">🚪 GOLPE EN LA COMPUERTA // SUCESOS NOCTURNOS</span>
+          </div>
+          <div class="panel-body">
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:1rem;">
+              Las sombras de Dust Falls traen fugitivos, contrabandistas tiroteados y deudores desesperados a las puertas de Rho-9.
+            </p>
+            <button class="btn-action-primary" onclick="generatePatientEvent()">🎲 GENERAR EMERGENCIA NOCTURNA</button>
+
+            <div id="patient-event-card" class="upgrade-box" style="display:none; margin-top:1rem;">
+              <div style="font-family:'Cinzel',serif; font-size:0.95rem; font-weight:800; color:var(--brass);" id="patient-name-title">Identidad del Paciente</div>
+              <div style="font-size:0.75rem; color:var(--cyan-plasma); margin-bottom:0.5rem;" id="patient-faction-text">Facción / Procedencia</div>
+              
+              <div class="stat-row"><span class="stat-label">🩺 Cuadro Clínico:</span><span class="stat-val crimson" id="patient-trauma-text">-</span></div>
+              <div class="stat-row"><span class="stat-label">❤️ Estado Vital:</span><span class="stat-val" id="patient-hp-text">-</span></div>
+              <div class="stat-row"><span class="stat-label">💰 Oferta / Pago:</span><span class="stat-val green" id="patient-reward-text">-</span></div>
+              <div class="stat-row"><span class="stat-label">⚠️ Riesgo / Amenaza:</span><span class="stat-val amber" id="patient-risk-text" style="font-size:0.75rem;">-</span></div>
+
+              <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
+                <button class="btn-upgrade-action" style="margin-top:0;" onclick="admitPatient()">🏥 ADMITIR EN CAMA C-02</button>
+                <button class="btn-upgrade-action" style="margin-top:0; background:#3b1111; color:#fca5a5;" onclick="dismissPatient()">🚪 RECHAZAR EN COMPUERTA</button>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
-
     </section>
 
-    <!-- TAB 1: ESTADO DE CAMPAÑA -->
+    <!-- TAB 3: ESTADO DE CAMPAÑA -->
     <section id="tab-status" class="tab-content">
       <div class="grid-dashboard">
-        
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">🛡️ ALEXANDER // OPERADOR UMBRAL</span>
             <span class="badge badge-brass">NIVEL 5</span>
           </div>
           <div class="panel-body">
-            <div class="stat-row">
-              <span class="stat-label">❤️ Salud Vital:</span>
-              <span class="stat-val green" id="pc-hp">12 / 12</span>
-            </div>
+            <div class="stat-row"><span class="stat-label">❤️ Salud Vital:</span><span class="stat-val green" id="pc-hp">12 / 12</span></div>
             <div class="progress-bar-bg"><div class="progress-fill fill-green" style="width: 100%;"></div></div>
-
-            <div class="stat-row" style="margin-top: 0.75rem;">
-              <span class="stat-label">⚡ Fatiga:</span>
-              <span class="stat-val" id="pc-fatigue">0 / 7</span>
-            </div>
+            <div class="stat-row" style="margin-top: 0.75rem;"><span class="stat-label">⚡ Fatiga:</span><span class="stat-val" id="pc-fatigue">0 / 7</span></div>
             <div class="progress-bar-bg"><div class="progress-fill fill-amber" style="width: 0%;"></div></div>
-
-            <div class="stat-row" style="margin-top: 0.75rem;">
-              <span class="stat-label">🔮 Reserva Umbral:</span>
-              <span class="stat-val brass" id="pc-souls">10 Almas</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">🌟 Puntos de Destino:</span>
-              <span class="stat-val brass">3</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">💰 Saldo Disponible:</span>
-              <span class="stat-val green" id="pc-credits">1.196 Créditos (+300 pendientes)</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">📈 Experiencia Total:</span>
-              <span class="stat-val">1.335 XP (335 / 500)</span>
-            </div>
+            <div class="stat-row" style="margin-top: 0.75rem;"><span class="stat-label">🔮 Reserva Umbral:</span><span class="stat-val brass" id="pc-souls">10 Almas</span></div>
+            <div class="stat-row"><span class="stat-label">🌟 Puntos de Destino:</span><span class="stat-val brass">3</span></div>
+            <div class="stat-row"><span class="stat-label">💰 Saldo Disponible:</span><span class="stat-val green" id="pc-credits">1.196 Créditos (+300 pendientes)</span></div>
+            <div class="stat-row"><span class="stat-label">📈 Experiencia Total:</span><span class="stat-val">1.335 XP (335 / 500)</span></div>
           </div>
         </div>
 
@@ -943,30 +1052,12 @@ def get_dashboard_html() -> str:
             <span class="badge badge-live">OPERATIVA</span>
           </div>
           <div class="panel-body">
-            <div class="stat-row">
-              <span class="stat-label">📍 Ubicación:</span>
-              <span class="stat-val" style="font-size:0.75rem;">Caídas de Polvo / Dust Falls</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">🛡️ Seguridad:</span>
-              <span class="stat-val brass">Severan Holt (Cap: 200 ¤/sem)</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">🚪 Estado Base:</span>
-              <span class="stat-val amber">Cerrada al Público / Cuarentena</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">🍖 Raciones Comunes:</span>
-              <span class="stat-val">24 raciones</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">🎖️ Raciones Militares / Médicas:</span>
-              <span class="stat-val">10 Militares · 9 Médicas · 5 Alta Nutrición</span>
-            </div>
-            <div class="stat-row">
-              <span class="stat-label">💧 Agua Potable:</span>
-              <span class="stat-val green">16 Botellas (1L)</span>
-            </div>
+            <div class="stat-row"><span class="stat-label">📍 Ubicación:</span><span class="stat-val" style="font-size:0.75rem;">Caídas de Polvo / Dust Falls</span></div>
+            <div class="stat-row"><span class="stat-label">🛡️ Seguridad:</span><span class="stat-val brass">Severan Holt (Cap: 200 ¤/sem)</span></div>
+            <div class="stat-row"><span class="stat-label">🚪 Estado Base:</span><span class="stat-val amber">Cerrada al Público / Cuarentena</span></div>
+            <div class="stat-row"><span class="stat-label">🍖 Raciones Comunes:</span><span class="stat-val">24 raciones</span></div>
+            <div class="stat-row"><span class="stat-label">🎖️ Raciones Militares / Médicas:</span><span class="stat-val">10 Militares · 9 Médicas · 5 Alta Nutrición</span></div>
+            <div class="stat-row"><span class="stat-label">💧 Agua Potable:</span><span class="stat-val green">16 Botellas (1L)</span></div>
           </div>
         </div>
 
@@ -976,68 +1067,18 @@ def get_dashboard_html() -> str:
             <span class="badge badge-brass">CENSO RHO-9</span>
           </div>
           <div class="panel-body" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
-            
-            <div class="char-card">
-              <div class="char-card-header">
-                <span>Tertius Holt</span>
-                <span class="stat-val green">8 / 11 · Despierto</span>
-              </div>
-              <div class="char-role">Especialista Enforcer / Deudor</div>
-              <div class="char-status">Consciente y estable. Drenaje torácico funcional; puede conversar. Pregunta por su deuda.</div>
-            </div>
-
-            <div class="char-card">
-              <div class="char-card-header">
-                <span>Quartus Holt</span>
-                <span class="stat-val crimson">4 / 11 · En Coma</span>
-              </div>
-              <div class="char-role">Paciente Crítico / C-03</div>
-              <div class="char-status">Crítico estable. Inconsciente e intubado por metralla a quemarropa (&lt;3m).</div>
-            </div>
-
-            <div class="char-card">
-              <div class="char-card-header">
-                <span>Halven Rusk</span>
-                <span class="stat-val brass">Pacto de Cosecha</span>
-              </div>
-              <div class="char-role">Auxiliar Médico / Diagnosticador</div>
-              <div class="char-status">Activo. Ejecutó personalmente a los 4 cautivos en Rho-9 (+4 almas transferidas a Alexander).</div>
-            </div>
-
-            <div class="char-card">
-              <div class="char-card-header">
-                <span>Severan Holt</span>
-                <span class="stat-val green">Maestro de Seguridad</span>
-              </div>
-              <div class="char-role">Comando Táctico y Accesos</div>
-              <div class="char-status">A cargo de cerraduras, guardias y fortificación. Asistente operativo: Jarek Venn.</div>
-            </div>
-
-            <div class="char-card">
-              <div class="char-card-header">
-                <span>Jarek Venn</span>
-                <span class="stat-val amber">0 / 9 · Débil</span>
-              </div>
-              <div class="char-role">Primer Deudor E-12</div>
-              <div class="char-status">Extraído de Sombra. Torso reparado. Asignado a Severan (Pacto: 0/10 ejecuciones + 1 año de trabajo).</div>
-            </div>
-
-            <div class="char-card">
-              <div class="char-card-header">
-                <span>Syra Kol</span>
-                <span class="stat-val green">16 Años · ADM-01</span>
-              </div>
-              <div class="char-role">Auxiliar Logística y Registros</div>
-              <div class="char-status">A cargo de la contabilidad de consumibles, medicamentos y gastos autorizados.</div>
-            </div>
-
+            <div class="char-card"><div class="char-card-header"><span>Tertius Holt</span><span class="stat-val green">8 / 11 · Despierto</span></div><div class="char-role">Especialista Enforcer / Deudor</div><div class="char-status">Consciente y estable. Drenaje torácico funcional. Pregunta por su deuda.</div></div>
+            <div class="char-card"><div class="char-card-header"><span>Quartus Holt</span><span class="stat-val crimson">4 / 11 · En Coma</span></div><div class="char-role">Paciente Crítico / C-03</div><div class="char-status">Crítico estable. Inconsciente e intubado por metralla a quemarropa (&lt;3m).</div></div>
+            <div class="char-card"><div class="char-card-header"><span>Halven Rusk</span><span class="stat-val brass">Pacto de Cosecha</span></div><div class="char-role">Auxiliar Médico / Diagnosticador</div><div class="char-status">Activo. Ejecutó a los 4 cautivos (+4 almas transferidas a Alexander).</div></div>
+            <div class="char-card"><div class="char-card-header"><span>Severan Holt</span><span class="stat-val green">Maestro de Seguridad</span></div><div class="char-role">Comando Táctico y Accesos</div><div class="char-status">A cargo de cerraduras, guardias y fortificación. Asistente: Jarek Venn.</div></div>
+            <div class="char-card"><div class="char-card-header"><span>Jarek Venn</span><span class="stat-val amber">0 / 9 · Débil</span></div><div class="char-role">Primer Deudor E-12</div><div class="char-status">Extraído de Sombra. Torso reparado. Asignado a Severan (Pacto: 0/10 ejecuciones + 1 año).</div></div>
+            <div class="char-card"><div class="char-card-header"><span>Syra Kol</span><span class="stat-val green">16 Años · ADM-01</span></div><div class="char-role">Auxiliar Logística y Registros</div><div class="char-status">A cargo de la contabilidad de consumibles, medicamentos y gastos autorizados.</div></div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- TAB 2: SOMBRA INFINITA -->
+    <!-- TAB 4: SOMBRA INFINITA -->
     <section id="tab-inventory" class="tab-content">
       <div class="filter-bar">
         <input type="text" id="inv-search" class="search-input" placeholder="🔍 Filtrar armas, fármacos, consumibles, herramientas o muestras..." onkeyup="filterInventory()">
@@ -1050,104 +1091,24 @@ def get_dashboard_html() -> str:
         </div>
         <div class="panel-body">
           <div class="inv-category-grid" id="weapons-grid">
-            
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>P-01 // Pistola Compacta Hesh-9</span><span class="badge badge-brass">8 / 8</span></div>
-              <div class="inv-item-detail">D4 | Pen 0 | Alcance 20m | Compacta / Ocultable / Simple</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>P-02 // Pistola Servicio Mk II</span><span class="badge badge-brass">12 / 12</span></div>
-              <div class="inv-item-detail">D5 | Pen 0 | Alcance 30m | Fiable | Patrón Servicio</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>P-03 // Pistola Servicio Mk II</span><span class="badge badge-brass">12 / 12</span></div>
-              <div class="inv-item-detail">D5 | Pen 0 | Alcance 30m | Fiable | Patrón Servicio</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>P-04 // Autopistola Vex</span><span class="badge badge-brass">18 / 18</span></div>
-              <div class="inv-item-detail">D4 | Pen 0 | Alcance 25m | Ráfaga 3 / Automática / Compacta</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>P-05 // Pistola Pesada Brakk</span><span class="badge badge-brass">8 / 8</span></div>
-              <div class="inv-item-detail">D6 | Pen 1 | Alcance 25m | Retroceso Fuerte / Pesada</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>L-01 // Carabina Kord-24</span><span class="badge badge-brass">24 / 24</span></div>
-              <div class="inv-item-detail">D5 | Pen 0 | Alcance 60m | Carabina / Fiable | Ráfaga 3</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>L-02 // Carabina Kord-24</span><span class="badge badge-brass">24 / 24</span></div>
-              <div class="inv-item-detail">D5 | Pen 0 | Alcance 60m | Carabina / Fiable | Ráfaga 3</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>L-03 // Escopeta Compacta</span><span class="badge badge-brass">6 / 6</span></div>
-              <div class="inv-item-detail">D6 | Pen 0 | Alcance 30m | Dispersión / Potente a Corta Distancia</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>L-04 // Autogun Patrón Reth</span><span class="badge badge-brass">30 / 30</span></div>
-              <div class="inv-item-detail">D5 | Pen 0 | Alcance 80m | Automática / Ráfaga 3</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>L-05 // Rifle Precisión Manufactorum</span><span class="badge badge-brass">10 / 10</span></div>
-              <div class="inv-item-detail">D6 | Pen 1 | Alcance 120m | Precisa / Lenta</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>Caja Reforzada de Explosivos</span><span class="badge badge-brass">6 Granadas</span></div>
-              <div class="inv-item-detail">3 Granadas Frag · 2 Granadas de Humo · 1 Granada Krak</div>
-            </div>
-
-            <div class="inv-item-card">
-              <div class="inv-item-title"><span>Reserva de Munición Suelta</span><span class="badge badge-green">1.000+ Proyectiles</span></div>
-              <div class="inv-item-detail">Pistola (240) · Kord-24 (312) · Autogun (240) · Escopeta (120 + 8 incendiarios)</div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-dashboard">
-        <div class="panel">
-          <div class="panel-header">
-            <span class="panel-title">💉 FÁRMACOS Y CONSUMIBLES</span>
-          </div>
-          <div class="panel-body">
-            <div class="stat-row"><span class="stat-label">Antibióticos amplio espectro:</span><span class="stat-val">36 dosis</span></div>
-            <div class="stat-row"><span class="stat-label">Analgésicos clínicos:</span><span class="stat-val">48 dosis</span></div>
-            <div class="stat-row"><span class="stat-label">Sedantes / Anestésicos:</span><span class="stat-val">30 sedantes · 18 generales · 24 locales</span></div>
-            <div class="stat-row"><span class="stat-label">Coagulantes inyectables:</span><span class="stat-val">30 dosis</span></div>
-            <div class="stat-row"><span class="stat-label">Fluidos IV (Salina / Electrolitos / Sangre):</span><span class="stat-val">32 salina · 24 nutrición · 12 sintética</span></div>
-            <div class="stat-row"><span class="stat-label">Kits de recarga de Medikit:</span><span class="stat-val brass">12 recargas completas</span></div>
-            <div class="stat-row"><span class="stat-label">Apósitos, Vendas y Suturas:</span><span class="stat-val">80 apósitos · 48 vendas · 40 suturas</span></div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-header">
-            <span class="panel-title">🧬 BIOBANCO & CUSTODIA VIVA</span>
-          </div>
-          <div class="panel-body">
-            <div class="stat-row"><span class="stat-label">🩸 Unidades Sangre Transfusión:</span><span class="stat-val green">10 unidades (5 donantes)</span></div>
-            <div class="stat-row"><span class="stat-label">🫀 Órganos Candidatos:</span><span class="stat-val">3 corazones · 5 pulmones · 2 hígados · 6 riñones</span></div>
-            <div class="stat-row"><span class="stat-label">🦾 Brazo Segundo Deudor:</span><span class="stat-val brass">Preservado para prótesis</span></div>
-            <div class="stat-row"><span class="stat-label">⚠️ Cautivos Ejecutados (Incursión):</span><span class="stat-val">4 cadáveres separados en Sombra</span></div>
-            <div class="stat-row"><span class="stat-label">❄️ Vivos en Suspensión:</span><span class="stat-val amber">Op. M-01 · Sujetos I, II, III · Segundo Deudor</span></div>
-            <div class="stat-row"><span class="stat-label">🔬 Muestras Biológicas Especiales:</span><span class="stat-val">Testigos 1 y 2 · Masa Khepra · M-01</span></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>P-01 // Pistola Compacta Hesh-9</span><span class="badge badge-brass">8 / 8</span></div><div class="inv-item-detail">D4 | Pen 0 | Alcance 20m | Compacta / Ocultable</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>P-02 // Pistola Servicio Mk II</span><span class="badge badge-brass">12 / 12</span></div><div class="inv-item-detail">D5 | Pen 0 | Alcance 30m | Fiable | Patrón Servicio</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>P-03 // Pistola Servicio Mk II</span><span class="badge badge-brass">12 / 12</span></div><div class="inv-item-detail">D5 | Pen 0 | Alcance 30m | Fiable | Patrón Servicio</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>P-04 // Autopistola Vex</span><span class="badge badge-brass">18 / 18</span></div><div class="inv-item-detail">D4 | Pen 0 | Alcance 25m | Ráfaga 3 / Automática</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>P-05 // Pistola Pesada Brakk</span><span class="badge badge-brass">8 / 8</span></div><div class="inv-item-detail">D6 | Pen 1 | Alcance 25m | Retroceso Fuerte / Pesada</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>L-01 // Carabina Kord-24</span><span class="badge badge-brass">24 / 24</span></div><div class="inv-item-detail">D5 | Pen 0 | Alcance 60m | Carabina / Fiable | Ráfaga 3</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>L-02 // Carabina Kord-24</span><span class="badge badge-brass">24 / 24</span></div><div class="inv-item-detail">D5 | Pen 0 | Alcance 60m | Carabina / Fiable | Ráfaga 3</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>L-03 // Escopeta Compacta</span><span class="badge badge-brass">6 / 6</span></div><div class="inv-item-detail">D6 | Pen 0 | Alcance 30m | Dispersión / Potente</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>L-04 // Autogun Patrón Reth</span><span class="badge badge-brass">30 / 30</span></div><div class="inv-item-detail">D5 | Pen 0 | Alcance 80m | Automática / Ráfaga 3</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>L-05 // Rifle Precisión Manufactorum</span><span class="badge badge-brass">10 / 10</span></div><div class="inv-item-detail">D6 | Pen 1 | Alcance 120m | Precisa / Lenta</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>Caja Reforzada de Explosivos</span><span class="badge badge-brass">6 Granadas</span></div><div class="inv-item-detail">3 Granadas Frag · 2 Granadas de Humo · 1 Granada Krak</div></div>
+            <div class="inv-item-card"><div class="inv-item-title"><span>Reserva de Munición Suelta</span><span class="badge badge-green">1.000+ Proyectiles</span></div><div class="inv-item-detail">Pistola (240) · Kord-24 (312) · Autogun (240) · Escopeta (120 + 8 incendiarios)</div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 3: SIMULADOR DE TIRADAS -->
+    <!-- TAB 5: SIMULATOR -->
     <section id="tab-roller" class="tab-content">
       <div class="panel" style="max-width: 800px; margin: 0 auto;">
         <div class="panel-header">
@@ -1155,54 +1116,22 @@ def get_dashboard_html() -> str:
           <span class="badge badge-brass">MOTOR REST API</span>
         </div>
         <div class="panel-body">
-          <div class="dice-form">
-            <div class="form-group">
-              <label class="form-label">Acción Declarada</label>
-              <input type="text" id="roll-action" class="form-control" value="Alexander ausculta y estabiliza a Tertius en Rho-9" placeholder="Descripción de la acción...">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Atributo o Habilidad Base</label>
-              <select id="roll-attr" class="form-control">
-                <option value="65">Medicina Clandestina (65)</option>
-                <option value="68">Voluntad / Poderes Umbrales (68)</option>
-                <option value="55">Habilidad de Proyectiles / Balística (55)</option>
-                <option value="48">Agilidad / Sigilo (48)</option>
-                <option value="52">Percepción / Diagnóstico (52)</option>
-                <option value="45">Cuerpo a Cuerpo (45)</option>
-                <option value="40">Resistencia (40)</option>
-                <option value="38">Fuerza (38)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Modificador Circunstancial (+/-)</label>
-              <select id="roll-mod" class="form-control">
-                <option value="15">+15 (Diagnostor Rho-9 / Medicina sin combate)</option>
-                <option value="10">+10 (Equipo médico avanzado / Bio-auspex)</option>
-                <option value="0">+0 (Condiciones estándar)</option>
-                <option value="-10">-10 (Bajo presión / Luz tenue)</option>
-                <option value="-20">-20 (Cirugía de trauma extremo / Oposición fuerte)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Actor</label>
-              <input type="text" id="roll-actor" class="form-control" value="Alexander">
-            </div>
-            <button class="btn-roll" onclick="executeRoll()">⚡ EJECUTAR TIRADA DETERMINISTA d100</button>
+          <div class="dice-form" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div class="form-group"><label class="form-label">Acción Declarada</label><input type="text" id="roll-action" class="form-control" value="Alexander ausculta y estabiliza a Tertius en Rho-9"></div>
+            <div class="form-group"><label class="form-label">Atributo o Habilidad Base</label><select id="roll-attr" class="form-control"><option value="65">Medicina Clandestina (65)</option><option value="68">Voluntad / Poderes Umbrales (68)</option><option value="55">Habilidad de Proyectiles / Balística (55)</option><option value="48">Agilidad / Sigilo (48)</option><option value="52">Percepción / Diagnóstico (52)</option><option value="45">Cuerpo a Cuerpo (45)</option></select></div>
+            <div class="form-group"><label class="form-label">Modificador (+/-)</label><select id="roll-mod" class="form-control"><option value="15">+15 (Diagnostor Rho-9)</option><option value="10">+10 (Equipo médico avanzado)</option><option value="0">+0 (Estándar)</option><option value="-10">-10 (Bajo presión)</option></select></div>
+            <div class="form-group"><label class="form-label">Actor</label><input type="text" id="roll-actor" class="form-control" value="Alexander"></div>
+            <button class="btn-action-primary" style="grid-column: 1 / -1;" onclick="executeRoll()">⚡ EJECUTAR TIRADA DETERMINISTA d100</button>
           </div>
-
-          <div id="roll-result" class="roll-result-box">
-          </div>
+          <div id="roll-result" class="roll-result-box" style="display:none; background:#0a0d12; border:1px dashed var(--border-panel); padding:1rem; border-radius:4px;"></div>
         </div>
       </div>
     </section>
 
-    <!-- TAB 4: DOSSIERS Y CRÓNICAS -->
+    <!-- TAB 6: DOSSIERS -->
     <section id="tab-docs" class="tab-content">
       <div class="panel">
-        <div class="panel-header">
-          <span class="panel-title">📜 ARCHIVO DE CAMPAÑA // DOSSIERS MAESTROS</span>
-          <span class="badge badge-brass">AUTORIDAD CANÓNICA</span>
-        </div>
+        <div class="panel-header"><span class="panel-title">📜 ARCHIVO DE CAMPAÑA // DOSSIERS MAESTROS</span></div>
         <div class="panel-body">
           <div class="doc-selector">
             <button class="doc-btn active" onclick="loadDocument('FICHA_DEL_PERSONAJE', this)">FICHA DEL PERSONAJE</button>
@@ -1225,54 +1154,24 @@ def get_dashboard_html() -> str:
       <button class="modal-close-btn" onclick="document.getElementById('room-modal').style.display='none'">&times;</button>
       <div style="font-size:0.75rem; color:var(--brass-dim);" id="modal-room-code">SECTOR</div>
       <h2 style="font-family:'Cinzel',serif; color:var(--brass); margin-bottom:0.75rem;" id="modal-room-name">Nombre de la Sala</h2>
+      <div class="stat-row"><span class="stat-label">🏷️ Nivel & Estado:</span><span class="stat-val brass" id="modal-room-level">Nivel 1</span></div>
+      <div class="stat-row"><span class="stat-label">👥 Personal Presente:</span><span class="stat-val" id="modal-room-occupants">-</span></div>
+      <div class="stat-row"><span class="stat-label">🔧 Equipamiento Instalado:</span><span class="stat-val" id="modal-room-equipment" style="font-size:0.78rem;">-</span></div>
+      <div class="stat-row"><span class="stat-label">✨ Bono a la Campaña:</span><span class="stat-val green" id="modal-room-bonus" style="font-size:0.78rem;">-</span></div>
       
-      <div class="stat-row">
-        <span class="stat-label">🏷️ Nivel & Estado:</span>
-        <span class="stat-val brass" id="modal-room-level">Nivel 1</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-label">👥 Personal Presente:</span>
-        <span class="stat-val" id="modal-room-occupants">-</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-label">🔧 Equipamiento Instalado:</span>
-        <span class="stat-val" id="modal-room-equipment" style="font-size:0.78rem;">-</span>
-      </div>
-      <div class="stat-row">
-        <span class="stat-label">✨ Bono a la Campaña:</span>
-        <span class="stat-val green" id="modal-room-bonus" style="font-size:0.78rem;">-</span>
-      </div>
-
-      <!-- Upgrade Box -->
       <div class="upgrade-box" id="modal-upgrade-section">
-        <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--amber); margin-bottom:0.5rem;" id="modal-upgrade-title">
-          🚀 Siguiente Mejora Disponible
-        </div>
-        <div style="font-size:0.8rem; color:var(--text-main); margin-bottom:0.5rem;" id="modal-upgrade-effect">
-          Efecto: -
-        </div>
-        <div class="stat-row" style="background:#0b0e14; padding:0.4rem 0.6rem; border-radius:4px;">
-          <span class="stat-label">💰 Coste Créditos:</span>
-          <span class="stat-val green" id="modal-upgrade-credits">0 ¤</span>
-        </div>
-        <div class="stat-row" style="background:#0b0e14; padding:0.4rem 0.6rem; border-radius:4px; margin-top:0.25rem;">
-          <span class="stat-label">🔩 Materiales / Requisitos:</span>
-          <span class="stat-val brass" id="modal-upgrade-mats" style="font-size:0.75rem;">-</span>
-        </div>
+        <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--amber); margin-bottom:0.5rem;" id="modal-upgrade-title">🚀 Siguiente Mejora</div>
+        <div style="font-size:0.8rem; color:var(--text-main); margin-bottom:0.5rem;" id="modal-upgrade-effect">Efecto: -</div>
+        <div class="stat-row" style="background:#0b0e14; padding:0.4rem 0.6rem; border-radius:4px;"><span class="stat-label">💰 Coste Créditos:</span><span class="stat-val green" id="modal-upgrade-credits">0 ¤</span></div>
+        <div class="stat-row" style="background:#0b0e14; padding:0.4rem 0.6rem; border-radius:4px; margin-top:0.25rem;"><span class="stat-label">🔩 Materiales:</span><span class="stat-val brass" id="modal-upgrade-mats" style="font-size:0.75rem;">-</span></div>
         <button class="btn-upgrade-action" id="btn-execute-upgrade" onclick="executeUpgrade()">🔨 EJECUTAR PROYECTO DE MEJORA</button>
       </div>
 
-      <!-- Sublevel Exploration Box -->
       <div class="upgrade-box" id="modal-explore-section" style="display:none; border-color:var(--cyan-plasma);">
-        <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--cyan-plasma); margin-bottom:0.5rem;">
-          🔦 Misión de Exploración de Subnivel
-        </div>
-        <div style="font-size:0.8rem; color:var(--text-main); margin-bottom:0.5rem;" id="modal-explore-cost">
-          Requisito: 1 Turno de Reconocimiento + Sensores Auspex
-        </div>
+        <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--cyan-plasma); margin-bottom:0.5rem;">🔦 Exploración de Subnivel</div>
+        <div style="font-size:0.8rem; color:var(--text-main); margin-bottom:0.5rem;" id="modal-explore-cost">Requisito: 1 Turno + Auspex</div>
         <button class="btn-explore-action" id="btn-execute-explore" onclick="executeExploration()">🔦 DESPEJAR NIEBLA & ASEGURAR SECTOR</button>
       </div>
-
       <div id="modal-feedback" style="margin-top:0.75rem; font-size:0.8rem; display:none;"></div>
     </div>
   </div>
@@ -1286,6 +1185,7 @@ def get_dashboard_html() -> str:
     let currentFloor = 0;
     let currentSelectedRoom = null;
     let availableCredits = 1196;
+    let currentPatient = null;
 
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -1297,6 +1197,7 @@ def get_dashboard_html() -> str:
       const targetContent = document.getElementById(tabId);
       if (targetContent) targetContent.classList.add('active');
 
+      if (tabId === 'tab-factions') loadFactions();
       if (tabId === 'tab-docs') {
         const activeDocBtn = document.querySelector('.doc-btn.active') || document.querySelector('.doc-btn');
         if (activeDocBtn) activeDocBtn.click();
@@ -1326,12 +1227,8 @@ def get_dashboard_html() -> str:
             document.getElementById('bar-sanidad').style.width = data.global_metrics.calidad_sanitaria + '%';
           }
           renderBlueprint(data.sectors);
-        } else {
-          container.innerHTML = '<div style="color:var(--crimson-light);">Error cargando plano de Rho-9.</div>';
         }
-      } catch (err) {
-        console.error(err);
-      }
+      } catch (err) { console.error(err); }
     }
 
     function renderBlueprint(sectors) {
@@ -1413,21 +1310,14 @@ def get_dashboard_html() -> str:
       if (!currentSelectedRoom) return;
       const feedback = document.getElementById('modal-feedback');
       feedback.style.display = 'block';
-      feedback.innerHTML = '<span style="color:var(--amber);">[INICIANDO PROTOCOLO DE CONSTRUCCIÓN Y TRANSFERENCIA DE FONDOS...]</span>';
+      feedback.innerHTML = '<span style="color:var(--amber);">[EJECUTANDO MEJORA...]</span>';
 
       try {
         const resp = await fetch('/api/domain/upgrade', {
           method: 'POST',
-          headers: {
-            'x-api-key': API_KEY,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            room_id: currentSelectedRoom.id,
-            available_credits: availableCredits
-          })
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ room_id: currentSelectedRoom.id, available_credits: availableCredits })
         });
-
         const data = await resp.json();
         if (resp.ok && data.success) {
           availableCredits = data.remaining_credits;
@@ -1438,32 +1328,23 @@ def get_dashboard_html() -> str:
           await loadTelemetry();
           setTimeout(() => { document.getElementById('room-modal').style.display = 'none'; }, 1800);
         } else {
-          feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${data.error || 'Fallo al aplicar mejora.'}</span>`;
+          feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ ${data.error || 'Error'}</span>`;
         }
-      } catch (err) {
-        feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${err.message}</span>`;
-      }
+      } catch (err) { feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ ${err.message}</span>`; }
     }
 
     async function executeExploration() {
       if (!currentSelectedRoom) return;
       const feedback = document.getElementById('modal-feedback');
       feedback.style.display = 'block';
-      feedback.innerHTML = '<span style="color:var(--cyan-plasma);">[ENVIANDO SEÑAL AUSPEX Y PATRULLA DE RECONOCIMIENTO...]</span>';
+      feedback.innerHTML = '<span style="color:var(--cyan-plasma);">[EXPLORANDO SUBNIVEL...]</span>';
 
       try {
         const resp = await fetch('/api/domain/explore_step', {
           method: 'POST',
-          headers: {
-            'x-api-key': API_KEY,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            sector_id: currentSelectedRoom.id,
-            actor: 'Alexander'
-          })
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sector_id: currentSelectedRoom.id, actor: 'Alexander' })
         });
-
         const data = await resp.json();
         if (resp.ok && data.success) {
           feedback.innerHTML = `<span style="color:var(--cyan-plasma); font-weight:700;">✅ ${data.message}</span>`;
@@ -1471,37 +1352,154 @@ def get_dashboard_html() -> str:
           await loadTelemetry();
           setTimeout(() => { document.getElementById('room-modal').style.display = 'none'; }, 1800);
         } else {
-          feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${data.error || 'Fallo de exploración.'}</span>`;
+          feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ ${data.error || 'Error'}</span>`;
         }
-      } catch (err) {
-        feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${err.message}</span>`;
-      }
+      } catch (err) { feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ ${err.message}</span>`; }
+    }
+
+    async function executeSurgery() {
+      const p = document.getElementById('surg-patient').value;
+      const proc = document.getElementById('surg-procedure').value;
+      const useDiag = document.getElementById('surg-diag').checked;
+      const useBlood = document.getElementById('surg-blood').checked;
+      const res = document.getElementById('surgery-result-box');
+
+      res.style.display = 'block';
+      res.innerHTML = '<span style="color:var(--amber);">[CIRUGÍA EN CURSO // APLICANDO ANESTESIA E INSTRUMENTAL...]</span>';
+
+      try {
+        const resp = await fetch('/api/medicae/operate', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ patient_name: p, procedure: proc, medic_skill: 65, use_diagnostor: useDiag, use_blood: useBlood })
+        });
+        const d = await resp.json();
+        res.innerHTML = `
+          <div class="upgrade-box" style="border-color:${d.success ? 'var(--green-auspex)' : 'var(--crimson-light)'};">
+            <div style="font-weight:800; color:${d.success ? 'var(--green-auspex)' : 'var(--crimson-light)'};">${d.message}</div>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.35rem;">Consumibles empleados: ${d.consumables_used}</div>
+          </div>
+        `;
+        await loadTelemetry();
+      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
+    }
+
+    async function synthesizeCompound(key) {
+      const res = document.getElementById('alchemy-result-box');
+      res.style.display = 'block';
+      res.innerHTML = '<span style="color:var(--amber);">[CALENTANDO REACTORES Y CONDENSADORES...]</span>';
+
+      try {
+        const resp = await fetch('/api/medicae/synthesize', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ compound_key: key, medic_skill: 65, available_credits: availableCredits })
+        });
+        const d = await resp.json();
+        if (resp.ok && d.success) {
+          availableCredits = d.remaining_credits;
+          document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
+          document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--green-auspex); color:var(--green-auspex); font-weight:700;">${d.message}</div>`;
+        } else {
+          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--crimson-light); color:var(--crimson-light);">${d.error || 'Fallo'}</div>`;
+        }
+      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
+    }
+
+    async function loadFactions() {
+      const c = document.getElementById('factions-container');
+      try {
+        const resp = await fetch('/api/factions/status', { headers: { 'x-api-key': API_KEY } });
+        if (resp.ok) {
+          const d = await resp.json();
+          c.innerHTML = '';
+          (d.factions || []).forEach(f => {
+            const card = document.createElement('div');
+            card.className = 'char-card';
+            card.innerHTML = `
+              <div class="char-card-header">
+                <span>${f.name}</span>
+                <span class="stat-val ${f.stance_color}">Reputación: ${f.reputation >= 0 ? '+' + f.reputation : f.reputation}</span>
+              </div>
+              <div class="char-role">${f.stance} · Favores Disponibles: <strong>${f.favors_available}</strong></div>
+              <div style="margin-top:0.4rem; display:flex; flex-direction:column; gap:0.3rem;">
+                ${f.claimable_perks.map(p => `
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.75rem; background:#0b0e14; padding:0.3rem 0.5rem; border-radius:3px;">
+                    <span>${p.title} (${p.effect})</span>
+                    <button class="btn-synth" onclick="claimFactionFavor('${f.key}', '${p.id}')">COBRAR (${p.cost_favors} F)</button>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+            c.appendChild(card);
+          });
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    async function claimFactionFavor(factionKey, perkId) {
+      try {
+        const resp = await fetch('/api/factions/claim_favor', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ faction_key: factionKey, perk_id: perkId })
+        });
+        const d = await resp.json();
+        alert(d.message || (d.success ? 'Favor cobrado' : d.error));
+        await loadFactions();
+        await loadTelemetry();
+      } catch (e) { alert(e.message); }
+    }
+
+    async function generatePatientEvent() {
+      const card = document.getElementById('patient-event-card');
+      card.style.display = 'block';
+
+      try {
+        const resp = await fetch('/api/events/generate_patient', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY }
+        });
+        if (resp.ok) {
+          currentPatient = await resp.json();
+          document.getElementById('patient-name-title').textContent = '🚨 ' + currentPatient.name;
+          document.getElementById('patient-faction-text').textContent = currentPatient.faction;
+          document.getElementById('patient-trauma-text').textContent = currentPatient.trauma;
+          document.getElementById('patient-hp-text').textContent = currentPatient.vital_status;
+          document.getElementById('patient-reward-text').textContent = currentPatient.reward_offered;
+          document.getElementById('patient-risk-text').textContent = currentPatient.risk_warning;
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    function admitPatient() {
+      if (!currentPatient) return;
+      alert(`¡Paciente ${currentPatient.name} ingresado en Cama C-02 de Rho-9! Puedes operarlo en la pestaña de Cirugía.`);
+      document.getElementById('patient-event-card').style.display = 'none';
+      switchTab('tab-medicae');
+    }
+
+    function dismissPatient() {
+      alert("Compuerta atrancada. El sujeto ha sido rechazado.");
+      document.getElementById('patient-event-card').style.display = 'none';
     }
 
     async function assignStaff(npcName, task) {
       try {
-        const resp = await fetch('/api/domain/assign', {
+        await fetch('/api/domain/assign', {
           method: 'POST',
-          headers: {
-            'x-api-key': API_KEY,
-            'Content-Type': 'application/json'
-          },
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
           body: JSON.stringify({ npc_name: npcName, task: task })
         });
-        if (resp.ok) {
-          await loadTelemetry();
-        }
-      } catch (err) {
-        console.error(err);
-      }
+        await loadTelemetry();
+      } catch (err) { console.error(err); }
     }
 
     async function loadTelemetry() {
       const container = document.getElementById('telemetry-feed-container');
       try {
-        const resp = await fetch('/api/domain/logs', {
-          headers: { 'x-api-key': API_KEY }
-        });
+        const resp = await fetch('/api/domain/logs', { headers: { 'x-api-key': API_KEY } });
         if (resp.ok) {
           const data = await resp.json();
           container.innerHTML = '';
@@ -1512,95 +1510,32 @@ def get_dashboard_html() -> str:
             container.appendChild(entry);
           });
         }
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
-    function closeRoomModal(e) {
-      if (e.target.id === 'room-modal') {
-        document.getElementById('room-modal').style.display = 'none';
-      }
+      } catch (err) { console.error(err); }
     }
 
     async function loadDocument(name, btn) {
       document.querySelectorAll('.doc-btn').forEach(b => b.classList.remove('active'));
       if (btn) btn.classList.add('active');
-      
       const viewer = document.getElementById('doc-content');
-      viewer.textContent = `[COGITADOR] Cargando ${name}.txt desde el archivo autoritativo...`;
+      viewer.textContent = `[COGITADOR] Cargando ${name}.txt...`;
 
       try {
-        const resp = await fetch(`/api/documents/${name}`, {
-          headers: { 'x-api-key': API_KEY }
-        });
+        const resp = await fetch(`/api/documents/${name}`, { headers: { 'x-api-key': API_KEY } });
         if (resp.ok) {
           const data = await resp.json();
           viewer.textContent = data.content || "[Archivo vacío]";
-        } else {
-          viewer.textContent = `[ERROR ${resp.status}] No se pudo cargar el documento.`;
         }
-      } catch (err) {
-        viewer.textContent = `[ERROR DE CONEXIÓN] ${err.message}`;
-      }
+      } catch (err) { viewer.textContent = err.message; }
     }
 
-    async function executeRoll() {
-      const action = document.getElementById('roll-action').value;
-      const attr = parseInt(document.getElementById('roll-attr').value);
-      const mod = parseInt(document.getElementById('roll-mod').value);
-      const actor = document.getElementById('roll-actor').value;
-      const resBox = document.getElementById('roll-result');
-
-      resBox.style.display = 'block';
-      resBox.className = 'roll-result-box';
-      resBox.innerHTML = '<span style="color:var(--amber);">[CALCULANDO TRAYECTORIA Y MATRIZ DE PROBABILIDAD d100...]</span>';
-
-      try {
-        const resp = await fetch('/api/action', {
-          method: 'POST',
-          headers: {
-            'x-api-key': API_KEY,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            user_input: action,
-            actor: actor,
-            atributo_base: attr,
-            modificadores: [mod]
-          })
-        });
-
-        if (resp.ok) {
-          const data = await resp.json();
-          const target = attr + mod;
-          const roll = data.roll || Math.floor(Math.random() * 100) + 1;
-          const isSuccess = roll <= target;
-          const degrees = Math.abs(Math.floor((target - roll) / 10));
-
-          resBox.className = `roll-result-box ${isSuccess ? 'roll-success' : 'roll-failure'}`;
-          resBox.innerHTML = `
-            <div style="font-size:1.1rem; font-weight:800; color:${isSuccess ? 'var(--green-auspex)' : 'var(--crimson-light)'}; margin-bottom:0.5rem;">
-              ${isSuccess ? '✅ ÉXITO DETERMINISTA' : '❌ FALLO DETERMINISTA'} (${degrees} Grados de ${isSuccess ? 'Éxito' : 'Fallo'})
-            </div>
-            <div><strong>Acción:</strong> ${action}</div>
-            <div><strong>Cálculo:</strong> Atributo Base (${attr}) + Modificador (${mod >= 0 ? '+' + mod : mod}) = <strong>Objetivo: ${target}</strong></div>
-            <div><strong>Tirada d100:</strong> <span style="font-size:1.2rem; font-weight:900; color:var(--brass);">${roll}</span> vs ${target}</div>
-            <div style="margin-top:0.5rem; color:var(--text-muted); font-style:italic;">"${data.narrativa || 'Resolución ejecutada y registrada por el motor de reglas.'}"</div>
-          `;
-        } else {
-          resBox.innerHTML = `<span style="color:var(--crimson-light);">[ERROR ${resp.status}] Fallo al consultar el motor de mecánicas.</span>`;
-        }
-      } catch (err) {
-        resBox.innerHTML = `<span style="color:var(--crimson-light);">[ERROR] ${err.message}</span>`;
-      }
+    function closeRoomModal(e) {
+      if (e.target.id === 'room-modal') document.getElementById('room-modal').style.display = 'none';
     }
 
     function filterInventory() {
       const q = document.getElementById('inv-search').value.toLowerCase();
       document.querySelectorAll('.inv-item-card').forEach(card => {
-        const text = card.textContent.toLowerCase();
-        card.style.display = text.includes(q) ? 'block' : 'none';
+        card.style.display = card.textContent.toLowerCase().includes(q) ? 'block' : 'none';
       });
     }
 

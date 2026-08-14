@@ -23,34 +23,40 @@ CRITICAL_WOUNDS_TABLE = [
         "id": "CRIT_EYE_003",
         "lugar": "Rostro / Ojo",
         "descripcion": "Corte profundo corneal / quemadura de plasma parcial.",
-        "penalizacion": "-20 a Percepción visual (compensado parcialmente si usa Visión de Oscuridad R1)."
+        "penalizacion": "-20 a Percepción visual."
     },
     {
         "id": "CRIT_LEG_004",
         "lugar": "Pierna / Fémur",
         "descripcion": "Desgarro muscular severo / surco de bala.",
-        "penalizacion": "Movimiento reducido a la mitad (2m por 1 PA)."
+        "penalizacion": "Movimiento reducido a la mitad."
     }
 ]
 
-CYBERNETICS_CATALOG = {
-    "EYE_BIONIC": {
-        "nombre": "Ojo Biónico de Visión Térmica",
-        "tipo": "Implante Ocular",
-        "bono": "+10 a Percepción y Visión en Infrarrojo",
-        "coste_cirugia_cargas": 2
+SURGERY_PROCEDURES = {
+    "TORACICA": {
+        "nombre": "Cirugía Torácica Mayor / Drenaje Pleural",
+        "base_target": 65,
+        "pv_recovered": 3,
+        "consumes": "1 Tubo torácico + 2 Vendas + 1 Anestésico local"
     },
-    "ARM_HYDRAULIC": {
-        "nombre": "Prótesis de Brazo Hidráulico de Servidor",
-        "tipo": "Prótesis Mecánica",
-        "bono": "+10 a Fuerza y +1 a Resiliencia en el brazo equipado",
-        "coste_cirugia_cargas": 3
+    "SUTURA_MAYOR": {
+        "nombre": "Desbridamiento & Sutura Antiséptica Profunda",
+        "base_target": 75,
+        "pv_recovered": 2,
+        "consumes": "2 Suturas + 1 Antiséptico + 1 Apósitos"
     },
-    "LUNG_PURIFIER": {
-        "nombre": "Filtro de Reaspiración Pulmonar Tox-Clean",
-        "tipo": "Implante Pulmonar",
-        "bono": "Inmunidad total a gases tóxicos y toxinas del Submundo de Necromunda",
-        "coste_cirugia_cargas": 2
+    "INJERTO_TISULAR": {
+        "nombre": "Injerto Biológico de Piel / Reparación Tisular",
+        "base_target": 60,
+        "pv_recovered": 4,
+        "consumes": "1 Muestra de tejido biobanco + 1 Coagulante"
+    },
+    "INFUSION_SHOCK": {
+        "nombre": "Estabilización de Shock Hemorrágico & Transfusión",
+        "base_target": 70,
+        "pv_recovered": 3,
+        "consumes": "1 Unidad Sangre (Biobanco) + 1 Salina IV"
     }
 }
 
@@ -58,40 +64,34 @@ class BiowareEngine:
 
     @staticmethod
     def roll_critical_wound(damage_amount: int) -> Dict[str, Any]:
-        """
-        Determina un trauma biológico crítico ante daño severo.
-        """
         wound = random.choice(CRITICAL_WOUNDS_TABLE)
         return {
-            "critical_triggered": True,
-            "wound": wound,
-            "message": f"¡HERIDA CRÍTICA SUFRIDA en {wound['lugar']}! {wound['descripcion']} (Penalización: {wound['penalizacion']})"
+            "wound_id": wound["id"],
+            "lugar": wound["lugar"],
+            "descripcion": wound["descripcion"],
+            "penalizacion": wound["penalizacion"],
+            "damage": damage_amount
         }
 
     @staticmethod
-    def install_cybernetic(cyber_key: str, medic_skill: int = 75) -> Dict[str, Any]:
-        """
-        Alexander instala una prótesis cibernética en Medicae Station Rho-9.
-        """
-        cyber = CYBERNETICS_CATALOG.get(cyber_key, CYBERNETICS_CATALOG["EYE_BIONIC"])
+    def perform_surgery(patient_name: str, procedure_key: str, medic_skill: int = 65, use_diagnostor: bool = True, use_blood: bool = False) -> Dict[str, Any]:
+        proc = SURGERY_PROCEDURES.get(procedure_key.upper(), SURGERY_PROCEDURES["SUTURA_MAYOR"])
         
-        # Tirada de cirugía en Rho-9 (Medicina 75)
-        d100 = random.randint(1, 100)
-        success = d100 <= medic_skill
+        target = medic_skill + (15 if use_diagnostor else 0) + (10 if use_blood else 0)
+        roll = random.randint(1, 100)
+        is_success = roll <= target
+        degrees = abs((target - roll) // 10)
+
+        pv_gain = proc["pv_recovered"] if is_success else 1
         
-        if success:
-            return {
-                "surgery_success": True,
-                "cybernetic": cyber,
-                "d100": d100,
-                "threshold": medic_skill,
-                "message": f"¡CIRUGÍA EXITOSA! Se ha instalado '{cyber['nombre']}' en Rho-9. Beneficio: {cyber['bono']}."
-            }
-        else:
-            return {
-                "surgery_success": False,
-                "cybernetic": cyber,
-                "d100": d100,
-                "threshold": medic_skill,
-                "message": f"Complicación en la cirugía de instalación de '{cyber['nombre']}'. Se requiere estabilización médica previa a reintentar."
-            }
+        return {
+            "success": is_success,
+            "patient": patient_name,
+            "procedure_name": proc["nombre"],
+            "target_skill": target,
+            "roll": roll,
+            "degrees": degrees,
+            "pv_healed": pv_gain,
+            "consumables_used": proc["consumes"],
+            "message": f"{'✅ CIRUGÍA EXITOSA' if is_success else '⚠️ CIRUGÍA COMPLICADA'}: {patient_name} ha recibido {proc['nombre']}. Tirada: {roll} vs {target} ({degrees} Grados). Recuperados: +{pv_gain} PV."
+        }

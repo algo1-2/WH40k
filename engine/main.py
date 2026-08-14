@@ -148,6 +148,22 @@ class ExploreSectorRequest(BaseModel):
     sector_id: str
     actor: str = "Alexander"
 
+class SurgeryRequest(BaseModel):
+    patient_name: str = "Tertius Holt"
+    procedure: str = "TORACICA"
+    medic_skill: int = 65
+    use_diagnostor: bool = True
+    use_blood: bool = False
+
+class AlchemyRequest(BaseModel):
+    compound_key: str = "STIMM_COMBATE"
+    medic_skill: int = 65
+    available_credits: int = 1196
+
+class ClaimFavorRequest(BaseModel):
+    faction_key: str
+    perk_id: str
+
 class LocationQueryRequest(BaseModel):
     location_key: str = "DUST_FALLS"
 
@@ -439,6 +455,31 @@ def explore_sublevel_endpoint(req: ExploreSectorRequest):
 def get_domain_logs_endpoint():
     """Devuelve los registros de actividad y telemetría de Rho-9"""
     return {"logs": DomainManagementEngine.get_logs()}
+
+@app.post("/api/medicae/operate", dependencies=[Depends(verify_api_key)])
+def perform_surgery_endpoint(req: SurgeryRequest):
+    """Ejecuta un procedimiento quirúrgico con instrumental y cálculo determinista"""
+    return BiowareEngine.perform_surgery(req.patient_name, req.procedure, req.medic_skill, req.use_diagnostor, req.use_blood)
+
+@app.post("/api/medicae/synthesize", dependencies=[Depends(verify_api_key)])
+def synthesize_alchemy_endpoint(req: AlchemyRequest):
+    """Sintetiza un compuesto químico/farmacológico en el laboratorio de Rho-9"""
+    return AlchemyEngine.synthesize_compound(req.compound_key, req.medic_skill, req.available_credits)
+
+@app.get("/api/factions/status", dependencies=[Depends(verify_api_key)])
+def get_factions_status_endpoint():
+    """Devuelve la matriz de reputación y favores de las facciones de Dust Falls"""
+    return {"factions": FavorsLedgerEngine.get_factions_status()}
+
+@app.post("/api/factions/claim_favor", dependencies=[Depends(verify_api_key)])
+def claim_faction_favor_endpoint(req: ClaimFavorRequest):
+    """Reclama un favor activo ante una facción para obtener beneficios"""
+    return FavorsLedgerEngine.claim_favor(req.faction_key, req.perk_id)
+
+@app.post("/api/events/generate_patient", dependencies=[Depends(verify_api_key)])
+def generate_patient_event_endpoint():
+    """Genera una llamada de urgencia médica en la compuerta de Rho-9"""
+    return NPCGenerator.generate_clandestine_patient()
 
 @app.post("/api/domain/assign", dependencies=[Depends(verify_api_key)])
 def assign_staff(req: AssignTaskRequest):
