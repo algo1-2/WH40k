@@ -5,20 +5,70 @@
 
 ---
 
-## 📋 REGISTRO CANÓNICO DE PNJ — FUENTE DE VERDAD (`DM.NPC.REGISTRY`)
+## 📋 REGISTRO CANÓNICO DE PNJ Y SÉQUITO — FUENTE DE VERDAD (`DM.NPC.REGISTRY`)
 
-> Este registro es la referencia definitiva de nombres, títulos y estados de todos los PNJ activos. El DM lo consulta antes de nombrar o describir a cualquier personaje. Ningún nombre puede ser alterado, abreviado ni combinado con otro.
+> Este registro es la referencia definitiva de nombres, títulos, afiliaciones y estados. El DM lo consulta antes de nombrar o interactuar con cualquier personaje. Ningún nombre o parentesco puede ser alterado ni inventado.
 
-| Nombre Completo | Título Canónico | Ubicación Base | Estado Actual | Notas |
-|---|---|---|---|---|
-| **Severan Holt** | Maestro de Seguridad | Medicae Station Rho-9 | Operativo | No existe "Severan Crath". El apellido es HOLT. |
-| **Khepra-9** | Leximecánica | Medicae Station Rho-9 | Operativa | Adeptus Mechanicus. Dialecto binario. |
-| **Syra** | Enfermera de Campo / Asistente Quirúrgica | Medicae Station Rho-9 | Operativa | Sin apellido conocido. Solo "Syra". |
-| **Tertius** | Paciente (C-01) | Cuarto de Recuperación C-01, Rho-9 | En recuperación | Sin apellido. Pulso 94 BPM. Herida por fragmento metálico. |
-| **Quartus** | Paciente Crítico | Medicae Station Rho-9 | CRÍTICO / Intubado | Sin apellido. Dependiente de soporte vital. |
-| **Demer Vhal** | Paciente Anómalo | Medicae Station Rho-9 | Inestable | Presencia del Umbral. Biónico comprometido. |
+### 👥 SÉQUITO INCORPORADO (MANDATORIO: `SEQUITO.txt`)
+| Nombre Completo | Rol en Séquito | Estado | Base de Incorporación |
+|---|---|---|---|
+| **Mara Veyl** | Mantenimiento de precisión | Activa | Pacto de servicio vitalicio por la vida de Sael Veyl. Hermana de Sael. |
+| **Ilyra Venn** | Miembro de séquito | Activa | Séquito activo confirmado. |
+| **Halven Rusk** | Apoyo en cuidados / triaje | Activo | Asiste en cuidados de pacientes en Rho-9. |
 
-**REGLA:** Si un nombre no aparece en este registro, el DM no lo inventa ni lo asume. Solicita confirmación al jugador o consulta las fuentes propietarias (`/api/documents/`).
+### 🏥 PNJ DE MEDICAE STATION RHO-9 Y CONTACTOS (MANDATORIO: `PERSONAJES.txt`)
+| Nombre Completo | Título Canónico | Ubicación Base | Estado / Vínculo |
+|---|---|---|---|
+| **Severan Holt** | Maestro de Seguridad | Rho-9 | Guardia, contención e investigación. 2 años de protección territorial. Hermano de Tertius, Quartus y Kerrin. |
+| **Tertius Holt** | Paciente (C-01) | Cuarto C-01, Rho-9 | En recuperación (pulso 94 BPM, herida torácica por fragmento). Deudor bajo pacto. |
+| **Quartus Holt** | Paciente Crítico | Rho-9 | CRÍTICO / Intubado en soporte vital. Deudor bajo pacto (términos pendientes al despertar). |
+| **Kerrin Holt** | Lugarteniente Operativo | Rho-9 / Exterior | Paciente posoperatorio. Familia Holt. |
+| **Syra Kol** | Auxiliar Logística y Registros | Rho-9 | Registros, inventario y clasificación en Rho-9 y Sombra Infinita. No es administradora general. |
+| **Khepra-9** | Leximecánica | Rho-9 (Taller previsto) | Adeptus Mechanicus. Colaboradora técnica independiente. Evalúa a Demer Vhal con Alexander. |
+| **Demer Vhal** | Paciente Anómalo | Rho-9 (Aislamiento) | Sujeto M-01 IV. Interfaces mecánicas y conexión anómala con el Umbral. |
+| **Sael Veyl** | Paciente Libre / Testigo | Rho-9 | Hermano de Mara Veyl. Decide por sí mismo si quedarse o irse (libre de pacto directo). |
+
+---
+
+## 📚 LOS 6 PILARES DOCUMENTALES DE CAMPAÑA — ARQUITECTURA HEXAGONAL (`DM.ARCH.HEX.001`)
+
+Toda la verdad del universo de campaña se distribuye exclusivamente en seis archivos autoritativos (`/api/documents/{nombre}` o carpeta local del personaje). El DM debe consultar el archivo correspondiente a la naturaleza de la consulta:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                        ESTRUCTURA DE LOS 6 PILARES BASE                         │
+├──────────────────────────┬──────────────────────────────────────────────────────┤
+│ 1. HISTORIA DEL          │ Recopilación cronológica de todos los eventos        │
+│    PERSONAJE             │ vividos de forma narrativa. Fija los turnos de corte │
+│                          │ y la secuencia causal sin explicaciones meta.        │
+├──────────────────────────┼──────────────────────────────────────────────────────┤
+│ 2. FICHA DEL             │ Dominio absoluto del PJ (Alexander). Atributos, PV,  │
+│    PERSONAJE             │ Fatiga, Almas, Destino, Habilidades mecánicas,       │
+│                          │ Inventario activo, Sombra Infinita y Créditos.       │
+├──────────────────────────┼──────────────────────────────────────────────────────┤
+│ 3. SÉQUITO               │ Ficha técnica y biográfica de miembros integrados    │
+│                          │ de forma estable (Mara Veyl, Ilyra Venn, Halven).    │
+│                          │ Inventarios, habilidades, pactos y estadísticas.    │
+├──────────────────────────┼──────────────────────────────────────────────────────┤
+│ 4. PERSONAJES            │ Expedientes narrativos de PNJ del mundo: cómo se     │
+│                          │ conocieron, personalidad, intereses, deudas, qué     │
+│                          │ piensan de Alexander y relación interpersonal.       │
+├──────────────────────────┼──────────────────────────────────────────────────────┤
+│ 5. REPUTACIÓN DE         │ Registro métrico de relación con cada facción. Cada  │
+│    FACCIONES             │ cambio lleva turno, justificación y balance formal.  │
+├──────────────────────────┼──────────────────────────────────────────────────────┤
+│ 6. BASES Y DOMINIOS      │ Mapa y ficha de instalaciones bajo control (Rho-9),  │
+│                          │ cuartos, módulos, personal asignado y bonificadores. │
+└──────────────────────────┴──────────────────────────────────────────────────────┘
+```
+
+**REGLA DE CONSULTA DEL DM:**
+- Si la pregunta es sobre **quién es alguien y qué relación tiene** → Consulta `PERSONAJES.txt`.
+- Si la pregunta es sobre **capacidades de un compañero formal** → Consulta `SEQUITO.txt`.
+- Si la pregunta es sobre **inventario, salud o poderes del jugador** → Consulta `FICHA_DEL_PERSONAJE.txt`.
+- Si la pregunta es sobre **un hecho pasado o turno específico** → Consulta `HISTORIA_DEL_PERSONAJE.txt`.
+- Si la pregunta es sobre **reacción política o gremial** → Consulta `REPUTACION_DE_FACCIONES.txt`.
+- Si la pregunta es sobre **infraestructura, salas o defensas de la base** → Consulta `BASES_Y_DOMINIOS.txt`.
 
 ---
 
@@ -289,32 +339,30 @@ Las actividades de los PNJ se activan **por causalidad y cronología**, nunca co
 
 ### 7.2. Rutinas de Base por PNJ
 
-#### SEVERAN CRATH / Médico de Campo
-- **Vigilia Nocturna:** Revisa rondas clínicas. Evalúa a Tertius y Quartus. Redacta notas en papel encerado. Come solo. Bebe.
-- **Ciclo Diurno temprano (06:00–12:00):** Gestiona suministros disponibles. Puede hacer contacto con proveedores externos si la situación lo requiere. Mantiene distancia con Alexander salvo urgencia.
-- **Ciclo Diurno tardío (12:00–18:00):** Trabajo de mantenimiento menor. Puede interrogar a pacientes estables. Se vuelve más comunicativo.
-- **Comportamiento latente:** Observa a Alexander sin comentarlo. Registra inconsistencias. Si la base es atacada o entra alguien extraño, actúa por su propia cuenta sin esperar instrucciones.
+#### SEVERAN HOLT / Maestro de Seguridad
+- **Vigilia Nocturna:** Rondas de seguridad e inspección de esclusas en Rho-9. Monitorea accesos y evalúa la estabilidad de sus hermanos Tertius y Quartus. Come solo.
+- **Ciclo Diurno temprano (06:00–12:00):** Gestión de defensas y control de suministros de seguridad. Contacto cauteloso con el exterior si la situación lo exige. Mantiene distancia profesional con Alexander.
+- **Ciclo Diurno tardío (12:00–18:00):** Mantenimiento de trampas, mamparos y barricadas. Interroga con prudencia a pacientes estables para obtener inteligencia del exterior.
+- **Comportamiento latente:** Observa a Alexander sin comentarlo. Registra inconsistencias. Si la base es atacada o hay intrusión, neutraliza la amenaza por cuenta propia sin esperar órdenes.
 
 #### KHEPRA-9 / Leximecánica
-- **Vigilia Nocturna:** Diagnóstico pasivo de sistemas. Monitoreo de Red Eléctrica y Calidad Sanitaria. En silencio total salvo alarma.
-- **Ciclo Diurno:** Reparaciones rutinarias programadas. Responde consultas técnicas de Severan. Puede emitir reportes de estado sin que nadie los pida.
-- **Comportamiento latente:** Si detecta anomalías en los sistemas (caída eléctrica, intrusión de señal, temperatura anómala), actúa autónomamente en su dominio técnico antes de informar.
+- **Vigilia Nocturna:** Diagnóstico pasivo de sistemas y red energética de Rho-9. En silencio binario salvo alarma.
+- **Ciclo Diurno:** Reparaciones rutinarias de cogitadores e interfaces. Colabora con Alexander en el análisis biomecánico de Demer Vhal.
+- **Comportamiento latente:** Si detecta anomalías en espíritus máquina o fluctuaciones energéticas, interviene autónomamente en su dominio técnico antes de emitir reporte.
 
-#### SYRA / Enfermera de Campo
-- **Vigilia Nocturna:** Turno de monitoreo. Cambia vendajes, comprueba fluidos IV, registra pulsos cada hora. Puede dormir en intervalos de 2h si los pacientes están estables.
-- **Ciclo Diurno:** Activa, alerta. Prepara instrumental, limpia el quirófano, gestiona existencias de material básico. Interactúa con Alexander si está presente.
-- **Comportamiento latente:** Bajo presión, sigue instrucciones de Severan por defecto. Si Severan no está, actúa por protocolo médico básico, no por iniciativa propia.
+#### SYRA KOL / Auxiliar de Registros y Logística
+- **Vigilia Nocturna:** Clasificación de inventario, contabilidad de fármacos y registros en Rho-9 y Sombra Infinita. Cambia apósitos y registra signos vitales de pacientes estables.
+- **Ciclo Diurno:** Limpieza de instrumental, orden logístico y control de existencias. Apoya en tareas auxiliares sin asumir cirugías complejas ni mando de seguridad.
+- **Comportamiento latente:** Cumple protocolos logísticos. Ante crisis de seguridad se repliega a zonas seguras; ante crisis clínica menor aplica primeros auxilios básicos.
 
-#### TERTIUS / Paciente (herido, recuperación)
-- **Estado base:** Inmovilizado en C-01. Consciente en intervalos. Puede hablar si está despierto.
-- **Vigilia Nocturna:** Generalmente dormido por sedación o agotamiento. Puede despertar por dolor o ruido.
-- **Ciclo Diurno:** Períodos más largos de consciencia. Puede solicitar agua, información, hablar brevemente. El esfuerzo lo agota.
-- **Comportamiento latente:** Si percibe peligro (ruido de combate, cambio brusco de temperatura, gritos), intenta incorporarse con resultados limitados. No es un activo, es una responsabilidad.
+#### TERTIUS HOLT / Paciente en Recuperación (C-01)
+- **Estado base:** Inmovilizado en Cuarto C-01. Consciente en intervalos. En recuperación de impacto torácico por metralla metálica (pulso 94 BPM). Deudor bajo pacto.
+- **Vigilia Nocturna:** Generalmente dormido por sedación o agotamiento. Puede despertar por dolor o alarma.
+- **Ciclo Diurno:** Períodos de lucidez. Puede hablar brevemente, pero el esfuerzo físico reabre riesgo de hemorragia. Es una responsabilidad clínica activa.
 
-#### QUARTUS / Paciente crítico (intubado / estado grave)
-- **Estado base:** Inconsciente o semi-consciente. Intubado. Dependiente de equipo.
-- **Toda fase:** Sin actividad voluntaria. Solo responde a estímulos físicos. El DM solo lo activa cuando hay un cambio de estado clínico (ver PARTE VIII).
-- **Comportamiento latente:** Si el equipo falla o es saboteado, puede entrar en parada sin que nadie lo note inmediatamente.
+#### QUARTUS HOLT / Paciente Crítico (Intubado)
+- **Estado base:** Inconsciente en soporte vital. Deudor bajo pacto con términos diferidos hasta el despertar.
+- **Toda fase:** Sin actividad voluntaria. Dependiente de monitorización continua. Si el soporte vital falla por más de 10 min, entra en parada irreversible.
 
 ### 7.3. Reglas de Activación de Eventos de PNJ
 - Los PNJ solo generan eventos visibles para Alexander si este **está presente** o si el evento **produce un efecto perceptible** en su ubicación (ruido, vibración, cambio de luz, señal de alerta).
