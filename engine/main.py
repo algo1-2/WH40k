@@ -226,6 +226,19 @@ class ChatSyncRequest(BaseModel):
     advance_turns: Optional[int] = 0
     advance_minutes: Optional[int] = 0
 
+class CraftCyberneticRequest(BaseModel):
+    implant_key: str = "BRAZO_BIONICO_MECANICO"
+    available_credits: int = 1046
+    tech_skill: int = 65
+
+class CompleteContractRequest(BaseModel):
+    contract_id: str
+    current_credits: int = 1046
+
+class BuyMarketItemRequest(BaseModel):
+    item_id: str
+    current_credits: int = 1046
+
 class DeltaRequest(BaseModel):
     campaign_id: Optional[str] = "CAMPAIGN.ALEXANDER.NECROMUNDA"
     expected_revision: Any = 11
@@ -494,6 +507,76 @@ def synthesize_alchemy_endpoint(req: AlchemyRequest, x_campaign_id: Optional[str
         
         recursos = current_state.get("recursos_economicos", {})
         recursos["creditos_disponibles"] = res.get("remaining_credits", req.available_credits)
+        current_state["recursos_economicos"] = recursos
+        current_state["character_sheet"] = sheet
+        state_mgr.save_state(current_state, cid)
+    return res
+
+@app.get("/api/medicae/patient_anatomy", dependencies=[Depends(verify_api_key)])
+def get_patient_anatomy_endpoint(patient_name: str = "Quartus Holt"):
+    """Devuelve el estado anatómico zonal y cuadro clínico del paciente"""
+    return BiowareEngine.get_anatomical_status(patient_name)
+
+@app.post("/api/medicae/craft_cybernetic", dependencies=[Depends(verify_api_key)])
+def craft_cybernetic_endpoint(req: CraftCyberneticRequest, x_campaign_id: Optional[str] = Header(None)):
+    """Fabricación de implantes cibernéticos y prótesis mecatrónicas en el taller de Khepra-9"""
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    res = BiowareEngine.craft_cybernetic(req.implant_key, req.available_credits, req.tech_skill)
+    if res.get("success"):
+        current_state = state_mgr.load_state(cid)
+        sheet = current_state.get("character_sheet", {})
+        sombra = sheet.get("inventario_sombra_infinita", {})
+        artefactos = sombra.get("artefactos_arcanos_y_xenotecnologia", [])
+        artefactos.append({
+            "nombre": res.get("name"),
+            "bono": res.get("bonus"),
+            "destinatario": res.get("recipient")
+        })
+        sombra["artefactos_arcanos_y_xenotecnologia"] = artefactos
+        sheet["inventario_sombra_infinita"] = sombra
+        
+        recursos = current_state.get("recursos_economicos", {})
+        recursos["creditos_disponibles"] = res.get("remaining_credits", req.available_credits)
+        current_state["recursos_economicos"] = recursos
+        current_state["character_sheet"] = sheet
+        state_mgr.save_state(current_state, cid)
+    return res
+
+@app.get("/api/factions/contracts", dependencies=[Depends(verify_api_key)])
+def get_faction_contracts_endpoint():
+    """Devuelve la lista de contratos clandestinos disponibles de las facciones"""
+    return {"contracts": FavorsLedgerEngine.get_contracts()}
+
+@app.post("/api/factions/complete_contract", dependencies=[Depends(verify_api_key)])
+def complete_faction_contract_endpoint(req: CompleteContractRequest, x_campaign_id: Optional[str] = Header(None)):
+    """Completa un contrato clandestino y abona créditos y favores al estado"""
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    res = FavorsLedgerEngine.complete_contract(req.contract_id, req.current_credits)
+    if res.get("success"):
+        current_state = state_mgr.load_state(cid)
+        sheet = current_state.get("character_sheet", {})
+        recursos = current_state.get("recursos_economicos", {})
+        recursos["creditos_disponibles"] = res.get("new_credits", req.current_credits)
+        current_state["recursos_economicos"] = recursos
+        current_state["character_sheet"] = sheet
+        state_mgr.save_state(current_state, cid)
+    return res
+
+@app.get("/api/market/items", dependencies=[Depends(verify_api_key)])
+def get_market_items_endpoint():
+    """Devuelve el catálogo de materiales de mejora y reactivos del Mercado Negro de Dust Falls"""
+    return {"items": FavorsLedgerEngine.get_market_items()}
+
+@app.post("/api/market/buy", dependencies=[Depends(verify_api_key)])
+def buy_market_item_endpoint(req: BuyMarketItemRequest, x_campaign_id: Optional[str] = Header(None)):
+    """Compra materiales de mejora en el mercado negro descontando créditos"""
+    cid = x_campaign_id or "CAMPAIGN.ALEXANDER.NECROMUNDA"
+    res = FavorsLedgerEngine.buy_market_item(req.item_id, req.current_credits)
+    if res.get("success"):
+        current_state = state_mgr.load_state(cid)
+        sheet = current_state.get("character_sheet", {})
+        recursos = current_state.get("recursos_economicos", {})
+        recursos["creditos_disponibles"] = res.get("remaining_credits", req.current_credits)
         current_state["recursos_economicos"] = recursos
         current_state["character_sheet"] = sheet
         state_mgr.save_state(current_state, cid)

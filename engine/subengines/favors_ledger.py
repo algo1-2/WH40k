@@ -1,6 +1,9 @@
 """
-WH40K Favors Ledger & Faction Obligations Engine (favors_ledger.py)
-Libro Mayor de Favores Pendientes, Deudas Faccionales y Cobros en Necromunda.
+WH40K Favors Ledger & Faction Obligations Engine v3.0 (favors_ledger.py)
+Incluye:
+- Matriz de Facciones & Favores
+- Bolsa de Contratos Clandestinos
+- Tienda del Mercado Negro de Dust Falls (Materiales de Mejora & Reactivos)
 """
 
 from typing import Dict, List, Any
@@ -77,13 +80,94 @@ FACTIONS_DATA = [
     }
 ]
 
+CLANDESTINE_CONTRACTS = [
+    {
+        "id": "CONTRACT_ORSTAG_01",
+        "faction": "BREN_ORSTAG",
+        "faction_name": "Caldereros de Bren Orstag",
+        "title": "Suministro de Estimulantes de Asalto",
+        "description": "Orstag necesita 3 dosis de Stimm Hiper-Adrenal para su cuadrilla de escolta pesada.",
+        "reward_credits": 160,
+        "reward_favors": 1,
+        "status": "DISPONIBLE"
+    },
+    {
+        "id": "CONTRACT_ESCHER_02",
+        "faction": "ESCHER",
+        "faction_name": "Casa Escher",
+        "title": "Antídoto Clandestino de Urgencia",
+        "description": "Una líder de banda Escher ha sido envenenada por neurotoxina Delaque y requiere neutralización inmediata.",
+        "reward_credits": 180,
+        "reward_favors": 1,
+        "status": "DISPONIBLE"
+    },
+    {
+        "id": "CONTRACT_MARKET_03",
+        "faction": "BLACK_MARKET",
+        "faction_name": "Mercado Negro de Dust Falls",
+        "title": "Extracción y Entrega de Implante Mecatrónico",
+        "description": "Un intermediario busca un brazo o conector biónico restaurado por Khepra-9 para un cliente noble del Spire.",
+        "reward_credits": 240,
+        "reward_favors": 1,
+        "status": "DISPONIBLE"
+    }
+]
+
+BLACK_MARKET_ITEMS = [
+    {
+        "id": "MAT_TUBING",
+        "name": "Tuberías Clínicas & Válvulas de Presión",
+        "category": "Material de Mejora",
+        "price": 50,
+        "effect": "Requisito para mejoras de Quirófano Q-01 y Esterilización E-01"
+    },
+    {
+        "id": "MAT_ALLOY_PLATES",
+        "name": "Placas de Aleación de Acero Pesado",
+        "category": "Blindaje Estructural",
+        "price": 60,
+        "effect": "Requisito para blindaje de Compuerta GATE-01 y Taller T-01"
+    },
+    {
+        "id": "MAT_CRYO_TANKS",
+        "name": "Tanques Criogénicos de Nitrógeno",
+        "category": "Equipo Médico Avanzado",
+        "price": 100,
+        "effect": "Requisito para Biobanco Celular F-02 y Cama Crítica C-03"
+    },
+    {
+        "id": "MAT_HEPA_FILTERS",
+        "name": "Filtros de Flujo Laminar de Grado Militar",
+        "category": "Sanidad Hospitalaria",
+        "price": 80,
+        "effect": "Requisito para Esterilización Nivel 3 y reducción de sepsis al 0%"
+    },
+    {
+        "id": "MAT_PLASMA_CELLS",
+        "name": "Batería de Células de Plasma (Carga Completa)",
+        "category": "Energía",
+        "price": 75,
+        "effect": "Recarga el generador de plasma de Rho-9 al 100%"
+    }
+]
+
 class FavorsLedgerEngine:
 
     _factions = list(FACTIONS_DATA)
+    _contracts = list(CLANDESTINE_CONTRACTS)
+    _market = list(BLACK_MARKET_ITEMS)
 
     @classmethod
     def get_factions_status(cls) -> List[Dict[str, Any]]:
         return cls._factions
+
+    @classmethod
+    def get_contracts(cls) -> List[Dict[str, Any]]:
+        return cls._contracts
+
+    @classmethod
+    def get_market_items(cls) -> List[Dict[str, Any]]:
+        return cls._market
 
     @classmethod
     def claim_favor(cls, faction_key: str, perk_id: str) -> Dict[str, Any]:
@@ -101,9 +185,55 @@ class FavorsLedgerEngine:
         fac["favors_available"] -= perk["cost_favors"]
         return {
             "success": True,
-            "faction_name": fac["name"],
-            "perk_title": perk["title"],
-            "effect": perk["effect"],
-            "remaining_favors": fac["favors_available"],
-            "message": f"¡FAVOR RECLAMADO CON ÉXITO! {fac['name']} ha entregado: '{perk['title']}'. Efecto: {perk['effect']}"
+            "faction": fac["name"],
+            "perk_claimed": perk["title"],
+            "applied_effect": perk["effect"],
+            "favors_remaining": fac["favors_available"],
+            "message": f"¡FAVOR COBRADO! Has ejercido tu influencia sobre '{fac['name']}'. Concedido: {perk['title']} ({perk['effect']})."
+        }
+
+    @classmethod
+    def complete_contract(cls, contract_id: str, current_credits: int) -> Dict[str, Any]:
+        c = next((item for item in cls._contracts if item["id"] == contract_id), None)
+        if not c:
+            return {"success": False, "error": f"Contrato '{contract_id}' no encontrado."}
+        
+        reward = c["reward_credits"]
+        new_credits = current_credits + reward
+        
+        fac = next((f for f in cls._factions if f["key"] == c["faction"]), None)
+        if fac:
+            fac["favors_available"] += c.get("reward_favors", 1)
+            fac["reputation"] += 5
+
+        c["status"] = "COMPLETADO"
+
+        return {
+            "success": True,
+            "contract_title": c["title"],
+            "faction_name": c["faction_name"],
+            "reward_credits": reward,
+            "new_credits": new_credits,
+            "message": f"🏆 ¡CONTRATO CUMPLIDO! '{c['title']}' para {c['faction_name']}. Recompensa: +{reward} ¤ y +1 Favor ganado."
+        }
+
+    @classmethod
+    def buy_market_item(cls, item_id: str, current_credits: int) -> Dict[str, Any]:
+        item = next((i for i in cls._market if i["id"] == item_id), None)
+        if not item:
+            return {"success": False, "error": f"Artículo '{item_id}' no disponible en el mercado negro."}
+        
+        price = item["price"]
+        if current_credits < price:
+            return {"success": False, "error": f"Créditos insuficientes ({current_credits} ¤ disponibles, requiere {price} ¤)."}
+        
+        new_credits = current_credits - price
+        return {
+            "success": True,
+            "item_name": item["name"],
+            "category": item["category"],
+            "price_paid": price,
+            "remaining_credits": new_credits,
+            "effect": item["effect"],
+            "message": f"📦 ¡COMPRA EFECTUADA! Has adquirido '{item['name']}' por {price} ¤. Almacenado en la despensa de Rho-9."
         }

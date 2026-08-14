@@ -1,10 +1,12 @@
 """
-WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v7.0
-Includes:
+WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v8.0
+Master High-Immersion Suite:
 - Continuous Live Ticking Imperial Chrono-Clock (Seconds, Minutes, Hours, Turns)
-- High-Definition Animated Auspex Tactical Map with corridor waypoints, activity particles, ECG monitors & speech bubbles
-- Active Chat Synchronization Bridge (POST /api/chat/sync, live event ticker, rapid order console & ChatGPT prompt exporter)
-- Standardized 5/3 Upgrade Tree, Surgery Lab, Alchemy, Factions & Dossiers
+- Red Alert / Defense Lockdown Mode with visual sirens & battle station deployments
+- Interactive Anatomical Patient Trauma Monitor (Zonal wounds: Head, Chest, Abdomen, Limbs)
+- Khepra-9 Cybernetics & Bionic Prosthesis Forge
+- Clandestine Contracts Board & Dust Falls Black Market Bazaar (Upgrade Materials)
+- Active ChatGPT Sync Bridge & Real-Time Animated Tactical Motion Map
 """
 
 def get_dashboard_html() -> str:
@@ -51,6 +53,14 @@ def get_dashboard_html() -> str:
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(201, 154, 62, 0.05), transparent 60%),
         linear-gradient(to bottom, rgba(8, 10, 13, 0.95), rgba(8, 10, 13, 1));
+      transition: background-color 0.4s ease;
+    }
+
+    body.red-alert-active {
+      background-color: #120606;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(239, 68, 68, 0.15), transparent 70%),
+        linear-gradient(to bottom, rgba(18, 6, 6, 0.95), rgba(18, 6, 6, 1));
     }
 
     header {
@@ -63,6 +73,11 @@ def get_dashboard_html() -> str:
       align-items: center;
       gap: 1rem;
       box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    body.red-alert-active header {
+      border-bottom-color: var(--crimson-light);
+      box-shadow: 0 2px 20px rgba(239, 68, 68, 0.3);
     }
 
     .brand {
@@ -139,6 +154,35 @@ def get_dashboard_html() -> str:
       background: var(--brass);
       color: #080a0d;
       box-shadow: 0 0 10px var(--amber-glow);
+    }
+
+    .btn-red-alert {
+      background: #2a0808;
+      border: 1px solid var(--crimson-light);
+      color: #fca5a5;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.4rem 0.85rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.25s ease;
+    }
+
+    .btn-red-alert:hover, .btn-red-alert.active {
+      background: var(--crimson-light);
+      color: #080a0d;
+      box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+      animation: alertPulse 1.5s infinite;
+    }
+
+    @keyframes alertPulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(0.97); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     .status-badge-container {
@@ -614,6 +658,24 @@ def get_dashboard_html() -> str:
       margin-top: 0.2rem;
     }
 
+    /* ANATOMICAL PATIENT MONITOR STYLES */
+    .anatomy-zone-card {
+      background: #0d121a;
+      border: 1px solid var(--border-panel);
+      border-radius: 4px;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .anatomy-zone-card:hover {
+      border-color: var(--brass-dim);
+      background: #131a24;
+    }
+
     /* Modal / Drawer for Room Details */
     .room-detail-modal {
       display: none;
@@ -986,6 +1048,8 @@ def get_dashboard_html() -> str:
       <button class="btn-advance-time" onclick="advanceCycleHour()" title="Avanza 1 hora/turno en la base">+1 HORA</button>
     </div>
 
+    <button class="btn-red-alert" id="btn-red-alert-toggle" onclick="toggleRedAlert()">🚨 ALERTA ROJA</button>
+
     <div class="status-badge-container">
       <div class="badge badge-live">API EN LÍNEA</div>
       <div class="badge badge-green" id="badge-credits">1.046 ¤ DISPONIBLES</div>
@@ -1002,9 +1066,9 @@ def get_dashboard_html() -> str:
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('tab-blueprint')">🗺️ PLANO & MEJORAS</button>
     <button class="tab-btn" onclick="switchTab('tab-radar')">📡 RADAR & MOVIMIENTO</button>
-    <button class="tab-btn" onclick="switchTab('tab-medicae')">🩸 CIRUGÍA & ALQUIMIA</button>
-    <button class="tab-btn" onclick="switchTab('tab-factions')">⚖️ FACCIONES & EVENTOS</button>
-    <button class="tab-btn" onclick="switchTab('tab-status')">⚙️ ESTADO DE CAMPAÑA</button>
+    <button class="tab-btn" onclick="switchTab('tab-medicae')">🩸 CIRUGÍA & BIÓNICA</button>
+    <button class="tab-btn" onclick="switchTab('tab-factions')">⚖️ FACCIONES & MERCADO</button>
+    <button class="tab-btn" onclick="switchTab('tab-status')">⚙️ ESTADO & SÉQUITO</button>
     <button class="tab-btn" onclick="switchTab('tab-inventory')">📦 SOMBRA INFINITA</button>
     <button class="tab-btn" onclick="switchTab('tab-roller')">🎲 SIMULADOR d100</button>
     <button class="tab-btn" onclick="switchTab('tab-docs')">📜 DOSSIERS</button>
@@ -1142,33 +1206,40 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
-    <!-- TAB 2: SURGERY LAB & ALCHEMY -->
+    <!-- TAB 2: SURGERY LAB, ANATOMICAL MONITOR & CYBERNETICS -->
     <section id="tab-medicae" class="tab-content">
       <div class="grid-dashboard">
+        
+        <!-- Operating Table & Anatomical Monitor -->
         <div class="panel">
           <div class="panel-header">
-            <span class="panel-title">🩸 MESA QUIRÚRGICA & TRAUMA (Q-01)</span>
-            <span class="badge badge-brass">DIAGNOSTOR ACTIVO</span>
+            <span class="panel-title">🩸 MESA QUIRÚRGICA & MONITOR ANATÓMICO (Q-01)</span>
+            <span class="badge badge-brass">DIAGNOSTOR RHO-9</span>
           </div>
           <div class="panel-body">
             <div class="form-group">
               <label class="form-label">Seleccionar Paciente</label>
-              <select id="surg-patient" class="form-control">
+              <select id="surg-patient" class="form-control" onchange="loadPatientAnatomy(this.value)">
                 <option value="Quartus Holt">Quartus Holt (4/11 · Desintubación Activa · C-03)</option>
                 <option value="Tertius Holt">Tertius Holt (8/11 · Drenaje Torácico · C-01)</option>
                 <option value="Paciente C-02">Paciente de Emergencia (Cama C-02)</option>
                 <option value="Jarek Venn">Jarek Venn (0/9 · Torso Reconstruido)</option>
-                <option value="Demer Vhal">Demer Vhal (Integración Biológica IV)</option>
               </select>
             </div>
 
-            <div class="form-group">
+            <!-- ZONAL ANATOMICAL BREAKDOWN -->
+            <div style="font-size:0.75rem; font-weight:700; color:var(--brass); margin-bottom:0.4rem;">🩺 EVALUACIÓN ANATÓMICA ZONAL:</div>
+            <div id="anatomy-zones-container"></div>
+
+            <div class="form-group" style="margin-top:0.75rem;">
               <label class="form-label">Procedimiento Clínico</label>
               <select id="surg-procedure" class="form-control">
+                <option value="PERFUSION_TISULAR">Mantenimiento de Perfusión & Desintubación (Quartus) (+3 PV)</option>
                 <option value="TORACICA">Cirugía Torácica Mayor / Drenaje (+3 PV)</option>
                 <option value="SUTURA_MAYOR">Desbridamiento & Sutura Profunda (+2 PV)</option>
                 <option value="INJERTO_TISULAR">Injerto Tisular Biológico (+4 PV)</option>
                 <option value="INFUSION_SHOCK">Transfusión & Estabilización de Shock (+3 PV)</option>
+                <option value="INSTALACION_BIONICA">Instalación y Sincronización de Prótesis Biónica (+2 PV)</option>
               </select>
             </div>
 
@@ -1185,98 +1256,99 @@ def get_dashboard_html() -> str:
           </div>
         </div>
 
+        <!-- Khepra-9 Cybernetics Forge & Alchemy -->
         <div class="panel">
           <div class="panel-header">
-            <span class="panel-title">⚗️ SINTETIZADOR ALQUÍMICO & FÁRMACOS</span>
-            <span class="badge badge-green">RECETAS ACTIVAS</span>
+            <span class="panel-title">⚙️ FORJA MECATRÓNICA DE KHEPRA-9 (T-01)</span>
+            <span class="badge badge-green">BANCO BIÓNICO</span>
           </div>
           <div class="panel-body">
+            
             <div class="char-card">
               <div class="char-card-header">
-                <span>Stimm de Combate Hiper-Adrenal</span>
-                <span class="stat-val green">30 ¤</span>
+                <span>Prótesis Mecatrónica de Brazo Industrial</span>
+                <span class="stat-val green">90 ¤</span>
               </div>
-              <div class="char-role">Farmacología Táctica · Req. Medicina 50</div>
-              <div class="char-status">+10 Reflejos y Fuerza x 3 turnos. Anula fatiga.</div>
-              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('STIMM_COMBATE')">🧪 SINTETIZAR DOSIS</button>
+              <div class="char-role">Biónica de Trabajo · Destinatario: Jarek / Deudor</div>
+              <div class="char-status">+10 a Fuerza, +1d5 daño desarmado y repara al 2º deudor.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="craftCybernetic('BRAZO_BIONICO_MECANICO')">🔧 FORJAR PRÓTESIS</button>
             </div>
 
             <div class="char-card">
               <div class="char-card-header">
-                <span>Concentrado Neurotóxico E-12 [Toxic(1)]</span>
-                <span class="stat-val green">40 ¤</span>
+                <span>Ojo Biónico con Visor Auspex Retiniano</span>
+                <span class="stat-val green">120 ¤</span>
               </div>
-              <div class="char-role">Toxinas de Asalto · Req. Medicina 60</div>
-              <div class="char-status">Impregna 1 arma blanca con veneno continuo 1d5 PV/turno.</div>
-              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('VENENO_TOXIC1')">🧪 SINTETIZAR DOSIS</button>
+              <div class="char-role">Cibernética de Detección · Destinatario: Severan / Alexander</div>
+              <div class="char-status">+15 a Percepción visual, visión térmica e inmunidad a deslumbramiento.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="craftCybernetic('OJO_BIONICO_AUSPEX')">🔧 FORJAR IMPLANTE</button>
             </div>
 
             <div class="char-card">
               <div class="char-card-header">
-                <span>Antídoto Químico Amplio Espectro</span>
-                <span class="stat-val green">35 ¤</span>
+                <span>Filtro Respiratorio Biomecánico Anti-Tox</span>
+                <span class="stat-val green">80 ¤</span>
               </div>
-              <div class="char-role">Farmacología Médica · Req. Medicina 55</div>
-              <div class="char-status">Neutraliza quimio-toxinas Escher y venenos orgánicos.</div>
-              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('ANTIDOTO_UNIVERSAL')">🧪 SINTETIZAR DOSIS</button>
+              <div class="char-role">Implante Pulmonar · Destinatario: Séquito</div>
+              <div class="char-status">Inmunidad total a gases cáusticos, humo de combate y asfixia.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="craftCybernetic('FILTRO_PULMONAR_TOX')">🔧 FORJAR FILTRO</button>
             </div>
 
             <div class="char-card">
               <div class="char-card-header">
-                <span>Bálsamo Hemostático Cauterizante</span>
-                <span class="stat-val green">25 ¤</span>
+                <span>Placas de Subdermo-Blindaje de Aleación</span>
+                <span class="stat-val green">150 ¤</span>
               </div>
-              <div class="char-role">Traumatología de Campo · Req. Medicina 45</div>
-              <div class="char-status">Detiene hemorragias al instante (+3 PV y sella vasos).</div>
-              <button class="btn-synth" style="margin-top:0.4rem;" onclick="synthesizeCompound('BALSAMO_CAUTERIZANTE')">🧪 SINTETIZAR DOSIS</button>
+              <div class="char-role">Blindaje Corporal · Destinatario: Severan / Jarek</div>
+              <div class="char-status">+1 Punto de Armadura permanente en todas las localizaciones.</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="craftCybernetic('SUBDERMO_BLINDAJE')">🔧 FORJAR BLINDAJE</button>
             </div>
-            <div id="alchemy-result-box" style="margin-top:1rem; display:none;"></div>
+
+            <div id="cybernetics-result-box" style="margin-top:1rem; display:none;"></div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- TAB 3: FACTIONS & INCIDENTS -->
+    <!-- TAB 3: FACTIONS, CONTRACTS & BLACK MARKET -->
     <section id="tab-factions" class="tab-content">
       <div class="grid-dashboard">
+        
+        <!-- Factions Matrix & Contracts -->
         <div class="panel">
           <div class="panel-header">
-            <span class="panel-title">⚖️ MATRIZ DE FACCIONES & FAVORES</span>
+            <span class="panel-title">⚖️ MATRIZ DE FACCIONES & CONTRATOS</span>
             <span class="badge badge-brass">DUST FALLS</span>
           </div>
-          <div class="panel-body" id="factions-container"></div>
+          <div class="panel-body">
+            <div id="factions-container"></div>
+            
+            <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--brass); margin:1.25rem 0 0.5rem 0;">
+              📜 BOLSA DE CONTRATOS CLANDESTINOS
+            </div>
+            <div id="contracts-container" style="display:flex; flex-direction:column; gap:0.5rem;"></div>
+          </div>
         </div>
 
+        <!-- Dust Falls Black Market Materials Bazaar -->
         <div class="panel">
           <div class="panel-header">
-            <span class="panel-title">🚪 GOLPE EN LA COMPUERTA // SUCESOS NOCTURNOS</span>
+            <span class="panel-title">📦 MERCADO NEGRO // MATERIALES DE MEJORA</span>
+            <span class="badge badge-green">PROVEEDOR ACTIVO</span>
           </div>
           <div class="panel-body">
             <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:1rem;">
-              Las sombras de Dust Falls traen fugitivos, contrabandistas tiroteados y deudores desesperados a las puertas de Rho-9.
+              Adquiere suministros técnicos y piezas de contención para las mejoras de salas de Rho-9.
             </p>
-            <button class="btn-action-primary" onclick="generatePatientEvent()">🎲 GENERAR EMERGENCIA NOCTURNA</button>
-
-            <div id="patient-event-card" class="upgrade-box" style="display:none; margin-top:1rem;">
-              <div style="font-family:'Cinzel',serif; font-size:0.95rem; font-weight:800; color:var(--brass);" id="patient-name-title">Identidad del Paciente</div>
-              <div style="font-size:0.75rem; color:var(--cyan-plasma); margin-bottom:0.5rem;" id="patient-faction-text">Facción / Procedencia</div>
-              
-              <div class="stat-row"><span class="stat-label">🩺 Cuadro Clínico:</span><span class="stat-val crimson" id="patient-trauma-text">-</span></div>
-              <div class="stat-row"><span class="stat-label">❤️ Estado Vital:</span><span class="stat-val" id="patient-hp-text">-</span></div>
-              <div class="stat-row"><span class="stat-label">💰 Oferta / Pago:</span><span class="stat-val green" id="patient-reward-text">-</span></div>
-              <div class="stat-row"><span class="stat-label">⚠️ Riesgo / Amenaza:</span><span class="stat-val amber" id="patient-risk-text" style="font-size:0.75rem;">-</span></div>
-
-              <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
-                <button class="btn-upgrade-action" style="margin-top:0;" onclick="admitPatient()">🏥 ADMITIR EN CAMA C-02</button>
-                <button class="btn-upgrade-action" style="margin-top:0; background:#3b1111; color:#fca5a5;" onclick="dismissPatient()">🚪 RECHAZAR EN COMPUERTA</button>
-              </div>
-            </div>
+            <div id="market-items-container" style="display:flex; flex-direction:column; gap:0.6rem;"></div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- TAB 4: ESTADO DE CAMPAÑA -->
+    <!-- TAB 4: ESTADO & SÉQUITO -->
     <section id="tab-status" class="tab-content">
       <div class="grid-dashboard">
         <div class="panel">
@@ -1417,6 +1489,7 @@ def get_dashboard_html() -> str:
     let currentSelectedRoom = null;
     let availableCredits = 1046;
     let currentPatient = null;
+    let isRedAlert = false;
 
     // REAL-TIME CHRONO CLOCK (TICKING CONTINUOUSLY EVERY SECOND)
     let currentDay = 4;
@@ -1459,6 +1532,24 @@ def get_dashboard_html() -> str:
       loadTelemetry();
     }
 
+    function toggleRedAlert() {
+      isRedAlert = !isRedAlert;
+      document.body.classList.toggle('red-alert-active', isRedAlert);
+      const btn = document.getElementById('btn-red-alert-toggle');
+      btn.classList.toggle('active', isRedAlert);
+      btn.innerHTML = isRedAlert ? '🚨 ALERTA ROJA (ACTIVA)' : '🚨 ALERTA ROJA';
+
+      if (isRedAlert) {
+        document.getElementById('live-chat-ticker').textContent = '🚨 [ALERTA ROJA] ¡COMPUERTA PRINCIPAL SELLADA! Personal a puestos de combate.';
+        // Rush agents to battle stations
+        dispatchChatOrder('Severan Holt', 'GATE-01', 'Tomando posición con carabina en tronera principal');
+        dispatchChatOrder('Jarek Venn', 'GATE-01', 'Armando afuste de escopeta en compuerta');
+        dispatchChatOrder('Alexander', 'Q-01', 'Preparando instrumental quirúrgico de emergencia');
+      } else {
+        document.getElementById('live-chat-ticker').textContent = '✅ [VIGILIA ESTÁNDAR] Protocolo de alerta levantado. Personal en guardia rutinaria.';
+      }
+    }
+
     // ==========================================
     // ENHANCED HD MOTION RADAR & PATHFINDING
     // ==========================================
@@ -1478,17 +1569,6 @@ def get_dashboard_html() -> str:
       'HAB-03': { x: 670, y: 145, name: 'Dorm. Syra/Khepra', w: 100, h: 80, type: 'liv' },
       'HAB-04': { x: 670, y: 260, name: 'Refugio Clandestino', w: 100, h: 80, type: 'liv' },
       'SUB-01': { x: 670, y: 375, name: 'Acceso Subniveles', w: 100, h: 70, type: 'fog' }
-    };
-
-    // Waypoint routing points (corridors)
-    const waypoints = {
-      'W_GATE': { x: 140, y: 290 },
-      'W_HALL_WEST': { x: 280, y: 290 },
-      'W_HALL_NORTH': { x: 280, y: 165 },
-      'W_HALL_SOUTH': { x: 280, y: 405 },
-      'W_CENTER': { x: 435, y: 220 },
-      'W_HALL_EAST': { x: 580, y: 245 },
-      'W_EAST_CORRIDOR': { x: 720, y: 300 }
     };
 
     const radarAgents = [
@@ -1638,7 +1718,6 @@ def get_dashboard_html() -> str:
       radarSweepAngle = 0;
     }
 
-    // ANIMATED CHAT ORDER DISPATCHER
     async function dispatchChatOrder(speaker, targetRoom, customTask) {
       const agent = radarAgents.find(a => a.name.toLowerCase().includes(speaker.toLowerCase().split(' ')[0]));
       const room = roomNodes[targetRoom];
@@ -1648,7 +1727,6 @@ def get_dashboard_html() -> str:
         agent.dialogueTimer = 220;
         agent.currentRoom = targetRoom;
         
-        // Add new waypoint to target room
         agent.path.unshift({
           x: room.x + room.w / 2,
           y: room.y + room.h / 2,
@@ -1658,7 +1736,6 @@ def get_dashboard_html() -> str:
         agent.pathIdx = 0;
       }
 
-      // Sync with backend API
       try {
         const resp = await fetch('/api/chat/sync', {
           method: 'POST',
@@ -1687,7 +1764,6 @@ def get_dashboard_html() -> str:
 
       document.getElementById('live-chat-ticker').textContent = `[ORDEN CHAT] ${text}`;
 
-      // Pick selected agent or Alexander
       const agent = radarAgents.find(a => a.id === selectedAgentId) || radarAgents[0];
       agent.dialogue = text;
       agent.dialogueTimer = 260;
@@ -1709,7 +1785,6 @@ def get_dashboard_html() -> str:
       } catch (e) { console.error(e); }
     }
 
-    // Canvas rendering loop
     function renderRadarLoop() {
       const canvas = document.getElementById('radarCanvas');
       if (canvas && canvas.offsetParent !== null) {
@@ -1717,17 +1792,14 @@ def get_dashboard_html() -> str:
         const w = canvas.width;
         const h = canvas.height;
 
-        // Dark atmospheric background with trail
-        ctx.fillStyle = 'rgba(4, 6, 8, 0.3)';
+        ctx.fillStyle = isRedAlert ? 'rgba(20, 6, 6, 0.3)' : 'rgba(4, 6, 8, 0.3)';
         ctx.fillRect(0, 0, w, h);
 
-        // Auspex tactical grid
-        ctx.strokeStyle = 'rgba(16, 185, 129, 0.06)';
+        ctx.strokeStyle = isRedAlert ? 'rgba(239, 68, 68, 0.1)' : 'rgba(16, 185, 129, 0.06)';
         ctx.lineWidth = 1;
         for (let x = 0; x < w; x += 35) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
         for (let y = 0; y < h; y += 35) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
 
-        // Corridors & Waypoints network
         ctx.strokeStyle = 'rgba(201, 154, 62, 0.18)';
         ctx.lineWidth = 2.5;
         ctx.beginPath();
@@ -1742,7 +1814,6 @@ def get_dashboard_html() -> str:
         ctx.moveTo(580, 325); ctx.lineTo(720, 300);
         ctx.stroke();
 
-        // Draw Room boxes with distinct styling
         Object.entries(roomNodes).forEach(([id, r]) => {
           ctx.fillStyle = 'rgba(15, 20, 28, 0.85)';
           ctx.strokeStyle = (id === 'GATE-01' || id === 'Q-01' || id === 'C-03') ? 'rgba(201, 154, 62, 0.8)' : 'rgba(38, 46, 59, 0.9)';
@@ -1750,7 +1821,6 @@ def get_dashboard_html() -> str:
           ctx.fillRect(r.x, r.y, r.w, r.h);
           ctx.strokeRect(r.x, r.y, r.w, r.h);
 
-          // Room code and name
           ctx.fillStyle = 'rgba(201, 154, 62, 0.7)';
           ctx.font = 'bold 9px "JetBrains Mono"';
           ctx.fillText(id, r.x + 6, r.y + 13);
@@ -1759,21 +1829,17 @@ def get_dashboard_html() -> str:
           ctx.font = '10px "JetBrains Mono"';
           ctx.fillText(r.name, r.x + 6, r.y + 26);
 
-          // Room activity visuals:
           if (id === 'Q-01') {
-            // Surgery table glow
             ctx.fillStyle = 'rgba(16, 185, 129, 0.15)';
             ctx.fillRect(r.x + 20, r.y + 35, r.w - 40, r.h - 45);
             ctx.strokeStyle = 'rgba(16, 185, 129, 0.5)';
             ctx.strokeRect(r.x + 20, r.y + 35, r.w - 40, r.h - 45);
           } else if (id === 'T-01') {
-            // Spark particle simulation
             if (Math.random() > 0.6) {
               ctx.fillStyle = '#f59e0b';
               ctx.fillRect(r.x + 40 + (Math.random()*20), r.y + 40 + (Math.random()*20), 2, 2);
             }
           } else if (id === 'C-03') {
-            // ECG Heartbeat line simulation for Quartus
             ctx.strokeStyle = '#10b981';
             ctx.lineWidth = 1;
             ctx.beginPath();
@@ -1786,7 +1852,6 @@ def get_dashboard_html() -> str:
           }
         });
 
-        // Update and draw agents
         radarAgents.forEach(a => {
           const target = a.path[a.pathIdx];
           const dx = target.x - a.x;
@@ -1801,25 +1866,21 @@ def get_dashboard_html() -> str:
             a.y += (dy / dist) * a.speed;
           }
 
-          // Blip circle
           ctx.beginPath();
           ctx.arc(a.x, a.y, a.id === selectedAgentId ? 6.5 : 5, 0, Math.PI * 2);
           ctx.fillStyle = a.color;
           ctx.fill();
 
-          // Blip pulse ring
           ctx.beginPath();
           ctx.arc(a.x, a.y, (Date.now() / 150) % 15 + 4, 0, Math.PI * 2);
           ctx.strokeStyle = a.color + '44';
           ctx.lineWidth = 1.5;
           ctx.stroke();
 
-          // Agent label
           ctx.fillStyle = a.color;
           ctx.font = 'bold 9.5px "JetBrains Mono"';
           ctx.fillText(`${a.icon} ${a.name.split(' ')[0]}`, a.x + 8, a.y + 3);
 
-          // Dialogue bubble if active
           if (a.dialogueTimer > 0) {
             a.dialogueTimer--;
             ctx.fillStyle = 'rgba(11, 15, 22, 0.92)';
@@ -1836,17 +1897,165 @@ def get_dashboard_html() -> str:
           }
         });
 
-        // Auspex Sweep Line
         radarSweepAngle = (radarSweepAngle + 0.02) % (Math.PI * 2);
         const sweepLen = Math.max(w, h);
         ctx.beginPath();
         ctx.moveTo(w / 2, h / 2);
         ctx.lineTo(w / 2 + Math.cos(radarSweepAngle) * sweepLen, h / 2 + Math.sin(radarSweepAngle) * sweepLen);
-        ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
+        ctx.strokeStyle = isRedAlert ? 'rgba(239, 68, 68, 0.4)' : 'rgba(16, 185, 129, 0.3)';
         ctx.lineWidth = 2;
         ctx.stroke();
       }
       requestAnimationFrame(renderRadarLoop);
+    }
+
+    // ==========================================
+    // ANATOMICAL MONITOR & CYBERNETICS METHODS
+    // ==========================================
+    async function loadPatientAnatomy(patientName) {
+      const c = document.getElementById('anatomy-zones-container');
+      try {
+        const resp = await fetch(`/api/medicae/patient_anatomy?patient_name=${encodeURIComponent(patientName)}`, {
+          headers: { 'x-api-key': API_KEY }
+        });
+        if (resp.ok) {
+          const d = await resp.json();
+          c.innerHTML = '';
+          Object.entries(d.zones || {}).forEach(([zoneKey, z]) => {
+            let color = 'var(--green-auspex)';
+            if (z.status === 'CRÍTICO') color = 'var(--crimson-light)';
+            if (z.status === 'MODERADO') color = 'var(--amber)';
+
+            const card = document.createElement('div');
+            card.className = 'anatomy-zone-card';
+            card.innerHTML = `
+              <div>
+                <span style="font-weight:700; color:var(--text-main); font-size:0.8rem;">[${zoneKey}] ${z.condition}</span>
+                <div style="font-size:0.7rem; color:var(--text-muted);">Daño: ${z.damage} pts</div>
+              </div>
+              <span class="badge" style="border-color:${color}; color:${color}; font-size:0.68rem;">${z.status}</span>
+            `;
+            c.appendChild(card);
+          });
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    async function craftCybernetic(implantKey) {
+      const res = document.getElementById('cybernetics-result-box');
+      res.style.display = 'block';
+      res.innerHTML = '<span style="color:var(--amber);">[CALIBRANDO TORNO & UNIDAD LÓGICA DE KHEPRA-9...]</span>';
+
+      try {
+        const resp = await fetch('/api/medicae/craft_cybernetic', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ implant_key: implantKey, available_credits: availableCredits, tech_skill: 65 })
+        });
+        const d = await resp.json();
+        if (resp.ok && d.success) {
+          availableCredits = d.remaining_credits;
+          document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
+          document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--green-auspex); color:var(--green-auspex); font-weight:700;">${d.message}</div>`;
+          await loadTelemetry();
+        } else {
+          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--crimson-light); color:var(--crimson-light);">${d.error || 'Fallo'}</div>`;
+        }
+      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
+    }
+
+    // ==========================================
+    // CONTRACTS & BLACK MARKET METHODS
+    // ==========================================
+    async function loadContractsAndMarket() {
+      // Load Contracts
+      const cBox = document.getElementById('contracts-container');
+      try {
+        const resp = await fetch('/api/factions/contracts', { headers: { 'x-api-key': API_KEY } });
+        if (resp.ok) {
+          const d = await resp.json();
+          cBox.innerHTML = '';
+          (d.contracts || []).forEach(c => {
+            const card = document.createElement('div');
+            card.className = 'char-card';
+            card.innerHTML = `
+              <div class="char-card-header">
+                <span>${c.title}</span>
+                <span class="stat-val green">+${c.reward_credits} ¤</span>
+              </div>
+              <div class="char-role">${c.faction_name} · Recompensa: +${c.reward_favors} Favor</div>
+              <div class="char-status">${c.description}</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="completeContract('${c.id}')" ${c.status === 'COMPLETADO' ? 'disabled' : ''}>
+                ${c.status === 'COMPLETADO' ? '✅ COMPLETADO' : '🏆 ENTREGAR CONTRATO'}
+              </button>
+            `;
+            cBox.appendChild(card);
+          });
+        }
+      } catch (e) { console.error(e); }
+
+      // Load Black Market items
+      const mBox = document.getElementById('market-items-container');
+      try {
+        const respM = await fetch('/api/market/items', { headers: { 'x-api-key': API_KEY } });
+        if (respM.ok) {
+          const dM = await respM.json();
+          mBox.innerHTML = '';
+          (dM.items || []).forEach(i => {
+            const card = document.createElement('div');
+            card.className = 'char-card';
+            card.innerHTML = `
+              <div class="char-card-header">
+                <span>${i.name}</span>
+                <span class="stat-val green">${i.price} ¤</span>
+              </div>
+              <div class="char-role">${i.category}</div>
+              <div class="char-status">${i.effect}</div>
+              <button class="btn-synth" style="margin-top:0.4rem;" onclick="buyMarketItem('${i.id}')">🛒 COMPRAR LOTE</button>
+            `;
+            mBox.appendChild(card);
+          });
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    async function completeContract(contractId) {
+      try {
+        const resp = await fetch('/api/factions/complete_contract', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contract_id: contractId, current_credits: availableCredits })
+        });
+        const d = await resp.json();
+        if (resp.ok && d.success) {
+          availableCredits = d.new_credits;
+          document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
+          document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+          alert(d.message);
+          await loadFactions();
+          await loadContractsAndMarket();
+          await loadTelemetry();
+        } else { alert(d.error || 'Error completando contrato'); }
+      } catch (e) { alert(e.message); }
+    }
+
+    async function buyMarketItem(itemId) {
+      try {
+        const resp = await fetch('/api/market/buy', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ item_id: itemId, current_credits: availableCredits })
+        });
+        const d = await resp.json();
+        if (resp.ok && d.success) {
+          availableCredits = d.remaining_credits;
+          document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
+          document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+          alert(d.message);
+          await loadTelemetry();
+        } else { alert(d.error || 'Error al comprar'); }
+      } catch (e) { alert(e.message); }
     }
 
     // ==========================================
@@ -1863,7 +2072,11 @@ def get_dashboard_html() -> str:
       if (targetContent) targetContent.classList.add('active');
 
       if (tabId === 'tab-radar') initRadar();
-      if (tabId === 'tab-factions') loadFactions();
+      if (tabId === 'tab-medicae') loadPatientAnatomy('Quartus Holt');
+      if (tabId === 'tab-factions') {
+        loadFactions();
+        loadContractsAndMarket();
+      }
       if (tabId === 'tab-docs') {
         const activeDocBtn = document.querySelector('.doc-btn.active') || document.querySelector('.doc-btn');
         if (activeDocBtn) activeDocBtn.click();
@@ -2072,29 +2285,7 @@ def get_dashboard_html() -> str:
           </div>
         `;
         await loadTelemetry();
-      } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
-    }
-
-    async function synthesizeCompound(key) {
-      const res = document.getElementById('alchemy-result-box');
-      res.style.display = 'block';
-      res.innerHTML = '<span style="color:var(--amber);">[CALENTANDO REACTORES Y CONDENSADORES...]</span>';
-
-      try {
-        const resp = await fetch('/api/medicae/synthesize', {
-          method: 'POST',
-          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ compound_key: key, medic_skill: 65, available_credits: availableCredits })
-        });
-        const d = await resp.json();
-        if (resp.ok && d.success) {
-          availableCredits = d.remaining_credits;
-          document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
-          document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
-          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--green-auspex); color:var(--green-auspex); font-weight:700;">${d.message}</div>`;
-        } else {
-          res.innerHTML = `<div class="upgrade-box" style="border-color:var(--crimson-light); color:var(--crimson-light);">${d.error || 'Fallo'}</div>`;
-        }
+        await loadPatientAnatomy(p);
       } catch (e) { res.innerHTML = `<span style="color:var(--crimson-light);">Error: ${e.message}</span>`; }
     }
 
@@ -2141,39 +2332,6 @@ def get_dashboard_html() -> str:
         await loadFactions();
         await loadTelemetry();
       } catch (e) { alert(e.message); }
-    }
-
-    async function generatePatientEvent() {
-      const card = document.getElementById('patient-event-card');
-      card.style.display = 'block';
-
-      try {
-        const resp = await fetch('/api/events/generate_patient', {
-          method: 'POST',
-          headers: { 'x-api-key': API_KEY }
-        });
-        if (resp.ok) {
-          currentPatient = await resp.json();
-          document.getElementById('patient-name-title').textContent = '🚨 ' + currentPatient.name;
-          document.getElementById('patient-faction-text').textContent = currentPatient.faction;
-          document.getElementById('patient-trauma-text').textContent = currentPatient.trauma;
-          document.getElementById('patient-hp-text').textContent = currentPatient.vital_status;
-          document.getElementById('patient-reward-text').textContent = currentPatient.reward_offered;
-          document.getElementById('patient-risk-text').textContent = currentPatient.risk_warning;
-        }
-      } catch (e) { console.error(e); }
-    }
-
-    function admitPatient() {
-      if (!currentPatient) return;
-      alert(`¡Paciente ${currentPatient.name} ingresado en Cama C-02 de Rho-9! Puedes operarlo en la pestaña de Cirugía.`);
-      document.getElementById('patient-event-card').style.display = 'none';
-      switchTab('tab-medicae');
-    }
-
-    function dismissPatient() {
-      alert("Compuerta atrancada. El sujeto ha sido rechazado.");
-      document.getElementById('patient-event-card').style.display = 'none';
     }
 
     async function assignStaff(npcName, task) {
@@ -2235,6 +2393,7 @@ def get_dashboard_html() -> str:
       loadStateHeader();
       loadBlueprint();
       loadTelemetry();
+      loadPatientAnatomy('Quartus Holt');
       loadDocument('FICHA_DEL_PERSONAJE');
     });
   </script>
