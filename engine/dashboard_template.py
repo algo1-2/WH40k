@@ -1,9 +1,10 @@
 """
-WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v6.0
+WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v7.0
 Includes:
-- Imperial Chrono-Clock with live time and +1 Hour cycle advance
-- Secondary Auspex Motion Radar (Canvas 2D animated personnel patrols)
-- Standardized 5/3 Room Upgrade Tree & Live Surgery/Alchemy/Factions Suite
+- Continuous Live Ticking Imperial Chrono-Clock (Seconds, Minutes, Hours, Turns)
+- High-Definition Animated Auspex Tactical Map with corridor waypoints, activity particles, ECG monitors & speech bubbles
+- Active Chat Synchronization Bridge (POST /api/chat/sync, live event ticker, rapid order console & ChatGPT prompt exporter)
+- Standardized 5/3 Upgrade Tree, Surgery Lab, Alchemy, Factions & Dossiers
 """
 
 def get_dashboard_html() -> str:
@@ -55,7 +56,7 @@ def get_dashboard_html() -> str:
     header {
       background: #0b0e12;
       border-bottom: 2px solid var(--brass-dim);
-      padding: 0.85rem 1.5rem;
+      padding: 0.75rem 1.5rem;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -67,7 +68,7 @@ def get_dashboard_html() -> str:
     .brand {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .aquila-icon {
@@ -78,7 +79,7 @@ def get_dashboard_html() -> str:
 
     .brand-title {
       font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 900;
       letter-spacing: 2px;
       color: var(--brass);
@@ -86,11 +87,12 @@ def get_dashboard_html() -> str:
     }
 
     .brand-sub {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--text-dim);
       letter-spacing: 1px;
     }
 
+    /* REAL-TIME IMPERIAL CHRONO CLOCK */
     .chrono-clock-box {
       background: #06090d;
       border: 1px solid var(--border-panel);
@@ -108,10 +110,11 @@ def get_dashboard_html() -> str:
     }
 
     .chrono-time {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 800;
       color: var(--brass);
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-variant-numeric: tabular-nums;
     }
 
     .chrono-sub {
@@ -188,6 +191,35 @@ def get_dashboard_html() -> str:
       100% { opacity: 1; transform: scale(1); }
     }
 
+    /* LIVE CHAT EVENT TICKER */
+    .chat-ticker-bar {
+      background: #090d13;
+      border-bottom: 1px solid var(--border-panel);
+      padding: 0.4rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-label {
+      background: var(--brass-dim);
+      color: #080a0d;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+    }
+
+    .ticker-text {
+      color: var(--text-main);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     nav.tab-nav {
       background: #0d1015;
       display: flex;
@@ -204,7 +236,7 @@ def get_dashboard_html() -> str:
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.82rem;
       font-weight: 600;
-      padding: 0.8rem 1.15rem;
+      padding: 0.75rem 1.15rem;
       cursor: pointer;
       border-bottom: 2px solid transparent;
       transition: all 0.2s ease;
@@ -471,25 +503,25 @@ def get_dashboard_html() -> str:
       margin-right: 0.35rem;
     }
 
-    /* SECONDARY MOTION RADAR STYLES */
+    /* ENHANCED HD MOTION RADAR STYLES */
     .radar-container-layout {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 2.2fr 1fr;
       gap: 1.5rem;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .radar-container-layout { grid-template-columns: 1fr; }
     }
 
     .radar-canvas-box {
-      background: #05080c;
+      background: #040608;
       border: 2px solid var(--border-panel);
       border-radius: 6px;
       position: relative;
       overflow: hidden;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 0 15px rgba(16, 185, 129, 0.15);
-      min-height: 480px;
+      box-shadow: inset 0 0 35px rgba(0,0,0,0.95), 0 0 20px rgba(16, 185, 129, 0.15);
+      min-height: 520px;
     }
 
     #radarCanvas {
@@ -504,15 +536,53 @@ def get_dashboard_html() -> str:
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(rgba(16, 185, 129, 0) 50%, rgba(16, 185, 129, 0.08) 50%);
+      background: linear-gradient(rgba(16, 185, 129, 0) 50%, rgba(16, 185, 129, 0.05) 50%);
       background-size: 100% 4px;
       pointer-events: none;
     }
 
-    .radar-legend {
+    .radar-sidebar {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 1rem;
+    }
+
+    .chat-sync-box {
+      background: #0b0f16;
+      border: 1px solid var(--brass-dim);
+      border-radius: 6px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    .quick-orders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .btn-quick-order {
+      background: #131923;
+      border: 1px solid var(--border-panel);
+      color: var(--text-main);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 0.45rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .btn-quick-order:hover {
+      background: rgba(201, 154, 62, 0.2);
+      border-color: var(--brass);
+      color: var(--brass);
+      transform: translateY(-1px);
     }
 
     .agent-tracker-card {
@@ -906,14 +976,14 @@ def get_dashboard_html() -> str:
       </div>
     </div>
 
-    <!-- IMPERIAL CHRONO-CLOCK -->
+    <!-- LIVE CONTINUOUS TICKING CHRONO CLOCK -->
     <div class="chrono-clock-box">
       <span style="font-size:1.2rem;">⏱️</span>
       <div class="chrono-display">
-        <div class="chrono-time" id="chrono-clock-time">DÍA 04 · NOCHE (23:54:10)</div>
+        <div class="chrono-time" id="chrono-clock-time">DÍA 04 · NOCHE 23:54:00</div>
         <div class="chrono-sub" id="chrono-clock-turn">TURNO 918 · VIGILIA NOCTURNA RHO-9</div>
       </div>
-      <button class="btn-advance-time" onclick="advanceCycleHour()" title="Simula el avance de 1 hora/turno en la base">⏩ +1 HORA</button>
+      <button class="btn-advance-time" onclick="advanceCycleHour()" title="Avanza 1 hora/turno en la base">+1 HORA</button>
     </div>
 
     <div class="status-badge-container">
@@ -922,6 +992,12 @@ def get_dashboard_html() -> str:
       <div class="badge badge-brass" id="badge-souls">10 ALMAS</div>
     </div>
   </header>
+
+  <!-- NARRATIVE CHAT TICKER -->
+  <div class="chat-ticker-bar">
+    <span class="ticker-label">TRANSMISIÓN CHAT</span>
+    <span class="ticker-text" id="live-chat-ticker">Alexander mantiene la perfusión tisular activa en C-03 mientras Severan custodia la compuerta.</span>
+  </div>
 
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('tab-blueprint')">🗺️ PLANO & MEJORAS</button>
@@ -1010,29 +1086,57 @@ def get_dashboard_html() -> str:
       </div>
     </section>
 
-    <!-- TAB 1: SECONDARY MOTION RADAR -->
+    <!-- TAB 1: ENHANCED HD MOTION RADAR & CHAT BRIDGE -->
     <section id="tab-radar" class="tab-content">
       <div class="panel" style="margin-bottom:1rem;">
         <div class="panel-header">
           <div class="panel-title">
-            <span>📡 AUSPEX TÁCTICO // RADAR DE MOVIMIENTO EN VIVO</span>
+            <span>📡 AUSPEX TÁCTICO // RADAR DE MOVIMIENTO EN VIVO & ENLACE DE CHAT</span>
           </div>
           <div style="display:flex; gap:0.5rem; align-items:center;">
-            <span class="badge badge-live">PATRULLAS ACTIVAS</span>
-            <span class="badge badge-brass" id="radar-agent-count">7 OPERADORES</span>
+            <span class="badge badge-live">SEGUIMIENTO ACTIVO</span>
+            <span class="badge badge-brass" id="radar-agent-count">8 AGENTES</span>
           </div>
         </div>
         <div class="panel-body">
           <div class="radar-container-layout">
+            
             <div class="radar-canvas-box">
-              <canvas id="radarCanvas" width="750" height="480"></canvas>
+              <canvas id="radarCanvas" width="760" height="500"></canvas>
               <div class="radar-scanline"></div>
             </div>
             
-            <div class="radar-legend">
-              <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); margin-bottom:0.25rem;">📍 CENSO DE POSICIONES EN VIVO</div>
-              <div id="radar-agents-list" style="display:flex; flex-direction:column; gap:0.5rem; max-height:440px; overflow-y:auto;"></div>
+            <div class="radar-sidebar">
+              <!-- CHAT BRIDGE & QUICK ORDER CONSOLE -->
+              <div class="chat-sync-box">
+                <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); display:flex; justify-content:space-between; align-items:center;">
+                  <span>💬 CONSOLA DE ENLACE CHAT</span>
+                  <span class="badge badge-live" style="font-size:0.65rem; padding:0.15rem 0.4rem;">SYNC</span>
+                </div>
+                <p style="font-size:0.7rem; color:var(--text-muted); margin:0.35rem 0 0.5rem 0;">
+                  Envía órdenes en vivo al mapa para desplazar a tu personal y generar el prompt formateado para el chat de ChatGPT.
+                </p>
+
+                <div class="quick-orders-grid">
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Severan Holt', 'GATE-01', 'Inspección de cerrojos y guardia en compuerta principal')">🛡️ Severan a Compuerta</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Khepra-9', 'E-01', 'Calibración de circuito aséptico en esterilización')">⚙️ Khepra a Filtros</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Alexander', 'Q-01', 'Revisión quirúrgica y signos vitales')">👤 Alexander a Quirófano</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Syra Kol', 'F-02', 'Auditoría de estimulantes y biobanco')">📋 Syra a Farmacia</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Halven Rusk', 'C-03', 'Control de perfusión tisular de Quartus')">🩺 Halven a Cama C-03</button>
+                  <button class="btn-quick-order" onclick="dispatchChatOrder('Severan Holt', 'COMM-01', 'Ronda nocturna por sala común')">🌙 Severan Ronda Comedor</button>
+                </div>
+
+                <div style="margin-top:0.75rem; display:flex; gap:0.4rem;">
+                  <input type="text" id="custom-chat-msg" class="form-control" style="font-size:0.75rem; padding:0.4rem 0.6rem;" placeholder="Escribir acción o diálogo del chat...">
+                  <button class="btn-synth" style="padding:0.4rem 0.8rem;" onclick="dispatchCustomChatOrder()">ENVIAR</button>
+                </div>
+              </div>
+
+              <!-- AGENT CENSO -->
+              <div style="font-family:'Cinzel',serif; font-size:0.85rem; font-weight:800; color:var(--brass); margin-top:0.25rem;">📍 CENSO DE POSICIÓN Y ACCIONES</div>
+              <div id="radar-agents-list" style="display:flex; flex-direction:column; gap:0.45rem; max-height:220px; overflow-y:auto;"></div>
             </div>
+
           </div>
         </div>
       </div>
@@ -1314,55 +1418,78 @@ def get_dashboard_html() -> str:
     let availableCredits = 1046;
     let currentPatient = null;
 
-    // CHRONO CLOCK STATE
+    // REAL-TIME CHRONO CLOCK (TICKING CONTINUOUSLY EVERY SECOND)
     let currentDay = 4;
     let currentHour = 23;
     let currentMinute = 54;
+    let currentSecond = 0;
     let currentTurn = 918;
 
     function updateClockDisplay() {
       const hh = String(currentHour).padStart(2, '0');
       const mm = String(currentMinute).padStart(2, '0');
+      const ss = String(currentSecond).padStart(2, '0');
       const phase = (currentHour >= 6 && currentHour < 18) ? 'CICLO DIURNO' : 'VIGILIA NOCTURNA';
-      document.getElementById('chrono-clock-time').textContent = `DÍA ${String(currentDay).padStart(2, '0')} · ${phase} (${hh}:${mm})`;
+      document.getElementById('chrono-clock-time').textContent = `DÍA ${String(currentDay).padStart(2, '0')} · ${phase} ${hh}:${mm}:${ss}`;
       document.getElementById('chrono-clock-turn').textContent = `TURNO ${currentTurn} · MEDICAE STATION RHO-9`;
     }
+
+    // Tick every 1 second continuously
+    setInterval(() => {
+      currentSecond++;
+      if (currentSecond >= 60) {
+        currentSecond = 0;
+        currentMinute++;
+        if (currentMinute >= 60) {
+          currentMinute = 0;
+          currentHour = (currentHour + 1) % 24;
+          if (currentHour === 0) currentDay++;
+        }
+      }
+      updateClockDisplay();
+    }, 1000);
 
     function advanceCycleHour() {
       currentHour = (currentHour + 1) % 24;
       if (currentHour === 0) currentDay++;
       currentTurn++;
+      currentSecond = 0;
       updateClockDisplay();
       triggerRadarSweep();
       loadTelemetry();
     }
 
-    setInterval(() => {
-      currentMinute = (currentMinute + 1) % 60;
-      if (currentMinute === 0) currentHour = (currentHour + 1) % 24;
-      updateClockDisplay();
-    }, 15000);
+    // ==========================================
+    // ENHANCED HD MOTION RADAR & PATHFINDING
+    // ==========================================
+    const roomNodes = {
+      'GATE-01': { x: 90, y: 250, name: 'Compuerta', w: 100, h: 80, type: 'sec' },
+      'ADM-01': { x: 230, y: 130, name: 'Recepción', w: 100, h: 75, type: 'log' },
+      'COMM-01': { x: 230, y: 250, name: 'Sala Común', w: 100, h: 80, type: 'liv' },
+      'HAB-02': { x: 230, y: 370, name: 'Dorm. Guardia', w: 100, h: 75, type: 'liv' },
+      'HAB-01': { x: 375, y: 65, name: 'Sanctum Alex', w: 110, h: 65, type: 'liv' },
+      'Q-01': { x: 375, y: 170, name: 'Quirófano Central', w: 120, h: 100, type: 'med' },
+      'E-01': { x: 375, y: 300, name: 'Esterilización', w: 110, h: 70, type: 'med' },
+      'T-01': { x: 375, y: 395, name: 'Taller Mecatrónico', w: 110, h: 75, type: 'tech' },
+      'F-02': { x: 535, y: 105, name: 'Biobanco & Farmacia', w: 105, h: 80, type: 'sto' },
+      'C-01': { x: 535, y: 215, name: 'Cama Tertius', w: 95, h: 60, type: 'rec' },
+      'C-02': { x: 535, y: 295, name: 'Cama Triaje', w: 95, h: 60, type: 'rec' },
+      'C-03': { x: 535, y: 375, name: 'Cama Quartus (Nvl 2)', w: 95, h: 65, type: 'rec' },
+      'HAB-03': { x: 670, y: 145, name: 'Dorm. Syra/Khepra', w: 100, h: 80, type: 'liv' },
+      'HAB-04': { x: 670, y: 260, name: 'Refugio Clandestino', w: 100, h: 80, type: 'liv' },
+      'SUB-01': { x: 670, y: 375, name: 'Acceso Subniveles', w: 100, h: 70, type: 'fog' }
+    };
 
-    // ==========================================
-    // SECONDARY MOTION RADAR (CANVAS 2D SIMULATOR)
-    // ==========================================
-    const radarRooms = [
-      { id: 'GATE-01', name: 'Compuerta', x: 80, y: 240, w: 90, h: 70 },
-      { id: 'ADM-01', name: 'Recepción', x: 210, y: 140, w: 90, h: 65 },
-      { id: 'COMM-01', name: 'Sala Común', x: 210, y: 240, w: 90, h: 75 },
-      { id: 'HAB-02', name: 'Dorm. Guardia', x: 210, y: 355, w: 90, h: 65 },
-      { id: 'HAB-01', name: 'Sanctum Alex', x: 340, y: 70, w: 95, h: 60 },
-      { id: 'Q-01', name: 'Quirófano', x: 340, y: 170, w: 105, h: 90 },
-      { id: 'E-01', name: 'Esterilización', x: 340, y: 290, w: 95, h: 65 },
-      { id: 'T-01', name: 'Taller Khepra', x: 340, y: 385, w: 95, h: 65 },
-      { id: 'F-02', name: 'Farmacia', x: 485, y: 110, w: 95, h: 70 },
-      { id: 'C-01', name: 'Cama Tertius', x: 485, y: 210, w: 85, h: 55 },
-      { id: 'C-02', name: 'Cama Triaje', x: 485, y: 285, w: 85, h: 55 },
-      { id: 'C-03', name: 'Cama Quartus', x: 485, y: 360, w: 85, h: 55 },
-      { id: 'HAB-03', name: 'Dorm. Syra', x: 610, y: 150, w: 90, h: 70 },
-      { id: 'HAB-04', name: 'Refugio Cland.', x: 610, y: 260, w: 90, h: 70 },
-      { id: 'SUB-01', name: 'Escaleras Sub', x: 610, y: 370, w: 90, h: 60 }
-    ];
+    // Waypoint routing points (corridors)
+    const waypoints = {
+      'W_GATE': { x: 140, y: 290 },
+      'W_HALL_WEST': { x: 280, y: 290 },
+      'W_HALL_NORTH': { x: 280, y: 165 },
+      'W_HALL_SOUTH': { x: 280, y: 405 },
+      'W_CENTER': { x: 435, y: 220 },
+      'W_HALL_EAST': { x: 580, y: 245 },
+      'W_EAST_CORRIDOR': { x: 720, y: 300 }
+    };
 
     const radarAgents = [
       {
@@ -1371,16 +1498,18 @@ def get_dashboard_html() -> str:
         role: 'Mando de Seguridad',
         icon: '🛡️',
         color: '#10b981',
-        x: 120, y: 275,
-        targetX: 255, targetY: 275,
+        x: 140, y: 290,
+        currentRoom: 'GATE-01',
+        dialogue: 'Compuerta atrancada. Cero intrusiones.',
+        dialogueTimer: 180,
         path: [
-          { x: 120, y: 275, task: 'Inspección de Cerrojos en Compuerta' },
-          { x: 255, y: 275, task: 'Ronda en Pasillo Central' },
-          { x: 255, y: 385, task: 'Verificación de Armero en Dormitorio' },
-          { x: 120, y: 275, task: 'Vigilancia en Compuerta Principal' }
+          { x: 140, y: 290, task: 'Vigilancia en Compuerta Principal', room: 'GATE-01' },
+          { x: 280, y: 290, task: 'Patrullando Pasillo Central', room: 'COMM-01' },
+          { x: 280, y: 405, task: 'Inspección de Armero de Guardia', room: 'HAB-02' },
+          { x: 140, y: 290, task: 'Custodiando Acceso GATE-01', room: 'GATE-01' }
         ],
         pathIdx: 0,
-        speed: 0.65
+        speed: 0.75
       },
       {
         id: 'khepra',
@@ -1388,16 +1517,18 @@ def get_dashboard_html() -> str:
         role: 'Tecnosacerdote',
         icon: '⚙️',
         color: '#06b6d4',
-        x: 385, y: 415,
-        targetX: 385, targetY: 320,
+        x: 430, y: 430,
+        currentRoom: 'T-01',
+        dialogue: 'Omnissiah preserve la red de plasma.',
+        dialogueTimer: 150,
         path: [
-          { x: 385, y: 415, task: 'Calibración de Servos en Taller T-01' },
-          { x: 385, y: 320, task: 'Purga de Filtros en Esterilización' },
-          { x: 385, y: 215, task: 'Chequeo de Monitores en Quirófano' },
-          { x: 385, y: 415, task: 'Mantenimiento en Taller T-01' }
+          { x: 430, y: 430, task: 'Calibrando Torno en Taller T-01', room: 'T-01' },
+          { x: 430, y: 335, task: 'Purgando Filtros en Esterilización', room: 'E-01' },
+          { x: 435, y: 220, task: 'Revisando Diagnostor en Quirófano', room: 'Q-01' },
+          { x: 430, y: 430, task: 'Ensamblando Prótesis en T-01', room: 'T-01' }
         ],
         pathIdx: 0,
-        speed: 0.45
+        speed: 0.55
       },
       {
         id: 'syra',
@@ -1405,16 +1536,18 @@ def get_dashboard_html() -> str:
         role: 'Logística & Farmacia',
         icon: '📋',
         color: '#f59e0b',
-        x: 255, y: 170,
-        targetX: 530, targetY: 145,
+        x: 280, y: 165,
+        currentRoom: 'ADM-01',
+        dialogue: 'Inventario de fármacos auditado: 200+ ampollas.',
+        dialogueTimer: 200,
         path: [
-          { x: 255, y: 170, task: 'Registro de Entradas en Cogitador' },
-          { x: 530, y: 145, task: 'Inventario de Ampollas en Farmacia' },
-          { x: 255, y: 275, task: 'Reabastecimiento de Raciones en Comedor' },
-          { x: 255, y: 170, task: 'Auditoría en Recepción ADM-01' }
+          { x: 280, y: 165, task: 'Contabilidad en Cogitador ADM-01', room: 'ADM-01' },
+          { x: 585, y: 145, task: 'Clasificando Químicos en Farmacia', room: 'F-02' },
+          { x: 280, y: 290, task: 'Control de Raciones en Comedor', room: 'COMM-01' },
+          { x: 280, y: 165, task: 'Auditando en Recepción ADM-01', room: 'ADM-01' }
         ],
         pathIdx: 0,
-        speed: 0.55
+        speed: 0.65
       },
       {
         id: 'jarek',
@@ -1422,14 +1555,16 @@ def get_dashboard_html() -> str:
         role: 'Deudor en Guardia',
         icon: '⛓️',
         color: '#94a3b8',
-        x: 100, y: 255,
-        targetX: 130, targetY: 285,
+        x: 110, y: 270,
+        currentRoom: 'GATE-01',
+        dialogue: 'Cumpliendo mi guardia, amo Alexander.',
+        dialogueTimer: 120,
         path: [
-          { x: 100, y: 255, task: 'Guardia en Tronera Izquierda' },
-          { x: 130, y: 285, task: 'Guardia en Tronera Derecha' }
+          { x: 110, y: 270, task: 'Centinela en Tronera Izquierda', room: 'GATE-01' },
+          { x: 145, y: 300, task: 'Centinela en Tronera Derecha', room: 'GATE-01' }
         ],
         pathIdx: 0,
-        speed: 0.25
+        speed: 0.3
       },
       {
         id: 'halven',
@@ -1437,16 +1572,18 @@ def get_dashboard_html() -> str:
         role: 'Auxiliar Quirúrgico',
         icon: '🩺',
         color: '#c99a3e',
-        x: 375, y: 215,
-        targetX: 520, targetY: 390,
+        x: 410, y: 220,
+        currentRoom: 'Q-01',
+        dialogue: 'Cosecha completada. Cauterizando instrumental.',
+        dialogueTimer: 160,
         path: [
-          { x: 375, y: 215, task: 'Limpieza de Instrumental en Q-01' },
-          { x: 520, y: 390, task: 'Vigilancia de Perfusión en Cama Quartus' },
-          { x: 520, y: 235, task: 'Control de Drenaje en Cama Tertius' },
-          { x: 375, y: 215, task: 'Asistencia en Quirófano Central' }
+          { x: 410, y: 220, task: 'Asistencia Médica en Quirófano', room: 'Q-01' },
+          { x: 580, y: 405, task: 'Supervisando Perfusión de Quartus', room: 'C-03' },
+          { x: 580, y: 245, task: 'Auscultando Drenaje de Tertius', room: 'C-01' },
+          { x: 410, y: 220, task: 'Limpiando Autoclave en Q-01', room: 'Q-01' }
         ],
         pathIdx: 0,
-        speed: 0.5
+        speed: 0.6
       },
       {
         id: 'alexander',
@@ -1454,14 +1591,18 @@ def get_dashboard_html() -> str:
         role: 'Operador Umbral',
         icon: '👤',
         color: '#e2e8f0',
-        x: 390, y: 100,
-        targetX: 390, targetY: 200,
+        x: 430, y: 95,
+        currentRoom: 'HAB-01',
+        dialogue: 'Las sombras susurran... mantened la guardia.',
+        dialogueTimer: 240,
         path: [
-          { x: 390, y: 100, task: 'Meditación Umbral en Sanctum' },
-          { x: 390, y: 200, task: 'Inspección Clínica en Quirófano Q-01' }
+          { x: 430, y: 95, task: 'Meditación Umbral en Sanctum', room: 'HAB-01' },
+          { x: 435, y: 215, task: 'Supervisión en Quirófano Central', room: 'Q-01' },
+          { x: 585, y: 145, task: 'Inspección de Muestras en Biobanco', room: 'F-02' },
+          { x: 430, y: 95, task: 'Canalización de Reserva Umbral', room: 'HAB-01' }
         ],
         pathIdx: 0,
-        speed: 0.35
+        speed: 0.45
       }
     ];
 
@@ -1485,7 +1626,7 @@ def get_dashboard_html() -> str:
         card.innerHTML = `
           <div class="agent-header">
             <span>${a.icon} ${a.name}</span>
-            <span style="color:${a.color}; font-size:0.7rem;">[ACTIVO]</span>
+            <span style="color:${a.color}; font-size:0.7rem;">[${a.currentRoom || 'RHO-9'}]</span>
           </div>
           <div class="agent-task">📍 ${a.path[a.pathIdx].task}</div>
         `;
@@ -1497,6 +1638,78 @@ def get_dashboard_html() -> str:
       radarSweepAngle = 0;
     }
 
+    // ANIMATED CHAT ORDER DISPATCHER
+    async function dispatchChatOrder(speaker, targetRoom, customTask) {
+      const agent = radarAgents.find(a => a.name.toLowerCase().includes(speaker.toLowerCase().split(' ')[0]));
+      const room = roomNodes[targetRoom];
+
+      if (agent && room) {
+        agent.dialogue = `¡Entendido! Me dirijo a ${room.name}.`;
+        agent.dialogueTimer = 220;
+        agent.currentRoom = targetRoom;
+        
+        // Add new waypoint to target room
+        agent.path.unshift({
+          x: room.x + room.w / 2,
+          y: room.y + room.h / 2,
+          task: customTask || `En misión en ${room.name}`,
+          room: targetRoom
+        });
+        agent.pathIdx = 0;
+      }
+
+      // Sync with backend API
+      try {
+        const resp = await fetch('/api/chat/sync', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event_type: 'MOVEMENT',
+            speaker: speaker,
+            message: customTask || `Traslado táctico a ${targetRoom}`,
+            target_room: targetRoom,
+            advance_turns: 1
+          })
+        });
+        const data = await resp.json();
+        if (resp.ok) {
+          document.getElementById('live-chat-ticker').textContent = `[${speaker}] ${customTask || 'Traslado táctico a ' + targetRoom}`;
+          advanceCycleHour();
+          renderRadarLegend();
+        }
+      } catch (err) { console.error(err); }
+    }
+
+    async function dispatchCustomChatOrder() {
+      const input = document.getElementById('custom-chat-msg');
+      const text = input.value.trim();
+      if (!text) return;
+
+      document.getElementById('live-chat-ticker').textContent = `[ORDEN CHAT] ${text}`;
+
+      // Pick selected agent or Alexander
+      const agent = radarAgents.find(a => a.id === selectedAgentId) || radarAgents[0];
+      agent.dialogue = text;
+      agent.dialogueTimer = 260;
+
+      try {
+        await fetch('/api/chat/sync', {
+          method: 'POST',
+          headers: { 'x-api-key': API_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event_type: 'DIALOGUE',
+            speaker: agent.name,
+            message: text,
+            target_room: agent.currentRoom,
+            advance_turns: 0
+          })
+        });
+        input.value = '';
+        await loadTelemetry();
+      } catch (e) { console.error(e); }
+    }
+
+    // Canvas rendering loop
     function renderRadarLoop() {
       const canvas = document.getElementById('radarCanvas');
       if (canvas && canvas.offsetParent !== null) {
@@ -1504,43 +1717,73 @@ def get_dashboard_html() -> str:
         const w = canvas.width;
         const h = canvas.height;
 
-        // Clear with slight trailing opacity
-        ctx.fillStyle = 'rgba(5, 8, 12, 0.25)';
+        // Dark atmospheric background with trail
+        ctx.fillStyle = 'rgba(4, 6, 8, 0.3)';
         ctx.fillRect(0, 0, w, h);
 
-        // Draw grid
-        ctx.strokeStyle = 'rgba(16, 185, 129, 0.08)';
+        // Auspex tactical grid
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.06)';
         ctx.lineWidth = 1;
-        for (let x = 0; x < w; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
-        for (let y = 0; y < h; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
+        for (let x = 0; x < w; x += 35) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+        for (let y = 0; y < h; y += 35) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
 
-        // Draw connecting corridors
-        ctx.strokeStyle = 'rgba(201, 154, 62, 0.2)';
-        ctx.lineWidth = 2;
+        // Corridors & Waypoints network
+        ctx.strokeStyle = 'rgba(201, 154, 62, 0.18)';
+        ctx.lineWidth = 2.5;
         ctx.beginPath();
-        ctx.moveTo(125, 275); ctx.lineTo(255, 275);
-        ctx.lineTo(255, 170); ctx.lineTo(390, 100);
-        ctx.moveTo(255, 275); ctx.lineTo(390, 215);
-        ctx.lineTo(525, 145);
-        ctx.moveTo(390, 215); ctx.lineTo(390, 320); ctx.lineTo(390, 415);
-        ctx.moveTo(390, 215); ctx.lineTo(525, 235);
-        ctx.moveTo(525, 235); ctx.lineTo(525, 385);
-        ctx.moveTo(525, 385); ctx.lineTo(655, 400);
+        ctx.moveTo(140, 290); ctx.lineTo(280, 290);
+        ctx.lineTo(280, 165); ctx.lineTo(435, 95);
+        ctx.moveTo(280, 290); ctx.lineTo(280, 405);
+        ctx.moveTo(280, 290); ctx.lineTo(435, 220);
+        ctx.lineTo(430, 335); ctx.lineTo(430, 430);
+        ctx.moveTo(435, 220); ctx.lineTo(585, 145);
+        ctx.moveTo(435, 220); ctx.lineTo(580, 245);
+        ctx.lineTo(580, 325); ctx.lineTo(580, 405);
+        ctx.moveTo(580, 325); ctx.lineTo(720, 300);
         ctx.stroke();
 
-        // Draw Room boxes
-        radarRooms.forEach(r => {
-          ctx.fillStyle = 'rgba(15, 20, 28, 0.75)';
-          ctx.strokeStyle = 'rgba(38, 46, 59, 0.9)';
-          ctx.lineWidth = 1.5;
+        // Draw Room boxes with distinct styling
+        Object.entries(roomNodes).forEach(([id, r]) => {
+          ctx.fillStyle = 'rgba(15, 20, 28, 0.85)';
+          ctx.strokeStyle = (id === 'GATE-01' || id === 'Q-01' || id === 'C-03') ? 'rgba(201, 154, 62, 0.8)' : 'rgba(38, 46, 59, 0.9)';
+          ctx.lineWidth = (id === 'GATE-01' || id === 'Q-01' || id === 'C-03') ? 2 : 1.5;
           ctx.fillRect(r.x, r.y, r.w, r.h);
           ctx.strokeRect(r.x, r.y, r.w, r.h);
 
-          ctx.fillStyle = 'rgba(148, 163, 184, 0.65)';
-          ctx.font = '9px "JetBrains Mono"';
-          ctx.fillText(r.id, r.x + 5, r.y + 12);
-          ctx.fillStyle = 'rgba(226, 232, 240, 0.85)';
-          ctx.fillText(r.name, r.x + 5, r.y + 24);
+          // Room code and name
+          ctx.fillStyle = 'rgba(201, 154, 62, 0.7)';
+          ctx.font = 'bold 9px "JetBrains Mono"';
+          ctx.fillText(id, r.x + 6, r.y + 13);
+
+          ctx.fillStyle = 'rgba(226, 232, 240, 0.9)';
+          ctx.font = '10px "JetBrains Mono"';
+          ctx.fillText(r.name, r.x + 6, r.y + 26);
+
+          // Room activity visuals:
+          if (id === 'Q-01') {
+            // Surgery table glow
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.15)';
+            ctx.fillRect(r.x + 20, r.y + 35, r.w - 40, r.h - 45);
+            ctx.strokeStyle = 'rgba(16, 185, 129, 0.5)';
+            ctx.strokeRect(r.x + 20, r.y + 35, r.w - 40, r.h - 45);
+          } else if (id === 'T-01') {
+            // Spark particle simulation
+            if (Math.random() > 0.6) {
+              ctx.fillStyle = '#f59e0b';
+              ctx.fillRect(r.x + 40 + (Math.random()*20), r.y + 40 + (Math.random()*20), 2, 2);
+            }
+          } else if (id === 'C-03') {
+            // ECG Heartbeat line simulation for Quartus
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            const ecgX = r.x + 10;
+            const ecgY = r.y + 45;
+            const t = (Date.now() / 120) % 60;
+            ctx.moveTo(ecgX, ecgY);
+            ctx.lineTo(ecgX + t, ecgY + (t > 25 && t < 35 ? (t % 2 === 0 ? -6 : 6) : 0));
+            ctx.stroke();
+          }
         });
 
         // Update and draw agents
@@ -1550,8 +1793,9 @@ def get_dashboard_html() -> str:
           const dy = target.y - a.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 2.5) {
+          if (dist < 3) {
             a.pathIdx = (a.pathIdx + 1) % a.path.length;
+            if (target.room) a.currentRoom = target.room;
           } else {
             a.x += (dx / dist) * a.speed;
             a.y += (dy / dist) * a.speed;
@@ -1559,30 +1803,46 @@ def get_dashboard_html() -> str:
 
           // Blip circle
           ctx.beginPath();
-          ctx.arc(a.x, a.y, a.id === selectedAgentId ? 6 : 4.5, 0, Math.PI * 2);
+          ctx.arc(a.x, a.y, a.id === selectedAgentId ? 6.5 : 5, 0, Math.PI * 2);
           ctx.fillStyle = a.color;
           ctx.fill();
 
           // Blip pulse ring
           ctx.beginPath();
-          ctx.arc(a.x, a.y, (Date.now() / 150) % 14 + 4, 0, Math.PI * 2);
+          ctx.arc(a.x, a.y, (Date.now() / 150) % 15 + 4, 0, Math.PI * 2);
           ctx.strokeStyle = a.color + '44';
           ctx.lineWidth = 1.5;
           ctx.stroke();
 
           // Agent label
           ctx.fillStyle = a.color;
-          ctx.font = 'bold 9px "JetBrains Mono"';
-          ctx.fillText(`${a.icon} ${a.name.split(' ')[0]}`, a.x + 7, a.y + 3);
+          ctx.font = 'bold 9.5px "JetBrains Mono"';
+          ctx.fillText(`${a.icon} ${a.name.split(' ')[0]}`, a.x + 8, a.y + 3);
+
+          // Dialogue bubble if active
+          if (a.dialogueTimer > 0) {
+            a.dialogueTimer--;
+            ctx.fillStyle = 'rgba(11, 15, 22, 0.92)';
+            ctx.strokeStyle = a.color;
+            ctx.lineWidth = 1;
+            
+            const msgWidth = Math.min(ctx.measureText(a.dialogue).width + 12, 160);
+            ctx.fillRect(a.x - msgWidth / 2, a.y - 32, msgWidth, 18);
+            ctx.strokeRect(a.x - msgWidth / 2, a.y - 32, msgWidth, 18);
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '8.5px "JetBrains Mono"';
+            ctx.fillText(a.dialogue.length > 22 ? a.dialogue.substring(0, 20) + '...' : a.dialogue, a.x - msgWidth / 2 + 5, a.y - 20);
+          }
         });
 
-        // Sweep line
+        // Auspex Sweep Line
         radarSweepAngle = (radarSweepAngle + 0.02) % (Math.PI * 2);
         const sweepLen = Math.max(w, h);
         ctx.beginPath();
         ctx.moveTo(w / 2, h / 2);
         ctx.lineTo(w / 2 + Math.cos(radarSweepAngle) * sweepLen, h / 2 + Math.sin(radarSweepAngle) * sweepLen);
-        ctx.strokeStyle = 'rgba(16, 185, 129, 0.35)';
+        ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
         ctx.lineWidth = 2;
         ctx.stroke();
       }

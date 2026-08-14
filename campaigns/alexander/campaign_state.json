@@ -912,10 +912,87 @@
   },
   "domain_state": {
     "upgrades": {
-      "C-03": 2,
-      "E-01": 0,
+      "GATE-01": 1,
+      "ADM-01": 1,
       "Q-01": 1,
-      "GATE-01": 1
+      "C-01": 1,
+      "C-02": 1,
+      "C-03": 2,
+      "F-02": 1,
+      "E-01": 0,
+      "T-01": 1,
+      "HAB-01": 1,
+      "HAB-02": 1,
+      "HAB-03": 1,
+      "HAB-04": 0,
+      "COMM-01": 1,
+      "SUB-01": 0
+    },
+    "sublevel_revealed": {
+      "SUB-GEN": false,
+      "SUB-TUNNEL": false,
+      "SUB-STASIS": false,
+      "SUB-CHEM": false
+    },
+    "logs": [
+      {
+        "time": "Día 04 · 23:59",
+        "type": "EVENT",
+        "text": "[Severan Holt] Inspeccionó la barricada de GATE-01 y reforzó los cerrojos. -> Traslado a GATE-01"
+      },
+      {
+        "time": "Día 04 · 23:54",
+        "type": "SECURITY",
+        "text": "Severan Holt completó la ronda perimetral en la compuerta principal. Acceso asegurado."
+      },
+      {
+        "time": "Día 04 · 23:15",
+        "type": "MEDICAL",
+        "text": "Tertius Holt estabilizado tras drenaje torácico. Parámetros vitales: 8/11."
+      },
+      {
+        "time": "Día 04 · 22:50",
+        "type": "COSECHA",
+        "text": "Halven Rusk ejecutó a los 4 cautivos en la cámara de triaje. +4 Almas transferidas a Alexander."
+      },
+      {
+        "time": "Día 04 · 21:30",
+        "type": "LOGISTICS",
+        "text": "Syra Kol registró el botín del depósito: 11 armas de fuego y 1.000+ proyectiles clasificados."
+      },
+      {
+        "time": "Día 04 · 20:10",
+        "type": "TECH",
+        "text": "Khepra-9 instaló el banco de trabajo mecatrónico en el Taller T-01."
+      }
+    ],
+    "chat_events": [
+      {
+        "time": "Día 04 · 23:59",
+        "turn": 919,
+        "type": "MOVEMENT",
+        "speaker": "Severan Holt",
+        "message": "Inspeccionó la barricada de GATE-01 y reforzó los cerrojos.",
+        "target_room": "GATE-01"
+      }
+    ],
+    "positions": {
+      "Alexander": "Q-01",
+      "Severan Holt": "GATE-01",
+      "Khepra-9": "T-01",
+      "Syra Kol": "ADM-01",
+      "Halven Rusk": "Q-01",
+      "Jarek Venn": "GATE-01",
+      "Tertius Holt": "C-01",
+      "Quartus Holt": "C-03"
+    },
+    "chrono": {
+      "day": 4,
+      "hour": 23,
+      "minute": 59,
+      "second": 0,
+      "turn": 919,
+      "phase": "VIGILIA NOCTURNA"
     }
   }
 }

@@ -218,6 +218,14 @@ class FavorClaimRequest(BaseModel):
 class UnjamRequest(BaseModel):
     weapon_name: str
 
+class ChatSyncRequest(BaseModel):
+    event_type: str = "NARRATIVE"
+    speaker: str = "Alexander"
+    message: str = "Acción descrita en el chat"
+    target_room: Optional[str] = None
+    advance_turns: Optional[int] = 0
+    advance_minutes: Optional[int] = 0
+
 class DeltaRequest(BaseModel):
     campaign_id: Optional[str] = "CAMPAIGN.ALEXANDER.NECROMUNDA"
     expected_revision: Any = 11
@@ -227,12 +235,8 @@ class DeltaRequest(BaseModel):
 @app.get("/", response_class=HTMLResponse)
 @app.get("/dashboard", response_class=HTMLResponse)
 def get_dashboard():
-    # El archivo dashboard.html ahora está en ../api/dashboard.html
-    dashboard_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "api", "dashboard.html")
-    if os.path.exists(dashboard_path):
-        with open(dashboard_path, "r", encoding="utf-8") as f:
-            return f.read()
-    return "<h1>WH40K API ONLINE - Dashboard HTML not found</h1>"
+    from engine.dashboard_template import get_dashboard_html
+    return get_dashboard_html()
 
 @app.post("/api/action", dependencies=[Depends(verify_api_key)])
 def resolve_action(req: ActionRequest, x_campaign_id: Optional[str] = Header(None)):
@@ -600,3 +604,18 @@ def apply_custom_delta(req: DeltaRequest):
         "new_revision": new_state.get("state_revision"),
         "checkpoint": state_mgr.generate_checkpoint(cid)["checkpoint_text"]
     }
+
+@app.post("/api/chat/sync", dependencies=[Depends(verify_api_key)])
+def sync_chat_action(req: ChatSyncRequest):
+    return DomainManagementEngine.sync_chat_event(
+        event_type=req.event_type,
+        speaker=req.speaker,
+        message=req.message,
+        target_room=req.target_room,
+        advance_turns=req.advance_turns or 0,
+        advance_minutes=req.advance_minutes or 0
+    )
+
+@app.get("/api/chat/live_events", dependencies=[Depends(verify_api_key)])
+def get_chat_live_events():
+    return DomainManagementEngine.get_live_events()

@@ -1,9 +1,9 @@
 """
-WH40K Domain & Base Management Engine v4.0 (domain_management_engine.py)
-Estandarización del Árbol de Mejoras:
-- 5 Salas Vitales: 5 Niveles de Mejora (Quirófano Q-01, Compuerta GATE-01, Farmacia F-02, Taller T-01, Cama Crítica C-03).
-- 10 Salas Estándar: 3 Niveles de Mejora (Esterilización E-01, Recepción ADM-01, Camas C-01/C-02, Habitaciones HAB-01 a HAB-04, Comedor COMM-01, Acceso SUB-01).
-- Cada nivel con títulos, equipamiento, costes y bonificaciones mecánicas progresivas.
+WH40K Domain & Base Management Engine v5.0 (domain_management_engine.py)
+Includes:
+- Standardized 5/3 Room Upgrade Tree
+- Chat Synchronization Bridge (sync_chat_event, get_chat_events)
+- Dynamic Character Positions & Real-time Chrono State Tracking
 """
 
 import json
@@ -35,8 +35,28 @@ DEFAULT_SUBLEVEL_REVEALED = {
     "SUB-CHEM": False
 }
 
+DEFAULT_POSITIONS = {
+    "Alexander": "Q-01",
+    "Severan Holt": "GATE-01",
+    "Khepra-9": "T-01",
+    "Syra Kol": "ADM-01",
+    "Halven Rusk": "Q-01",
+    "Jarek Venn": "GATE-01",
+    "Tertius Holt": "C-01",
+    "Quartus Holt": "C-03"
+}
+
+DEFAULT_CHRONO = {
+    "day": 4,
+    "hour": 23,
+    "minute": 54,
+    "second": 0,
+    "turn": 918,
+    "phase": "VIGILIA NOCTURNA"
+}
+
 DEFAULT_LOGS = [
-    {"time": "Día 04 · 23:40", "type": "SECURITY", "text": "Severan Holt completó la ronda perimetral en la compuerta principal. Acceso asegurado."},
+    {"time": "Día 04 · 23:54", "type": "SECURITY", "text": "Severan Holt completó la ronda perimetral en la compuerta principal. Acceso asegurado."},
     {"time": "Día 04 · 23:15", "type": "MEDICAL", "text": "Tertius Holt estabilizado tras drenaje torácico. Parámetros vitales: 8/11."},
     {"time": "Día 04 · 22:50", "type": "COSECHA", "text": "Halven Rusk ejecutó a los 4 cautivos en la cámara de triaje. +4 Almas transferidas a Alexander."},
     {"time": "Día 04 · 21:30", "type": "LOGISTICS", "text": "Syra Kol registró el botín del depósito: 11 armas de fuego y 1.000+ proyectiles clasificados."},
@@ -618,6 +638,9 @@ class DomainManagementEngine:
                     upgrades = domain.get("upgrades", {})
                     sublevel = domain.get("sublevel_revealed", {})
                     logs = domain.get("logs", [])
+                    chat_events = domain.get("chat_events", [])
+                    positions = domain.get("positions", {})
+                    chrono = domain.get("chrono", {})
                     
                     merged_upgrades = dict(DEFAULT_UPGRADES)
                     merged_upgrades.update(upgrades)
@@ -625,22 +648,34 @@ class DomainManagementEngine:
                     merged_sublevel = dict(DEFAULT_SUBLEVEL_REVEALED)
                     merged_sublevel.update(sublevel)
                     
+                    merged_positions = dict(DEFAULT_POSITIONS)
+                    merged_positions.update(positions)
+
+                    merged_chrono = dict(DEFAULT_CHRONO)
+                    merged_chrono.update(chrono)
+                    
                     merged_logs = logs if logs else list(DEFAULT_LOGS)
                     return {
                         "upgrades": merged_upgrades,
                         "sublevel": merged_sublevel,
-                        "logs": merged_logs
+                        "logs": merged_logs,
+                        "chat_events": chat_events,
+                        "positions": merged_positions,
+                        "chrono": merged_chrono
                     }
             except Exception as e:
                 print(f"Error cargando domain_data: {e}")
         return {
             "upgrades": dict(DEFAULT_UPGRADES),
             "sublevel": dict(DEFAULT_SUBLEVEL_REVEALED),
-            "logs": list(DEFAULT_LOGS)
+            "logs": list(DEFAULT_LOGS),
+            "chat_events": [],
+            "positions": dict(DEFAULT_POSITIONS),
+            "chrono": dict(DEFAULT_CHRONO)
         }
 
     @classmethod
-    def _save_domain_data(cls, upgrades: Dict[str, int], sublevel: Dict[str, bool], logs: List[Dict[str, str]]):
+    def _save_domain_data(cls, data: Dict[str, Any]):
         filepath = cls._get_state_file()
         state = {}
         if os.path.exists(filepath):
@@ -651,9 +686,12 @@ class DomainManagementEngine:
                 pass
         
         state["domain_state"] = {
-            "upgrades": upgrades,
-            "sublevel_revealed": sublevel,
-            "logs": logs[:30]
+            "upgrades": data.get("upgrades", DEFAULT_UPGRADES),
+            "sublevel_revealed": data.get("sublevel", DEFAULT_SUBLEVEL_REVEALED),
+            "logs": data.get("logs", DEFAULT_LOGS)[:35],
+            "chat_events": data.get("chat_events", [])[:40],
+            "positions": data.get("positions", DEFAULT_POSITIONS),
+            "chrono": data.get("chrono", DEFAULT_CHRONO)
         }
 
         try:
@@ -672,6 +710,79 @@ class DomainManagementEngine:
     @classmethod
     def get_logs(cls) -> List[Dict[str, str]]:
         return cls._load_domain_data()["logs"]
+
+    @classmethod
+    def get_live_events(cls) -> Dict[str, Any]:
+        data = cls._load_domain_data()
+        return {
+            "success": True,
+            "chrono": data["chrono"],
+            "positions": data["positions"],
+            "chat_events": data["chat_events"][:15],
+            "logs": data["logs"][:15]
+        }
+
+    @classmethod
+    def sync_chat_event(cls, event_type: str, speaker: str, message: str, target_room: Optional[str] = None, advance_turns: int = 0, advance_minutes: int = 0) -> Dict[str, Any]:
+        data = cls._load_domain_data()
+        chrono = data["chrono"]
+        positions = data["positions"]
+        chat_events = data["chat_events"]
+        logs = data["logs"]
+
+        # Advance chrono
+        if advance_turns > 0:
+            chrono["turn"] += advance_turns
+            chrono["minute"] = (chrono["minute"] + advance_turns * 5) % 60
+            if chrono["minute"] < advance_turns * 5:
+                chrono["hour"] = (chrono["hour"] + 1) % 24
+        
+        if advance_minutes > 0:
+            total_mins = chrono["minute"] + advance_minutes
+            chrono["minute"] = total_mins % 60
+            added_hours = total_mins // 60
+            chrono["hour"] = (chrono["hour"] + added_hours) % 24
+            if chrono["hour"] < added_hours:
+                chrono["day"] += 1
+
+        chrono["phase"] = "CICLO DIURNO" if (6 <= chrono["hour"] < 18) else "VIGILIA NOCTURNA"
+
+        time_str = f"Día {str(chrono['day']).zfill(2)} · {str(chrono['hour']).zfill(2)}:{str(chrono['minute']).zfill(2)}"
+
+        if target_room and speaker in positions:
+            positions[speaker] = target_room
+
+        event_entry = {
+            "time": time_str,
+            "turn": chrono["turn"],
+            "type": event_type.upper(),
+            "speaker": speaker,
+            "message": message,
+            "target_room": target_room
+        }
+        chat_events.insert(0, event_entry)
+
+        log_entry = {
+            "time": time_str,
+            "type": event_type.upper() if event_type.upper() in ["SECURITY", "MEDICAL", "TECH", "LOGISTICS", "COSECHA", "UPGRADE"] else "EVENT",
+            "text": f"[{speaker}] {message}" + (f" -> Traslado a {target_room}" if target_room else "")
+        }
+        logs.insert(0, log_entry)
+
+        data["chrono"] = chrono
+        data["positions"] = positions
+        data["chat_events"] = chat_events
+        data["logs"] = logs
+
+        cls._save_domain_data(data)
+
+        return {
+            "success": True,
+            "event": event_entry,
+            "chrono": chrono,
+            "positions": positions,
+            "message": f"Evento de chat sincronizado con éxito. Movimiento aplicado a {speaker}."
+        }
 
     @classmethod
     def get_rho9_status(cls) -> Dict[str, Any]:
@@ -885,7 +996,9 @@ class DomainManagementEngine:
         }
         logs.insert(0, log_entry)
 
-        cls._save_domain_data(upgrades, sublevel, logs)
+        data["upgrades"] = upgrades
+        data["logs"] = logs
+        cls._save_domain_data(data)
 
         return {
             "success": True,
@@ -911,7 +1024,6 @@ class DomainManagementEngine:
             return {"success": False, "error": f"Sector '{sector_id}' no existe en el Subnivel -1."}
         
         sublevel[sector_id] = True
-        cls._save_domain_data(upgrades, sublevel, logs)
 
         bp = cls._get_sublevel_blueprint()
         sector = next((s for s in bp["sectors"] if s["id"] == sector_id), None)
@@ -922,7 +1034,10 @@ class DomainManagementEngine:
             "text": f"{actor} exploró los subniveles y despejó la niebla de guerra en '{sector['name']}'. ¡Bono desbloqueado: {sector['bonus']}!"
         }
         logs.insert(0, log_entry)
-        cls._save_domain_data(upgrades, sublevel, logs)
+
+        data["sublevel"] = sublevel
+        data["logs"] = logs
+        cls._save_domain_data(data)
 
         return {
             "success": True,
@@ -937,8 +1052,6 @@ class DomainManagementEngine:
     @classmethod
     def assign_staff_task(cls, npc_name: str, task: str) -> Dict[str, Any]:
         data = cls._load_domain_data()
-        upgrades = data["upgrades"]
-        sublevel = data["sublevel"]
         logs = data["logs"]
 
         log_entry = {
@@ -947,7 +1060,8 @@ class DomainManagementEngine:
             "text": f"ASIGNACIÓN TÁCTICA: {npc_name} reasignado a '{task}'."
         }
         logs.insert(0, log_entry)
-        cls._save_domain_data(upgrades, sublevel, logs)
+        data["logs"] = logs
+        cls._save_domain_data(data)
 
         return {
             "success": True,
