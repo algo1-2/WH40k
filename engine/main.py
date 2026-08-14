@@ -739,3 +739,9 @@ def get_turn_report_endpoint():
 @app.get("/api/chat/time_directive", dependencies=[Depends(verify_api_key)])
 def get_time_directive_endpoint():
     return {"time_directive": DomainManagementEngine.generate_time_directive_prompt()}
+
+@app.get("/api/chat/hud_standard", dependencies=[Depends(verify_api_key)])
+def get_hud_standard_endpoint():
+    state = state_mgr.load_state()
+    creds = state.get("character_sheet", {}).get("recursos_economicos", {}).get("creditos_disponibles", 1046)
+    return {"hud_standard": DomainManagementEngine.generate_hud_standard_prompt(creds)}

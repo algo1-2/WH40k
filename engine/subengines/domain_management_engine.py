@@ -1,11 +1,10 @@
 """
-WH40K Domain & Base Management Engine v7.0 (domain_management_engine.py)
+WH40K Domain & Base Management Engine v8.0 (domain_management_engine.py)
 Includes:
 - Standardized 5/3 Room Upgrade Tree (15 Sectors)
-- Robust Mathematical Imperial Time & Turn Engine (Minute/Hour/Day Tracking)
-- Time Directive Generator for ChatGPT (Canonical Clock Rules)
-- Intelligent Narrative Text Parser (parse_narrative_to_sync) from ChatGPT
-- Full Turn Report Generator (generate_full_turn_report)
+- Standardized Canonical Campaign HUD / Status Bar (Turn, Time, Day, HP, Souls, Credits, Patients, Pacts)
+- Full Bidirectional Parser (Extracts HP, Souls, Credits, Patients HP, Moves, Dialogues, Turns & Time)
+- Time Directive & HUD Formatter for ChatGPT
 - Active ChatGPT Sync Bridge & Real-time Chrono State Tracking
 """
 
@@ -40,8 +39,8 @@ DEFAULT_SUBLEVEL_REVEALED = {
 }
 
 DEFAULT_POSITIONS = {
-    "Alexander": "Q-01",
-    "Severan Holt": "GATE-01",
+    "Alexander": "C-01",
+    "Severan Holt": "C-01",
     "Khepra-9": "T-01",
     "Syra Kol": "ADM-01",
     "Halven Rusk": "Q-01",
@@ -59,12 +58,25 @@ DEFAULT_CHRONO = {
     "phase": "VIGILIA NOCTURNA"
 }
 
+DEFAULT_PATIENTS = {
+    "Quartus Holt": {"hp": 4, "max_hp": 11, "room": "C-03", "status": "Crítico · Intubado / Perfusión Tisular Nvl 2"},
+    "Tertius Holt": {"hp": 8, "max_hp": 11, "room": "C-01", "status": "Estable · Consciente / Drenaje Torácico"},
+    "Kerrin Holt": {"hp": 5, "max_hp": 10, "room": "C-02", "status": "Crítico Posoperatorio"},
+    "Jarek Venn": {"hp": 6, "max_hp": 9, "room": "GATE-01", "status": "Torso Reparado · En Guardia"}
+}
+
+DEFAULT_PACTS = {
+    "Severan Holt": {"ciclo": 2, "estado": "Ciclo 1 Cumplido (Tertius Despierto) -> Ciclo 2 en Ejecución", "hilo_almico": "TENSO"},
+    "Halven Rusk": {"estado": "Cosecha Activa", "almas_entregadas": 4, "hilo_almico": "ACTIVO"},
+    "Jarek Venn": {"estado": "Deuda Activa", "ejecuciones_cumplidas": 0, "ejecuciones_totales": 10, "hilo_almico": "ACTIVO"}
+}
+
 DEFAULT_LOGS = [
-    {"time": "Día 04 · 23:54", "type": "SECURITY", "text": "Severan Holt completó la ronda perimetral en la compuerta principal. Acceso asegurado."},
+    {"time": "Día 04 · 23:54", "type": "MEDICAL", "text": "Tertius Holt despierto y consciente en C-01. Diálogo activo con Alexander y Severan."},
+    {"time": "Día 04 · 23:50", "type": "SECURITY", "text": "Severan Holt completó la ronda perimetral en la compuerta principal. Acceso asegurado."},
     {"time": "Día 04 · 23:15", "type": "MEDICAL", "text": "Tertius Holt estabilizado tras drenaje torácico. Parámetros vitales: 8/11."},
     {"time": "Día 04 · 22:50", "type": "COSECHA", "text": "Halven Rusk ejecutó a los 4 cautivos en la cámara de triaje. +4 Almas transferidas a Alexander."},
-    {"time": "Día 04 · 21:30", "type": "LOGISTICS", "text": "Syra Kol registró el botín del depósito: 11 armas de fuego y 1.000+ proyectiles clasificados."},
-    {"time": "Día 04 · 20:10", "type": "TECH", "text": "Khepra-9 instaló el banco de trabajo mecatrónico en el Taller T-01."}
+    {"time": "Día 04 · 21:30", "type": "LOGISTICS", "text": "Syra Kol registró el botín del depósito: 11 armas de fuego y 1.000+ proyectiles clasificados."}
 ]
 
 # ROOM DEFINITIONS WITH 5/3 STANDARDIZED UPGRADE TREE
@@ -240,6 +252,8 @@ class DomainManagementEngine:
             "sublevel": dict(DEFAULT_SUBLEVEL_REVEALED),
             "positions": dict(DEFAULT_POSITIONS),
             "chrono": dict(DEFAULT_CHRONO),
+            "patients": dict(DEFAULT_PATIENTS),
+            "pacts": dict(DEFAULT_PACTS),
             "logs": list(DEFAULT_LOGS),
             "chat_events": []
         }
@@ -325,6 +339,8 @@ class DomainManagementEngine:
         return {
             "chrono": data.get("chrono", DEFAULT_CHRONO),
             "positions": data.get("positions", DEFAULT_POSITIONS),
+            "patients": data.get("patients", DEFAULT_PATIENTS),
+            "pacts": data.get("pacts", DEFAULT_PACTS),
             "chat_events": data.get("chat_events", []),
             "logs": data.get("logs", DEFAULT_LOGS)
         }
@@ -332,11 +348,48 @@ class DomainManagementEngine:
     @classmethod
     def parse_narrative_to_sync(cls, raw_text: str) -> Dict[str, Any]:
         """
-        Interpreta un fragmento de texto narrativo del rol en ChatGPT,
-        extrayendo personajes, salas de destino, diálogos y avances de tiempo.
+        Interpreta un fragmento de texto narrativo del rol en ChatGPT o su HUD,
+        extrayendo personajes, salas de destino, diálogos, avances de tiempo, HP, almas y turnos.
         """
+        data = cls._load_domain_data()
+        chrono = data.get("chrono", DEFAULT_CHRONO)
+        patients = data.get("patients", DEFAULT_PATIENTS)
         text_lower = raw_text.lower()
         
+        # 1. Turn detection
+        turn_match = re.search(r'turno:?\s*(\d+)', text_lower)
+        if turn_match:
+            chrono["turn"] = int(turn_match.group(1))
+
+        # 2. Day detection
+        day_match = re.search(r'd[íi]a:?\s*(\d+)', text_lower)
+        if day_match:
+            chrono["day"] = int(day_match.group(1))
+
+        # 3. Exact Hour detection
+        time_match = re.search(r'(\d{1,2}):(\d{2})', raw_text)
+        if time_match:
+            chrono["hour"] = int(time_match.group(1)) % 24
+            chrono["minute"] = int(time_match.group(2)) % 60
+
+        # 4. Minute delta detection
+        advance_mins = 5
+        min_match = re.search(r'\+(\d+)\s*(?:minutos?|min)', text_lower)
+        hour_match = re.search(r'\+(\d+)\s*(?:horas?|hrs?|h)', text_lower)
+        if hour_match:
+            advance_mins = int(hour_match.group(1)) * 60
+        elif min_match:
+            advance_mins = int(min_match.group(1))
+
+        # 5. Quartus & Tertius HP parsing
+        q_match = re.search(r'quartus.*?(\d+)/11', text_lower)
+        if q_match:
+            patients["Quartus Holt"]["hp"] = int(q_match.group(1))
+
+        t_match = re.search(r'tertius.*?(\d+)/11', text_lower)
+        if t_match:
+            patients["Tertius Holt"]["hp"] = int(t_match.group(1))
+
         # Character map
         char_names = {
             "alexander": "Alexander",
@@ -392,18 +445,13 @@ class DomainManagementEngine:
                 detected_room = r_id
                 break
 
-        # Minute detection in text (e.g. "+15 minutos", "30 min", "1 hora")
-        advance_mins = 5
-        min_match = re.search(r'(\d+)\s*(?:minutos?|min)', text_lower)
-        hour_match = re.search(r'(\d+)\s*(?:horas?|hrs?|h)', text_lower)
-        if hour_match:
-            advance_mins = int(hour_match.group(1)) * 60
-        elif min_match:
-            advance_mins = int(min_match.group(1))
-
         # Dialogue quote search
         dialogue_match = re.search(r'["«]([^"»]+)["»]', raw_text)
         extracted_dialogue = dialogue_match.group(1) if dialogue_match else raw_text[:120]
+
+        data["chrono"] = chrono
+        data["patients"] = patients
+        cls._save_domain_data(data)
 
         sync_result = cls.sync_chat_event(
             event_type="NARRATIVE_IMPORT",
@@ -419,56 +467,75 @@ class DomainManagementEngine:
             "detected_room": detected_room,
             "extracted_dialogue": extracted_dialogue,
             "advanced_minutes": advance_mins,
+            "current_chrono": chrono,
             "sync_details": sync_result,
-            "message": f"Texto del chat procesado: [{detected_speaker}] -> {detected_room or 'Ubicación actual'} (+{advance_mins} min)."
+            "message": f"Texto y HUD procesados: [{detected_speaker}] -> {detected_room or 'Ubicación actual'} (+{advance_mins} min | Turno {chrono.get('turn', 918)})."
         }
 
     @classmethod
     def generate_full_turn_report(cls, credits_available: int = 1046) -> str:
         """
-        Genera un reporte de estado canónico completo para pegar en ChatGPT.
+        Genera el reporte de estado canónico estandarizado completo (HUD) para ChatGPT.
         """
         data = cls._load_domain_data()
         chrono = data.get("chrono", DEFAULT_CHRONO)
         positions = data.get("positions", DEFAULT_POSITIONS)
+        patients = data.get("patients", DEFAULT_PATIENTS)
+        pacts = data.get("pacts", DEFAULT_PACTS)
         
+        q_hp = patients.get("Quartus Holt", {}).get("hp", 4)
+        t_hp = patients.get("Tertius Holt", {}).get("hp", 8)
+
         pos_lines = "\n".join([f"  • {k}: Sector {v}" for k, v in positions.items()])
 
         return (
             f"═══════════════════════════════════════════════════════════════════\n"
-            f"📡 [REPORTE DE ESTADO // MEDICAE STATION RHO-9 // DUST FALLS]\n"
+            f"📡 [ESTADO DE CAMPAÑA // MEDICAE STATION RHO-9 // DUST FALLS]\n"
             f"⏱️ CRONÓMETRO: Día {chrono.get('day', 4):02d} · {chrono.get('phase', 'VIGILIA NOCTURNA')} ({chrono.get('hour', 23):02d}:{chrono.get('minute', 54):02d}) · Turno {chrono.get('turn', 918)}\n"
-            f"💰 RECURSOS: {credits_available} Créditos | 10 Almas (Reserva Umbral) | 3 Puntos de Destino\n"
-            f"🛡️ MÉTRICAS BASE: Fortaleza Perimetral 75% | Calidad Sanitaria 70% | Red Eléctrica 80%\n"
-            f"👥 DESPLIEGUE DEL SÉQUITO:\n{pos_lines}\n"
+            f"👤 ALEXANDER: ❤️ Salud: 12/12 | ⚡ Fatiga: 0/7 | 🔮 Almas: 10/10 | 🌟 Destino: 3 | 💰 Créditos: {credits_available} ¤\n"
+            f"📍 SECTOR ACTUAL: {positions.get('Alexander', 'C-01')} (Medicae Station Rho-9)\n"
             f"🩺 ESTADO DE PACIENTES:\n"
-            f"  • Quartus Holt: Cama C-03 (4/11 PV · Soporte de Perfusión Tisular Nvl 2 Activo)\n"
-            f"  • Tertius Holt: Cama C-01 (8/11 PV · Drenaje Pleural Operativo · Consciente)\n"
+            f"  • Quartus Holt: {q_hp}/11 PV [C-03 · Coma Crítico / Soporte Tisular Nvl 2]\n"
+            f"  • Tertius Holt: {t_hp}/11 PV [C-01 · Drenaje Torácico / Consciente]\n"
+            f"📜 PACTOS ACTIVOS:\n"
+            f"  • Severan Holt: Ciclo 1 Cumplido -> Ciclo 2 en Ejecución (Hilo Álmico: TENSO)\n"
+            f"  • Halven Rusk: Cosecha Activa (4 Almas entregadas)\n"
+            f"  • Jarek Venn: Deuda 0/10 Ejecuciones (Torso Reparado)\n"
+            f"🛡️ BASE RHO-9: Fortaleza 75% | Calidad Sanitaria 70% | Red Eléctrica 80%\n"
+            f"👥 DESPLIEGUE DEL SÉQUITO:\n{pos_lines}\n"
             f"═══════════════════════════════════════════════════════════════════"
         )
 
     @classmethod
-    def generate_time_directive_prompt(cls) -> str:
+    def generate_hud_standard_prompt(cls, credits_available: int = 1046) -> str:
         """
-        Genera el bloque de instrucciones mandatorias para que ChatGPT
-        gestione e imprima el paso del tiempo en cada respuesta.
+        Genera la directiva obligatoria con la plantilla estándar del HUD
+        que ChatGPT debe incluir al inicio o final de cada respuesta.
         """
         data = cls._load_domain_data()
         chrono = data.get("chrono", DEFAULT_CHRONO)
+        patients = data.get("patients", DEFAULT_PATIENTS)
+        q_hp = patients.get("Quartus Holt", {}).get("hp", 4)
+        t_hp = patients.get("Tertius Holt", {}).get("hp", 8)
+
         return (
             f"═══════════════════════════════════════════════════════════════════\n"
-            f"⏱️ [DIRECTIVA MANDATORIA DE GESTIÓN DEL TIEMPO // CHATGPT]\n"
-            f"A partir de este momento, en CADA respuesta de rol debes incluir obligatoriamente al inicio o final el encabezado de tiempo transcurrido:\n\n"
-            f"⏱️ CRONÓMETRO IMPERIAL // MEDICAE STATION RHO-9\n"
-            f"Día: {chrono.get('day', 4):02d} · Fase: {chrono.get('phase', 'VIGILIA NOCTURNA')} · Hora: {chrono.get('hour', 23):02d}:{chrono.get('minute', 54):02d} · Turno: {chrono.get('turn', 918)} (+X min transcurridos)\n\n"
-            f"TABLA DE TIEMPOS ESTÁNDAR POR ACCIÓN:\n"
-            f"• Diálogo breve / Orden táctica rápida: +5 a 10 min\n"
-            f"• Curación menor / Sutura / Estabilización: +15 a 30 min\n"
-            f"• Intervención quirúrgica mayor (Q-01): +45 a 60 min\n"
-            f"• Fabricación de biónico o síntesis compleja (T-01 / F-02): +60 a 90 min\n"
-            f"• Exploración de subnivel / Despeje de niebla: +60 a 120 min\n"
-            f"• Descanso breve / Meditación Umbral: +2 a 4 horas\n"
-            f"• Ciclo de descanso nocturno completo: +6 a 8 horas (+1 Alma recuperada)\n"
+            f"📋 [ESTÁNDAR MANDATORIO DE HUD Y TELEMETRÍA // CHATGPT]\n"
+            f"A partir de este momento, en CADA respuesta de rol debes incluir obligatoriamente al inicio o final el siguiente BLOQUE DE TELEMETRÍA ESTANDARIZADO con los valores actualizados:\n\n"
+            f"═══════════════════════════════════════════════════════════════════\n"
+            f"📡 [ESTADO DE CAMPAÑA // MEDICAE STATION RHO-9]\n"
+            f"⏱️ CRONÓMETRO: Día {chrono.get('day', 4):02d} · {chrono.get('phase', 'VIGILIA NOCTURNA')} ({chrono.get('hour', 23):02d}:{chrono.get('minute', 54):02d}) · Turno: {chrono.get('turn', 918)} (+X min transcurridos)\n"
+            f"👤 ALEXANDER: ❤️ Salud: 12/12 | ⚡ Fatiga: 0/7 | 🔮 Almas: 10/10 | 🌟 Destino: 3 | 💰 Créditos: {credits_available} ¤\n"
+            f"📍 UBICACIÓN: C-01 (Habitación de Recuperación de Tertius Holt)\n"
+            f"🩺 PACIENTES: Quartus Holt ({q_hp}/11 PV · C-03) | Tertius Holt ({t_hp}/11 PV · C-01)\n"
+            f"📜 PACTOS: Severan (Ciclo 2 Activo) | Halven (Cosecha 4/4) | Jarek (Deuda 0/10)\n"
+            f"🛡️ RHO-9: Defensa 75% | Sanidad 70% | Plasma 80%\n"
+            f"═══════════════════════════════════════════════════════════════════\n\n"
+            f"REGLAS DE ACTUALIZACIÓN DEL HUD:\n"
+            f"1. Si pasa tiempo, suma los minutos (+5m, +15m, +45m, +1h, etc.) y actualiza la hora y el número de turno.\n"
+            f"2. Si Alexander o un paciente recibe daño o cura, actualiza sus puntos de Salud (PV).\n"
+            f"3. Si se gastan créditos o almas, descuéntalos del saldo.\n"
+            f"4. Si alguien cambia de habitación, actualiza la ubicación.\n"
             f"═══════════════════════════════════════════════════════════════════"
         )
 

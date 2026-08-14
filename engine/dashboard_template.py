@@ -1096,6 +1096,7 @@ def get_dashboard_html() -> str:
 
     <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
       <button class="btn-header-action" onclick="fetchFullTurnReport()" title="Genera el reporte de estado completo del turno">📡 REPORTE DE TURNO</button>
+      <button class="btn-header-action" onclick="fetchHudStandard()" title="Genera el estándar mandatorio de HUD y Telemetría para ChatGPT">📊 ESTÁNDAR HUD CHAT</button>
       <button class="btn-header-action" onclick="fetchTimeDirective()" title="Genera la directiva de tiempo para ChatGPT">⏱️ DIRECTIVA DE TIEMPO</button>
       <button class="btn-red-alert" id="btn-red-alert-toggle" onclick="toggleRedAlert()">🚨 ALERTA ROJA</button>
     </div>
@@ -1106,6 +1107,25 @@ def get_dashboard_html() -> str:
       <div class="badge badge-brass" id="badge-souls">10 ALMAS</div>
     </div>
   </header>
+
+  <!-- PERSISTENT CANONICAL HUD STATUS BAR -->
+  <div style="background:#090d14; border-bottom:1px solid var(--border-panel); padding:0.4rem 1.5rem; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:0.75rem; font-size:0.75rem;">
+    <div style="display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap;">
+      <span style="color:var(--brass); font-weight:800;">👤 ALEXANDER:</span>
+      <span class="stat-val green" id="hud-alex-hp">❤️ 12/12 PV</span>
+      <span class="stat-val" id="hud-alex-fatigue">⚡ 0/7 Fatiga</span>
+      <span class="stat-val brass" id="hud-alex-souls">🔮 10 Almas</span>
+      <span class="stat-val green" id="hud-alex-credits">💰 1.046 ¤</span>
+      <span class="stat-val" style="color:var(--cyan-plasma);">🌟 3 Destino</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+      <span style="color:var(--text-muted);">🩺 PACIENTES:</span>
+      <span class="stat-val crimson" id="hud-quartus-hp">Quartus: 4/11 PV [C-03]</span>
+      <span class="stat-val green" id="hud-tertius-hp">Tertius: 8/11 PV [C-01]</span>
+      <span style="color:var(--brass);">📜 SEVERAN:</span>
+      <span class="stat-val green">Ciclo 2 Activo</span>
+    </div>
+  </div>
 
   <!-- NARRATIVE CHAT TICKER -->
   <div class="chat-ticker-bar">
@@ -1739,6 +1759,16 @@ def get_dashboard_html() -> str:
         if (resp.ok) {
           const d = await resp.json();
           showCanonicalPrompt(d.time_directive);
+        }
+      } catch (e) { console.error(e); }
+    }
+
+    async function fetchHudStandard() {
+      try {
+        const resp = await fetch('/api/chat/hud_standard', { headers: { 'x-api-key': API_KEY } });
+        if (resp.ok) {
+          const d = await resp.json();
+          showCanonicalPrompt(d.hud_standard);
         }
       } catch (e) { console.error(e); }
     }
@@ -2457,13 +2487,35 @@ def get_dashboard_html() -> str:
             availableCredits = recursos.creditos_disponibles;
             document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
             document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+            const hCred = document.getElementById('hud-alex-credits');
+            if (hCred) hCred.textContent = `💰 ${availableCredits} ¤`;
           }
           if (sheet.salud_actual !== undefined) {
             document.getElementById('pc-hp').textContent = `${sheet.salud_actual} / ${sheet.salud_maxima || 12}`;
+            const hHp = document.getElementById('hud-alex-hp');
+            if (hHp) hHp.textContent = `❤️ ${sheet.salud_actual}/${sheet.salud_maxima || 12} PV`;
           }
           if (sheet.reserva_almas !== undefined) {
             document.getElementById('badge-souls').textContent = `${sheet.reserva_almas} ALMAS`;
             document.getElementById('pc-souls').textContent = `${sheet.reserva_almas} Almas`;
+            const hSouls = document.getElementById('hud-alex-souls');
+            if (hSouls) hSouls.textContent = `🔮 ${sheet.reserva_almas} Almas`;
+          }
+        }
+      } catch (e) { console.error(e); }
+
+      try {
+        const respEv = await fetch('/api/chat/live_events', { headers: { 'x-api-key': API_KEY } });
+        if (respEv.ok) {
+          const dEv = await respEv.json();
+          const pts = dEv.patients || {};
+          if (pts['Quartus Holt']) {
+            const hQ = document.getElementById('hud-quartus-hp');
+            if (hQ) hQ.textContent = `Quartus: ${pts['Quartus Holt'].hp}/11 PV [C-03]`;
+          }
+          if (pts['Tertius Holt']) {
+            const hT = document.getElementById('hud-tertius-hp');
+            if (hT) hT.textContent = `Tertius: ${pts['Tertius Holt'].hp}/11 PV [C-01]`;
           }
         }
       } catch (e) { console.error(e); }
