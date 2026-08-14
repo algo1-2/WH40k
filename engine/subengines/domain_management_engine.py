@@ -1,17 +1,47 @@
 """
-WH40K Domain & Clandestine Network Management Engine (domain_management_engine.py)
-Modos de gestión de refugios, plano arquitectónico, asignación de tareas a PNJ y árbol de mejoras.
+WH40K Domain & Base Management Engine v2.0 (domain_management_engine.py)
+Gestión avanzada de refugios, árbol de mejoras interactivo, exploración del Subnivel -1 y asignación de personal.
 """
 
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 
 class DomainManagementEngine:
 
+    _logs: List[Dict[str, str]] = [
+        {"time": "Día 04 · 23:40", "type": "SECURITY", "text": "Severan Holt completó la ronda perimetral en la compuerta principal. Acceso asegurado."},
+        {"time": "Día 04 · 23:15", "type": "MEDICAL", "text": "Tertius Holt estabilizado tras drenaje torácico. Parámetros vitales: 8/11."},
+        {"time": "Día 04 · 22:50", "type": "COSECHA", "text": "Halven Rusk ejecutó a los 4 cautivos en la cámara de triaje. +4 Almas transferidas a Alexander."},
+        {"time": "Día 04 · 21:30", "type": "LOGISTICS", "text": "Syra Kol registró el botín del depósito: 11 armas de fuego y 1.000+ proyectiles clasificados."},
+        {"time": "Día 04 · 20:10", "type": "TECH", "text": "Khepra-9 instaló el banco de trabajo mecatrónico en el Taller T-01."}
+    ]
+
+    _active_upgrades: Dict[str, int] = {
+        "GATE-01": 1,
+        "ADM-01": 1,
+        "Q-01": 1,
+        "C-01": 1,
+        "C-02": 1,
+        "C-03": 1,
+        "F-02": 1,
+        "E-01": 0,
+        "T-01": 1,
+        "HAB-01": 1,
+        "HAB-02": 1,
+        "HAB-03": 1,
+        "HAB-04": 0,
+        "COMM-01": 1,
+        "SUB-01": 0
+    }
+
+    _sublevel_revealed: Dict[str, bool] = {
+        "SUB-GEN": False,
+        "SUB-TUNNEL": False,
+        "SUB-STASIS": False,
+        "SUB-CHEM": False
+    }
+
     @staticmethod
     def get_rho9_status() -> Dict[str, Any]:
-        """
-        Devuelve el estado de gestión general de la Clínica Clandestina Rho-9.
-        """
         return {
             "domain_id": "DOMAIN-RHO9-001",
             "nombre": "Medicae Station Rho-9",
@@ -31,22 +61,34 @@ class DomainManagementEngine:
                 "autoridad": "Seguridad perimetral, cerraduras, guardias y fortificación",
                 "cap_gasto": "200 Créditos / semana",
                 "asistente": "Jarek Venn"
-            },
-            "message": "Estado de Gestión de Rho-9: Integridad 88% | Seguridad 75% | Calidad Sanitaria 65% | Cap de Gasto 200 Cr/semana."
+            }
         }
 
-    @staticmethod
-    def get_rho9_blueprint() -> Dict[str, Any]:
+    @classmethod
+    def get_rho9_blueprint(cls, floor: int = 0) -> Dict[str, Any]:
         """
-        Devuelve el plano arquitectónico interactivo con el estado de cada sala,
-        sus ocupantes, equipamiento instalado, bonos a la campaña y mejoras disponibles.
+        Devuelve el plano arquitectónico según el piso seleccionado (0: Clínica, -1: Subnivel).
         """
+        if floor == -1:
+            return cls._get_sublevel_blueprint()
+        return cls._get_floor0_blueprint()
+
+    @classmethod
+    def _get_floor0_blueprint(cls) -> Dict[str, Any]:
+        # Calcular métricas dinámicas según niveles
+        e01_lvl = cls._active_upgrades.get("E-01", 0)
+        gate_lvl = cls._active_upgrades.get("GATE-01", 1)
+        q01_lvl = cls._active_upgrades.get("Q-01", 1)
+
+        defensa = 75 + (gate_lvl - 1) * 15
+        sanidad = 65 + e01_lvl * 20 + (q01_lvl - 1) * 10
+
         return {
-            "base_name": "Medicae Station Rho-9",
-            "location": "Submundo de Dust Falls, Necromunda",
+            "floor": 0,
+            "floor_name": "Planta 0 // Medicae Station Rho-9 (Clínica Clandestina)",
             "global_metrics": {
-                "defensa_perimetral": 75,
-                "calidad_sanitaria": 65,
+                "defensa_perimetral": min(defensa, 100),
+                "calidad_sanitaria": min(sanidad, 100),
                 "red_electrica": 80,
                 "camas_ocupadas": 2,
                 "camas_totales": 3,
@@ -59,31 +101,31 @@ class DomainManagementEngine:
                     "code": "ACCESO-01",
                     "name": "Compuerta Principal & Barricadas",
                     "type": "security",
-                    "level": 1,
-                    "level_title": "Barricada Reforzada Simple",
+                    "level": gate_lvl,
+                    "level_title": "Barricada Reforzada Simple" if gate_lvl == 1 else "Blindaje de Acero & Alarma Vox",
                     "status": "OPERATIVA",
                     "status_color": "green",
                     "occupants": ["Jarek Venn (Guardia)", "Severan Holt (Rondas)"],
                     "equipment": ["Cerradura codificada", "Troneras de tiro", "Barricadas de chapa pesada"],
-                    "bonus": "+15% defensa contra asaltos menores sin explosivos",
+                    "bonus": "+15% defensa contra asaltos menores" if gate_lvl == 1 else "+30% resistencia y alarma anticipada de 2 turnos",
                     "next_upgrade": {
                         "title": "Nivel 2: Blindaje de Acero & Alarma Vox Perimetral",
                         "cost_credits": 120,
                         "cost_materials": "2 Placas de aleación + 1 Carrete de cable",
                         "effect": "+25% resistencia estructural y aviso anticipado de 2 turnos ante incursiones"
-                    }
+                    } if gate_lvl == 1 else None
                 },
                 {
                     "id": "ADM-01",
                     "code": "ADM-01",
                     "name": "Recepción & Registro Logístico",
                     "type": "logistics",
-                    "level": 1,
+                    "level": cls._active_upgrades.get("ADM-01", 1),
                     "level_title": "Puesto Contable Manual",
                     "status": "OPERATIVA",
                     "status_color": "green",
                     "occupants": ["Syra Kol (16 años)"],
-                    "equipment": ["Cogitador de registro", "Caja fuerte de créditos (1.196 ¤)", "Fichas de suministros"],
+                    "equipment": ["Cogitador de registro", "Caja fuerte de créditos", "Fichas de suministros"],
                     "bonus": "Registro exacto de consumibles y contabilidad auditada sin fugas",
                     "next_upgrade": {
                         "title": "Nivel 2: Terminal Vox Interceptora de Red",
@@ -97,19 +139,19 @@ class DomainManagementEngine:
                     "code": "Q-01",
                     "name": "Quirófano Central de Trauma",
                     "type": "medical",
-                    "level": 1,
-                    "level_title": "Quirófano Parcial Integrado",
+                    "level": q01_lvl,
+                    "level_title": "Quirófano Parcial Integrado" if q01_lvl == 1 else "Quirófano Aséptico Avanzado",
                     "status": "OPERATIVO",
                     "status_color": "green",
                     "occupants": ["Alexander (Cirujano)", "Halven Rusk (Asistente)"],
                     "equipment": ["Diagnostor de espectro (+15% diagnóstico)", "Mesa quirúrgica hidráulica", "Monitores vitales", "Cauterio"],
-                    "bonus": "+10% ambiental a procedimientos médicos; +15% a diagnóstico dirigido",
+                    "bonus": "+10% ambiental a procedimientos médicos; +15% a diagnóstico dirigido" if q01_lvl == 1 else "+20% ambiental a cirugías y tiempo operatorio reducido a la mitad",
                     "next_upgrade": {
                         "title": "Nivel 2: Circuito de Agua Estéril & Lámparas Articuladas",
                         "cost_credits": 200,
                         "cost_materials": "20m Tubería clínica + 2 Filtros clínicos",
                         "effect": "Eleva el bono ambiental a cirugías a +20% y reduce tiempo operatorio a la mitad"
-                    }
+                    } if q01_lvl == 1 else None
                 },
                 {
                     "id": "C-01",
@@ -192,26 +234,26 @@ class DomainManagementEngine:
                     "code": "E-01",
                     "name": "Sala de Esterilización & Filtros",
                     "type": "medical",
-                    "level": 0,
-                    "level_title": "Autoclave Parcial / Sin Circuito Limpio",
-                    "status": "REQUIERE_MEJORA",
-                    "status_color": "amber",
+                    "level": e01_lvl,
+                    "level_title": "Autoclave Parcial / Sin Circuito Limpio" if e01_lvl == 0 else "Circuito Aséptico Completo",
+                    "status": "REQUIERE_MEJORA" if e01_lvl == 0 else "OPERATIVA",
+                    "status_color": "amber" if e01_lvl == 0 else "green",
                     "occupants": ["Khepra-9 (Adaptación)"],
-                    "equipment": ["Autoclave de cámara", "Filtros industriales sin adaptar"],
-                    "bonus": "Esterilización de instrumental de campo (12 ciclos)",
+                    "equipment": ["Autoclave de cámara", "Filtros industriales adaptados" if e01_lvl > 0 else "Filtros sin adaptar"],
+                    "bonus": "Esterilización de campo limitada" if e01_lvl == 0 else "Elimina al 100% el riesgo de infecciones postoperatorias en toda la clínica",
                     "next_upgrade": {
                         "title": "Nivel 1: Circuito Completo Limpio/Sucio & Autoclave Térmico",
                         "cost_credits": 80,
                         "cost_materials": "Trabajo de Khepra-9 + 2 Válvulas",
                         "effect": "Elimina al 100% el riesgo de infecciones postoperatorias en toda la clínica"
-                    }
+                    } if e01_lvl == 0 else None
                 },
                 {
                     "id": "T-01",
                     "code": "T-01",
                     "name": "Taller Mecatrónico & Armería",
                     "type": "tech",
-                    "level": 1,
+                    "level": cls._active_upgrades.get("T-01", 1),
                     "level_title": "Taller en Instalación",
                     "status": "OPERATIVO",
                     "status_color": "green",
@@ -287,10 +329,10 @@ class DomainManagementEngine:
                     "code": "HAB-04",
                     "name": "Habitación de Personal 4 (Reserva)",
                     "type": "dorm",
-                    "level": 0,
-                    "level_title": "Habitación Vacía / Sin Mobiliario",
+                    "level": cls._active_upgrades.get("HAB-04", 0),
+                    "level_title": "Habitación Vacía / Sin Mobiliario" if cls._active_upgrades.get("HAB-04", 0) == 0 else "Dormitorio Acondicionado",
                     "status": "DISPONIBLE",
-                    "status_color": "text-dim",
+                    "status_color": "text-dim" if cls._active_upgrades.get("HAB-04", 0) == 0 else "green",
                     "occupants": ["Vacía"],
                     "equipment": ["Estructura básica limpia"],
                     "bonus": "Capacidad para alojar hasta 2 nuevos colaboradores o refugiados",
@@ -299,7 +341,7 @@ class DomainManagementEngine:
                         "cost_credits": 30,
                         "cost_materials": "Mobiliario simple",
                         "effect": "Habilita 2 plazas adicionales de descanso para el séquito"
-                    }
+                    } if cls._active_upgrades.get("HAB-04", 0) == 0 else None
                 },
                 {
                     "id": "COMM-01",
@@ -330,40 +372,164 @@ class DomainManagementEngine:
                     "status": "BLOQUEADO_POR_EXPLORAR",
                     "status_color": "cyan",
                     "occupants": ["Ninguno (Presencia desconocida)"],
-                    "equipment": ["Puerta metálica reforzada (cierra, sin cerrojo)", "Escaleras descendentes a la oscuridad"],
-                    "bonus": "Potencial de expansión masiva, depósitos antiguos o peligros del submundo",
+                    "equipment": ["Puerta metálica reforzada", "Escaleras descendentes a la oscuridad"],
+                    "bonus": "Acceso al Subnivel -1 y zonas ocultas de Rho-9",
                     "next_upgrade": {
-                        "title": "Misión: Expedición Táctica a los Subniveles de Rho-9",
+                        "title": "Misión: Cambiar al Subnivel -1 para Iniciar Exploración",
                         "cost_credits": 0,
-                        "cost_materials": "Orden de Alexander + Visor multispectral + Lámparas",
-                        "effect": "Revela el mapa del Subnivel -1 y desbloquea nuevas salas (Almacén Antiguo, Generador Secundario o Celdas)"
+                        "cost_materials": "Orden de Alexander + Lámparas",
+                        "effect": "Permite acceder al mapa táctico de las criptas subterráneas"
                     }
                 }
             ]
         }
 
-    @staticmethod
-    def assign_staff_task(npc_name: str, task: str) -> Dict[str, Any]:
-        """
-        Reasigna la tarea de un PNJ en la base o red clandestina.
-        """
+    @classmethod
+    def _get_sublevel_blueprint(cls) -> Dict[str, Any]:
         return {
-            "npc_name": npc_name,
-            "new_task": task,
-            "status": "ASIGNACIÓN_ACTUALIZADA",
-            "message": f"Se ha asignado a '{npc_name}' la tarea: '{task}' en el protocolo de gestión de Rho-9."
+            "floor": -1,
+            "floor_name": "Subnivel -1 // Criptas & Red Subterránea Inexplorada",
+            "global_metrics": {
+                "sectores_revelados": sum(1 for v in cls._sublevel_revealed.values() if v),
+                "sectores_totales": 4,
+                "amenaza_ambiental": "Media (Gases tóxicos / Oscuridad total)",
+                "estabilidad_tuneles": "70%"
+            },
+            "sectors": [
+                {
+                    "id": "SUB-GEN",
+                    "code": "SUB-02",
+                    "name": "Bóveda de Generador Sumergido",
+                    "type": "tech",
+                    "is_revealed": cls._sublevel_revealed["SUB-GEN"],
+                    "level": 1 if cls._sublevel_revealed["SUB-GEN"] else 0,
+                    "level_title": "Generador Antiguo Descubierto" if cls._sublevel_revealed["SUB-GEN"] else "Señal Térmica No Confirmada",
+                    "status": "REVELADO" if cls._sublevel_revealed["SUB-GEN"] else "NIEBLA_DE_GUERRA",
+                    "status_color": "green" if cls._sublevel_revealed["SUB-GEN"] else "cyan",
+                    "occupants": ["Khepra-9 (Asignable)"] if cls._sublevel_revealed["SUB-GEN"] else ["Desconocido"],
+                    "equipment": ["Turbina geotérmica arcaica", "Depósito de refrigerante"] if cls._sublevel_revealed["SUB-GEN"] else ["Auspex detecta masa metálica pesada"],
+                    "bonus": "Energía ilimitada para toda la clínica si se reactiva" if cls._sublevel_revealed["SUB-GEN"] else "Desconocido",
+                    "exploration_cost": "1 Turno de Exploración + Tirada de Percepción"
+                },
+                {
+                    "id": "SUB-TUNNEL",
+                    "code": "SUB-03",
+                    "name": "Conducto de Escape a Dust Falls",
+                    "type": "security",
+                    "is_revealed": cls._sublevel_revealed["SUB-TUNNEL"],
+                    "level": 1 if cls._sublevel_revealed["SUB-TUNNEL"] else 0,
+                    "level_title": "Ruta de Evacuación Segura" if cls._sublevel_revealed["SUB-TUNNEL"] else "Corriente de Aire Frío",
+                    "status": "REVELADO" if cls._sublevel_revealed["SUB-TUNNEL"] else "NIEBLA_DE_GUERRA",
+                    "status_color": "green" if cls._sublevel_revealed["SUB-TUNNEL"] else "cyan",
+                    "occupants": ["Severan Holt (Vigilancia)"] if cls._sublevel_revealed["SUB-TUNNEL"] else ["Desconocido"],
+                    "equipment": ["Compuerta de alcantarillado", "Escalera de gato"] if cls._sublevel_revealed["SUB-TUNNEL"] else ["Corriente de aire hacia el exterior"],
+                    "bonus": "Ruta de escape indetectable ante un asedio a la clínica" if cls._sublevel_revealed["SUB-TUNNEL"] else "Desconocido",
+                    "exploration_cost": "1 Turno de Exploración + Tirada de Sigilo"
+                },
+                {
+                    "id": "SUB-STASIS",
+                    "code": "SUB-04",
+                    "name": "Cámara de Estasis Pre-Imperial",
+                    "type": "medical",
+                    "is_revealed": cls._sublevel_revealed["SUB-STASIS"],
+                    "level": 1 if cls._sublevel_revealed["SUB-STASIS"] else 0,
+                    "level_title": "Sarcófagos de Preservación" if cls._sublevel_revealed["SUB-STASIS"] else "Eco Psíquico / Campo Estático",
+                    "status": "REVELADO" if cls._sublevel_revealed["SUB-STASIS"] else "NIEBLA_DE_GUERRA",
+                    "status_color": "green" if cls._sublevel_revealed["SUB-STASIS"] else "cyan",
+                    "occupants": ["3 Cápsulas selladas (Contenido arcaico)"] if cls._sublevel_revealed["SUB-STASIS"] else ["Presencia biológica latente"],
+                    "equipment": ["3 Cápsulas criogénicas funcionales", "Sellos de aislamiento"] if cls._sublevel_revealed["SUB-STASIS"] else ["Interferencia en el auspex"],
+                    "bonus": "Capacidad de suspensión a largo plazo para biobanco o sujetos de estudio" if cls._sublevel_revealed["SUB-STASIS"] else "Desconocido",
+                    "exploration_cost": "1 Turno de Exploración + Tirada de Voluntad/Psicología"
+                },
+                {
+                    "id": "SUB-CHEM",
+                    "code": "SUB-05",
+                    "name": "Depósito Químico Olvidado (Escher)",
+                    "type": "storage",
+                    "is_revealed": cls._sublevel_revealed["SUB-CHEM"],
+                    "level": 1 if cls._sublevel_revealed["SUB-CHEM"] else 0,
+                    "level_title": "Almacén Clandestino de Narcóticos" if cls._sublevel_revealed["SUB-CHEM"] else "Vapores Dulzones en Tuberías",
+                    "status": "REVELADO" if cls._sublevel_revealed["SUB-CHEM"] else "NIEBLA_DE_GUERRA",
+                    "status_color": "green" if cls._sublevel_revealed["SUB-CHEM"] else "cyan",
+                    "occupants": ["Sin custodios"] if cls._sublevel_revealed["SUB-CHEM"] else ["Posibles alimañas del submundo"],
+                    "equipment": ["Contenedores de estimulantes químicos", "Reactores de vidrio"] if cls._sublevel_revealed["SUB-CHEM"] else ["Olor penetrante a químicos volátiles"],
+                    "bonus": "+50 Dosis de estimulantes y reactivos para el sintetizador de Alexander" if cls._sublevel_revealed["SUB-CHEM"] else "Desconocido",
+                    "exploration_cost": "1 Turno de Exploración + Tirada de Resistencia"
+                }
+            ]
         }
 
-    @staticmethod
-    def collect_weekly_revenue(current_credits: int) -> Dict[str, Any]:
+    @classmethod
+    def execute_room_upgrade(cls, room_id: str, available_credits: int) -> Dict[str, Any]:
         """
-        Recauda los ingresos pasivos de la red de informantes y honorarios de la clínica.
+        Ejecuta el proyecto de mejora para una sala, descontando créditos y elevando su nivel.
         """
-        passive_income = 120
-        new_total = current_credits + passive_income
-        return {
-            "passive_income": passive_income,
-            "previous_credits": current_credits,
-            "new_credits_total": new_total,
-            "message": f"¡RECAUDACIÓN SEMANAL DE RED CLANDESTINA!: +{passive_income} Créditos de Necromunda cobrados. Nuevo saldo: {new_total} Créditos."
+        blueprint = cls._get_floor0_blueprint()
+        sector = next((s for s in blueprint["sectors"] if s["id"] == room_id), None)
+        
+        if not sector:
+            return {"success": False, "error": f"Sala con ID '{room_id}' no encontrada."}
+        
+        upgrade = sector.get("next_upgrade")
+        if not upgrade:
+            return {"success": False, "error": f"La sala '{sector['name']}' ya está en su nivel máximo."}
+        
+        cost = upgrade.get("cost_credits", 0)
+        if available_credits < cost:
+            return {"success": False, "error": f"Créditos insuficientes ({available_credits} ¤ disponibles, requiere {cost} ¤)."}
+        
+        # Aplicar mejora
+        current_lvl = cls._active_upgrades.get(room_id, 1)
+        cls._active_upgrades[room_id] = current_lvl + 1
+        new_credits = available_credits - cost
+
+        log_entry = {
+            "time": "Día 04 · Noche (Ahora)",
+            "type": "UPGRADE",
+            "text": f"¡PROYECTO DE MEJORA EJECUTADO! '{sector['name']}' elevada a Nivel {current_lvl + 1}. Coste: -{cost} ¤. Efecto: {upgrade.get('effect')}"
         }
+        cls._logs.insert(0, log_entry)
+
+        return {
+            "success": True,
+            "room_id": room_id,
+            "room_name": sector["name"],
+            "new_level": current_lvl + 1,
+            "spent_credits": cost,
+            "remaining_credits": new_credits,
+            "applied_effect": upgrade.get("effect"),
+            "log": log_entry,
+            "message": f"Mejora completada con éxito: {sector['name']} ahora es Nivel {current_lvl + 1}."
+        }
+
+    @classmethod
+    def explore_sublevel_sector(cls, sector_id: str, actor: str = "Alexander") -> Dict[str, Any]:
+        """
+        Revela una sala oculta del Subnivel -1 y genera la narrativa de exploración.
+        """
+        if sector_id not in cls._sublevel_revealed:
+            return {"success": False, "error": f"Sector '{sector_id}' no existe en el Subnivel -1."}
+        
+        cls._sublevel_revealed[sector_id] = True
+        bp = cls._get_sublevel_blueprint()
+        sector = next((s for s in bp["sectors"] if s["id"] == sector_id), None)
+
+        log_entry = {
+            "time": "Día 04 · Noche (Exploración)",
+            "type": "EXPLORATION",
+            "text": f"{actor} exploró los subniveles y despejó la niebla de guerra en '{sector['name']}'. ¡Bono desbloqueado: {sector['bonus']}!"
+        }
+        cls._logs.insert(0, log_entry)
+
+        return {
+            "success": True,
+            "sector_id": sector_id,
+            "sector_name": sector["name"],
+            "bonus_unlocked": sector["bonus"],
+            "log": log_entry,
+            "message": f"Sector '{sector['name']}' explorado y asegurado con éxito."
+        }
+
+    @classmethod
+    def get_logs(cls) -> List[Dict[str, str]]:
+        return cls._logs

@@ -140,6 +140,14 @@ class AssignTaskRequest(BaseModel):
     npc_name: str
     task: str
 
+class RoomUpgradeRequest(BaseModel):
+    room_id: str
+    available_credits: int = 1196
+
+class ExploreSectorRequest(BaseModel):
+    sector_id: str
+    actor: str = "Alexander"
+
 class LocationQueryRequest(BaseModel):
     location_key: str = "DUST_FALLS"
 
@@ -413,9 +421,24 @@ def get_domain_status():
     return DomainManagementEngine.get_rho9_status()
 
 @app.get("/api/domain/blueprint", dependencies=[Depends(verify_api_key)])
-def get_domain_blueprint():
-    """Devuelve el plano arquitectónico interactivo y estado de mejoras de Rho-9"""
-    return DomainManagementEngine.get_rho9_blueprint()
+def get_domain_blueprint(floor: int = 0):
+    """Devuelve el plano arquitectónico interactivo y estado de mejoras de Rho-9 por piso (0 o -1)"""
+    return DomainManagementEngine.get_rho9_blueprint(floor)
+
+@app.post("/api/domain/upgrade", dependencies=[Depends(verify_api_key)])
+def upgrade_room_endpoint(req: RoomUpgradeRequest):
+    """Ejecuta un proyecto de mejora para una sala descontando créditos de la base"""
+    return DomainManagementEngine.execute_room_upgrade(req.room_id, req.available_credits)
+
+@app.post("/api/domain/explore_step", dependencies=[Depends(verify_api_key)])
+def explore_sublevel_endpoint(req: ExploreSectorRequest):
+    """Revela un sector del Subnivel -1 y genera registro de telemetría"""
+    return DomainManagementEngine.explore_sublevel_sector(req.sector_id, req.actor)
+
+@app.get("/api/domain/logs", dependencies=[Depends(verify_api_key)])
+def get_domain_logs_endpoint():
+    """Devuelve los registros de actividad y telemetría de Rho-9"""
+    return {"logs": DomainManagementEngine.get_logs()}
 
 @app.post("/api/domain/assign", dependencies=[Depends(verify_api_key)])
 def assign_staff(req: AssignTaskRequest):

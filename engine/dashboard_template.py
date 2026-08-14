@@ -1,6 +1,6 @@
 """
-WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v2.0
-Includes Interactive Architectural Blueprint & Base Expansion / Upgrades Panel
+WH40K TACTICAL COMMAND COGITATOR — WEB DASHBOARD TEMPLATE v3.0
+Full Base Management: Live Upgrades, Sublevel-1 Auspex Exploration, Staff Matrix & Chronicle Feed.
 """
 
 def get_dashboard_html() -> str:
@@ -127,6 +127,11 @@ def get_dashboard_html() -> str:
       color: var(--brass);
     }
 
+    .badge-green {
+      border-color: var(--green-auspex);
+      color: var(--green-auspex);
+    }
+
     @keyframes pulse {
       0% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.85); }
@@ -219,6 +224,8 @@ def get_dashboard_html() -> str:
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     .panel-title {
@@ -288,37 +295,36 @@ def get_dashboard_html() -> str:
     .fill-crimson { background: var(--crimson-light); }
     .fill-cyan { background: var(--cyan-plasma); }
 
-    .char-card {
-      background: #131821;
-      border: 1px solid #1f2733;
-      border-radius: 4px;
-      padding: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .char-card:last-child { margin-bottom: 0; }
-
-    .char-card-header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--brass);
-      margin-bottom: 0.25rem;
-    }
-
-    .char-role {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      margin-bottom: 0.35rem;
-    }
-
-    .char-status {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
     /* BLUEPRINT TACTICAL GRID */
+    .floor-controls {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .floor-btn {
+      background: #131822;
+      border: 1px solid var(--border-panel);
+      color: var(--text-muted);
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .floor-btn.active, .floor-btn:hover {
+      background: rgba(201, 154, 62, 0.15);
+      color: var(--brass);
+      border-color: var(--brass);
+      box-shadow: 0 0 10px rgba(201, 154, 62, 0.2);
+    }
+
     .blueprint-metrics-bar {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -359,12 +365,6 @@ def get_dashboard_html() -> str:
       background: #141a24;
       transform: translateY(-2px);
       box-shadow: 0 4px 15px rgba(201, 154, 62, 0.2);
-    }
-
-    .room-card.active-selected {
-      border-color: var(--brass);
-      box-shadow: 0 0 12px var(--amber-glow);
-      background: #161e2b;
     }
 
     .room-card.fog-of-war {
@@ -470,6 +470,106 @@ def get_dashboard_html() -> str:
       padding: 1rem;
       margin-top: 1rem;
     }
+
+    .btn-upgrade-action {
+      background: linear-gradient(135deg, #a87d2b, #c99a3e);
+      color: #080a0d;
+      border: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 900;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      width: 100%;
+      margin-top: 0.75rem;
+    }
+
+    .btn-upgrade-action:hover {
+      background: linear-gradient(135deg, #c99a3e, #f59e0b);
+      box-shadow: 0 0 15px var(--amber-glow);
+    }
+
+    .btn-explore-action {
+      background: linear-gradient(135deg, #0284c7, #06b6d4);
+      color: #080a0d;
+      border: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 900;
+      padding: 0.6rem 1.25rem;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      width: 100%;
+      margin-top: 0.75rem;
+    }
+
+    .btn-explore-action:hover {
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
+    /* Staff Assignment Table */
+    .staff-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      margin-top: 0.5rem;
+    }
+
+    .staff-table th, .staff-table td {
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border-panel);
+      text-align: left;
+    }
+
+    .staff-table th {
+      color: var(--brass);
+      font-weight: 700;
+      background: #111620;
+    }
+
+    .staff-select {
+      background: #10141b;
+      border: 1px solid var(--border-panel);
+      color: var(--text-main);
+      font-family: 'JetBrains Mono', monospace;
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      width: 100%;
+    }
+
+    /* Telemetry Feed Terminal */
+    .terminal-feed {
+      background: #080b0f;
+      border: 1px solid var(--border-panel);
+      border-radius: 4px;
+      padding: 0.85rem;
+      max-height: 220px;
+      overflow-y: auto;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .feed-entry {
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    }
+
+    .feed-time { color: var(--brass-dim); margin-right: 0.5rem; }
+    .feed-tag { font-weight: 700; margin-right: 0.5rem; }
+    .feed-tag.SECURITY { color: var(--green-auspex); }
+    .feed-tag.UPGRADE { color: var(--amber); }
+    .feed-tag.EXPLORATION { color: var(--cyan-plasma); }
+    .feed-tag.MEDICAL { color: var(--crimson-light); }
+    .feed-tag.COSECHA { color: var(--brass); }
 
     .filter-bar {
       display: flex;
@@ -676,8 +776,8 @@ def get_dashboard_html() -> str:
     </div>
     <div class="status-badge-container">
       <div class="badge badge-live">API EN LÍNEA</div>
-      <div class="badge badge-brass" id="badge-revision">REVISIÓN: 17</div>
-      <div class="badge badge-brass" id="badge-souls">ALMAS: 10</div>
+      <div class="badge badge-green" id="badge-credits">1.196 ¤ DISPONIBLES</div>
+      <div class="badge badge-brass" id="badge-souls">10 ALMAS</div>
     </div>
   </header>
 
@@ -698,13 +798,13 @@ def get_dashboard_html() -> str:
       <div class="blueprint-metrics-bar">
         <div class="panel" style="padding:1rem;">
           <div class="stat-label">🛡️ Fortaleza Perimetral</div>
-          <div class="stat-val brass" style="font-size:1.2rem; margin-top:0.25rem;">75%</div>
-          <div class="progress-bar-bg"><div class="progress-fill fill-brass" style="width: 75%;"></div></div>
+          <div class="stat-val brass" id="metric-defensa" style="font-size:1.2rem; margin-top:0.25rem;">75%</div>
+          <div class="progress-bar-bg"><div class="progress-fill fill-brass" id="bar-defensa" style="width: 75%;"></div></div>
         </div>
         <div class="panel" style="padding:1rem;">
           <div class="stat-label">🧼 Calidad Sanitaria</div>
-          <div class="stat-val amber" style="font-size:1.2rem; margin-top:0.25rem;">65%</div>
-          <div class="progress-bar-bg"><div class="progress-fill fill-amber" style="width: 65%;"></div></div>
+          <div class="stat-val amber" id="metric-sanidad" style="font-size:1.2rem; margin-top:0.25rem;">65%</div>
+          <div class="progress-bar-bg"><div class="progress-fill fill-amber" id="bar-sanidad" style="width: 65%;"></div></div>
         </div>
         <div class="panel" style="padding:1rem;">
           <div class="stat-label">⚡ Red Eléctrica (Plasma)</div>
@@ -718,19 +818,80 @@ def get_dashboard_html() -> str:
         </div>
       </div>
 
-      <!-- Tactical Grid Blueprint -->
+      <!-- Floor Switcher & Blueprint Grid -->
       <div class="panel" style="margin-bottom:1.5rem;">
         <div class="panel-header">
-          <span class="panel-title">🗺️ AUSPEX ARQUITECTÓNICO // MEDICAE STATION RHO-9</span>
-          <span class="badge badge-brass">HAZ CLIC EN UNA SALA PARA VER DETALLES Y MEJORAS</span>
+          <div class="panel-title">
+            <span>🗺️ AUSPEX ARQUITECTÓNICO // </span>
+            <span id="current-floor-title" style="color:var(--text-main); font-size:0.85rem;">PLANTA 0 (CLÍNICA)</span>
+          </div>
+          <div class="floor-controls">
+            <button class="floor-btn active" id="btn-floor-0" onclick="changeFloor(0)">📍 PLANTA 0: CLÍNICA</button>
+            <button class="floor-btn" id="btn-floor-sub1" onclick="changeFloor(-1)">🌑 SUBNIVEL -1: CRIPTAS</button>
+          </div>
         </div>
         <div class="panel-body">
-          
           <div class="blueprint-grid" id="blueprint-grid-container">
             <!-- Rooms rendered dynamically via JS -->
           </div>
-
         </div>
+      </div>
+
+      <!-- Staff Matrix & Live Telemetry Grid -->
+      <div class="grid-dashboard">
+        
+        <!-- Staff Assignment Matrix -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">👥 ASIGNACIÓN TÁCTICA DE SÉQUITO</span>
+          </div>
+          <div class="panel-body">
+            <table class="staff-table">
+              <thead>
+                <tr>
+                  <th>Operador / PNJ</th>
+                  <th>Puesto Asignado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Severan Holt</strong></td>
+                  <td><select class="staff-select" onchange="assignStaff('Severan Holt', this.value)"><option>Mando de Guardia & Seguridad</option><option>Rondas Nocturnas</option><option>Escolta de Exploración</option></select></td>
+                </tr>
+                <tr>
+                  <td><strong>Khepra-9</strong></td>
+                  <td><select class="staff-select" onchange="assignStaff('Khepra-9', this.value)"><option>Taller Mecatrónico T-01</option><option>Mantenimiento de Plasma</option><option>Fabricación Protésica</option></select></td>
+                </tr>
+                <tr>
+                  <td><strong>Syra Kol (16a)</strong></td>
+                  <td><select class="staff-select" onchange="assignStaff('Syra Kol', this.value)"><option>Contabilidad & Farmacia ADM-01</option><option>Intercepción Vox</option><option>Triaje de Consumibles</option></select></td>
+                </tr>
+                <tr>
+                  <td><strong>Jarek Venn</strong></td>
+                  <td><select class="staff-select" onchange="assignStaff('Jarek Venn', this.value)"><option>Centinela en Compuerta GATE-01</option><option>Trabajos de Carga Pesada</option><option>Escolta de Guardia</option></select></td>
+                </tr>
+                <tr>
+                  <td><strong>Halven Rusk</strong></td>
+                  <td><select class="staff-select" onchange="assignStaff('Halven Rusk', this.value)"><option>Auxiliar de Quirófano Q-01</option><option>Cosecha y Triaje Vigilado</option><option>Limpieza de Residuos</option></select></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Telemetry Chronicle Feed -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">📟 CRÓNICA & TELEMETRÍA DE RHO-9</span>
+            <span class="badge badge-brass">LOG EN VIVO</span>
+          </div>
+          <div class="panel-body">
+            <div class="terminal-feed" id="telemetry-feed-container">
+              <!-- Logs injected here -->
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </section>
@@ -767,7 +928,7 @@ def get_dashboard_html() -> str:
             </div>
             <div class="stat-row">
               <span class="stat-label">💰 Saldo Disponible:</span>
-              <span class="stat-val green">1.196 Créditos (+300 pendientes)</span>
+              <span class="stat-val green" id="pc-credits">1.196 Créditos (+300 pendientes)</span>
             </div>
             <div class="stat-row">
               <span class="stat-label">📈 Experiencia Total:</span>
@@ -1083,7 +1244,7 @@ def get_dashboard_html() -> str:
       </div>
 
       <!-- Upgrade Box -->
-      <div class="upgrade-box">
+      <div class="upgrade-box" id="modal-upgrade-section">
         <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--amber); margin-bottom:0.5rem;" id="modal-upgrade-title">
           🚀 Siguiente Mejora Disponible
         </div>
@@ -1098,7 +1259,21 @@ def get_dashboard_html() -> str:
           <span class="stat-label">🔩 Materiales / Requisitos:</span>
           <span class="stat-val brass" id="modal-upgrade-mats" style="font-size:0.75rem;">-</span>
         </div>
+        <button class="btn-upgrade-action" id="btn-execute-upgrade" onclick="executeUpgrade()">🔨 EJECUTAR PROYECTO DE MEJORA</button>
       </div>
+
+      <!-- Sublevel Exploration Box -->
+      <div class="upgrade-box" id="modal-explore-section" style="display:none; border-color:var(--cyan-plasma);">
+        <div style="font-family:'Cinzel',serif; font-size:0.9rem; font-weight:800; color:var(--cyan-plasma); margin-bottom:0.5rem;">
+          🔦 Misión de Exploración de Subnivel
+        </div>
+        <div style="font-size:0.8rem; color:var(--text-main); margin-bottom:0.5rem;" id="modal-explore-cost">
+          Requisito: 1 Turno de Reconocimiento + Sensores Auspex
+        </div>
+        <button class="btn-explore-action" id="btn-execute-explore" onclick="executeExploration()">🔦 DESPEJAR NIEBLA & ASEGURAR SECTOR</button>
+      </div>
+
+      <div id="modal-feedback" style="margin-top:0.75rem; font-size:0.8rem; display:none;"></div>
     </div>
   </div>
 
@@ -1108,7 +1283,9 @@ def get_dashboard_html() -> str:
 
   <script>
     const API_KEY = "wh40k_secret_key_12345";
-    let blueprintData = null;
+    let currentFloor = 0;
+    let currentSelectedRoom = null;
+    let availableCredits = 1196;
 
     function switchTab(tabId) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
@@ -1126,15 +1303,29 @@ def get_dashboard_html() -> str:
       }
     }
 
+    async function changeFloor(floor) {
+      currentFloor = floor;
+      document.getElementById('btn-floor-0').classList.toggle('active', floor === 0);
+      document.getElementById('btn-floor-sub1').classList.toggle('active', floor === -1);
+      document.getElementById('current-floor-title').textContent = floor === 0 ? 'PLANTA 0 (CLÍNICA RHO-9)' : 'SUBNIVEL -1 (CRIPTAS INEXPLORADAS)';
+      await loadBlueprint();
+    }
+
     async function loadBlueprint() {
       const container = document.getElementById('blueprint-grid-container');
       try {
-        const resp = await fetch('/api/domain/blueprint', {
+        const resp = await fetch(`/api/domain/blueprint?floor=${currentFloor}`, {
           headers: { 'x-api-key': API_KEY }
         });
         if (resp.ok) {
-          blueprintData = await resp.json();
-          renderBlueprint(blueprintData.sectors);
+          const data = await resp.json();
+          if (data.global_metrics && currentFloor === 0) {
+            document.getElementById('metric-defensa').textContent = data.global_metrics.defensa_perimetral + '%';
+            document.getElementById('bar-defensa').style.width = data.global_metrics.defensa_perimetral + '%';
+            document.getElementById('metric-sanidad').textContent = data.global_metrics.calidad_sanitaria + '%';
+            document.getElementById('bar-sanidad').style.width = data.global_metrics.calidad_sanitaria + '%';
+          }
+          renderBlueprint(data.sectors);
         } else {
           container.innerHTML = '<div style="color:var(--crimson-light);">Error cargando plano de Rho-9.</div>';
         }
@@ -1147,10 +1338,10 @@ def get_dashboard_html() -> str:
       const container = document.getElementById('blueprint-grid-container');
       container.innerHTML = '';
 
-      sectors.forEach((sec, idx) => {
+      sectors.forEach((sec) => {
         const card = document.createElement('div');
-        const isFog = sec.type === 'fog';
-        const colSpan = (sec.id === 'GATE-01' || sec.id === 'COMM-01' || sec.id === 'SUB-01') ? 'span 6' : 'span 4';
+        const isFog = (sec.type === 'fog' || sec.status === 'NIEBLA_DE_GUERRA');
+        const colSpan = (currentFloor === -1) ? 'span 6' : ((sec.id === 'GATE-01' || sec.id === 'COMM-01' || sec.id === 'SUB-01') ? 'span 6' : 'span 4');
 
         card.className = `room-card ${isFog ? 'fog-of-war' : ''}`;
         card.style.gridColumn = colSpan;
@@ -1171,7 +1362,7 @@ def get_dashboard_html() -> str:
             <div class="room-name">${sec.name}</div>
             <div class="room-level-badge">${sec.level_title}</div>
           </div>
-          <div class="room-occupants-mini">👥 ${sec.occupants.join(', ')}</div>
+          <div class="room-occupants-mini">${isFog ? '🔍 ' + (sec.exploration_cost || 'Por explorar') : '👥 ' + sec.occupants.join(', ')}</div>
         `;
 
         container.appendChild(card);
@@ -1179,26 +1370,151 @@ def get_dashboard_html() -> str:
     }
 
     function openRoomModal(sec) {
+      currentSelectedRoom = sec;
+      const feedback = document.getElementById('modal-feedback');
+      feedback.style.display = 'none';
+
       document.getElementById('modal-room-code').textContent = sec.code + ' // SECTOR DE ' + sec.type.toUpperCase();
       document.getElementById('modal-room-name').textContent = sec.name;
       document.getElementById('modal-room-level').textContent = `${sec.level_title} (Nivel ${sec.level})`;
-      document.getElementById('modal-room-occupants').textContent = sec.occupants.join(' · ');
+      document.getElementById('modal-room-occupants').textContent = sec.occupants ? sec.occupants.join(' · ') : 'Ninguno';
       document.getElementById('modal-room-equipment').textContent = sec.equipment ? sec.equipment.join(', ') : 'Ninguno';
       document.getElementById('modal-room-bonus').textContent = sec.bonus || 'Sin bonificación especial';
 
-      if (sec.next_upgrade) {
+      const upgSection = document.getElementById('modal-upgrade-section');
+      const expSection = document.getElementById('modal-explore-section');
+
+      if (currentFloor === -1 && sec.status === 'NIEBLA_DE_GUERRA') {
+        upgSection.style.display = 'none';
+        expSection.style.display = 'block';
+        document.getElementById('modal-explore-cost').textContent = 'Requisito: ' + (sec.exploration_cost || '1 Turno');
+      } else if (sec.next_upgrade) {
+        upgSection.style.display = 'block';
+        expSection.style.display = 'none';
         document.getElementById('modal-upgrade-title').textContent = '🚀 ' + sec.next_upgrade.title;
         document.getElementById('modal-upgrade-effect').textContent = 'Efecto: ' + sec.next_upgrade.effect;
         document.getElementById('modal-upgrade-credits').textContent = sec.next_upgrade.cost_credits + ' Créditos';
         document.getElementById('modal-upgrade-mats').textContent = sec.next_upgrade.cost_materials;
+        document.getElementById('btn-execute-upgrade').style.display = 'block';
       } else {
+        upgSection.style.display = 'block';
+        expSection.style.display = 'none';
         document.getElementById('modal-upgrade-title').textContent = '⭐ Nivel Máximo Alcanzado';
         document.getElementById('modal-upgrade-effect').textContent = 'Esta sala está plenamente desarrollada.';
         document.getElementById('modal-upgrade-credits').textContent = '0 ¤';
         document.getElementById('modal-upgrade-mats').textContent = 'Ninguno';
+        document.getElementById('btn-execute-upgrade').style.display = 'none';
       }
 
       document.getElementById('room-modal').style.display = 'flex';
+    }
+
+    async function executeUpgrade() {
+      if (!currentSelectedRoom) return;
+      const feedback = document.getElementById('modal-feedback');
+      feedback.style.display = 'block';
+      feedback.innerHTML = '<span style="color:var(--amber);">[INICIANDO PROTOCOLO DE CONSTRUCCIÓN Y TRANSFERENCIA DE FONDOS...]</span>';
+
+      try {
+        const resp = await fetch('/api/domain/upgrade', {
+          method: 'POST',
+          headers: {
+            'x-api-key': API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            room_id: currentSelectedRoom.id,
+            available_credits: availableCredits
+          })
+        });
+
+        const data = await resp.json();
+        if (resp.ok && data.success) {
+          availableCredits = data.remaining_credits;
+          document.getElementById('badge-credits').textContent = availableCredits + ' ¤ DISPONIBLES';
+          document.getElementById('pc-credits').textContent = availableCredits + ' Créditos (+300 pendientes)';
+          feedback.innerHTML = `<span style="color:var(--green-auspex); font-weight:700;">✅ ${data.message}</span>`;
+          await loadBlueprint();
+          await loadTelemetry();
+          setTimeout(() => { document.getElementById('room-modal').style.display = 'none'; }, 1800);
+        } else {
+          feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${data.error || 'Fallo al aplicar mejora.'}</span>`;
+        }
+      } catch (err) {
+        feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${err.message}</span>`;
+      }
+    }
+
+    async function executeExploration() {
+      if (!currentSelectedRoom) return;
+      const feedback = document.getElementById('modal-feedback');
+      feedback.style.display = 'block';
+      feedback.innerHTML = '<span style="color:var(--cyan-plasma);">[ENVIANDO SEÑAL AUSPEX Y PATRULLA DE RECONOCIMIENTO...]</span>';
+
+      try {
+        const resp = await fetch('/api/domain/explore_step', {
+          method: 'POST',
+          headers: {
+            'x-api-key': API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            sector_id: currentSelectedRoom.id,
+            actor: 'Alexander'
+          })
+        });
+
+        const data = await resp.json();
+        if (resp.ok && data.success) {
+          feedback.innerHTML = `<span style="color:var(--cyan-plasma); font-weight:700;">✅ ${data.message}</span>`;
+          await loadBlueprint();
+          await loadTelemetry();
+          setTimeout(() => { document.getElementById('room-modal').style.display = 'none'; }, 1800);
+        } else {
+          feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${data.error || 'Fallo de exploración.'}</span>`;
+        }
+      } catch (err) {
+        feedback.innerHTML = `<span style="color:var(--crimson-light);">❌ Error: ${err.message}</span>`;
+      }
+    }
+
+    async function assignStaff(npcName, task) {
+      try {
+        const resp = await fetch('/api/domain/assign', {
+          method: 'POST',
+          headers: {
+            'x-api-key': API_KEY,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ npc_name: npcName, task: task })
+        });
+        if (resp.ok) {
+          await loadTelemetry();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function loadTelemetry() {
+      const container = document.getElementById('telemetry-feed-container');
+      try {
+        const resp = await fetch('/api/domain/logs', {
+          headers: { 'x-api-key': API_KEY }
+        });
+        if (resp.ok) {
+          const data = await resp.json();
+          container.innerHTML = '';
+          (data.logs || []).forEach(l => {
+            const entry = document.createElement('div');
+            entry.className = 'feed-entry';
+            entry.innerHTML = `<span class="feed-time">[${l.time}]</span><span class="feed-tag ${l.type}">${l.type}</span>${l.text}`;
+            container.appendChild(entry);
+          });
+        }
+      } catch (err) {
+        console.error(err);
+      }
     }
 
     function closeRoomModal(e) {
@@ -1290,6 +1606,7 @@ def get_dashboard_html() -> str:
 
     window.addEventListener('DOMContentLoaded', () => {
       loadBlueprint();
+      loadTelemetry();
       loadDocument('FICHA_DEL_PERSONAJE');
     });
   </script>
