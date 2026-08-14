@@ -515,6 +515,17 @@ REGLA 6 — PERSISTIR EL ESTADO DESPUÉS DE UNA SESIÓN IMPORTANTE
   Después de una sesión con cambios relevantes de estado, ejecutar:
     python "C:\...\scripts\wh40k_autosync.py"
 
+REGLA 7 — ESTÁNDAR CANÓNICO DE TELEMETRÍA (HUD) Y PROGRESIÓN TEMPORAL
+  El DM / GPT debe incluir obligatoriamente en CADA turno el bloque HUD:
+  ═══════════════════════════════════════════════════════════════════
+  📡 [ESTADO DE CAMPAÑA // MEDICAE STATION RHO-9]
+  ⏱️ CRONÓMETRO: Día [Día] · [Fase: VIGILIA NOCTURNA / CICLO DIURNO] ([HH:MM]) · Turno: [Turno] (+X min transcurridos)
+  👤 ALEXANDER: ❤️ Salud: [Salud Actual]/[Salud Max] PV | ⚡ Fatiga: [Fatiga Actual]/[Fatiga Max] | 🔮 Almas: [Almas]/10 | 🌟 Destino: [Destino] | 💰 Créditos: [Créditos] ¤
+  📍 UBICACIÓN: [Sector Actual] // Dust Falls
+  🛡️ BASE RHO-9: Fortaleza 75% | Calidad Sanitaria 70% | Red Eléctrica 80%
+  ═══════════════════════════════════════════════════════════════════
+  Tiempos: Diálogo (+5-10m), Curación (+15-30m), Cirugía (+45-60m), Forja (+60-90m), Sueño (+6-8h).
+
 ================================================================================
   FIN DEL INSTRUCTIVO
   WH40K Narrative Engine — Sistema AutoSync

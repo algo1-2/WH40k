@@ -46,6 +46,35 @@
 
 ---
 
+## ⏱️ PARTE IV: ESTÁNDAR DE TELEMETRÍA, PROGRESIÓN TEMPORAL Y HUD OBLIGATORIO (`DM.HUD.001`)
+
+### 4.1. Bloque Canónico de Telemetría (HUD)
+En **CADA** respuesta narrativa o de resolución de turno, el DM debe incluir obligatoriamente al inicio o al final el bloque de estado estandarizado:
+
+```markdown
+═══════════════════════════════════════════════════════════════════
+📡 [ESTADO DE CAMPAÑA // MEDICAE STATION RHO-9]
+⏱️ CRONÓMETRO: Día [Día] · [Fase: VIGILIA NOCTURNA / CICLO DIURNO] ([HH:MM]) · Turno: [Turno] (+X min transcurridos)
+👤 ALEXANDER: ❤️ Salud: [Salud]/[Max] PV | ⚡ Fatiga: [Fatiga]/[Max] | 🔮 Almas: [Almas]/10 | 🌟 Destino: [Destino] | 💰 Créditos: [Créditos] ¤
+📍 UBICACIÓN: [Sector Actual] // Dust Falls
+🛡️ BASE RHO-9: Fortaleza 75% | Calidad Sanitaria 70% | Red Eléctrica 80%
+═══════════════════════════════════════════════════════════════════
+```
+
+### 4.2. Tabla Universal de Progresión Temporal
+- **Diálogos / Inspecciones breves / Órdenes tácticas:** `+5 a 10 min`
+- **Curaciones menores / Triaje / Estabilización:** `+15 a 30 min`
+- **Intervenciones quirúrgicas mayores (Q-01):** `+45 a 60 min`
+- **Fabricación biónica / Síntesis química (T-01 / F-02):** `+60 a 90 min`
+- **Exploración de sectores o subniveles:** `+60 a 120 min`
+- **Descanso breve / Meditación:** `+2 a 4 horas`
+- **Descanso nocturno completo:** `+6 a 8 horas` (Transición a CICLO DIURNO a las 06:00 / VIGILIA NOCTURNA a las 18:00)
+
+### 4.3. Automatismo del Estado del Personaje
+- Toda herida, gasto de fatiga, consumo de créditos, almas o munición se refleja inmediatamente en el bloque numérico sin requerir aviso o recordatorio del jugador.
+
+---
+
 
 ## 📜 TEXTO INTEGRAL AUDITADO Y ANEXOS CANÓNICOS DEL MANUAL ORIGINAL
 
